@@ -1,7 +1,9 @@
 #include "Memento.h"
 
-Memento::Memento(const std::string& state) : state(state) {}
+Memento::Memento() {
 
-std::string Memento::getState() const {
-    return state;
+}
+
+Memento::~Memento() {
+
 }

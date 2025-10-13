@@ -3,9 +3,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -Wextra -g
 
 # Source files
-SRCS = main.cpp Plant.cpp Inventory.cpp PlantIterator.cpp Customer.cpp Order.cpp \
-       PriceBasedRecommendation.cpp CategoryBasedRecommendation.cpp \
-       NurseryMediator.cpp Discussion.cpp Memento.cpp CareTaker.cpp SystemState.cpp
+SRCS = main.cpp Command.cpp Customer.cpp Inventory.cpp Iterator.cpp Memento.cpp NurseryMediator.cpp Observer.cpp Order.cpp Plant.cpp PlantCare.cpp PlantDecorator.cpp PlantFactory.cpp PlantState.cpp PurchaseAbstraction.cpp PurchaseFacade.cpp PurchaseImplementor.cpp Request.cpp Staff.cpp
 
 # Object files
 OBJS = $(SRCS:.cpp=.o)

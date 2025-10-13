@@ -1,31 +1,24 @@
 #include "NurseryMediator.h"
 
-void NurseryMediator::registerCustomer(Customer* c) {
-    customers.push_back(c);
+NurseryMediator::NurseryMediator() {
+
 }
 
-void NurseryMediator::placeOrder(Customer* c, Order* o) {
-    orders.push_back(o);
-    (void)c;
-    (void)o;
-    // TODO: Implement later
+NurseryMediator::~NurseryMediator() {
+
 }
 
-void NurseryMediator::facilitateDiscussion(Customer* c, Discussion* d) {
-    discussions.push_back(d);
-    (void)c;
-    (void)d;
-    // TODO: Implement later
+void NurseryMediator::registerStaff(Staff *staff) {
+
 }
 
-std::vector<Customer*> NurseryMediator::getCustomers() const {
-    return customers;
+void NurseryMediator::routeUpdate(string message, Staff *sender, Inventory &inventory) {
+
 }
 
-std::vector<Order*> NurseryMediator::getOrders() const {
-    return orders;
+void NurseryMediator::notifyInventory(string updateType, Plant &plant) {
+    
 }
 
-std::vector<Discussion*> NurseryMediator::getDiscussions() const {
-    return discussions;
-}
+
+

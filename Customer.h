@@ -2,34 +2,26 @@
 #define CUSTOMER_H
 
 #include <string>
-#include <vector>
-#include "Plant.h"
-
-// Forward declaration
-class Order;
-class RecommendationStrategy;
-class Inventory;
-class Discussion;
+#include "Order.h"
+#include "Request.h"
+#include "Inventory.h"
+using namespace std;
 
 class Customer {
-private:
-    int id;
-    std::string name;
-    std::string email;
-    RecommendationStrategy* strategy;
-
-public:
-    Customer(int id, const std::string& name, const std::string& email);
-
-    void browsePlants(Inventory* inventory) const;
-    Plant requestRecommendation(Inventory* inventory) const;
-    void placeOrder(Order& order);
-    void joinDiscussion(Discussion* discussion);
-
-    void setRecommendationStrategy(RecommendationStrategy* strategy);
-
-    int getId() const;
-    std::string getName() const;
+    private:
+        string id;
+        Order* currentOrder;
+    public:
+        Customer();
+        ~Customer();
+        Request* makeRequest(string type, string details);
+        void browsePlants(Inventory& inventory);
+        void startPurchase(Plant* plant);
+        void customizeOrder(string customization);
+        void undoCustomization();
+        void confirmPurchase();
 };
 
-#endif
+
+
+#endif //CUSTOMER_H
