@@ -2,16 +2,16 @@
 #define PLANT_H
 
 #include "PlantCare.h"
-//#include "Inventory.h"
+#include "Inventory.h"
 #include <string>
 #include <vector>
 #include <iostream>
-//#include "Observer.h"
+#include "Observer.h"
 
 using namespace std;
 
 class PlantState;
-class Plant {//: public Subject{
+class Plant : public Subject{
     protected:
         string id;//
         string type;//
@@ -26,10 +26,12 @@ class Plant {//: public Subject{
         double virtual getCost()=0;
         void changeState(PlantState* newState);
         bool needsCare();
-       // void add(InventoryComponent* comp);
-       // void remove(InventoryComponent* comp);
+        void add(InventoryComponent* comp);
+        void remove(InventoryComponent* comp);
         vector<Plant*> getPlants();
         void movePlant(Plant* plant,string newState);
+        int getHealth() { return health; };
+        string getID() { return id; };
 };
 //##############################################
 class Succulent : public Plant {

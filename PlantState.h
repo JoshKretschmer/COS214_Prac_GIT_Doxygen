@@ -15,28 +15,24 @@ class PlantState {
 
 class SeedingState : public PlantState {
     public:
-        SeedingState();
         void handleCare(Plant& plant);
         string getStateName();
 };
 
 class GrowingState : public SeedingState {
     public:
-        GrowingState();
         void handleCare(Plant& plant);
         string getStateName();
 };
 
 class MatureState : public SeedingState {
     public:
-        MatureState();
         void handleCare(Plant& plant);
         string getStateName();
 };
 
 class MoultState : public SeedingState {
     public:
-        MoultState();
         void handleCare(Plant& plant);
         string getStateName();
 };

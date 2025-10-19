@@ -19,6 +19,7 @@ Plant::~Plant() {
 
 //set new state for plant
 void Plant::changeState(PlantState *newState) {
+    delete currState;
     this->currState=newState;
 }
 
@@ -33,7 +34,7 @@ bool Plant::needsCare() {
 
 
 //inventory related i.e NOT ME
-/*void Plant::add(InventoryComponent *comp) {
+void Plant::add(InventoryComponent *comp) {
 
 }
 
@@ -51,7 +52,7 @@ vector<Plant *> Plant::getPlants() {
 void Plant::movePlant(Plant *plant, string newState) {
 
 }
-*/
+
 
 
 //#####################################################
