@@ -1,8 +1,6 @@
 #ifndef PLANT_H
 #define PLANT_H
 
-//test change
-
 #include "PlantState.h"
 #include "PlantCare.h"
 #include "Inventory.h"
@@ -13,13 +11,13 @@
 using namespace std;
 
 class Plant : public Subject{
-    private:
-        string id;
-        string type;
-        double price;
-        PlantState* currState;
+    protected:
+        string id;//
+        string type;//
+        double price;//
+        PlantState* currState;//
         PlantCare* careRegime;
-        int health;
+        int health;//
     public:
         Plant();
         virtual ~Plant();
