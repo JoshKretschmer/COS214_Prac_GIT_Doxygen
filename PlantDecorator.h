@@ -3,23 +3,20 @@
 
 #include "Plant.h"
 #include <string>
+#include <vector>
 using namespace std;
-
-class ConcretePlant : public Plant {
-    public:
-        ConcretePlant();
-        string getDetails();
-        double getCost();
-};
 
 class PlantDecorator : public Plant{
     private:
         Plant* wrappedPlant;
+    protected:
+        Plant* getWrapped;
     public:
         PlantDecorator();
         virtual ~PlantDecorator();
         virtual string getDetails();
         virtual double getCost();
+        void setWrapped(Plant* wrappedPlant);
 };
 
 class ArrangementDecorator : public PlantDecorator {

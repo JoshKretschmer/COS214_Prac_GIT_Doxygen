@@ -1,61 +1,56 @@
 #include "PlantDecorator.h"
 
-ConcretePlant::ConcretePlant() {
-
-}
-
-string ConcretePlant::getDetails() {
-    return "";
-}
-
-double ConcretePlant::getCost() {
-    return 0;
-}
+//Plant (Component) is ConcretePlant (ConcreteComponent)
 
 //#################################################
 
 PlantDecorator::PlantDecorator() {
-
+    wrappedPlant=nullptr;
 }
+
+void PlantDecorator::setWrapped(Plant* wrappedPlant) {
+    this->wrappedPlant = wrappedPlant;
+}
+
 
 //#################################################
 
-ArrangementDecorator::ArrangementDecorator() {
-
-}
-
 string ArrangementDecorator::getDetails() {
-    return "";
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Arrangement \n";
+    return det;
 }
 
 double ArrangementDecorator::getCost() {
-    return 0;
+    double cost = getWrapped()->getCost();
+    cost += 10;
+    return cost;
 }
 
 //#################################################
 
-PotDecorator::PotDecorator() {
-
-}
-
 string PotDecorator::getDetails() {
-    return "";
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Pot \n";
+    return det;
 }
 
 double PotDecorator::getCost() {
-    return 0;
+    double cost = getWrapped()->getCost();
+    cost += 20;
+    return cost;
 }
 
 //#################################################
 
-WrapDecorator::WrapDecorator() {
-
-}
-
 string WrapDecorator::getDetails() {
-    return "";
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Wrap \n";
+    return det;
 }
 
 double WrapDecorator::getCost() {
-    return 0;
+    double cost = getWrapped()->getCost();
+    cost += 15;
+    return cost;
 }
