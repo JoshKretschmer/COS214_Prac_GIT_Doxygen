@@ -7,25 +7,22 @@ class PlantFactory {
     public:
         PlantFactory();
         virtual ~PlantFactory();
-        virtual Plant* createPlant()=0;
+        virtual Plant* createPlant(string name)=0;
 };
 
 class CreateSucculent : public PlantFactory {
     public:
-        CreateSucculent();
-        Plant* createPlant();
+        Plant* createPlant(string name);
 };
 
 class CreateFlower : public PlantFactory {
     public:
-        CreateFlower();
-        Plant* createPlant();
+        Plant* createPlant(string name);
 };
 
 class CreateShrub : public PlantFactory {
     public:
-        CreateShrub();
-        Plant* createPlant();
+        Plant* createPlant(string name);
 };
 
 #endif //PLANTFACTORY_H

@@ -4,32 +4,48 @@ PlantFactory::PlantFactory() {
 
 }
 
-//###############################################
-
-CreateSucculent::CreateSucculent() {
-
-}
-
-Plant *CreateSucculent::createPlant() {
+PlantFactory::~PlantFactory() {
 
 }
 
 //###############################################
 
-CreateFlower::CreateFlower() {
-
-}
-
-Plant *CreateFlower::createPlant() {
-
+//create a succulent depending on input string
+Plant *CreateSucculent::createPlant(string name) {
+    if (name == "PeanutCactus") {
+        return new PeanutCactus();
+    } else if (name == "HouseLeek") {
+        return new HouseLeek();
+    } else {
+        std::cerr << "Invalid plant name, please try again" << std::endl ;
+        return nullptr;
+    }
 }
 
 //###############################################
 
-CreateShrub::CreateShrub() {
-
+//create flower based on inpute string value
+Plant *CreateFlower::createPlant(string name) {
+    if (name == "Marigold") {
+        return new Marigold();
+    } else if (name == "Orchid") {
+        return new Orchid();
+    } else {
+        std::cerr << "Invalid plant name, please try again" << std::endl ;
+        return nullptr;
+    }
 }
 
-Plant *CreateShrub::createPlant() {
+//###############################################
 
+//create shrub based on input string value
+Plant *CreateShrub::createPlant(string name) {
+    if (name == "Honeysuckle") {
+        return new HoneySuckle();
+    } else if (name == "BeeBlossom") {
+        return new BeeBlossom();
+    } else {
+        std::cerr << "Invalid plant name, please try again" << std::endl ;
+        return nullptr;
+    }
 }
