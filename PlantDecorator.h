@@ -7,37 +7,34 @@
 using namespace std;
 
 class PlantDecorator : public Plant{
-    private:
-        Plant* wrappedPlant;
-    protected:
-        Plant* getWrapped;
-    public:
-        PlantDecorator();
-        virtual ~PlantDecorator();
-        virtual string getDetails();
-        virtual double getCost();
-        void setWrapped(Plant* wrappedPlant);
+private:
+    Plant* wrappedPlant;
+protected:
+    Plant* getWrapped() {return wrappedPlant;};
+public:
+    PlantDecorator();
+    ~PlantDecorator();
+    virtual string getDetails() = 0;
+    virtual double getCost() = 0;
+    void setWrapped(Plant* wrappedPlant);
 };
 
 class ArrangementDecorator : public PlantDecorator {
-    public:
-        ArrangementDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
 class PotDecorator : public PlantDecorator {
-    public:
-        PotDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
 class WrapDecorator : public PlantDecorator {
-    public:
-        WrapDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
 #endif //PLANTDECORATOR_H

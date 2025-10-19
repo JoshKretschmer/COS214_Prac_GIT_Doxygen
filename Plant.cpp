@@ -67,7 +67,7 @@ Succulent::Succulent() : Plant::Plant() {
 //initialize plant id and price
 PeanutCactus::PeanutCactus() : Succulent::Succulent() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "PC" + to_string(randomNum);
 
     this->price = 35.00;
 }
@@ -78,7 +78,6 @@ string PeanutCactus::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Peanut Cactus" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 
@@ -93,7 +92,7 @@ double PeanutCactus::getCost() {
 //initialize plant id and price
 HouseLeek::HouseLeek() : Succulent::Succulent() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "HL" + to_string(randomNum);
 
     this->price = 35.50;
 }
@@ -104,7 +103,6 @@ string HouseLeek::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: House Leek" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 
@@ -125,7 +123,7 @@ Flower::Flower() : Plant::Plant() {
 //initialize plant id and price
 Orchid::Orchid() : Flower::Flower() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "OR" + to_string(randomNum);
 
     this->price = 160.00;
 }
@@ -136,7 +134,6 @@ string Orchid::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Orchid" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 
@@ -150,7 +147,7 @@ double Orchid::getCost() {
 //initialize plant id and price
 Marigold::Marigold() : Flower::Flower() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "MG" + to_string(randomNum);
 
     this->price = 16.00;
 }
@@ -161,7 +158,6 @@ string Marigold::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Marigold" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 
@@ -182,7 +178,7 @@ Shrub::Shrub() : Plant::Plant() {
 //initialize plant id and price
 BeeBlossom::BeeBlossom() : Shrub::Shrub() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "BB" + to_string(randomNum);
 
     this->price = 21.00;
 }
@@ -193,7 +189,6 @@ string BeeBlossom::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Bee Blossom" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 
@@ -218,7 +213,6 @@ string HoneySuckle::getDetails() {
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Honey Suckle" + "\n";
-    det = det + "Price: " + to_string(price) + "\n";
     return det;
 }
 

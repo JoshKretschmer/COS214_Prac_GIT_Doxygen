@@ -8,6 +8,11 @@ PlantDecorator::PlantDecorator() {
     wrappedPlant=nullptr;
 }
 
+PlantDecorator::~PlantDecorator() {
+    delete wrappedPlant;
+}
+
+
 void PlantDecorator::setWrapped(Plant* wrappedPlant) {
     this->wrappedPlant = wrappedPlant;
 }

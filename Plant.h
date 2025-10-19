@@ -2,15 +2,15 @@
 #define PLANT_H
 
 #include "PlantCare.h"
+#include "PlantState.h"
 #include "Inventory.h"
+#include "Observer.h"
 #include <string>
 #include <vector>
 #include <iostream>
-#include "Observer.h"
 
 using namespace std;
 
-class PlantState;
 class Plant : public Subject{
     protected:
         string id;//
@@ -32,6 +32,13 @@ class Plant : public Subject{
         void movePlant(Plant* plant,string newState);
         int getHealth() { return health; };
         string getID() { return id; };
+
+    //temp function for testing
+    void setHealth(int hp) {
+        this->health = hp;
+        this->currState->handleCare(this);
+    };
+    string getState() { return currState->getStateName(); };
 };
 //##############################################
 class Succulent : public Plant {
