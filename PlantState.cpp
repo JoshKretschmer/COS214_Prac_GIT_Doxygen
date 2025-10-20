@@ -1,11 +1,24 @@
+/*!
+*  @file PlantState.cpp
+ *
+ * @brief Contains function definitions for the PlantState functions defined in PlantState.h
+ */
+
 #include "PlantState.h"
 #include "Plant.h"
 #include <iostream>
 
+
+/*!
+ * @brief Basic constructor for PlantState class
+ */
 PlantState::PlantState() {
 
 }
 
+/*!
+ * @brief Basic destructor for PlantState class
+ */
 PlantState::~PlantState() {
 
 }
@@ -13,7 +26,14 @@ PlantState::~PlantState() {
 
 //################################################
 
-//called every time after plant care is executed
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress to GrowingState, or be removed from the system due to failed care
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
 void SeedingState::handleCare(Plant *plant) {
     int hp = plant->getHealth();
     if (hp >= 2) {
@@ -25,6 +45,9 @@ void SeedingState::handleCare(Plant *plant) {
     }
 }
 
+/*!
+ * @return "Seeding"
+ */
 string SeedingState::getStateName() {
     return "Seeding";
 }
@@ -32,7 +55,14 @@ string SeedingState::getStateName() {
 
 //################################################
 
-//called every time after plant care is executed
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress to MatureState, or regress to MoultState
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
 void GrowingState::handleCare(Plant* plant) {
     int hp = plant->getHealth();
     if (hp <=1) {
@@ -44,6 +74,9 @@ void GrowingState::handleCare(Plant* plant) {
     }
 }
 
+/*!
+ * @return "Growing"
+ */
 string GrowingState::getStateName() {
     return "Growing";
 }
@@ -51,7 +84,14 @@ string GrowingState::getStateName() {
 
 //################################################
 
-//called every time after plant care is executed
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can regress to MoultState, or be removed from the system due to sale
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
 void MatureState::handleCare(Plant* plant) {
     int hp = plant->getHealth();
     if (hp <= 2) {
@@ -60,6 +100,9 @@ void MatureState::handleCare(Plant* plant) {
     }
 }
 
+/*!
+ * @return "Matured"
+ */
 string MatureState::getStateName() {
     return "Matured";
 }
@@ -67,7 +110,14 @@ string MatureState::getStateName() {
 
 //################################################
 
-//called every time after plant care is executed
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress back to GrowingState, or be removed from the system due to failed care
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
 void MoultState::handleCare(Plant* plant) {
     int hp = plant->getHealth();
     if (hp <= 0) {
@@ -80,6 +130,9 @@ void MoultState::handleCare(Plant* plant) {
     }
 }
 
+/*!
+ * @return "Moulting"
+ */
 string MoultState::getStateName() {
     return "Moulting";
 }

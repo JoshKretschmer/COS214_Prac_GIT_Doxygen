@@ -1,16 +1,34 @@
+/*!
+*  @file PlantFactory.cpp
+ *
+ * @brief Contains function definitions for the PlantFactory functions defined in PlantFactory.h
+ */
+
 #include "PlantFactory.h"
 
+/*!
+ * @brief Basic constructor for PlantFactory
+ */
 PlantFactory::PlantFactory() {
 
 }
 
+/*!
+ * @brief Basic destructor for PlantFactory
+ */
 PlantFactory::~PlantFactory() {
 
 }
 
 //###############################################
 
-//create a succulent depending on input string
+/*!
+ * @brief Creator function for Plant objects of type Succulent
+ * Takes "HouseLeek" or "PeanutCactus" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
 Plant *CreateSucculent::createPlant(string name) {
     if (name == "PeanutCactus") {
         return new PeanutCactus();
@@ -24,7 +42,13 @@ Plant *CreateSucculent::createPlant(string name) {
 
 //###############################################
 
-//create flower based on inpute string value
+/*!
+ * @brief Creator function for Plant objects of type Flower
+ * Takes "Marigold" or "Orchid" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
 Plant *CreateFlower::createPlant(string name) {
     if (name == "Marigold") {
         return new Marigold();
@@ -38,7 +62,13 @@ Plant *CreateFlower::createPlant(string name) {
 
 //###############################################
 
-//create shrub based on input string value
+/*!
+ * @brief Creator function for Plant objects of type Shrub
+ * Takes "HoneySuckle" or "BeeBlossom" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
 Plant *CreateShrub::createPlant(string name) {
     if (name == "HoneySuckle") {
         return new HoneySuckle();
