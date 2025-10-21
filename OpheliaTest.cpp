@@ -1,11 +1,137 @@
 #include "Plant.h"
 #include "PlantFactory.h"
+#include "PlantState.h"
 #include <iostream>
 #include "PlantDecorator.h"
+#include "doctest.h"
 
-//Ophelia Testing Main
+//Unit Tests
+
+TEST_CASE("Plant Factory Testing") {
+    SUBCASE("CreateSucculent") {
+        CreateSucculent cs;
+        Plant* peanut = cs.createPlant("PeanutCactus");
+        Plant* house = cs.createPlant("HouseLeek");
+        Plant* succFail = cs.createPlant("SuccFail");
+
+        CHECK(peanut->getID().substr(0, 2) == "PC");
+        CHECK(house->getID().substr(0, 2) == "HL");
+        CHECK(succFail == nullptr);
+
+        delete peanut;
+        delete house;
+        delete succFail;
+    }
+    SUBCASE("CreateFlower") {
+        CreateFlower f;
+        Plant* orchid = f.createPlant("Orchid");
+        Plant* mari = f.createPlant("Marigold");
+        Plant* flower = f.createPlant("Ghost");
+
+        CHECK(orchid->getID().substr(0, 2) == "OR");
+        CHECK(mari->getID().substr(0, 2) == "MG");
+        CHECK(flower == nullptr);
+
+        delete orchid;
+        delete mari;
+        delete flower;
+    }
+    SUBCASE("CreateShrub") {
+        CreateShrub s;
+        Plant* bee = s.createPlant("BeeBlossom");
+        Plant* honey = s.createPlant("HoneySuckle");
+        Plant* bush = s.createPlant("George");
+
+        CHECK(bee->getID().substr(0, 2) == "BB");
+        CHECK(honey->getID().substr(0, 2) == "HS");
+        CHECK(bush == nullptr);
+
+        delete bee;
+        delete honey;
+        delete bush;
+    }
+}
+
+TEST_CASE("Plant Testing") {
+    SUBCASE("Succulent Constructor") {
+        Plant* testSc = new PeanutCactus();
+
+        CHECK(testSc->getCost() == 35.00);
+        CHECK(testSc->getType() == "Succulent");
+        CHECK(testSc->getHealth() == 0);
+        CHECK(testSc->getState() == "Seeding");
+
+        delete testSc;
+    }
+    SUBCASE("Flower Constructor") {
+        Plant* testF = new Orchid();
+
+        CHECK(testF->getCost() == 160.00);
+        CHECK(testF->getType() == "Flower");
+        CHECK(testF->getHealth() == 0);
+        CHECK(testF->getState() == "Seeding");
+    }
+    SUBCASE("Shrub Constructor") {
+        Plant* testS = new BeeBlossom();
+
+        CHECK(testS->getCost() == 21.00);
+        CHECK(testS->getType() == "Shrub");
+        CHECK(testS->getHealth() == 0);
+        CHECK(testS->getState() == "Seeding");
+    }
+
+    SUBCASE("State Change + Care Check") {
+        Plant* testS = new PeanutCactus();
+
+        CHECK(testS->getState() == "Seeding");
+        CHECK(testS->needsCare() == true);
+
+        PlantState* mState = new MatureState();
+        testS->changeState(mState);
+        CHECK(testS->getState() == "Matured");
+        CHECK(testS->needsCare() == false);
+
+        delete testS;
+    }
+}
+
+TEST_CASE("Plant Decorator Testing") {
+    PeanutCactus petPlant;
+    double pCost = petPlant.getCost();
+
+    SUBCASE("Arrangement Test") {
+        ArrangementDecorator testA;
+
+        CHECK(testA.getCost() == 0);
+
+        testA.setWrapped(&petPlant);
+
+        CHECK(testA.getCost() == pCost+10);
+    }
+    SUBCASE("Pot Test") {
+        PotDecorator testP;
+
+        CHECK(testP.getCost() == 0);
+
+        testP.setWrapped(&petPlant);
+
+        CHECK(testP.getCost() == pCost+20);
+    }
+    SUBCASE("House Test") {
+        WrapDecorator testW;
+
+        CHECK(testW.getCost() == 0);
+
+        testW.setWrapped(&petPlant);
+
+        CHECK(testW.getCost() == pCost+15);
+    }
+
+}
 
 int main() {
+/*
+
     //Factory Testing
 
     CreateFlower test1;
@@ -83,6 +209,7 @@ int main() {
     delete Sc2;
     delete Sh1;
     delete Sh2;
+*/
 
     return 0;
 }

@@ -42,6 +42,10 @@ void PlantDecorator::setWrapped(Plant* wrappedPlant) {
  * @return Basic details of decorated plant
  */
 string ArrangementDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
+    }
+
     string det = getWrapped()->getDetails();
     det += "Decoration: Arrangement \n";
     return det;
@@ -53,6 +57,10 @@ string ArrangementDecorator::getDetails() {
  * @return Full price of decorated plant
  */
 double ArrangementDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
+    }
+
     double cost = getWrapped()->getCost();
     cost += 10;
     return cost;
@@ -66,6 +74,10 @@ double ArrangementDecorator::getCost() {
  * @return Basic details of decorated plant
  */
 string PotDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
+    }
+
     string det = getWrapped()->getDetails();
     det += "Decoration: Pot \n";
     return det;
@@ -77,6 +89,10 @@ string PotDecorator::getDetails() {
  * @return Full price of decorated plant
  */
 double PotDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
+    }
+
     double cost = getWrapped()->getCost();
     cost += 20;
     return cost;
@@ -90,6 +106,10 @@ double PotDecorator::getCost() {
  * @return Basic details of decorated plant
  */
 string WrapDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
+    }
+
     string det = getWrapped()->getDetails();
     det += "Decoration: Wrap \n";
     return det;
@@ -101,6 +121,10 @@ string WrapDecorator::getDetails() {
  * @return Full price of decorated plant
  */
 double WrapDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
+    }
+
     double cost = getWrapped()->getCost();
     cost += 15;
     return cost;

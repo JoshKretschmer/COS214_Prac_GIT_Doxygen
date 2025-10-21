@@ -50,6 +50,7 @@ class Plant : public Subject{
         void movePlant(Plant* plant,string newState);
         int getHealth() { return health; };
         string getID() { return id; };
+        string getType() { return type; };
 
     //temp function for testing
     void setHealth(int hp) {

@@ -6,7 +6,7 @@
 class PlantCare {
     public:
         PlantCare();
-        virtual ~PlantCare();
+        ~PlantCare() = default;
         virtual bool executeCare();
 };
 
