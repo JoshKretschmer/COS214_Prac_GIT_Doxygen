@@ -106,9 +106,39 @@ void iteratorTester() {
     delete it;
 }
 
+void observerTest(){
+    cout << "--- Observer Pattern Test ---" << endl;
+
+    // Create plants
+    PeanutCactus peanut;
+    HouseLeek houseLeek;
+
+    // Create staff
+    SalesAssociate alice("SA001", "Alice", nullptr, nullptr);
+    Horticulturist bob("HC001", "Bob", nullptr, nullptr);
+    Manager charlie("MG001", "Charlie", nullptr, nullptr);
+
+    // Attach staff to plants
+    peanut.attach(&alice);
+    peanut.attach(&bob);
+    houseLeek.attach(&bob);
+    houseLeek.attach(&charlie);
+
+    cout << "\n--- Changing State of PeanutCactus ---" << endl;
+    peanut.changeState(nullptr);
+
+    cout << "\n--- HouseLeek Needs Care ---" << endl;
+    houseLeek.needsCare();
+
+    cout << "\n--- Moving PeanutCactus ---" << endl;
+    peanut.movePlant(&peanut, "Outdoor Section");
+}
+
+
 int main() {
     //chainTester();
     //mediatorTester();
-    iteratorTester();
+    //iteratorTester();
+    observerTest();
     return 0;
 }

@@ -1,47 +1,50 @@
 #include "Plant.h"
+#include <iostream>
+using namespace std;
 
-Plant::Plant() {
+Plant::Plant() : currState(nullptr), careRegime(nullptr), health(100), price(0.0) {}
 
-}
+Plant::~Plant() {}
 
-Plant::~Plant() {
-
-}
-
-void Plant::changeState(PlantState *newState) {
-
+void Plant::changeState(PlantState* newState) {
+    this->currState = newState;
+    cout << "Plant state changed for " << getDetails() << endl;
+    notify(); // Notify all observers (Staff)
 }
 
 bool Plant::needsCare() {
-    return false;
+    // Placeholder logic
+    return health < 80;
 }
 
-void Plant::add(InventoryComponent *comp) {
-
+void Plant::add(InventoryComponent* comp) {
+    // Not relevant for single plant
 }
 
-void Plant::remove(InventoryComponent *comp) {
-
+void Plant::remove(InventoryComponent* comp) {
+    cout << getDetails() << " removed from inventory." << endl;
+    notify(); // Notify staff observers
 }
 
-vector<Plant *> Plant::getPlants() {
-    return vector<Plant*>();
+vector<Plant*> Plant::getPlants() {
+    vector<Plant*> plants;
+    plants.push_back(this);
+    return plants;
 }
 
-void Plant::movePlant(Plant *plant, string newState) {
-
+void Plant::movePlant(Plant* plant, string newState) {
+    cout << "Moving plant " << plant->getDetails() << " to " << newState << endl;
+    notify();
 }
 
 //#####################################################
 
-Succulent::Succulent() {
-
-}
+Succulent::Succulent() {}
 
 //#####################################################
 
 PeanutCactus::PeanutCactus() {
-
+    price = 15.99;
 }
 
 string PeanutCactus::getDetails() {
@@ -49,13 +52,13 @@ string PeanutCactus::getDetails() {
 }
 
 double PeanutCactus::getCost() {
-
+    return price;
 }
 
 //#####################################################
 
 HouseLeek::HouseLeek() {
-
+    price = 12.49;
 }
 
 string HouseLeek::getDetails() {
@@ -63,19 +66,17 @@ string HouseLeek::getDetails() {
 }
 
 double HouseLeek::getCost() {
-    return 0.0;
+    return price;
 }
 
 //#####################################################
 
-Flower::Flower() {
-
-}
+Flower::Flower() {}
 
 //#####################################################
 
 Orchid::Orchid() {
-
+    price = 25.00;
 }
 
 string Orchid::getDetails() {
@@ -83,19 +84,31 @@ string Orchid::getDetails() {
 }
 
 double Orchid::getCost() {
-    return 0.0;
+    return price;
 }
 
 //#####################################################
 
-Shrub::Shrub() {
-
+Marigold::Marigold() {
+    price = 9.99;
 }
+
+string Marigold::getDetails() {
+    return "Marigold";
+}
+
+double Marigold::getCost() {
+    return price;
+}
+
+//#####################################################
+
+Shrub::Shrub() {}
 
 //#####################################################
 
 BeeBlossom::BeeBlossom() {
-
+    price = 17.25;
 }
 
 string BeeBlossom::getDetails() {
@@ -103,13 +116,13 @@ string BeeBlossom::getDetails() {
 }
 
 double BeeBlossom::getCost() {
-    return 0.0;
+    return price;
 }
 
 //#####################################################
 
 HoneySuckle::HoneySuckle() {
-
+    price = 14.75;
 }
 
 string HoneySuckle::getDetails() {
@@ -117,5 +130,5 @@ string HoneySuckle::getDetails() {
 }
 
 double HoneySuckle::getCost() {
-    return 0.0;
+    return price;
 }

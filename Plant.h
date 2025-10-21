@@ -18,10 +18,11 @@ class Plant : public Subject{
     private:
         string id;
         string type;
-        double price;
         PlantState* currState;
         PlantCare* careRegime;
         int health;
+    protected:
+        double price;
     public:
         Plant();
         virtual ~Plant();
