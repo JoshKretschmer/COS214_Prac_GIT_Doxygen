@@ -23,6 +23,8 @@ class Plant;
  *
  * @brief Abstract parent class for concrete state classes
  */
+
+//add dead state
 class PlantState {
 public:
     PlantState();
@@ -78,6 +80,19 @@ public:
  * Reached by failing plant care tasks. Transitions to GrowingState, or plant object can be removed from the system
  */
 class MoultState : public PlantState {
+public:
+    void handleCare(Plant* plant);
+    string getStateName();
+};
+
+/*!
+ * @class DeadState
+ *
+ * @brief Final state for plant object
+ *
+ * Reached by failing plant care tasks (hp >=0). Final state of plant with no outgoing transitions
+ */
+class DeadState : public PlantState {
 public:
     void handleCare(Plant* plant);
     string getStateName();

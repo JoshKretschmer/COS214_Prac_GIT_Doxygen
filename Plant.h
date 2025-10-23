@@ -51,13 +51,8 @@ class Plant : public Subject{
         int getHealth() { return health; };
         string getID() { return id; };
         string getType() { return type; };
-
-    //temp function for testing
-    void setHealth(int hp) {
-        this->health = hp;
-        this->currState->handleCare(this);
-    };
-    string getState() { return currState->getStateName(); };
+        void incrementHealth(int num);
+        string getState();
 };
 //##############################################
 /*!

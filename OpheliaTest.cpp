@@ -129,6 +129,32 @@ TEST_CASE("Plant Decorator Testing") {
 
 }
 
+TEST_CASE("Plant State Testing") {
+    PeanutCactus petPlant;
+
+    CHECK(petPlant.getState() == "Seeding");
+
+    petPlant.incrementHealth(2);
+
+    //health >=2
+    CHECK(petPlant.getState() == "Growing");
+
+    petPlant.incrementHealth(2);
+
+    //health >=4
+    CHECK(petPlant.getState() == "Matured");
+
+    petPlant.incrementHealth(-2);
+
+    //health <=2
+    CHECK(petPlant.getState() == "Moulting");
+
+    petPlant.incrementHealth(-2);
+
+    //health <=0
+    CHECK(petPlant.getState() == "Dead");
+}
+
 int main() {
 /*
 

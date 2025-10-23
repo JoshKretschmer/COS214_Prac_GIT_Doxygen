@@ -41,7 +41,7 @@ void SeedingState::handleCare(Plant *plant) {
         plant->changeState(new GrowingState);
     } else if (hp < 0) {
         cout << "Plant " + plant->getID() + " has died.\n";
-        //remove from inventory
+        plant->changeState(new DeadState);
     }
 }
 
@@ -123,7 +123,7 @@ void MoultState::handleCare(Plant* plant) {
     if (hp <= 0) {
         //plant has died
         cout << "Plant " + plant->getID() + " has died.\n";
-        //remove from inventory
+        plant->changeState(new DeadState);
     } else if (hp >= 3) {
         //go to growing state
         plant->changeState(new GrowingState);
@@ -136,4 +136,27 @@ void MoultState::handleCare(Plant* plant) {
 string MoultState::getStateName() {
     return "Moulting";
 }
+
+//################################################
+
+/*!
+ * @brief Placeholder function for dead plants that must be removed from system
+ *
+ * Exists to avoid errors that may be caused by attempting to care for a dead plant
+ *
+ * @param plant Plant object for which the state is being checked
+ */
+void DeadState::handleCare(Plant *plant) {
+    cout << "Dead\n";
+}
+
+/*!
+ * @return "Dead"
+ */
+string DeadState::getStateName() {
+    return "Dead";
+}
+
+
+
 

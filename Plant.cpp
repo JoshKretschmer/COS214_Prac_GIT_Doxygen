@@ -43,9 +43,15 @@ void Plant::changeState(PlantState *newState) {
 /*!
  * @brief If a Plant is not fully grown, care is still needed
  *
+ * Exception case where plant is dead is accounted for in the first if
+ *
  * @return bool stating whether care is needed
  */
 bool Plant::needsCare() {
+    if (this->getState() == "Dead") {
+        return false;
+    }
+
     if (this->health <5) {
         return true;
     }
@@ -67,6 +73,26 @@ vector<Plant *> Plant::getPlants() {
 
 void Plant::movePlant(Plant *plant, string newState) {
 
+}
+
+/*!
+ * @brief Increase the health of a plant by num
+ *
+ * Done after a care task is successfully done.
+ * currState->handleCare() is called to ensure that state changes occur as needed
+ *
+ * @param num amount with which to increase health (negative number used for decrease)
+ */
+void Plant::incrementHealth(int num) {
+    this->health= this->health + num;
+    this->currState->handleCare(this);
+}
+
+/*!
+ * @return name of the current state of the plant as a string
+ */
+string Plant::getState() {
+    return currState->getStateName();
 }
 
 
