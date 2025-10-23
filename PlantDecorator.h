@@ -1,3 +1,11 @@
+/*!
+ *  @headerfile PlantDecorator.h
+ *
+ *  @brief Contains class definitions for PlantDecorator and its various subclasses
+ *
+ *  Patterns: Decorator
+ */
+
 #ifndef PLANTDECORATOR_H
 #define PLANTDECORATOR_H
 
@@ -5,42 +13,55 @@
 #include <string>
 using namespace std;
 
-class ConcretePlant : public Plant {
-    public:
-        ConcretePlant();
-        string getDetails();
-        double getCost();
-};
-
+/*!
+ * @class PlantDecorator
+ *
+ * @brief Abstract interface class for various decorator subclasses
+ */
 class PlantDecorator : public Plant{
-    private:
-        Plant* wrappedPlant;
-    public:
-        PlantDecorator();
-        virtual ~PlantDecorator();
-        virtual string getDetails();
-        virtual double getCost();
+private:
+    Plant* wrappedPlant;
+protected:
+    Plant* getWrapped() {return wrappedPlant;};
+public:
+    PlantDecorator();
+    ~PlantDecorator();
+    virtual string getDetails() = 0;
+    virtual double getCost() = 0;
+    void setWrapped(Plant* wrappedPlant);
 };
 
+/*!
+ * @class ArrangementDecorator
+ *
+ * @brief Concrete decorator class
+ */
 class ArrangementDecorator : public PlantDecorator {
-    public:
-        ArrangementDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
+/*!
+ * @class PotDecorator
+ *
+ * @brief Concrete decorator class
+ */
 class PotDecorator : public PlantDecorator {
-    public:
-        PotDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
+/*!
+ * @class WrapDecorator
+ *
+ * @brief Concrete decorator class
+ */
 class WrapDecorator : public PlantDecorator {
-    public:
-        WrapDecorator();
-        string getDetails();
-        double getCost();
+public:
+    string getDetails();
+    double getCost();
 };
 
 #endif //PLANTDECORATOR_H
