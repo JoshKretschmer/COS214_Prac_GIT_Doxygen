@@ -36,6 +36,7 @@ Plant::~Plant() {
  * @param newState State that Plant object is being set to
  */
 void Plant::changeState(PlantState *newState) {
+    newState->getStateName();
     delete currState;
     this->currState=newState;
 }
