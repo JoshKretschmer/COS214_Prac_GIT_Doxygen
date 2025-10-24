@@ -13,7 +13,6 @@ class Customer {
         string id;  //should make this static, so each customer instance has a unique id number. Unless in main, we have a list of set cusomter ID numbers we select from.
         string name;
         Order* currentOrder;
-        InventoryClerk* clerk;
         SalesAssociate* salesPerson;
         
     public:

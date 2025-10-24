@@ -12,6 +12,7 @@
 #include <thread>
 #include <chrono>
 #include <queue>
+#include <algorithm>
 
 using namespace std;
 

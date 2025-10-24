@@ -1,8 +1,7 @@
 #ifndef REQUEST_H
 #define REQUEST_H
 
-#include <string>
-using namespace std;
+#include "libraries.h"
 
 class Request {
     private:
@@ -10,7 +9,6 @@ class Request {
         string details;
         string action;
     public:
-        Request();
         Request(string type, string details, string action);
         ~Request();
         void setType(string type);
@@ -19,6 +17,13 @@ class Request {
         string getType();
         string getDetails();
         string getAction();
+
+        // execute().       The request is the command. Passing it on a chain until it is handled. Only 
+        //                  The staff member who can execute the Request execute
+        //                  So request will be a interface and you'll have different "Requests" that inherit from it.
+        //                  
+
+
 };
 
 //how are we going to handle these, what types of requests can be made?

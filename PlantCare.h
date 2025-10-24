@@ -1,42 +1,48 @@
 #ifndef PLANTCARE_H
 #define PLANTCARE_H
 
+#include "libraries.h"
 
 class Plant;
 
-class PlantCare {
+class PlantCare
+{
     public:
         PlantCare();
         virtual ~PlantCare();
-        virtual bool executeCare();
+        virtual bool executeCare()=0;
 };
 
-class SunlightStrategy : public PlantCare {
+class SunlightStrategy : public PlantCare
+{
     public:
         SunlightStrategy();
-        ~SunlightStrategy() override;
-        bool executeCare();
+        virtual ~SunlightStrategy();
+        virtual bool executeCare() override;
 };
 
-class WateringStrategy : public PlantCare {
+class WateringStrategy : public PlantCare
+{
     public:
         WateringStrategy();
-        ~WateringStrategy() override;
-        bool executeCare();
+        ~WateringStrategy();
+        virtual bool executeCare() override;
 };
 
-class FertilizingStrategy : public PlantCare {
+class FertilizingStrategy : public PlantCare
+{
     public:
         FertilizingStrategy();
-        ~FertilizingStrategy() override;
-        bool executeCare();
+        ~FertilizingStrategy();
+        virtual bool executeCare() override;
 };
 
-class CompositeCareStrategy : public PlantCare {
+class CompositeCareStrategy : public PlantCare
+{
     public:
         CompositeCareStrategy();
-        ~CompositeCareStrategy() override;
-        bool executeCare();
+        virtual ~CompositeCareStrategy();
+        virtual bool executeCare() override;
 };
 
 

@@ -1,57 +1,60 @@
 #include "PlantCare.h"
-#include <iostream>
 
-using namespace std;
-
-PlantCare::PlantCare() {
+PlantCare::PlantCare()
+{
 
 }
 
-bool PlantCare::executeCare() {
+//#############################################
+
+SunlightStrategy::SunlightStrategy()
+{
+
+}
+
+bool SunlightStrategy::executeCare()
+{
+    cout<<"\nProviding sunlight to the plant.\n";
     return true;
 }
 
 //#############################################
 
-SunlightStrategy::SunlightStrategy() {
+WateringStrategy::WateringStrategy()
+{
 
 }
 
-bool SunlightStrategy::executeCare() {
-    cout << "Providing sunlight to the plant." << endl;
+bool WateringStrategy::executeCare()
+{
+    cout<<"\nWatering the plant.\n";
     return true;
 }
 
 //#############################################
 
-WateringStrategy::WateringStrategy() {
+FertilizingStrategy::FertilizingStrategy()
+{
 
 }
 
-bool WateringStrategy::executeCare() {
-    cout << "Watering the plant." << endl;
+bool FertilizingStrategy::executeCare()
+{
+    cout<<"\nFertilizing the plant.\n";
     return true;
 }
 
 //#############################################
 
-FertilizingStrategy::FertilizingStrategy() {
+CompositeCareStrategy::CompositeCareStrategy()
+{
 
 }
 
-bool FertilizingStrategy::executeCare() {
-    cout << "Fertilizing the plant." << endl;
-    return true;
-}
+bool CompositeCareStrategy::executeCare()
+{
+    cout<<"\nExecuting composite care strategy:\n";
 
-//#############################################
-
-CompositeCareStrategy::CompositeCareStrategy() {
-
-}
-
-bool CompositeCareStrategy::executeCare() {
-    cout << "Executing composite care strategy:" << endl;
     SunlightStrategy sunlight;
     WateringStrategy water;
     FertilizingStrategy fertilize;
@@ -59,7 +62,6 @@ bool CompositeCareStrategy::executeCare() {
     sunlight.executeCare();
     water.executeCare();
     fertilize.executeCare();
-
     return true;
 }
 

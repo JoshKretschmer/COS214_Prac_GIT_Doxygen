@@ -1,17 +1,32 @@
 #include "libraries.h"
 #include "Customer.h"
 #include "Staff.h"
+#include "SimulationTime.h"
 
 int main(int argc, char const *argv[])
 {
-    InventoryClerk* _clerk = new InventoryClerk("CLERK1","John Doe",NULL,NULL); //Who is the nexthanlder if this is the first staff?
-    SalesAssociate* _salesPerson = new SalesAssociate("SALES1", "Tam Doe",NULL,NULL);
+    SimulationTime simulationTime;
+    simulationTime.initialize();
+    
+    delay(1);
 
-    _clerk->setNextHandler(_salesPerson);
-    // _salesPerson->setNextHandler(_clerk)  <---- causes infinite loop if none can hanle the request.
 
-    Customer* me = new Customer("David","CUST001",_clerk,_salesPerson);
+    Inventory nursery(4);
+    nursery.peak();
 
-    me->browsePlants();
+    Plant* p1 = new Marigold();
+    Plant* p2 = new HouseLeek();
+
+    Box* box1 = new Box(p1);
+
+    delay(2);
+
+    Box* box2 = new Box(p2);
+
+
+    nursery.addBox(box1,"FLOWER");
+    nursery.addBox(box2,"SUCCULENT");
+    nursery.peak();
+    
     return 0;
 }

@@ -2,7 +2,6 @@
 
 Customer::Customer(string _name,string _id,InventoryClerk* _clerk, SalesAssociate* _salesPerson)
 {
-    clerk = _clerk;
     salesPerson = _salesPerson; //will need to reconfigure and add some functions to salesPerson 
     name = _name;
     id = _id;
@@ -29,19 +28,19 @@ Request *Customer::makeRequest(string type, string details, string action)
 
     if (type == "Sales" || type == "SALES")
     {
-        RequestType requestType = RequestType::SALES;
+        requestType = RequestType::SALES;
     }
     else if (type == "Care" || type == "CARE")
     {
-        RequestType requestType = RequestType::CARE;
+        requestType = RequestType::CARE;
     }
     else if (type == "Purchase" || type == "PURCHASE")
     {
-        RequestType requestType = RequestType::PURCHASE;
+        requestType = RequestType::PURCHASE;
     }
     else if (type == "Inventory" || type == "INVENTORY")
     {
-        RequestType requestType = RequestType::INVENTORY;
+        requestType = RequestType::INVENTORY;
     }
 
     switch (requestType)
@@ -71,7 +70,7 @@ Request *Customer::makeRequest(string type, string details, string action)
 
 void Customer::browsePlants()
 {
-    cout<<clerk->getAvailablePlants();
+    
 }
 
 void Customer::startPurchase()

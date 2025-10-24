@@ -43,3 +43,8 @@ void Request::setDetails(string details) {
 void Request::setAction(string action) {
     this->action = action;
 }
+
+void Request::sendToStaff()
+{
+
+}

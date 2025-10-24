@@ -1,107 +1,79 @@
-/*!
- *  @file Plant.cpp
- *
- *  @brief Contains function definitions for the Plant functions defined in Plant.h
- */
-
 #include "Plant.h"
 #include "PlantState.h"
 
-
-/*!
- * @brief Plant constructor function
- *
- * Initializes information shared by all plants (health, currState, careRegime)
- */
-Plant::Plant() {
+Plant::Plant()
+{
     health = 0;
     currState = new SeedingState();
 
-    //initialize careRegime here
+    // initialize careRegime here
 }
 
-/*!
- * @brief Destructor for Plant class
- */
-Plant::~Plant() {
+Plant::~Plant()
+{
     delete currState;
     delete careRegime;
 }
 
-/*!
- * @brief Changes the state of the Plant object
- *
- * Called in the PlantState class
- *
- * @param newState State that Plant object is being set to
- */
-void Plant::changeState(PlantState *newState) {
+void Plant::changeState(PlantState *newState)
+{
     delete currState;
-    this->currState=newState;
+    this->currState = newState;
 }
 
-/*!
- * @brief If a Plant is not fully grown, care is still needed
- *
- * @return bool stating whether care is needed
- */
-bool Plant::needsCare() {
-    if (this->health <5) {
+bool Plant::needsCare()
+{
+    if (this->getState() == "Dead")
+    {
+        return false;
+    }
+
+    if (this->health < 5)
+    {
         return true;
     }
     return false;
 }
 
-
-void Plant::add(InventoryComponent *comp) {
-
+vector<Plant *> Plant::getPlants()
+{
+    return vector<Plant *>();
 }
 
-void Plant::remove(InventoryComponent *comp) {
-
+void Plant::movePlant(Plant *plant, string newState)
+{
 }
 
-vector<Plant *> Plant::getPlants() {
-    return vector<Plant*>();
+void Plant::incrementHealth(int num)
+{
+    this->health = this->health + num;
+    this->currState->handleCare(this);
 }
 
-void Plant::movePlant(Plant *plant, string newState) {
-
+string Plant::getState()
+{
+    return currState->getStateName();
 }
 
+//................... SUCCULENT..................//
 
-
-//#####################################################
-
-/*!
- * @brief Constructor function for Succulent class
- *
- * Initialized type attribute, then calls Plant() constructor
- */
-Succulent::Succulent() : Plant::Plant() {
+Succulent::Succulent() : Plant::Plant()
+{
     type = "Succulent";
 }
 
-//#####################################################
+//............... PEANUTCACTUS...................//
 
-/*!
- * @brief Constructor function for PeanutCactus class
- *
- * Initializes id and price attributes, then calls Succulent() constructor
- */
-PeanutCactus::PeanutCactus() : Succulent::Succulent() {
+PeanutCactus::PeanutCactus() : Succulent::Succulent()
+{
     int randomNum = rand() % 101;
     this->id = "PC" + to_string(randomNum);
 
     this->price = 35.00;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: Peanut Cactus
- *
- * @return string containing basic details of the plant
- */
-string PeanutCactus::getDetails() {
+string PeanutCactus::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -109,34 +81,31 @@ string PeanutCactus::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of PeanutCactus (35.00)
- */
-double PeanutCactus::getCost() {
+double PeanutCactus::getCost()
+{
     return this->price;
 }
 
-//#####################################################
+Plant* PeanutCactus::clone()
+{
+    Plant* copy = new PeanutCactus();
 
+    return copy;
 
-/*!
- * @brief Constructor function for HouseLeek class
- *
- * Initializes id and price attributes, then calls Succulent() constructor
- */
-HouseLeek::HouseLeek() : Succulent::Succulent() {
+}
+
+//............. HOUSELEEK ...................//
+
+HouseLeek::HouseLeek() : Succulent::Succulent()
+{
     int randomNum = rand() % 101;
     this->id = "HL" + to_string(randomNum);
 
     this->price = 35.50;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: House Leek
- *
- * @return string containing basic details of the plant
- */
-string HouseLeek::getDetails() {
+string HouseLeek::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -144,44 +113,41 @@ string HouseLeek::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of HouseLeek (35.50)
- */
-double HouseLeek::getCost() {
+double HouseLeek::getCost()
+{
     return this->price;
 }
 
-//#####################################################
+Plant* HouseLeek::clone()
+{
+    Plant* copy = new HouseLeek();
 
-/*!
- * @brief Constructor function for Flower class
- *
- * Initialized type attribute, then calls Plant() constructor
- */
-Flower::Flower() : Plant::Plant() {
+    return copy;
+
+}
+
+
+
+
+//................ FLOWER ....................//
+
+Flower::Flower() : Plant::Plant()
+{
     type = "Flower";
 }
 
-//#####################################################
+//...................... ORCHID ..................... //
 
-/*!
- * @brief Constructor function for Orchid class
- *
- * Initializes id and price attributes, then calls Flower() constructor
- */
-Orchid::Orchid() : Flower::Flower() {
+Orchid::Orchid() : Flower::Flower()
+{
     int randomNum = rand() % 101;
     this->id = "OR" + to_string(randomNum);
 
     this->price = 160.00;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: Orchid
- *
- * @return string containing basic details of the plant
- */
-string Orchid::getDetails() {
+string Orchid::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -189,33 +155,34 @@ string Orchid::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of Orchid (160.00)
- */
-double Orchid::getCost() {
+double Orchid::getCost()
+{
     return this->price;
 }
 
-//#####################################################
+Plant* Orchid::clone()
+{
+    Plant* copy = new Orchid();
 
-/*!
- * @brief Constructor function for Marigold class
- *
- * Initializes id and price attributes, then calls Flower() constructor
- */
-Marigold::Marigold() : Flower::Flower() {
+    return copy;
+
+}
+
+
+
+
+//................. MARIGOLD ..................//
+
+Marigold::Marigold() : Flower::Flower()
+{
     int randomNum = rand() % 101;
     this->id = "MG" + to_string(randomNum);
 
     this->price = 16.00;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: Marigold
- *
- * @return string containing basic details of the plant
- */
-string Marigold::getDetails() {
+string Marigold::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -223,44 +190,41 @@ string Marigold::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of Marigold (16.00)
- */
-double Marigold::getCost() {
+double Marigold::getCost()
+{
     return this->price;
 }
 
-//#####################################################
+Plant* Marigold::clone()
+{
+    Plant* copy = new Marigold();
 
-/*!
- * @brief Constructor function for Shrub class
- *
- * Initialized type attribute, then calls Plant() constructor
- */
-Shrub::Shrub() : Plant::Plant() {
+    return copy;
+
+}
+
+
+
+
+//................. SHRUB ...................//
+
+Shrub::Shrub() : Plant::Plant()
+{
     type = "Shrub";
 }
 
-//#####################################################
+//................. BEEBLOSSOM ...................//
 
-/*!
- * @brief Constructor function for BeeBlossom class
- *
- * Initializes id and price attributes, then calls Shrub() constructor
- */
-BeeBlossom::BeeBlossom() : Shrub::Shrub() {
+BeeBlossom::BeeBlossom() : Shrub::Shrub()
+{
     int randomNum = rand() % 101;
     this->id = "BB" + to_string(randomNum);
 
     this->price = 21.00;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: Bee Blossom
- *
- * @return string containing basic details of the plant
- */
-string BeeBlossom::getDetails() {
+string BeeBlossom::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -268,33 +232,34 @@ string BeeBlossom::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of BeeBlossom (21.00)
- */
-double BeeBlossom::getCost() {
+double BeeBlossom::getCost()
+{
     return this->price;
 }
 
-//#####################################################
+Plant* BeeBlossom::clone()
+{
+    Plant* copy = new BeeBlossom();
 
-/*!
- * @brief Constructor function for HoneySuckle class
- *
- * Initializes id and price attributes, then calls Shrub() constructor
- */
-HoneySuckle::HoneySuckle() : Shrub::Shrub() {
+    return copy;
+
+}
+
+
+
+
+//............... HONEYSUCKLE...................//
+
+HoneySuckle::HoneySuckle() : Shrub::Shrub()
+{
     int randomNum = rand() % 101;
     this->id = "HS" + to_string(randomNum);
 
     this->price = 39.95;
 }
 
-/*!
- *  return string formatted as ID: [id] \n Type: [type] \n Name: Honey Suckle
- *
- * @return string containing basic details of the plant
- */
-string HoneySuckle::getDetails() {
+string HoneySuckle::getDetails()
+{
     string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -302,50 +267,16 @@ string HoneySuckle::getDetails() {
     return det;
 }
 
-/*!
- * @return price attribute of HoneySuckle (39.95)
- */
-double HoneySuckle::getCost() {
+double HoneySuckle::getCost()
+{
     return this->price;
 }
 
-Succulent::~Succulent()
-{
-
-}
-
-Plant* PeanutCactus::clone()
-{
-    Plant* copy = new PeanutCactus();
-    return copy;
-}
-
-Plant* HouseLeek::clone()
-{
-    Plant* copy = new HouseLeek();
-    return copy;
-}
-
-Plant* Orchid::clone()
-{
-    Plant* copy = new Orchid();
-    return copy;
-}
-
-Plant* Marigold::clone()
-{
-    Plant* copy = new Marigold();
-    return copy;
-}
-
-Plant* BeeBlossom::clone()
-{
-    Plant* copy = new BeeBlossom();
-    return copy;
-}
 
 Plant* HoneySuckle::clone()
 {
     Plant* copy = new HoneySuckle();
+
     return copy;
+
 }
