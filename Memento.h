@@ -8,9 +8,15 @@ class Memento {
     private:
         vector<Plant*> savedPlants;
         double savedCost;
+        
     public:
-        Memento();
+        Memento(const std::vector<Plant*>& plants, double cost);
         ~Memento();
+        const vector<Plant*>& getSavedPlants() const;
+        double getSavedCost() const;
+        vector<Plant*> getMementos() const { return savedPlants; }
+        vector<Memento*> mementos;
+        
 };
 
 

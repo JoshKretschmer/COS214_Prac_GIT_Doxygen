@@ -6,6 +6,7 @@
 #include "Iterator.h"
 #include "Observer.h"
 #include "NurseryMediator.h"
+#include "Shelf.h"
 #include <vector>
 #include <string>
 #include <map>
@@ -19,7 +20,7 @@ class InventoryComponent : public Subject {
 protected:
     NurseryMediator* mediator;
 public:
-    InventoryComponent(NurseryMediator* med = nullptr);
+    InventoryComponent(NurseryMediator* med);
     virtual ~InventoryComponent();
     void setMediator(NurseryMediator* med);
     virtual void add(InventoryComponent* component);
@@ -34,7 +35,7 @@ private:
     string groupName;
     vector<InventoryComponent*> children;
 public:
-    PlantGroup(NurseryMediator* med = nullptr);
+    PlantGroup(string name, NurseryMediator* med = nullptr);
     ~PlantGroup();
     void add(InventoryComponent* component);
     void remove(InventoryComponent* component);
@@ -45,6 +46,7 @@ public:
 class Inventory : public InventoryComponent {
 private:
     vector<Plant*> plants;
+    Shelf** shelves;
     map<string, int> stockLevels;
     vector<PlantState*> states;
     vector<PlantGroup*> groups;

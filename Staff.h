@@ -55,6 +55,7 @@ class Horticulturist : public Staff {
         ~Horticulturist();
         void handleRequest(Request& request);
         void performCare(Plant& plant);
+        
 };
 
 class Manager : public Staff {

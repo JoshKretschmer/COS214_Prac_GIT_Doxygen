@@ -61,7 +61,7 @@ void mediatorTester() {
     mainInventory.movePlant(plant1, "NewState"); 
 
     cout << "\n--- Creating a PlantGroup ---" << endl;
-    PlantGroup* succulentsGroup = new PlantGroup(&mediator);
+    PlantGroup* succulentsGroup = new PlantGroup("plant group name",&mediator);
 
     Inventory* cactusInventory = new Inventory(&mediator);
     cactusInventory->addPlant(new PeanutCactus());
@@ -109,16 +109,13 @@ void iteratorTester() {
 void observerTest(){
     cout << "--- Observer Pattern Test ---" << endl;
 
-    // Create plants
     PeanutCactus peanut;
     HouseLeek houseLeek;
 
-    // Create staff
     SalesAssociate alice("SA001", "Alice", nullptr, nullptr);
     Horticulturist bob("HC001", "Bob", nullptr, nullptr);
     Manager charlie("MG001", "Charlie", nullptr, nullptr);
 
-    // Attach staff to plants
     peanut.attach(&alice);
     peanut.attach(&bob);
     houseLeek.attach(&bob);
@@ -139,6 +136,7 @@ int main() {
     //chainTester();
     //mediatorTester();
     //iteratorTester();
-    observerTest();
+    //observerTest();
     return 0;
+    //sort out warnings.
 }

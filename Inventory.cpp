@@ -15,16 +15,12 @@ void InventoryComponent::add(InventoryComponent* component) {}
 void InventoryComponent::remove(InventoryComponent* component) {}
 vector<Plant*> InventoryComponent::getPlants() { return vector<Plant*>(); }
 
-void InventoryComponent::movePlant(Plant* plant, string newState) {
-    if (mediator) {
-        mediator->notifyInventory("MovePlant", *plant);
-    }
-}
+void InventoryComponent::movePlant(Plant* plant, string newState) {}
 
 void InventoryComponent::notifyObservers() {}
 
 //##########################################################
-PlantGroup::PlantGroup(NurseryMediator* med) : InventoryComponent(med) {}
+PlantGroup::PlantGroup(string name, NurseryMediator* med) : groupName(name), InventoryComponent(med) {}
 
 PlantGroup::~PlantGroup() {
     for (auto c : children) delete c;
@@ -32,8 +28,10 @@ PlantGroup::~PlantGroup() {
 }
 
 void PlantGroup::add(InventoryComponent* component) {
+    if (!component)
+        return; 
     children.push_back(component);
-    if (component) component->setMediator(mediator);
+    component->setMediator(mediator);
 }
 
 void PlantGroup::remove(InventoryComponent* component) {
