@@ -37,32 +37,30 @@
 
 ## 📝 Project Overview
 
-**Project Name:** COS214 PlantCare Project  
-**Date:** 09.04.20XX  
+**Project Name:** Git_Doxygen  
+**Date:** 28-10-2025  
 
-**Team Lead:** Your Name  
-**Company:** Your Company  
-**Address:** 123 Your Street, Your City, ST 12345  
+**Team Lead:** Ane
 
 ### Overview
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.
+The COS214 PlantCare project is a C++ system designed to simulate a greenhouse and nursery environment.  
+It handles plant growth, care routines, inventory management, staff coordination, and customer interactions, implementing multiple design patterns to maintain clean and scalable architecture.
 
 ### Goals
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit  
-- Sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+- Enable staff to execute plant care routines (watering, fertilizing, pruning, sunlight management).  
+- Track plant growth stages and lifecycle states for different plant types.  
+- Maintain real-time inventory that synchronizes greenhouse stock with the sales floor.  
+- Support staff-customer coordination for purchases, recommendations, and browsing.  
+- Allow customers to customize orders and revert actions (undo/redo functionality).  
+- Ensure a modular and extendable system architecture using design patterns.
 
 ### Specifications
-Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
-
-Lorem Ipsum  
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.
-
-### Milestones
-- Lorem ipsum  
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  
-- Dolor sit amet  
-- Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-
+- **Staff Plant Care Execution**: Staff perform care routines on plants using the Strategy and Command patterns to adapt dynamically.  
+- **Plant Monitoring**: Plants notify staff of required care; Observer and State patterns manage reactive updates and lifecycle stages.  
+- **Staff–Inventory Coordination**: Mediator and Composite patterns ensure staff can update inventory in a centralized, organized way.  
+- **Customer Interactions**: Customers can browse plants (Iterator), customize orders (Decorator & Builder), and receive recommendations (Strategy).  
+- **Purchase Process**: Simplified via Facade and Bridge patterns, integrating staff, inventory, and payment handling.  
+- **Undo/Redo Orders**: Memento pattern captures snapshots of order states for safe reversal of actions.  
 ---
 
 ## 🌼 Meet the Team
