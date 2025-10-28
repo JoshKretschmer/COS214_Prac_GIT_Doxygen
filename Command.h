@@ -1,44 +1,79 @@
 #ifndef COMMAND_H
 #define COMMAND_H
+/*!
+ * @headerfile Command.h
+ */
 
 #include "libraries.h"
 #include "Request.h"
 
+class Request;
+
+/*!
+ * @class Command
+ *
+ * @brief Parent class for all kinds of commands
+ *
+ * Stores access specification string and an associated request
+ */
 class Command
 {
 protected:
-    Request* receiver;
-
+    string access;  // the staff member who can access a command 
+    Request* request;
 public:
-    Command(Request* _receiver);
+    Command(Request *_request);
     virtual ~Command();
-    virtual void execute()=0;
+    Request* execute();
+    bool hasAcess(string _staffType);
 };
 
-
-class PurchaseCommand : public Command
+/*!
+ * @class SalesCommand
+ *
+ * @brief Commands created by Staff objects of type SalesAssociate
+ */
+class SalesCommand : public Command
 {
 public:
-    PurchaseCommand(Request* _receiver);
-    virtual ~PurchaseCommand();
-    virtual void execute() override;
+    SalesCommand(Request *_request);
+    ~SalesCommand();
 };
 
-
-class CareCommand : public Command
+/*!
+ * @class InventoryCommand
+ *
+ * @brief Commands created by Staff objects of type InventoryClerk
+ */
+class InventoryCommand : public Command
 {
 public:
-    CareCommand(Request* _receiver);
-    virtual ~CareCommand();
-    virtual void execute() override;
+    InventoryCommand(Request *_request);
+    ~InventoryCommand();
 };
 
+/*!
+ * @class ManagerCommand
+ *
+ * @brief Commands created by Staff objects of type Manager
+ */
 class ManagerCommand : public Command
 {
 public:
-    ManagerCommand(Request* _receiver);
-    virtual ~ManagerCommand();
-    virtual void execute() override;
+    ManagerCommand(Request *_request);
+    ~ManagerCommand();
+};
+
+/*!
+ * @class GreenHouseCommand
+ *
+ * @brief Commands created by Staff objects of type Horticulturist
+ */
+class GreenHouseCommand : public Command
+{
+public:
+    GreenHouseCommand(Request *_request);
+    ~GreenHouseCommand();
 };
 
 #endif

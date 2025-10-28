@@ -1,61 +1,81 @@
 #include "Command.h"
 
-Command::Command(Request *_receiver)
+Command::Command(Request*_request)
 {
-    if (_receiver)
+    if(_request)
     {
-        receiver = _receiver;
+        request = _request;
     }
     else
     {
-        cout << "\n Request object is invalid :)\n";
+        cout<<errorMessage("requestQueue is NULL object...\nNothign initialized");
     }
 }
 
 Command::~Command()
 {
     // no memory management required as Command is not responsible for Request object once it is passed on :)
+    // only null the pointer
 }
 
-// ...................... PURCHASE COMMAND .........................//
-
-PurchaseCommand::PurchaseCommand(Request *_receiver) : Command(_receiver)
+bool Command::hasAcess(string _staffType)
 {
-    // no further initialization required :)
+    if(access == toUpperCase(_staffType))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-PurchaseCommand::~PurchaseCommand()
+Request* Command::execute()
+{
+    if(request)
+    {
+        return request;
+    }
+    else
+    {
+        cout<<errorMessage("request queue not set\nNULL returned...");
+        return NULL;
+    }
+}
+
+
+
+
+
+
+InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
+{
+    access = toUpperCase("inventoryclerk");
+}
+
+InventoryCommand::~InventoryCommand()
 {
     // no memory management required as Command is not responsible for Request object once it is passed on :)
 }
 
-void PurchaseCommand::execute()
+//....................
+
+SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
-    receiver->sendToStaff(); // changes to be made here.
+    access = toUpperCase("salesassociate");
 }
 
-// ...................... CARE COMMAND .........................//
-
-CareCommand::CareCommand(Request *_receiver) : Command(_receiver)
-{
-    // no further initialization required :)
-}
-
-CareCommand::~CareCommand()
+SalesCommand::~SalesCommand()
 {
     // no memory management required as Command is not responsible for Request object once it is passed on :)
 }
 
-void CareCommand::execute()
-{
-    receiver->sendToStaff(); // changes to be made here
-}
+//.....................
 
-// ...................... MANAGER COMMAND .........................//
 
-ManagerCommand::ManagerCommand(Request *_receiver) : Command(_receiver)
+ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
 {
-    // no further initialization required :)
+    access = toUpperCase("manager");
 }
 
 ManagerCommand::~ManagerCommand()
@@ -63,7 +83,15 @@ ManagerCommand::~ManagerCommand()
     // no memory management required as Command is not responsible for Request object once it is passed on :)
 }
 
-void ManagerCommand::execute()
+//......................
+
+
+GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
-    receiver->sendToStaff(); // changes to be made here
+    access = toUpperCase("horticulturist");
+}
+
+GreenHouseCommand::~GreenHouseCommand()
+{
+    // no memory management required as Command is not responsible for Request object once it is passed on :)
 }

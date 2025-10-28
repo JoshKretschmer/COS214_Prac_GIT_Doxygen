@@ -1,34 +1,35 @@
-/*!
- *  @headerfile PlantDecorator.h
- *
- *  @brief Contains class definitions for PlantDecorator and its various subclasses
- *
- *  Patterns: Decorator
- */
-
 #ifndef PLANTDECORATOR_H
 #define PLANTDECORATOR_H
 
+/*!
+ * @headerfile PlantDecorator.h
+ */
+#include "libraries.h"
 #include "Plant.h"
-#include <string>
-using namespace std;
+
 
 /*!
  * @class PlantDecorator
  *
  * @brief Abstract interface class for various decorator subclasses
  */
-class PlantDecorator : public Plant{
-private:
-    Plant* wrappedPlant;
+class PlantDecorator : public Plant
+{
 protected:
-    Plant* getWrapped() {return wrappedPlant;};
+    Plant * wrappedPlant;
+
+    double decorator_price;
+    string decorator_type;
+
+    
+
 public:
     PlantDecorator();
-    ~PlantDecorator();
-    virtual string getDetails() = 0;
-    virtual double getCost() = 0;
-    void setWrapped(Plant* wrappedPlant);
+    virtual ~PlantDecorator();
+
+    virtual string getDetails() override;
+    virtual double getCost() override;
+    virtual void decorate(Plant* _plant) override;
 };
 
 /*!
@@ -36,10 +37,13 @@ public:
  *
  * @brief Concrete decorator class
  */
-class ArrangementDecorator : public PlantDecorator {
+class ArrangementDecorator : public PlantDecorator
+{
 public:
-    string getDetails();
-    double getCost();
+    ArrangementDecorator();
+    ~ArrangementDecorator();
+    virtual Plant *clone() override;
+
 };
 
 /*!
@@ -47,10 +51,12 @@ public:
  *
  * @brief Concrete decorator class
  */
-class PotDecorator : public PlantDecorator {
+class PotDecorator : public PlantDecorator
+{
 public:
-    string getDetails();
-    double getCost();
+    PotDecorator();
+    ~PotDecorator();
+    virtual Plant *clone() override;
 };
 
 /*!
@@ -58,10 +64,12 @@ public:
  *
  * @brief Concrete decorator class
  */
-class WrapDecorator : public PlantDecorator {
+class WrapDecorator : public PlantDecorator
+{
 public:
-    string getDetails();
-    double getCost();
+    WrapDecorator();
+    ~WrapDecorator();
+    virtual Plant *clone() override;
 };
 
-#endif //PLANTDECORATOR_H
+#endif // PLANTDECORATOR_H

@@ -1,6 +1,6 @@
 #include "Box.h"
 
-int Box::instanceCount = 0;
+int Box::instanceCount = 1;
 
 Box::Box(Plant* _plant) //adds the plant to the box
 {
@@ -44,7 +44,7 @@ void Box::peak()
     {
         cout<<"\nBOX_ID: "<<boxId<<endl
             <<"TIME STAMP: "<<timeStamp<<endl
-            <<"PLANT_ID: "<<plant->getID()<<endl;
+            <<plant->getDetails();
     }
     else
     {

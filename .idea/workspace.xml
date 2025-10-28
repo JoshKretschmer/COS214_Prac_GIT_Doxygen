@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/LiveTemplatesHousekeeping/HotspotSessionHintIsShown/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="COS214_Prac_GIT_Doxygen" targetName="nursery_system" />
+      <config projectName="COS214_Prac_GIT_Doxygen" targetName="run" />
+      <config projectName="COS214_Prac_GIT_Doxygen" targetName="all" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Box.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Box.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Box.h" beforeDir="false" afterPath="$PROJECT_DIR$/Box.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Command.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Command.h" beforeDir="false" afterPath="$PROJECT_DIR$/Command.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryClerk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryClerk.h" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Memento.h" beforeDir="false" afterPath="$PROJECT_DIR$/Memento.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order.h" beforeDir="false" afterPath="$PROJECT_DIR$/Order.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plant.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plant.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantCare.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantCare.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantDecorator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantDecorator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantDecorator.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantDecorator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantState.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Request.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Request.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Request.h" beforeDir="false" afterPath="$PROJECT_DIR$/Request.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shelf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shelf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimulationTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimulationTime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimulationTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/SimulationTime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libraries.h" beforeDir="false" afterPath="$PROJECT_DIR$/libraries.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="FinalCode" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OPhelia2024&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen&quot;,
+    &quot;accountId&quot;: &quot;974d2956-e730-4aa7-b5c2-3e1e89a62d33&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="COS214_Prac_GIT_Doxygen" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="COS214_Prac_GIT_Doxygen" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MakefilesProjectLoadingState">
+    <option name="doClean" value="false" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2025" />
+    <option name="minorVersion" value="1.4" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3418oCs54W9fltHyTnYwNwnAygG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;C/C++ File.OpheliaTest.cpp.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.%.o.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.all.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.clean.executor&quot;: &quot;Run&quot;,
+    &quot;Makefile Target.run.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Native Application.all.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Kalu&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zanri/OneDrive/Desktop/Uni stuff/2025/Sem 2/COS 214/Practicals/COS214_Prac_GIT_Doxygen&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;xpath.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="C/C++ File.OpheliaTest.cpp">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COS214_Prac_GIT_Doxygen" TARGET_NAME="all" CONFIG_NAME="all" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="nursery_system" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COS214_Prac_GIT_Doxygen" TARGET_NAME="nursery_system" CONFIG_NAME="nursery_system" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="run" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COS214_Prac_GIT_Doxygen" TARGET_NAME="run" CONFIG_NAME="run" version="1">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpheliaTest.cpp" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="COS214_Prac_GIT_Doxygen" TARGET_NAME="OpheliaTest.cpp" CONFIG_NAME="OpheliaTest.cpp">
+      <option name="sourceFile" value="OpheliaTest.cpp" />
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+      <item itemvalue="Native Application.all" />
+      <item itemvalue="Native Application.nursery_system" />
+      <item itemvalue="Native Application.run" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+        <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+        <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+        <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+        <item itemvalue="C/C++ File.OpheliaTest.cpp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\zanri\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="" />
+      <created>1760369889899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760369889899</updated>
+      <workItem from="1760369891010" duration="1903000" />
+      <workItem from="1760369762989" duration="445000" />
+      <workItem from="1760369786089" duration="2775000" />
+      <workItem from="1760380476449" duration="5124000" />
+      <workItem from="1760717712602" duration="692000" />
+      <workItem from="1760725090544" duration="274000" />
+      <workItem from="1760725382814" duration="208000" />
+      <workItem from="1760725593540" duration="211000" />
+      <workItem from="1760866452175" duration="9389000" />
+      <workItem from="1760891753994" duration="30000" />
+      <workItem from="1760893844333" duration="473000" />
+      <workItem from="1760962609194" duration="7947000" />
+      <workItem from="1761058903408" duration="4836000" />
+      <workItem from="1761214970348" duration="4833000" />
+      <workItem from="1761304171727" duration="4716000" />
+      <workItem from="1761308953720" duration="1450000" />
+      <workItem from="1761632287295" duration="1879000" />
+      <workItem from="1761664706580" duration="35000" />
+      <workItem from="1761664804388" duration="113000" />
+      <workItem from="1761664929900" duration="50000" />
+      <workItem from="1761665185516" duration="66000" />
+      <workItem from="1761665344208" duration="4161000" />
+    </task>
+    <task id="LOCAL-00001" summary="Defined all classes and function as specified in class diagram">
+      <option name="closed" value="true" />
+      <created>1760385501363</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760385501363</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Defined all classes and function as specified in class diagram">
+      <option name="closed" value="true" />
+      <created>1760725686890</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760725686890</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Set up basic get functions for all plants + creators and main plant destuctor">
+      <option name="closed" value="true" />
+      <created>1760868841864</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760868841864</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Code of factory pattern + other minor changes to Plant related classes">
+      <option name="closed" value="true" />
+      <created>1760875053238</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1760875053238</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Created testing main and added basic tests for factory pattern">
+      <option name="closed" value="true" />
+      <created>1760875158220</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1760875158220</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Basic code for plant state changes + additional getters for Plant">
+      <option name="closed" value="true" />
+      <created>1760876102074</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1760876102074</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Basic code for plant decorator + removed ConcretePlant (Plant acts as decorator Component and ConcreteComponent)">
+      <option name="closed" value="true" />
+      <created>1760877154520</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760877154520</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Minor bug fixes + Basic Testing main setup. Skeleton code implementation complete">
+      <option name="closed" value="true" />
+      <created>1760894261276</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760894261276</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added header file to be used for Unit Testing">
+      <option name="closed" value="true" />
+      <created>1760984145607</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1760984145607</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added Doxygen comments to all .h and .cpp files worked on">
+      <option name="closed" value="true" />
+      <created>1760984198594</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760984198594</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Unit Tests + minor changes">
+      <option name="closed" value="true" />
+      <created>1761062990166</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761062990166</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Dead State added to PlantState. Minor changes to Plant class">
+      <option name="closed" value="true" />
+      <created>1761218741175</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761218741175</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Combining all files and sorting out interactions">
+      <option name="closed" value="true" />
+      <created>1761309829670</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1761309829670</updated>
+    </task>
+    <task id="LOCAL-00014" summary="minor commit">
+      <option name="closed" value="true" />
+      <created>1761633959853</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1761633959853</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Josh" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Defined all classes and function as specified in class diagram" />
+    <MESSAGE value="Set up basic get functions for all plants + creators and main plant destuctor" />
+    <MESSAGE value="Code of factory pattern + other minor changes to Plant related classes" />
+    <MESSAGE value="Created testing main and added basic tests for factory pattern" />
+    <MESSAGE value="Basic code for plant state changes + additional getters for Plant" />
+    <MESSAGE value="Basic code for plant decorator + removed ConcretePlant (Plant acts as decorator Component and ConcreteComponent)" />
+    <MESSAGE value="Minor bug fixes + Basic Testing main setup. Skeleton code implementation complete" />
+    <MESSAGE value="Added header file to be used for Unit Testing" />
+    <MESSAGE value="Added Doxygen comments to all .h and .cpp files worked on" />
+    <MESSAGE value="Unit Tests + minor changes" />
+    <MESSAGE value="Dead State added to PlantState. Minor changes to Plant class" />
+    <MESSAGE value="Combining all files and sorting out interactions" />
+    <MESSAGE value="minor commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

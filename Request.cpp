@@ -1,50 +1,74 @@
 #include "Request.h"
 
-Request::Request() {
-    this->action = "";
-    this->details = "";
-    this->type = "";
-}
+int Request::instanceCount = 1;
 
-Request::Request(string type, string details, string action) {
-    this->type = type;
-    this->details = details;
-    this->action = action;
-}
-
-Request::~Request() {
-
-}
-
-string Request::getType() {
-    return this->type;
-}
-
-string Request::getDetails() {
-    return this->details;
-}
-
-string Request::getAction() {
-    return this->action;
-}
-
-void Request::setType(string type) {
-    if (type.empty()) {
-        this->type = "General";
-        return;
-    }
-    this->type = type;
-}
-
-void Request::setDetails(string details) {
-    this->details = details;
-}
-
-void Request::setAction(string action) {
-    this->action = action;
-}
-
-void Request::sendToStaff()
+Request::Request()
 {
+    id = "REQUEST" + to_string(instanceCount);
+    description = "";
+    action = "";
+    sender = NULL;
+    plantObject = NULL;
+    instanceCount++;
+}
 
+Request::~Request()
+{
+    // zero memory management ! remember we passing the pointers!
+    if(sender)
+    {
+        sender = NULL;
+    }
+
+    if(plantObject)
+    {
+        plantObject = NULL;
+    }
+
+    instanceCount--;
+}
+
+void Request::setDescription(string _description)
+{
+    description = _description;
+}
+
+void Request::setAction(string _action)
+{
+    action = _action;
+}
+
+void Request::setSender(Staff* _sender)
+{
+    if(_sender)
+    {
+        sender = _sender;
+    }
+    else
+    {
+        cout<<errorMessage("Sender is a NULL object...");
+    }
+}
+
+void Request::setPlantObject( Plant* _plantObject)
+{
+    if(_plantObject)
+    {
+        plantObject = _plantObject;
+    }
+    else
+    {
+        cout<<errorMessage("Plant is a NULL object");
+    }
+}
+
+string Request::getDetails()
+{
+    string details = "";
+
+    details += "REQUEST ID: "+id + "\n"
+             + "REQUEST ACTION: "+action + "\n"
+             + "REQUEST DESCRIPTION: "+description + "\n";
+
+    return details;
 }

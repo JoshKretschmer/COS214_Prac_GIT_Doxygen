@@ -1,31 +1,65 @@
 #ifndef REQUEST_H
 #define REQUEST_H
-
+/*!
+ * @headerfile Request.h
+ */
 #include "libraries.h"
+#include "Staff.h"
+#include "Plant.h"
 
+class Staff;
+class Plant;
+
+/*!
+ * @class Request
+ *
+ * @brief Used by Staff objects to ask another to do a required action
+ */
 class Request {
     private:
-        string type;
-        string details;
+
+        static int instanceCount;
+        string id; //<---- do not make a getter and setter here
+
+        string description;
         string action;
+
+        Staff* sender;
+
+        // ....... horticulturist related pointers ............//
+
+        Plant* plantObject;
+
+        // ....... Sales Associate related pointers ...........//
+
+        // ....... InventoryClerk related info ............//
+
+        // ....... Manager related info ..................//
+
+
     public:
-        Request(string type, string details, string action);
+        Request();
         ~Request();
-        void setType(string type);
+
+        // ........... setters ..............//
         void setAction(string action);
-        void setDetails(string details);
-        string getType();
+        void setDescription(string _description);
+        void setSender(Staff* _sender);
+        void setPlantObject(Plant* plantObject);
+
+
+        // ........... getters ............. //
+        string getID(){return id;};
         string getDetails();
-        string getAction();
+        string getDescription(){return description;};
+        string getAction(){return action;};
+        Plant* getPlantObject(){return plantObject;};
+        Staff* getSender(){return sender;};
 
-        // execute().       The request is the command. Passing it on a chain until it is handled. Only 
-        //                  The staff member who can execute the Request execute
-        //                  So request will be a interface and you'll have different "Requests" that inherit from it.
-        //                  
+        // ......... other functions ...........//
 
-
+        //maybe a bulk request function specific to different staff
 };
 
-//how are we going to handle these, what types of requests can be made?
 
 #endif //REQUEST_H

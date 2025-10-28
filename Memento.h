@@ -1,9 +1,18 @@
 #ifndef MEMENTO_H
 #define MEMENTO_H
 
+/*!
+ * @headerfile Memento.h
+ */
+
 #include "Plant.h"
 #include <vector>
 
+/*!
+ * @class Memento
+ *
+ * @brief Saves a copy of Plant objects for the purpose of undoing changes made to the Order objects
+ */
 class Memento {
     private:
         vector<Plant*> savedPlants;

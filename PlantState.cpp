@@ -3,12 +3,12 @@
 PlantState::PlantState()
 {
     // Constructor implementation
-    cout<<"\nPlantState: Created\n";
+   // cout<<"\nPlantState: Created\n";
 }
 
 PlantState::~PlantState()
 {
-    cout<<"\nPlantState: Destroyed\n";
+   // cout<<"\nPlantState: Destroyed\n";
 }
 
 
@@ -17,20 +17,23 @@ PlantState::~PlantState()
 
 SeedingState::SeedingState()
 {
-   cout<<"\nSeedingState: Created\n";;
+   // cout<<"\nSeedingState: Created\n";;
 }
 
-void SeedingState::handleCare(Plant* plant)
+int SeedingState::handleCare(Plant* plant)
 {
-    cout<<"\nSeedingState: Watering and fertilizing young plant...\n";
     // Example: auto-transition
     PlantState* newState = new GrowingState();
+    string oldState = plant->getState();
     plant->changeState(newState);
+    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
+
+    return 50;
 }
 
 string SeedingState::getStateName()
 {
-    return "Seeding";
+    return toUpperCase("seeding");
 }
 
 
@@ -39,20 +42,23 @@ string SeedingState::getStateName()
 
 GrowingState::GrowingState()
 {
-    cout << "\nGrowingState: Created\n";
+   // cout << "\nGrowingState: Created\n";
 }
 
-void GrowingState::handleCare(Plant* plant)
+int GrowingState::handleCare(Plant* plant)
 {
-    cout<<"\nGrowingState: Providing sunlight and nutrients...\n";
     // Example: auto-transition
     PlantState* newState = new MatureState();
+    string oldState = plant->getState();
     plant->changeState(newState);
+    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
+    
+    return 50;
 }
 
 string GrowingState::getStateName()
 {
-    return "Growing";
+    return toUpperCase("growing");
 }
 
 
@@ -61,20 +67,23 @@ string GrowingState::getStateName()
 
 MatureState::MatureState()
 {
-    cout<<"\nMatureState: Created\n";
+   // cout<<"\nMatureState: Created\n";
 }
 
-void MatureState::handleCare(Plant* plant)
+int MatureState::handleCare(Plant* plant)
 {
-    cout<<"\nMatureState: Maintaining plant health...\n";
     // Example: auto-transition
     PlantState* newState = new MoultState();
+    string oldState = plant->getState();
     plant->changeState(newState);
+    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
+
+    return -75;
 }
 
 string MatureState::getStateName()
 {
-    return "Mature";
+    return toUpperCase("mature");
 }
 
 
@@ -83,30 +92,38 @@ string MatureState::getStateName()
 
 MoultState::MoultState()
 {
-   cout<<"\nMoultState: Created\n";
+  // cout<<"\nMoultState: Created\n";
 }
 
-void MoultState::handleCare(Plant* plant)
+int MoultState::handleCare(Plant* plant)
 {
-    cout<<"\nMoultState: Plant is aging, special care needed...\n";
-    // Could end lifecycle here
+    // Example: auto-transition
+    PlantState* newState = new DeadState();
+    string oldState = plant->getState();
+    plant->changeState(newState);
+    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
+
+    return -25;
 }
 
 string MoultState::getStateName() {
-    return "Moult";
+    return toUpperCase("moult");
 }
 
 
 //###############################################
 
 
-void DeadState::handleCare(Plant *plant)
+int DeadState::handleCare(Plant *plant)
 {
-    cout<<"\nDead\n";
+    cout<<"\nDeadState: Plant is dead....\n";
+    cout<<errorMessage("No state change occured");
+
+    return 0;
 
 }
 
 string DeadState::getStateName()
 {
-    return "Dead";
+    return toUpperCase("dead");
 }
