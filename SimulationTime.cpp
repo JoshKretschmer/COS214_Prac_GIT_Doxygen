@@ -3,7 +3,9 @@
 chrono::steady_clock::time_point SimulationTime::startTime;
 bool SimulationTime::initialized = false;
 
-
+/*!
+ * @brief Basic construction function
+ */
 void SimulationTime::initialize()
 {
     if (!initialized) {
@@ -12,6 +14,10 @@ void SimulationTime::initialize()
     }
 }
 
+/*!
+ *
+ * @return Amount of time for which the clock has been running
+ */
 int SimulationTime::getTime()
 {
     if (!initialized)
@@ -24,6 +30,9 @@ int SimulationTime::getTime()
     return static_cast<int>(duration.count());
 }
 
+/*!
+ * @brief Basic time reset function
+ */
 void SimulationTime::reset()
 {
     startTime = chrono::steady_clock::now();

@@ -1,11 +1,17 @@
 #include "PlantState.h"
 
+/*!
+ * @brief Basic constructor for PlantState class
+ */
 PlantState::PlantState()
 {
     // Constructor implementation
    // cout<<"\nPlantState: Created\n";
 }
 
+/*!
+ * @brief Basic destructor for PlantState class
+ */
 PlantState::~PlantState()
 {
    // cout<<"\nPlantState: Destroyed\n";
@@ -14,12 +20,20 @@ PlantState::~PlantState()
 
 //################################################
 
-
+/*!
+ * @brief Basic constructor for SeedingState class
+ */
 SeedingState::SeedingState()
 {
    // cout<<"\nSeedingState: Created\n";;
 }
 
+/*!
+ * @Automated state change function
+ *
+ * @param plant Plant for which care is done
+ * @return 50
+ */
 int SeedingState::handleCare(Plant* plant)
 {
     // Example: auto-transition
@@ -31,6 +45,9 @@ int SeedingState::handleCare(Plant* plant)
     return 50;
 }
 
+/*!
+ * @return "Seeding"
+ */
 string SeedingState::getStateName()
 {
     return toUpperCase("seeding");
@@ -39,12 +56,20 @@ string SeedingState::getStateName()
 
 //################################################
 
-
+/*!
+ * @brief Basic constructor for GrowingState class
+ */
 GrowingState::GrowingState()
 {
    // cout << "\nGrowingState: Created\n";
 }
 
+/*!
+ * @Automated state change function
+ *
+ * @param plant Plant for which care is done
+ * @return 50
+ */
 int GrowingState::handleCare(Plant* plant)
 {
     // Example: auto-transition
@@ -56,6 +81,9 @@ int GrowingState::handleCare(Plant* plant)
     return 50;
 }
 
+/*!
+ * @return "Growing"
+ */
 string GrowingState::getStateName()
 {
     return toUpperCase("growing");
@@ -64,12 +92,20 @@ string GrowingState::getStateName()
 
 //################################################
 
-
+/*!
+ * @brief Basic constructor for MatureState class
+ */
 MatureState::MatureState()
 {
    // cout<<"\nMatureState: Created\n";
 }
 
+/*!
+ * @Automated state change function
+ *
+ * @param plant Plant for which care is done
+ * @return -75
+ */
 int MatureState::handleCare(Plant* plant)
 {
     // Example: auto-transition
@@ -81,6 +117,9 @@ int MatureState::handleCare(Plant* plant)
     return -75;
 }
 
+/*!
+ * @return "Mature"
+ */
 string MatureState::getStateName()
 {
     return toUpperCase("mature");
@@ -89,12 +128,20 @@ string MatureState::getStateName()
 
 //################################################
 
-
+/*!
+ * @brief Basic constructor for MoultState class
+ */
 MoultState::MoultState()
 {
   // cout<<"\nMoultState: Created\n";
 }
 
+/*!
+ * @Automated state change function
+ *
+ * @param plant Plant for which care is done
+ * @return -25
+ */
 int MoultState::handleCare(Plant* plant)
 {
     // Example: auto-transition
@@ -106,6 +153,9 @@ int MoultState::handleCare(Plant* plant)
     return -25;
 }
 
+/*!
+ * @return "Moult"
+ */
 string MoultState::getStateName() {
     return toUpperCase("moult");
 }
@@ -114,6 +164,12 @@ string MoultState::getStateName() {
 //###############################################
 
 
+/*!
+ * @Automated state change function
+ *
+ * @param plant Plant for which care is done
+ * @return 0
+ */
 int DeadState::handleCare(Plant *plant)
 {
     cout<<"\nDeadState: Plant is dead....\n";
@@ -123,6 +179,9 @@ int DeadState::handleCare(Plant *plant)
 
 }
 
+/*!
+ * @return "Dead"
+ */
 string DeadState::getStateName()
 {
     return toUpperCase("dead");

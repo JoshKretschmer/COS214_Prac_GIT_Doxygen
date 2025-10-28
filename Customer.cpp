@@ -1,17 +1,30 @@
 #include "Customer.h"
 
-Customer::Customer(string _name,string _id,InventoryClerk* _clerk, SalesAssociate* _salesPerson)
+/*!
+ * @brief Basic constructor for customer object
+ */
+Customer::Customer(string _name,string _id,InventoryClerk* _clerk, Staff* _salesPerson)
 {
     salesPerson = _salesPerson; //will need to reconfigure and add some functions to salesPerson 
     name = _name;
     id = _id;
 }
 
+/*!
+ * @brief Baisc destructor for customer object
+ */
 Customer::~Customer()
 {
     // no memeory management required
 }
 
+/*!
+ *
+ * @param type type of request to be made
+ * @param details details added to the request
+ * @param action action to be executed by the request
+ * @return The Request object that has been created
+ */
 Request *Customer::makeRequest(string type, string details, string action)
 {
     Request *request;
@@ -46,38 +59,47 @@ Request *Customer::makeRequest(string type, string details, string action)
     switch (requestType)
     {
     case RequestType::SALES:
-        request = new Request(type, details, action);
+        request = new Request();
         break;
 
     case RequestType::CARE:
-        request = new Request(type, details, action);
+        request = new Request();
         break;
 
     case RequestType::PURCHASE:
-        request = new Request(type, details, action);
+        request = new Request();
         break;
 
     case RequestType::INVENTORY:
-        request = new Request(type, details, action);
+        request = new Request();
 
     default:
-        request = new Request(type, details, action); // this is for GENERAL
+        request = new Request(); // this is for GENERAL
         break;
     }
 
     return request;
 }
 
+/*!
+ * @brief Allow the customer to view available Palnt objects
+ */
 void Customer::browsePlants()
 {
     
 }
 
+/*!
+ * @brief Creates an Order object for the customer to make a purchase
+ */
 void Customer::startPurchase()
 {
     
 }
 
+/*!
+ * @brief Allows the customer to customize the order they have made
+ */
 void Customer::customizeOrder()
 {
     cout<<"\n What would you like to add? \n"
@@ -97,10 +119,16 @@ void Customer::customizeOrder()
 
 }
 
+/*!
+ * @brief undo the last customization action
+ */
 void Customer::undoCustomization()
 {
 }
 
+/*!
+ * @brief Complete a purchase tasks and remove all purchased plants from system
+ */
 void Customer::confirmPurchase()
 {
 }

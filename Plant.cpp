@@ -9,6 +9,9 @@
 
 int Plant::instanceCount = 1;
 
+/*!
+ * @brief Basic constructor for Plant object
+ */
 Plant::Plant()
 {
     health = 0;
@@ -23,6 +26,9 @@ Plant::Plant()
     // initialize careRegime here
 }
 
+/*!
+ * @brief Basic destructor for Plant object
+ */
 Plant::~Plant()
 {
     delete currState;
@@ -31,6 +37,10 @@ Plant::~Plant()
     instanceCount--;
 }
 
+/*!
+ *
+ * @return True if care actions need to be executed on the plant, false otherwise
+ */
 bool Plant::needsCare()
 {
     if (this->getState() == toUpperCase("Dead"))
@@ -45,17 +55,28 @@ bool Plant::needsCare()
     return false;
 }
 
+/*!
+ *
+ * @param num value with which to increase the plant health attribute
+ */
 void Plant::incrementHealth(int num)
 {
     this->health = this->health + num;
 }
 
+/*!
+ *
+ * @return Executes care tasks on the Plant according to current PlantCare Strategy
+ */
 int Plant::handleCare()
 {
     return currState->handleCare(this);
 }
 
-void Plant::nuturePlant() // basically handles how state changes based off prior requirements.
+/*!
+ * @brief Handles how care tasks are executed
+ */
+void Plant::nuturePlant()
 {
     if (currState->getStateName() == "DEAD")
     {
@@ -121,6 +142,10 @@ void Plant::nuturePlant() // basically handles how state changes based off prior
     }
 }
 
+/*!
+ *
+ * @param _newState State to which Plant transitions
+ */
 void Plant::changeState(PlantState* _newState)
 {
     if(currState)
@@ -134,6 +159,10 @@ void Plant::changeState(PlantState* _newState)
     }
 }
 
+/*!
+ *
+ * @return Current state of the Plant object
+ */
 string Plant::getState()
 {
     if(currState)
@@ -147,6 +176,10 @@ string Plant::getState()
     }
 }
 
+/*!
+ *
+ * @return Current care Strategy of the plant
+ */
 string Plant::getCareRegime()
 {
     if(careRegime)
@@ -163,11 +196,17 @@ string Plant::getCareRegime()
 
 //................... SUCCULENT..................//
 
+/*!
+ * @brief Basic constructor for Succulents
+ */
 Succulent::Succulent() : Plant()
 {
     group = toUpperCase("Succulent");
 }
 
+/*!
+ * @brief Basic destructor for Succulents
+ */
 Succulent::~Succulent()
 {
     // still need to verify object flow of control
@@ -175,23 +214,37 @@ Succulent::~Succulent()
 
 //............... PEANUTCACTUS...................//
 
+/*!
+ * @brief Basic constructor for PeanutCactus
+ */
 PeanutCactus::PeanutCactus() : Succulent()
 {
     plant_type = toUpperCase("peanutcactus");
     plant_price = 35.00;
 }
 
+/*!
+ * @brief Basic destructor for PeanutCactus
+ */
 PeanutCactus::~PeanutCactus()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *PeanutCactus::clone()
 {
     Plant *copy = new PeanutCactus();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string PeanutCactus::getDetails()
 {
     string det;
@@ -204,34 +257,57 @@ string PeanutCactus::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double PeanutCactus::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void PeanutCactus::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");
 }
 //............. HOUSELEEK ...................//
 
+/*!
+ * @brief Basic constructor for HouseLeek
+ */
 HouseLeek::HouseLeek() : Succulent()
 {
     plant_type = toUpperCase("houseleek");
     plant_price = 35.50;
 }
 
+/*!
+ * @brief Basic destructor for HouseLeek
+ */
 HouseLeek::~HouseLeek()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *HouseLeek::clone()
 {
     Plant *copy = new HouseLeek();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string HouseLeek::getDetails()
 {
     string det;
@@ -244,22 +320,37 @@ string HouseLeek::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double HouseLeek::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void HouseLeek::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");
 }
 //................ FLOWER ....................//
 
+/*!
+ * @brief Basic constructor for Flowers
+ */
 Flower::Flower() : Plant()
 {
     group = toUpperCase("flower");
 }
 
+/*!
+ * @brief Basic destructor for Flowers
+ */
 Flower::~Flower()
 {
     // still need to verify object flow of control
@@ -267,23 +358,37 @@ Flower::~Flower()
 
 //...................... ORCHID ..................... //
 
+/*!
+ * @brief Basic constructor for Orchid
+ */
 Orchid::Orchid() : Flower()
 {
     plant_type = toUpperCase("orchid");
     plant_price = 160.00;
 }
 
+/*!
+ * @brief Basic destructor for Orchid
+ */
 Orchid::~Orchid()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *Orchid::clone()
 {
     Plant *copy = new Orchid();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string Orchid::getDetails()
 {
     string det;
@@ -296,34 +401,57 @@ string Orchid::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double Orchid::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void Orchid::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");
 }
 //................. MARIGOLD ..................//
 
+/*!
+ * @brief Basic constructor for Marigold
+ */
 Marigold::Marigold() : Flower()
 {
     plant_type = toUpperCase("marigold");
     plant_price = 16.00;
 }
 
+/*!
+ * @brief Basic destructor for Marigold
+ */
 Marigold::~Marigold()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *Marigold::clone()
 {
     Plant *copy = new Marigold();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string Marigold::getDetails()
 {
     string det;
@@ -336,22 +464,37 @@ string Marigold::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double Marigold::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void Marigold::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");
 }
 //................. SHRUB ...................//
 
+/*!
+ * @brief Basic constructor for Shrubs
+ */
 Shrub::Shrub() : Plant()
 {
     group = toUpperCase("shrub");
 }
 
+/*!
+ * @brief Basic destructor for Shrubs
+ */
 Shrub::~Shrub()
 {
     // still need to verify object flow of control
@@ -359,23 +502,37 @@ Shrub::~Shrub()
 
 //................. BEEBLOSSOM ...................//
 
+/*!
+ * @brief Basic constructor for BeeBlossom
+ */
 BeeBlossom::BeeBlossom() : Shrub()
 {
     plant_type = toUpperCase("beeblossom");
     plant_price = 21.00;
 }
 
+/*!
+ * @brief Basic destructor for BeeBlossom
+ */
 BeeBlossom::~BeeBlossom()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *BeeBlossom::clone()
 {
     Plant *copy = new BeeBlossom();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string BeeBlossom::getDetails()
 {
     string det;
@@ -388,34 +545,57 @@ string BeeBlossom::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double BeeBlossom::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void BeeBlossom::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");
 }
 //............... HONEYSUCKLE...................//
 
+/*!
+ * @brief Basic constructor for HoneySuckle
+ */
 HoneySuckle::HoneySuckle() : Shrub()
 {
     plant_type = toUpperCase("honeysuckle");
     this->plant_price = 39.95;
 }
 
+/*!
+ * @brief Basic destructor for HoneySuckle
+ */
 HoneySuckle::~HoneySuckle()
 {
     // still need to verify object flow of control
 }
 
+/*!
+ *
+ * @return Clone of current Plant object
+ */
 Plant *HoneySuckle::clone()
 {
     Plant *copy = new HoneySuckle();
     return copy;
 }
 
+/*!
+ *
+ * @return String for all relevant details of the Plant object
+ */
 string HoneySuckle::getDetails()
 {
     string det;
@@ -428,11 +608,20 @@ string HoneySuckle::getDetails()
     return det;
 }
 
+/*!
+ *
+ * @return Basic cost of the Plant
+ */
 double HoneySuckle::getCost()
 {
     return plant_price;
 }
 
+/*!
+ * @brief Trap function to catch logic errors
+ *
+ * @param _plant
+ */
 void HoneySuckle::decorate(Plant *_plant)
 {
     cout << errorMessage("You not supposed to use decorate from concretePlant");

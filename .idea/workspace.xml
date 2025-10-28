@@ -27,36 +27,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Box.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Box.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Box.h" beforeDir="false" afterPath="$PROJECT_DIR$/Box.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Command.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Command.h" beforeDir="false" afterPath="$PROJECT_DIR$/Command.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Customer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Horticulturist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Horticulturist.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InventoryClerk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryClerk.h" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Memento.h" beforeDir="false" afterPath="$PROJECT_DIR$/Memento.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Order.h" beforeDir="false" afterPath="$PROJECT_DIR$/Order.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Memento.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Memento.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Order.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Plant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plant.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plant.h" beforeDir="false" afterPath="$PROJECT_DIR$/Plant.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlantCare.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantCare.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlantDecorator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantDecorator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantDecorator.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantDecorator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantFactory.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlantState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantState.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Request.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Request.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Request.h" beforeDir="false" afterPath="$PROJECT_DIR$/Request.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shelf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shelf.h" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimulationTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimulationTime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimulationTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/SimulationTime.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libraries.h" beforeDir="false" afterPath="$PROJECT_DIR$/libraries.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,12 +74,20 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;OPhelia2024&quot;
-  }
-}</component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
+  <component name="GitHubPullRequestState"><![CDATA[{
+  "prStates": [
+    {
+      "id": {
+        "id": "PR_kwDOP2ofYs6vQF-m",
+        "number": 1
+      },
+      "lastSeen": 1761671302147
+    }
+  ]
+}]]></component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen&quot;,
@@ -247,7 +243,7 @@
       <workItem from="1761664804388" duration="113000" />
       <workItem from="1761664929900" duration="50000" />
       <workItem from="1761665185516" duration="66000" />
-      <workItem from="1761665344208" duration="4161000" />
+      <workItem from="1761665344208" duration="10076000" />
     </task>
     <task id="LOCAL-00001" summary="Defined all classes and function as specified in class diagram">
       <option name="closed" value="true" />
@@ -361,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761633959853</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Doxygen for all header files">
+      <option name="closed" value="true" />
+      <created>1761671347669</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761671347669</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +382,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Josh" />
+                        <option value="Kalu" />
                       </list>
                     </value>
                   </entry>
@@ -405,7 +409,9 @@
     <MESSAGE value="Dead State added to PlantState. Minor changes to Plant class" />
     <MESSAGE value="Combining all files and sorting out interactions" />
     <MESSAGE value="minor commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor commit" />
+    <MESSAGE value="Currently busy with the restructuring of the&#10;Inventory &amp; Staff cor-ordination" />
+    <MESSAGE value="Doxygen for all header files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doxygen for all header files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
