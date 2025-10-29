@@ -10,14 +10,13 @@ class PlantCare {
 public:
     PlantCare();
     virtual ~PlantCare();
-    virtual bool executeCare();
-    virtual string getCareType();
+    virtual bool executeCare() = 0;
+    virtual string getCareType() = 0;
 };
 
 class SunlightStrategy : public PlantCare {
 public:
     SunlightStrategy();
-    ~SunlightStrategy() override;
     bool executeCare();
     string getCareType();
 };
@@ -25,7 +24,6 @@ public:
 class WateringStrategy : public PlantCare {
 public:
     WateringStrategy();
-    ~WateringStrategy() override;
     bool executeCare();
     string getCareType();
 };
@@ -33,7 +31,6 @@ public:
 class FertilizingStrategy : public PlantCare {
 public:
     FertilizingStrategy();
-    ~FertilizingStrategy() override;
     bool executeCare();
     string getCareType();
 };
@@ -41,7 +38,6 @@ public:
 class CompositeCareStrategy : public PlantCare {
 public:
     CompositeCareStrategy();
-    ~CompositeCareStrategy() override;
     bool executeCare();
     string getCareType();
 };

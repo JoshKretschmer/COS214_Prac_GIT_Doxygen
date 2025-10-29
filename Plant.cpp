@@ -16,8 +16,7 @@
 Plant::Plant() {
     health = 0;
     currState = new SeedingState();
-
-    //initialize careRegime here
+    careRegime = new CompositeCareStrategy();
 }
 
 /*!
@@ -96,37 +95,42 @@ string Plant::getState() {
     return currState->getStateName();
 }
 
-Plant* Plant::clone() {
-    Plant* newPlant = new Plant();
-    newPlant->id = this->id;
-    newPlant->type = this->type;
-    newPlant->price = this->price;
-    newPlant->health = this->health;
-    if (this->getState() == "Seeding") {
-        newPlant->currState = new SeedingState();
-    } else if (this->getState() == "Growing") {
-        newPlant->currState = new GrowingState();
-    } else if (this->getState() == "Matured") {
-        newPlant->currState = new MatureState();
-    }
-    else if (this->getState() == "Moulting") {
-        newPlant->currState = new MoultState();
-    }
-    else if (this->getState() == "Dead") {
-        return nullptr;
+/*!
+ * @return Concrete copy of Plant object
+ */
+Plant *Plant::clone() {
+    Plant *newPlant;
+
+    if (this->type == "Succulent") {
+        if (this->getID().substr(0,2) == "PC") {
+            newPlant = new PeanutCactus();
+        } else if (this->getID().substr(0,2) == "HL") {
+            newPlant = new HouseLeek();
+        }
+    } else if (this->type == "Flower") {
+        if (this->getID().substr(0,2) == "OR") {
+            newPlant = new Orchid();
+        } else if (this->getID().substr(0,2) == "MG") {
+            newPlant = new Marigold();
+        }
+    } else if (this->type == "Shrub") {
+        if (this->getID().substr(0,2) == "BB") {
+            newPlant = new BeeBlossom();
+        } else if (this->getID().substr(0,2) == "HS") {
+            newPlant = new HoneySuckle();
+        }
     }
 
-    if (this->careRegime->getCareType() == "Sunlight") {
-        newPlant->careRegime = new SunlightStrategy();
-    } else if (this->careRegime->getCareType() == "Watering") {
-        newPlant->careRegime = new WateringStrategy();
-    } else if (this->careRegime->getCareType() == "Fertilizing") {
-        newPlant->careRegime = new FertilizingStrategy();
-    } else if (this->careRegime->getCareType() == "Composite") {
-        newPlant->careRegime = new CompositeCareStrategy();
-    }
+    newPlant->id = this->id;
+    newPlant->type = this->type;   //redundancy for double-checking
+    newPlant->price = this->price;
+    newPlant->currState = this->currState;
+    newPlant->careRegime = this->careRegime;
+    newPlant->health = this->health;
+
     return newPlant;
 }
+
 
 
 //#####################################################

@@ -2,6 +2,11 @@
 
 int Staff::instanceCount = 1;
 
+/*!
+ * @brief Basic constructor for general Staff
+ *
+ * @param _name value for staffName attribute
+ */
 Staff::Staff(string _name)
 {
     staffName = _name;
@@ -11,6 +16,9 @@ Staff::Staff(string _name)
     nextHandler = NULL;
 }
 
+/*!
+ * @brief Basic destructor for general Staff
+ */
 Staff::~Staff()
 {
     nextHandler = NULL;
@@ -18,11 +26,20 @@ Staff::~Staff()
     instanceCount--;
 }
 
+/*!
+ *
+ * @param _handler Next Staff object in chain of command
+ */
 void Staff::setNextHandler(Staff * _handler)
 {
     nextHandler = _handler;
 }
 
+/*!
+ * @brief Sends the Command object to the nextHandler Staff object
+ *
+ * @param command Command object to be forwarded
+ */
 void Staff::forwardCommand(Command* command)
 {
     if(nextHandler)
@@ -35,6 +52,11 @@ void Staff::forwardCommand(Command* command)
     }
 }
 
+/*!
+ * @brief Checks if this Staff can handle the Command, if not the Command is forwarded
+ *
+ * @param command Command object to be executed
+ */
 void Staff::handleCommand(Command* command)
 {
     if(command->hasAccess(staffType))

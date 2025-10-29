@@ -50,6 +50,10 @@ string ArrangementDecorator::getDetails() {
     return det;
 }
 
+/*!
+ *
+ * @return Concrete clone of Decorator object
+ */
 PlantDecorator* ArrangementDecorator::clone() {
     Plant* newP = this->getWrapped()->clone();
 
@@ -106,6 +110,10 @@ double PotDecorator::getCost() {
     return cost;
 }
 
+/*!
+ *
+ * @return Concrete clone of Decorator object
+ */
 PlantDecorator *PotDecorator::clone() {
     Plant* newP = this->getWrapped()->clone();
 
@@ -148,6 +156,10 @@ double WrapDecorator::getCost() {
     return cost;
 }
 
+/*!
+ *
+ * @return Concrete clone of Decorator object
+ */
 PlantDecorator *WrapDecorator::clone() {
     Plant* newP = this->getWrapped()->clone();
 

@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
+//will do doxygen after rewrite
 //##########################################################
 InventoryComponent::InventoryComponent(NurseryMediator* med) : mediator(med) {}
 

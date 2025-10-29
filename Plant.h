@@ -29,11 +29,11 @@ using namespace std;
 class Plant{
     protected:
         string id;//
-        string type;//
-        double price;//
+        string type;
+        double price;
         PlantState* currState;//
         PlantCare* careRegime;
-        int health;//
+        int health;
     public:
         Plant();
         virtual ~Plant();
