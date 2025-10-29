@@ -217,7 +217,40 @@ void chainOfResponsibility_test_horticulturist()
 
 }
 
+void IteratorTest(){
+     Inventory* inventory = new Inventory(3);
 
+     InventoryClerk* inventoryClerk = new InventoryClerk("John Doe");
+     inventoryClerk->assignJob(inventory);
+
+     Horticulturist* horticulturist = new Horticulturist("Speedy Weedy");
+
+     horticulturist->setNextHandler(inventoryClerk);
+
+     horticulturist->movePlantToInventory(new Orchid());
+     horticulturist->movePlantToInventory(new Orchid());
+     horticulturist->movePlantToInventory(new Orchid());
+     horticulturist->movePlantToInventory(new Orchid());
+     horticulturist->movePlantToInventory(new HouseLeek());
+     horticulturist->movePlantToInventory(new Marigold());
+     horticulturist->movePlantToInventory(new BeeBlossom());
+     horticulturist->movePlantToInventory(new PeanutCactus());
+     horticulturist->movePlantToInventory(new HoneySuckle());
+
+     inventory->peak();
+     if (inventory->isPresent("This is a wrong plat type")){
+          cout << "This message should not get seen\n"; 
+     }
+     if (inventory->isPresent("ORCHID")){
+          cout <<"The inventory contains an orchid\n";
+     }
+     if (inventory->isPresent("Peanutcactus")){
+          cout <<"inventory doesnt contain this\n";
+     }
+     if (inventory->isPresent("Beeblossom")){
+          cout <<"if this shows, all is good\n";
+     }
+}
 
 int main(int argc, char const *argv[])
 {
@@ -230,6 +263,7 @@ int main(int argc, char const *argv[])
      request_test();
      command_test();
      chainOfResponsibility_test_horticulturist();
+     IteratorTest();
 
      /*SimulationTime simulationTime;
      simulationTime.initialize();

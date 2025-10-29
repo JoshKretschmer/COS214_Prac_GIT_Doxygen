@@ -1,22 +1,12 @@
 #ifndef STAFF_H
 #define STAFF_H
 
-/*!
- * @headerfile Staff.h
- */
 #include "libraries.h"
 #include "Request.h"
 #include "Command.h"
 
 class Command;
 
-/*!
- * @class Staff
- *
- * @brief Parent/Base class for the various kinds of Staff Objects
- *
- * Staff Objects are responsible for various activities in the system and can send requests on to other staff members if they are unable to complete a task
- */
 class Staff
 {
 protected:

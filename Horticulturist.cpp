@@ -1,10 +1,5 @@
 #include "Horticulturist.h"
 
-/*!
- *
- *
- * @param command Command object containing a request to be executed
- */
 void Horticulturist::executeTask(Command* command)
 {
     Request* request = command->execute();
@@ -13,29 +8,16 @@ void Horticulturist::executeTask(Command* command)
     // types of request it had do is yet to be discussed :)
 }
 
-/*!
- * @brief Creator function
- *
- * @param name Name of the staff member
- */
 Horticulturist::Horticulturist(string name) : Staff(name)
 {
     staffName = toUpperCase("horticulturist");
 }
 
-/*!
- * @brief Basic destructor
- */
 Horticulturist::~Horticulturist()
 {
     //no memory management as of yet
 }
 
-/*!
- * @brief Creates an inventoryCommand containing a request to add a Plant object to the Inventory
- *
- * @param plant Plant object to be moved
- */
 void Horticulturist::movePlantToInventory(Plant* plant)
 {
     Request* request = new Request();

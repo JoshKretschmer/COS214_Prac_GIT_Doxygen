@@ -1,8 +1,6 @@
 #ifndef REQUEST_H
 #define REQUEST_H
-/*!
- * @headerfile Request.h
- */
+
 #include "libraries.h"
 #include "Staff.h"
 #include "Plant.h"
@@ -10,11 +8,6 @@
 class Staff;
 class Plant;
 
-/*!
- * @class Request
- *
- * @brief Used by Staff objects to ask another to do a required action
- */
 class Request {
     private:
 
