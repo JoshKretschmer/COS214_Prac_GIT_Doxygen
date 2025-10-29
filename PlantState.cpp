@@ -1,129 +1,158 @@
+/*!
+*  @file PlantState.cpp
+ *
+ * @brief Contains function definitions for the PlantState functions defined in PlantState.h
+ */
+
 #include "PlantState.h"
+#include "Plant.h"
+#include <iostream>
 
-PlantState::PlantState()
-{
-    // Constructor implementation
-   // cout<<"\nPlantState: Created\n";
+
+/*!
+ * @brief Basic constructor for PlantState class
+ */
+PlantState::PlantState() {
+
 }
 
-PlantState::~PlantState()
-{
-   // cout<<"\nPlantState: Destroyed\n";
-}
+/*!
+ * @brief Basic destructor for PlantState class
+ */
+PlantState::~PlantState() {
 
-
-//################################################
-
-
-SeedingState::SeedingState()
-{
-   // cout<<"\nSeedingState: Created\n";;
-}
-
-int SeedingState::handleCare(Plant* plant)
-{
-    // Example: auto-transition
-    PlantState* newState = new GrowingState();
-    string oldState = plant->getState();
-    plant->changeState(newState);
-    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
-
-    return 50;
-}
-
-string SeedingState::getStateName()
-{
-    return toUpperCase("seeding");
 }
 
 
 //################################################
 
-
-GrowingState::GrowingState()
-{
-   // cout << "\nGrowingState: Created\n";
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress to GrowingState, or be removed from the system due to failed care
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
+void SeedingState::handleCare(Plant *plant) {
+    int hp = plant->getHealth();
+    if (hp >= 2) {
+        //go to GrowingState
+        plant->changeState(new GrowingState);
+    } else if (hp < 0) {
+        cout << "Plant " + plant->getID() + " has died.\n";
+        plant->changeState(new DeadState);
+    }
 }
 
-int GrowingState::handleCare(Plant* plant)
-{
-    // Example: auto-transition
-    PlantState* newState = new MatureState();
-    string oldState = plant->getState();
-    plant->changeState(newState);
-    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
-    
-    return 50;
-}
-
-string GrowingState::getStateName()
-{
-    return toUpperCase("growing");
-}
-
-
-//################################################
-
-
-MatureState::MatureState()
-{
-   // cout<<"\nMatureState: Created\n";
-}
-
-int MatureState::handleCare(Plant* plant)
-{
-    // Example: auto-transition
-    PlantState* newState = new MoultState();
-    string oldState = plant->getState();
-    plant->changeState(newState);
-    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
-
-    return -75;
-}
-
-string MatureState::getStateName()
-{
-    return toUpperCase("mature");
+/*!
+ * @return "Seeding"
+ */
+string SeedingState::getStateName() {
+    return "Seeding";
 }
 
 
 //################################################
 
-
-MoultState::MoultState()
-{
-  // cout<<"\nMoultState: Created\n";
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress to MatureState, or regress to MoultState
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
+void GrowingState::handleCare(Plant* plant) {
+    int hp = plant->getHealth();
+    if (hp <=1) {
+        //go to moult state
+        plant->changeState(new MoultState);
+    } else if (hp >= 4) {
+        //go to matureState
+        plant->changeState(new MatureState);
+    }
 }
 
-int MoultState::handleCare(Plant* plant)
-{
-    // Example: auto-transition
-    PlantState* newState = new DeadState();
-    string oldState = plant->getState();
-    plant->changeState(newState);
-    cout<<"\nPlant changed from: "<<oldState<<" to "<<newState->getStateName()<<endl;
-
-    return -25;
+/*!
+ * @return "Growing"
+ */
+string GrowingState::getStateName() {
+    return "Growing";
 }
 
+
+//################################################
+
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can regress to MoultState, or be removed from the system due to sale
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
+void MatureState::handleCare(Plant* plant) {
+    int hp = plant->getHealth();
+    if (hp <= 2) {
+        //go to MoultState
+        plant->changeState(new MoultState);
+    }
+}
+
+/*!
+ * @return "Matured"
+ */
+string MatureState::getStateName() {
+    return "Matured";
+}
+
+
+//################################################
+
+/*!
+ * @brief Determines which state change should occur, if any, according to Plant->health
+ *
+ * Plant object can progress back to GrowingState, or be removed from the system due to failed care
+ * Called after any plant care function is executed
+ *
+ * @param plant Plant object for which the state is being checked (and perhaps changed)
+ */
+void MoultState::handleCare(Plant* plant) {
+    int hp = plant->getHealth();
+    if (hp <= 0) {
+        //plant has died
+        cout << "Plant " + plant->getID() + " has died.\n";
+        plant->changeState(new DeadState);
+    } else if (hp >= 3) {
+        //go to growing state
+        plant->changeState(new GrowingState);
+    }
+}
+
+/*!
+ * @return "Moulting"
+ */
 string MoultState::getStateName() {
-    return toUpperCase("moult");
+    return "Moulting";
 }
 
+//################################################
 
-//###############################################
-
-
-int DeadState::handleCare(Plant *plant)
-{
-    cout<<"\nDeadState: Plant is dead....\n";
-    cout<<errorMessage("No state change occured");
-
-    return 0;
-
+/*!
+ * @brief Placeholder function for dead plants that must be removed from system
+ *
+ * Exists to avoid errors that may be caused by attempting to care for a dead plant
+ *
+ * @param plant Plant object for which the state is being checked
+ */
+void DeadState::handleCare(Plant *plant) {
+    cout << "Dead\n";
 }
 
-string DeadState::getStateName()
-{
-    return toUpperCase("dead");
+/*!
+ * @return "Dead"
+ */
+string DeadState::getStateName() {
+    return "Dead";
 }

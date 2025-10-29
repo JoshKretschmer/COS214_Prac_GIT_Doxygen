@@ -1,45 +1,49 @@
 #ifndef PLANTCARE_H
 #define PLANTCARE_H
 
-#include "libraries.h"
-#include "Plant.h"
+#include <string>
+using namespace std;
 
 class Plant;
 
-class PlantCare
-{
-    public:
-        PlantCare();
-        virtual ~PlantCare();
-        virtual bool executeCare()=0;
-        virtual string getStrategyName()=0;
+class PlantCare {
+public:
+    PlantCare();
+    virtual ~PlantCare();
+    virtual bool executeCare();
+    virtual string getCareType();
 };
 
-class SunlightStrategy : public PlantCare
-{
-    public:
-        SunlightStrategy();
-        virtual ~SunlightStrategy();
-        virtual bool executeCare() override;
-        virtual string getStrategyName() override;
+class SunlightStrategy : public PlantCare {
+public:
+    SunlightStrategy();
+    ~SunlightStrategy() override;
+    bool executeCare();
+    string getCareType();
 };
 
-class WateringStrategy : public PlantCare
-{
-    public:
-        WateringStrategy();
-        ~WateringStrategy();
-        virtual bool executeCare() override;
-        virtual string getStrategyName() override;
+class WateringStrategy : public PlantCare {
+public:
+    WateringStrategy();
+    ~WateringStrategy() override;
+    bool executeCare();
+    string getCareType();
 };
 
-class FertilizingStrategy : public PlantCare
-{
-    public:
-        FertilizingStrategy();
-        ~FertilizingStrategy();
-        virtual bool executeCare() override;
-        virtual string getStrategyName() override;
+class FertilizingStrategy : public PlantCare {
+public:
+    FertilizingStrategy();
+    ~FertilizingStrategy() override;
+    bool executeCare();
+    string getCareType();
+};
+
+class CompositeCareStrategy : public PlantCare {
+public:
+    CompositeCareStrategy();
+    ~CompositeCareStrategy() override;
+    bool executeCare();
+    string getCareType();
 };
 
 

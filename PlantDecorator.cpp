@@ -1,152 +1,158 @@
+/*!
+*  @file PlantDecorator.cpp
+ *
+ *  @brief Contains function definitions for the PlantDecorator functions defined in PlantDecorator.h
+ */
+
 #include "PlantDecorator.h"
 
-PlantDecorator::PlantDecorator()
-{
-    wrappedPlant = NULL;
+//Plant (Component) is ConcretePlant (ConcreteComponent)
+
+//#################################################
+
+/*!
+ * @brief Basic constructor function for PlantDecorator
+ */
+PlantDecorator::PlantDecorator() {
+    wrappedPlant=nullptr;
 }
 
-PlantDecorator::~PlantDecorator()
-{
-    // delete wrappedPlant;   Still nee to verify object flow of control.
+/*!
+ * @brief Basic destructor function for PlantDecorator
+ */
+PlantDecorator::~PlantDecorator() {
+    delete wrappedPlant;
 }
 
-double PlantDecorator::getCost()
-{
-    double cost = decorator_price;
+/*!
+ * @brief Basic setter function for wrappedPlant attribute
+ *
+ * @param wrappedPlant Plant object to be attached to the Decorator object
+ */
+void PlantDecorator::setWrapped(Plant* wrappedPlant) {
+    this->wrappedPlant = wrappedPlant;
+}
 
-    if (wrappedPlant == NULL)
-    {
+//#################################################
 
-        cout << errorMessage("Plant to be decorated has not been set");
+/*!
+ * Return string gotten for wrappedPlant object, appended with "Decoration: Arrangement"
+ *
+ * @return Basic details of decorated plant
+ */
+string ArrangementDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
     }
-    else
-    {
-        cost += wrappedPlant->getCost();
+
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Arrangement \n";
+    return det;
+}
+
+PlantDecorator* ArrangementDecorator::clone() {
+    Plant* newP = this->getWrapped()->clone();
+
+    ArrangementDecorator* newD = new ArrangementDecorator();
+    newD->setWrapped(newP);
+
+    return newD;
+}
+
+/*!
+ * @brief Calculates the price as wrappedPlant->price + 10.00
+ *
+ * @return Full price of decorated plant
+ */
+double ArrangementDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
     }
 
+    double cost = getWrapped()->getCost();
+    cost += 10;
     return cost;
 }
 
-string PlantDecorator::getDetails()
-{
-    string decoratorDetails = "Decoration Type: " + decorator_type + "\n" + "Decoration fee: " + to_string(decorator_price);
-    string details = "";
+//#################################################
 
-    if (wrappedPlant == nullptr)
-    {
-        details = "\n" + decoratorDetails + "\n";
-        cout << errorMessage("Plant to be decorated has not been set");
-    }
-    else
-    {
-        details = wrappedPlant->getDetails() + decoratorDetails + "\n";
-    }
-    return details;
-}
-
-void PlantDecorator::decorate(Plant *_plant)
-{
-    if (wrappedPlant == NULL)
-    {
-        wrappedPlant = _plant;
-    }
-    else
-    {
-        cout << errorMessage("\nPlant is already decorated\n");
-    }
-}
-
-// #################################################
-
-ArrangementDecorator::ArrangementDecorator() : PlantDecorator()
-{
-    decorator_price = 10.00;
-    decorator_type = toUpperCase("arrangement");
-}
-
-ArrangementDecorator::~ArrangementDecorator()
-{
-    // still need to verify object flow
-}
-
-Plant* ArrangementDecorator::clone()
-{
-    Plant* copy_wrappedPlant = NULL;
-    Plant* copy_decorator = NULL;
-
-    if(wrappedPlant)
-    {
-        copy_wrappedPlant = wrappedPlant->clone();
-        copy_decorator = new ArrangementDecorator();
-        copy_decorator->decorate(copy_wrappedPlant);
-    }
-    else
-    {
-        copy_decorator = new ArrangementDecorator();
+/*!
+ * Return string gotten for wrappedPlant object, appended with "Decoration: Pot"
+ *
+ * @return Basic details of decorated plant
+ */
+string PotDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
     }
 
-    return copy_decorator;
-}
-// #################################################
-
-PotDecorator::PotDecorator()
-{
-    decorator_price = 20.00;
-    decorator_type = toUpperCase("pot");
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Pot \n";
+    return det;
 }
 
-PotDecorator::~PotDecorator()
-{
-    // still need to verify object flow
-}
-
-Plant* PotDecorator::clone()
-{
-    Plant* copy_wrappedPlant = NULL;
-    Plant* copy_decorator = NULL;
-
-    if(wrappedPlant)
-    {
-        copy_wrappedPlant = wrappedPlant->clone();
-        copy_decorator = new PotDecorator();
-        copy_decorator->decorate(copy_wrappedPlant);
-    }
-    else
-    {
-        copy_decorator = new PotDecorator();
+/*!
+ * @brief Calculates the price as wrappedPlant->price + 20.00
+ *
+ * @return Full price of decorated plant
+ */
+double PotDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
     }
 
-    return copy_decorator;
+    double cost = getWrapped()->getCost();
+    cost += 20;
+    return cost;
 }
 
-// #################################################
+PlantDecorator *PotDecorator::clone() {
+    Plant* newP = this->getWrapped()->clone();
 
-WrapDecorator::WrapDecorator()
-{
-    decorator_price = 15.00;
-    decorator_type = toUpperCase("wrap");
+    PotDecorator* newD = new PotDecorator();
+    newD->setWrapped(newP);
+
+    return newD;
 }
 
-WrapDecorator::~WrapDecorator()
-{
-    // still need to verify object flow
-}
 
-Plant* WrapDecorator::clone()
-{
-    Plant* copy_wrappedPlant = NULL;
-    Plant* copy_decorator = NULL;
+//#################################################
 
-    if(wrappedPlant)
-    {
-        copy_wrappedPlant = wrappedPlant->clone();
-        copy_decorator = new WrapDecorator();
-        copy_decorator->decorate(copy_wrappedPlant);
-    }
-    else
-    {
-        copy_decorator = new WrapDecorator();
+/*!
+ * Return string gotten for wrappedPlant object, appended with "Decoration: Wrap"
+ *
+ * @return Basic details of decorated plant
+ */
+string WrapDecorator::getDetails() {
+    if (this->getWrapped() == nullptr) {
+        return "Plant to be decorated has not been set";
     }
 
-    return copy_decorator;
+    string det = getWrapped()->getDetails();
+    det += "Decoration: Wrap \n";
+    return det;
+}
+
+/*!
+ * @brief Calculates the price as wrappedPlant->price + 15.00
+ *
+ * @return Full price of decorated plant
+ */
+double WrapDecorator::getCost() {
+    if (this->getWrapped() == nullptr) {
+        return 0;
+    }
+
+    double cost = getWrapped()->getCost();
+    cost += 15;
+    return cost;
+}
+
+PlantDecorator *WrapDecorator::clone() {
+    Plant* newP = this->getWrapped()->clone();
+
+    WrapDecorator* newD = new WrapDecorator();
+    newD->setWrapped(newP);
+
+    return newD;
 }

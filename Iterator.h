@@ -1,30 +1,31 @@
 #ifndef ITERATOR_H
 #define ITERATOR_H
 
-class Inventory;
-
 #include "Plant.h"
-#include <vector>
-#include <string>
+#include "Inventory.h"
+
+class Plant;
+class Inventory;
 
 class Iterator {
 public:
-    virtual ~Iterator() {}
-    virtual bool hasNext() = 0;
-    virtual Plant* next() = 0;
+    Iterator();
+    virtual ~Iterator();
+    virtual bool hasNext();
+    virtual Plant* next();
 };
 
 class InventoryIterator : public Iterator {
 private:
     Inventory* inventory;
-    int shelfIndex;
-    int boxIndex;
+    int currentIndex;
 public:
-    explicit InventoryIterator(Inventory* inv);
-    bool hasNext() override;
-    Plant* next() override;
-    void reset();
+    InventoryIterator(Inventory* inventory);
+    Plant* next();
+    bool hasNext();
 };
 
-#endif // ITERATOR_H
+
+
+#endif //ITERATOR_H
 

@@ -1,64 +1,86 @@
 #include "PlantCare.h"
+#include <iostream>
 
-PlantCare::PlantCare()
-{
+using namespace std;
 
+PlantCare::PlantCare() {
+
+}
+
+bool PlantCare::executeCare() {
+    return true;
 }
 
 //#############################################
 
-SunlightStrategy::SunlightStrategy()
-{
+SunlightStrategy::SunlightStrategy() {
 
 }
 
-bool SunlightStrategy::executeCare()
-{
-    cout<<"\nProviding sunlight to the plant...\n";
+bool SunlightStrategy::executeCare() {
+    cout << "Providing sunlight to the plant." << endl;
     return true;
 }
 
-string SunlightStrategy::getStrategyName()
-{
-    return toUpperCase("sunlight");
+string SunlightStrategy::getCareType() {
+    return "Sunlight";
 }
 
 //#############################################
 
-WateringStrategy::WateringStrategy()
-{
+WateringStrategy::WateringStrategy() {
 
 }
 
-bool WateringStrategy::executeCare()
-{
-    cout<<"\nWatering the plant...\n";
+bool WateringStrategy::executeCare() {
+    cout << "Watering the plant." << endl;
     return true;
 }
 
-string WateringStrategy::getStrategyName()
-{
-    return toUpperCase("watering");
+string WateringStrategy::getCareType() {
+    return "Watering";
 }
+
 //#############################################
 
-FertilizingStrategy::FertilizingStrategy()
-{
+FertilizingStrategy::FertilizingStrategy() {
 
 }
 
-bool FertilizingStrategy::executeCare()
-{
-    cout<<"\nFertilizing the plant...\n";
+bool FertilizingStrategy::executeCare() {
+    cout << "Fertilizing the plant." << endl;
     return true;
 }
 
-string FertilizingStrategy::getStrategyName()
-{
-    return toUpperCase("fertilizing");
+string FertilizingStrategy::getCareType() {
+    return "Fertilizing";
 }
 
-PlantCare::~PlantCare() {}  
+//#############################################
+
+CompositeCareStrategy::CompositeCareStrategy() {
+
+}
+
+bool CompositeCareStrategy::executeCare() {
+    cout << "Executing composite care strategy:" << endl;
+    SunlightStrategy sunlight;
+    WateringStrategy water;
+    FertilizingStrategy fertilize;
+
+    sunlight.executeCare();
+    water.executeCare();
+    fertilize.executeCare();
+
+    return true;
+}
+
+string CompositeCareStrategy::getCareType() {
+    return "Composite";
+}
+
+PlantCare::~PlantCare() {}
 SunlightStrategy::~SunlightStrategy() {}
 WateringStrategy::~WateringStrategy() {}
 FertilizingStrategy::~FertilizingStrategy() {}
+CompositeCareStrategy::~CompositeCareStrategy() {}

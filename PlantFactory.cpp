@@ -1,66 +1,81 @@
+/*!
+*  @file PlantFactory.cpp
+ *
+ * @brief Contains function definitions for the PlantFactory functions defined in PlantFactory.h
+ */
+
 #include "PlantFactory.h"
 
-PlantFactory::PlantFactory()
-{
+/*!
+ * @brief Basic constructor for PlantFactory
+ */
+PlantFactory::PlantFactory() {
 
 }
 
-
-PlantFactory::~PlantFactory()
-{
+/*!
+ * @brief Basic destructor for PlantFactory
+ */
+PlantFactory::~PlantFactory() {
 
 }
 
+//###############################################
 
-Plant *CreateSucculent::createPlant(string name)
-{
-    if(toUpperCase(name) == "PEANUTCACTUS")
-    {
+/*!
+ * @brief Creator function for Plant objects of type Succulent
+ * Takes "HouseLeek" or "PeanutCactus" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
+Plant *CreateSucculent::createPlant(string name) {
+    if (name == "PeanutCactus") {
         return new PeanutCactus();
-    } 
-    else if(toUpperCase(name) == "HOUSELEEK")
-    {
+    } else if (name == "HouseLeek") {
         return new HouseLeek();
-    } 
-    else
-    {
-        std::cout<<errorMessage("Invalid name...");
-        return NULL;
+    } else {
+        std::cerr << "Invalid plant name " + name + ", please try again" << std::endl ;
+        return nullptr;
     }
 }
 
+//###############################################
 
-Plant *CreateFlower::createPlant(string name)
-{
-    if(toUpperCase(name) == "MARIGOLD")
-    {
+/*!
+ * @brief Creator function for Plant objects of type Flower
+ * Takes "Marigold" or "Orchid" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
+Plant *CreateFlower::createPlant(string name) {
+    if (name == "Marigold") {
         return new Marigold();
-    } 
-    else if(toUpperCase(name) == "ORCHID")
-    {
+    } else if (name == "Orchid") {
         return new Orchid();
-    } 
-    else
-    {
-        std::cout<<errorMessage("Invalid name...");
-        return NULL;
+    } else {
+        std::cerr << "Invalid plant name " + name + ", please try again" << std::endl ;
+        return nullptr;
     }
 }
 
+//###############################################
 
-Plant *CreateShrub::createPlant(string name)
-{
-    if (toUpperCase(name) == "HONEYSUCKLE")
-    {
+/*!
+ * @brief Creator function for Plant objects of type Shrub
+ * Takes "HoneySuckle" or "BeeBlossom" as input, or gives an error and returns nullptr
+ *
+ * @param name Specifies which plant object to create
+ * @return Plant object of specified class, or nullptr as error
+ */
+Plant *CreateShrub::createPlant(string name) {
+    if (name == "HoneySuckle") {
         return new HoneySuckle();
-    } 
-    else if(toUpperCase(name) == "BEEBLOSSOM")
-    {
+    } else if (name == "BeeBlossom") {
         return new BeeBlossom();
-    } 
-    else
-    {
-        std::cout<<errorMessage("Invalid name...");
-        return NULL;
+    } else {
+        std::cerr << "Invalid plant name " + name + ", please try again" << std::endl ;
+        return nullptr;
     }
 }

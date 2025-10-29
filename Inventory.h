@@ -1,24 +1,67 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include "libraries.h"
-#include "Shelf.h"
+#include "Plant.h"
+#include "PlantState.h"
 #include "Iterator.h"
+#include <vector>
+#include <string>
+#include <map>
+using namespace std;
 
-class Inventory
-{
-private:
-    Shelf **shelves; //fixed at 3 shelves (Flower, Succalent, Shrub)
-    InventoryIterator* it;
+class InventoryIterator;
+class NurseryMediator;
+class PlantState;
+
+class InventoryComponent{
+protected:
+    NurseryMediator* mediator;
 public:
-    Inventory(int _shelfCapacity);
+    InventoryComponent(NurseryMediator* med);
+    virtual ~InventoryComponent();
+    void setMediator(NurseryMediator* med);
+    virtual void add(InventoryComponent* component);
+    virtual void remove(InventoryComponent* component);
+    virtual vector<Plant*> getPlants();
+    virtual void notifyObservers();
+    virtual void movePlant(Plant* plant, string newState);
+};
+
+class PlantGroup : public InventoryComponent {
+private:
+    string groupName;
+    vector<InventoryComponent*> children;
+public:
+    PlantGroup(string name, NurseryMediator* med = nullptr);
+    ~PlantGroup();
+    void add(InventoryComponent* component);
+    void remove(InventoryComponent* component);
+    vector<Plant*> getPlants();
+    void movePlant(Plant* plant, string newState);
+};
+
+class Inventory : public InventoryComponent {
+private:
+    vector<Plant*> plants;
+    map<string, int> stockLevels;
+    vector<PlantState*> states;
+    vector<PlantGroup*> groups;
+public:
+    Inventory(NurseryMediator* med);
     ~Inventory();
-    void addBox(Box* _box, string _shelfName);
-    Box* removeBox(string _boxID, string _shelfName);
-    void peak();
-    bool isPresent(string PlantType);
-    Shelf** getShelves();
+    void addPlant(Plant* plant);
+    void removePlant(string plantId);
+    void updateStock(string plantType,int quantity);
+    int getStockLevel(string plantType);
     InventoryIterator* createIterator();
+    void notifyObservers() override;
+    void notifyMediator(string updateType, Plant& plant);
+    int getPlantCount();
+    void add(InventoryComponent* component) override;
+    void remove(InventoryComponent* component) override;
+    vector<Plant*> getPlants() override;
+    void movePlant(Plant* plant, string newState) override;
 };
 
 #endif //INVENTORY_H
+

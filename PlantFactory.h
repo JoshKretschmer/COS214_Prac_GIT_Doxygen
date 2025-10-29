@@ -14,17 +14,17 @@ public:
 
 class CreateSucculent : public PlantFactory {
 public:
-    virtual Plant* createPlant(string name) override;
+    Plant* createPlant(string name);
 };
 
 class CreateFlower : public PlantFactory {
 public:
-    virtual Plant* createPlant(string name) override;
+    Plant* createPlant(string name);
 };
 
 class CreateShrub : public PlantFactory {
 public:
-    virtual Plant* createPlant(string name) override;
+    Plant* createPlant(string name);
 };
 
 #endif //PLANTFACTORY_H
