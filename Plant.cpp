@@ -97,7 +97,7 @@ string Plant::getState() {
 }
 
 Plant* Plant::clone() {
-    Plant* newPlant = nullptr;
+    Plant* newPlant = new Plant();
     newPlant->id = this->id;
     newPlant->type = this->type;
     newPlant->price = this->price;
@@ -113,8 +113,9 @@ Plant* Plant::clone() {
         newPlant->currState = new MoultState();
     }
     else if (this->getState() == "Dead") {
-        //do nothing, dead plants cannot be copied
+        return nullptr;
     }
+
     if (this->careRegime->getCareType() == "Sunlight") {
         newPlant->careRegime = new SunlightStrategy();
     } else if (this->careRegime->getCareType() == "Watering") {

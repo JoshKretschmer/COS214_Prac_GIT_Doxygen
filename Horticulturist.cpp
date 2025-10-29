@@ -10,7 +10,7 @@ void Horticulturist::executeTask(Command* command)
 
 Horticulturist::Horticulturist(string name) : Staff(name)
 {
-    staffName = toUpperCase("horticulturist");
+    staffName = "horticulturist";
 }
 
 Horticulturist::~Horticulturist()

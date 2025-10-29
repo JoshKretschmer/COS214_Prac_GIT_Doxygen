@@ -27,7 +27,7 @@ class Customer {
         Staff* salesPerson;
         
     public:
-        Customer(string name,string id, InventoryClerk* _clerk, Staff* _salesPerson);  // this makes sense coz a customer should know who they talking to
+        Customer(string name,string id, InventoryClerk* _clerk, Staff* _salesPerson);  // this makes sense coz a customer should know who they're talking to
         ~Customer();
         Request* makeRequest(string type, string details,string action);
         void browsePlants();

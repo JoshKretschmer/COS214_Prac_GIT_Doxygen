@@ -2,8 +2,6 @@
  *@headerfile Plant.h
  *
  *@brief Class hierarchy for main plant product
- *
- *Patterns: Factory, State, Strategy, Decorator, Observer, Composite
  */
 
 #ifndef PLANT_H

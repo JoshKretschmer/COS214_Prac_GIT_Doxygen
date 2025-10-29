@@ -17,7 +17,7 @@ protected:
     static int instanceCount;
     
 
-    void forwardCommand(Command* _command);  // <--- handled internally. Shoul not be able to forward a command on "request", no pun intended
+    void forwardCommand(Command* _command);  // <--- handled internally. Should not be able to forward a command on "request"
     
     virtual void executeTask(Command* _command)=0;
 

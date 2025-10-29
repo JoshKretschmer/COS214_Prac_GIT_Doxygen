@@ -16,7 +16,7 @@ public:
     Command(Request *_request);
     virtual ~Command();
     Request* execute();
-    bool hasAcess(string _staffType);
+    bool hasAccess(string _staffType);
 };
 
 class SalesCommand : public Command

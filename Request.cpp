@@ -46,7 +46,7 @@ void Request::setSender(Staff* _sender)
     }
     else
     {
-        cout<<errorMessage("Sender is a NULL object...");
+        cerr<<"Sender is a NULL object...";
     }
 }
 
@@ -58,7 +58,7 @@ void Request::setPlantObject( Plant* _plantObject)
     }
     else
     {
-        cout<<errorMessage("Plant is a NULL object");
+        cerr<<"Plant is a NULL object";
     }
 }
 

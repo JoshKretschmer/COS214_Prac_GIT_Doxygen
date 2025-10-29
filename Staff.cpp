@@ -14,7 +14,7 @@ Staff::Staff(string _name)
 Staff::~Staff()
 {
     nextHandler = NULL;
-    //Nothign to destruct as of yet
+    //Nothing to destruct
     instanceCount--;
 }
 
@@ -37,7 +37,7 @@ void Staff::forwardCommand(Command* command)
 
 void Staff::handleCommand(Command* command)
 {
-    if(command->hasAcess(staffType))
+    if(command->hasAccess(staffType))
     {
         executeTask(command);
     }

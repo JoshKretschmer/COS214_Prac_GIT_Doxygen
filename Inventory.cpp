@@ -5,19 +5,9 @@
 //##########################################################
 InventoryComponent::InventoryComponent(NurseryMediator* med) : mediator(med) {}
 
-InventoryComponent::~InventoryComponent() {}
+InventoryComponent::~InventoryComponent() {
 
-void InventoryComponent::setMediator(NurseryMediator* med) {
-    mediator = med;
 }
-
-void InventoryComponent::add(InventoryComponent* component) {}
-void InventoryComponent::remove(InventoryComponent* component) {}
-vector<Plant*> InventoryComponent::getPlants() { return vector<Plant*>(); }
-
-void InventoryComponent::movePlant(Plant* plant, string newState) {}
-
-void InventoryComponent::notifyObservers() {}
 
 //##########################################################
 PlantGroup::PlantGroup(string name, NurseryMediator* med) : groupName(name), InventoryComponent(med) {}

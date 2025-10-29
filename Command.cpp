@@ -8,7 +8,7 @@ Command::Command(Request*_request)
     }
     else
     {
-        cout<<errorMessage("requestQueue is NULL object...\nNothign initialized");
+        cerr<<"requestQueue is NULL object...\nNothing initialized";
     }
 }
 
@@ -18,9 +18,9 @@ Command::~Command()
     // only null the pointer
 }
 
-bool Command::hasAcess(string _staffType)
+bool Command::hasAccess(string _staffType)
 {
-    if(access == toUpperCase(_staffType))
+    if(access == _staffType)
     {
         return true;
     }
@@ -38,7 +38,7 @@ Request* Command::execute()
     }
     else
     {
-        cout<<errorMessage("request queue not set\nNULL returned...");
+        cerr<<"request queue not set\nNULL returned...";
         return NULL;
     }
 }
@@ -50,7 +50,7 @@ Request* Command::execute()
 
 InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
 {
-    access = toUpperCase("inventoryclerk");
+    access = "inventoryclerk";
 }
 
 InventoryCommand::~InventoryCommand()
@@ -62,7 +62,7 @@ InventoryCommand::~InventoryCommand()
 
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
-    access = toUpperCase("salesassociate");
+    access = "salesassociate";
 }
 
 SalesCommand::~SalesCommand()
@@ -75,7 +75,7 @@ SalesCommand::~SalesCommand()
 
 ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
 {
-    access = toUpperCase("manager");
+    access = "manager";
 }
 
 ManagerCommand::~ManagerCommand()
@@ -88,7 +88,7 @@ ManagerCommand::~ManagerCommand()
 
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
-    access = toUpperCase("horticulturist");
+    access = "horticulturist";
 }
 
 GreenHouseCommand::~GreenHouseCommand()

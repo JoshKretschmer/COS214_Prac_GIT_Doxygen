@@ -11,7 +11,7 @@ Customer::Customer(string _name,string _id,InventoryClerk* _clerk, Staff* _sales
 }
 
 /*!
- * @brief Baisc destructor for customer object
+ * @brief Basic destructor for customer object
  */
 Customer::~Customer()
 {
@@ -39,19 +39,19 @@ Request *Customer::makeRequest(string type, string details, string action)
 
     RequestType requestType = RequestType::GENERAL;
 
-    if (type == "Sales" || type == "SALES")
+    if (type == "Sales")
     {
         requestType = RequestType::SALES;
     }
-    else if (type == "Care" || type == "CARE")
+    else if (type == "Care")
     {
         requestType = RequestType::CARE;
     }
-    else if (type == "Purchase" || type == "PURCHASE")
+    else if (type == "Purchase")
     {
         requestType = RequestType::PURCHASE;
     }
-    else if (type == "Inventory" || type == "INVENTORY")
+    else if (type == "Inventory")
     {
         requestType = RequestType::INVENTORY;
     }

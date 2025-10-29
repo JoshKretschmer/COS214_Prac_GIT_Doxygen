@@ -41,11 +41,6 @@ Plant* InventoryClerk::unboxPlant(string _boxID, string _shelfName)
     return plantInBox;
 }
 
-/*void InventoryClerk::peak()
-{
-    inventory->peak();
-}*/
-
 InventoryClerk::InventoryClerk(string _name) : Staff(_name)
 {
     staffType = toUpperCase("inventoryclerk");

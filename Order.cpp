@@ -36,6 +36,7 @@ void Order::addPlant(Plant *plant) {
  */
 Memento *Order::createMemento() {
     return new Memento(plants, totalCost);
+    //fix potential memory leaks
 }
 
 /*!
