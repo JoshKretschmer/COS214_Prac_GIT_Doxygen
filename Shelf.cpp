@@ -1,11 +1,5 @@
 #include "Shelf.h"
 
-/*!
- * @brief Basic shelf constructor
- *
- * @param _shelfName Name of shelf being created
- * @param _shelfCapacity number of Boxes that can be stored in shelf
- */
 Shelf::Shelf(string _shelfName, int _shelfCapacity)
 {
     shelfName = _shelfName;
@@ -13,27 +7,16 @@ Shelf::Shelf(string _shelfName, int _shelfCapacity)
     boxes = new vector<Box*>();
 }
 
-/*!
- * @brief Basic shelf destructor
- */
 Shelf::~Shelf()
 {
     // how we handle memory will depend on the flow of control of objects
 }
 
-/*!
- *
- * @return vector containing all boxes currently stored
- */
 vector<Box*> Shelf::getBoxes()
 {
     return *boxes; //must not that boxes still points to the vector of boxes
 }
 
-/*!
- *
- * @param _box Box object to be added to the shelf
- */
 void Shelf::addBox(Box* _box)
 {
     int numBoxes = boxes->size();
@@ -48,11 +31,6 @@ void Shelf::addBox(Box* _box)
     }
 }
 
-/*!
- *
- * @param _boxID Specifies box to be removed and returned
- * @return Box object that has been removed, NULL if none exists
- */
 Box* Shelf::removeBox(string _boxID)
 {
     //ITERATOR PATTERN HERE
@@ -87,9 +65,6 @@ Box* Shelf::removeBox(string _boxID)
     return actualBox;
 }
 
-/*!
- * @brief Prints out shelf information + information of all boxes stored therein
- */
 void Shelf::peak()
 {
     if(boxes)
@@ -111,10 +86,6 @@ void Shelf::peak()
     }
 }
 
-/*!
- *
- * @return name/category of shelf
- */
 string Shelf::getShelfName()
 {
     return shelfName;

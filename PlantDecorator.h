@@ -1,18 +1,9 @@
 #ifndef PLANTDECORATOR_H
 #define PLANTDECORATOR_H
 
-/*!
- * @headerfile PlantDecorator.h
- */
 #include "libraries.h"
 #include "Plant.h"
 
-
-/*!
- * @class PlantDecorator
- *
- * @brief Abstract interface class for various decorator subclasses
- */
 class PlantDecorator : public Plant
 {
 protected:
@@ -32,11 +23,6 @@ public:
     virtual void decorate(Plant* _plant) override;
 };
 
-/*!
- * @class ArrangementDecorator
- *
- * @brief Concrete decorator class
- */
 class ArrangementDecorator : public PlantDecorator
 {
 public:
@@ -46,11 +32,6 @@ public:
 
 };
 
-/*!
- * @class PotDecorator
- *
- * @brief Concrete decorator class
- */
 class PotDecorator : public PlantDecorator
 {
 public:
@@ -59,11 +40,6 @@ public:
     virtual Plant *clone() override;
 };
 
-/*!
- * @class WrapDecorator
- *
- * @brief Concrete decorator class
- */
 class WrapDecorator : public PlantDecorator
 {
 public:

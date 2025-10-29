@@ -1,22 +1,11 @@
 #ifndef INVENTORYCLERK_H
 #define INVENTORYCLERK_H
 
-/*!
- * @headerfile InventoryClerk.h
- */
-
 #include "libraries.h"
 #include "Staff.h"
 #include "Inventory.h"
 #include "Request.h"
 
-/*!
- * @class InventoryClerk
- *
- * @brief Public child of Staff class
- *
- * Specifically responsible for the access and organization of plant objects in the Inventory
- */
 class InventoryClerk : public Staff
 {
 private:

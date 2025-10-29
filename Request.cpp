@@ -2,9 +2,6 @@
 
 int Request::instanceCount = 1;
 
-/*!
- * @brief Basic constructor function
- */
 Request::Request()
 {
     id = "REQUEST" + to_string(instanceCount);
@@ -15,9 +12,6 @@ Request::Request()
     instanceCount++;
 }
 
-/*!
- * @brief Basic destructor function
- */
 Request::~Request()
 {
     // zero memory management ! remember we passing the pointers!
@@ -34,28 +28,16 @@ Request::~Request()
     instanceCount--;
 }
 
-/*!
- *
- * @param _description value to set description attribute
- */
 void Request::setDescription(string _description)
 {
     description = _description;
 }
 
-/*!
- *
- * @param _action value to set action attribute
- */
 void Request::setAction(string _action)
 {
     action = _action;
 }
 
-/*!
- *
- * @param _sender value to set sender attribute
- */
 void Request::setSender(Staff* _sender)
 {
     if(_sender)
@@ -68,10 +50,6 @@ void Request::setSender(Staff* _sender)
     }
 }
 
-/*!
- *
- * @param _plantObject value to set Plant object
- */
 void Request::setPlantObject( Plant* _plantObject)
 {
     if(_plantObject)
@@ -84,10 +62,6 @@ void Request::setPlantObject( Plant* _plantObject)
     }
 }
 
-/*!
- *
- * @return request details as a formatted string
- */
 string Request::getDetails()
 {
     string details = "";

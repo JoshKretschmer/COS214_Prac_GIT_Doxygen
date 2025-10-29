@@ -1,9 +1,6 @@
 #ifndef PLANT_H
 #define PLANT_H
 
-/*!
- * @headerfile Plant.h
- */
 #include "libraries.h"
 #include "PlantCare.h"
 #include "PlantState.h"
@@ -12,13 +9,6 @@ class PlantState;
 class PlantCare;
 class SeedingCare;
 
-/*!
- * @class Plant
- *
- * @Brief Main Plant class
- *
- *  Parent class for different types of plants.
- */
 class Plant
 {
 protected:
@@ -65,11 +55,6 @@ public:
                         // bool isReadyForStorage()?  if plant state is in Mature
 };
 
-/*!
- * @class Succulent
- *
- * @brief public subclass of Plant, category of plants
- */
 class Succulent : public Plant
 {
 public:
@@ -77,11 +62,6 @@ public:
     virtual ~Succulent();
 };
 
-/*!
- * @class PeanutCactus
- *
- * @brief public subclass of Succulent, specific kind of plant
- */
 class PeanutCactus : public Succulent
 {
 public:
@@ -93,12 +73,6 @@ public:
     virtual void decorate(Plant *_plant) override;
 };
 
-
-/*!
- * @class HouseLeek
- *
- * @brief public subclass of Succulent, specific kind of plant
- */
 class HouseLeek : public Succulent
 {
 public:
@@ -110,11 +84,6 @@ public:
     virtual void decorate(Plant *_plant) override;
 };
 
-/*!
- * @class Flower
- *
- * @brief public subclass of Plant, category of plants
- */
 class Flower : public Plant
 {
 public:
@@ -122,11 +91,6 @@ public:
     ~Flower();
 };
 
-/*!
- * @class Orchid
- *
- * @brief public subclass of Flower, specific kind of plant
- */
 class Orchid : public Flower
 {
 public:
@@ -138,11 +102,6 @@ public:
     virtual void decorate(Plant *_plant) override;
 };
 
-/*!
- * @class Marigold
- *
- * @brief public subclass of Flower, specific kind of plant
- */
 class Marigold : public Flower
 {
 public:
@@ -154,11 +113,6 @@ public:
     virtual void decorate(Plant *_plant) override;
 };
 
-/*!
- * @class Shrub
- *
- * @brief public subclass of Plant, category of plants
- */
 class Shrub : public Plant
 {
 public:
@@ -166,11 +120,6 @@ public:
     ~Shrub();
 };
 
-/*!
- * @class BeeBlossom
- *
- * @brief public subclass of Shrub, specific kind of plant
- */
 class BeeBlossom : public Shrub
 {
 public:
@@ -182,11 +131,6 @@ public:
     virtual void decorate(Plant *_plant) override;
 };
 
-/*!
- * @class HoneySuckle
- *
- * @brief public subclass of Shrub, specific kind of plant
- */
 class HoneySuckle : public Shrub
 {
 public:

@@ -1,17 +1,10 @@
 #ifndef SHELF_H
 #define SHELF_H
 
-/*!
- * @headerfile Shelf.h
- */
 #include "libraries.h"
 #include "Box.h"
 
-/*!
- * @class Shelf
- *
- * @brief Container class for Box objects, stored in Shelf objects in Inventory
- */
+
 class Shelf
 {
 private:
