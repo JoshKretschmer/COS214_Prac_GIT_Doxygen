@@ -3,49 +3,21 @@
 
 #include "libraries.h"
 #include "Plant.h"
+#include <string>
 
-class PlantDecorator : public Plant
-{
+class PlantDecorator : public Plant {
 protected:
-    Plant * wrappedPlant;
-
-    double decorator_price;
-    string decorator_type;
-
-    
+    Plant* wrappedPlant = nullptr;
+    double decorator_price = 0.0;
+    std::string decorator_type;
 
 public:
-    PlantDecorator();
-    virtual ~PlantDecorator();
+    PlantDecorator() = default;
+    virtual ~PlantDecorator() override;
 
-    virtual string getDetails() override;
-    virtual double getCost() override;
-    virtual void decorate(Plant* _plant) override;
-};
-
-class ArrangementDecorator : public PlantDecorator
-{
-public:
-    ArrangementDecorator();
-    ~ArrangementDecorator();
-    virtual Plant *clone() override;
-
-};
-
-class PotDecorator : public PlantDecorator
-{
-public:
-    PotDecorator();
-    ~PotDecorator();
-    virtual Plant *clone() override;
-};
-
-class WrapDecorator : public PlantDecorator
-{
-public:
-    WrapDecorator();
-    ~WrapDecorator();
-    virtual Plant *clone() override;
+    std::string getDetails() override;
+    double getCost() override;
+    void decorate(Plant* _plant) override;
 };
 
 #endif // PLANTDECORATOR_H

@@ -2,49 +2,21 @@
 #define COMMAND_H
 
 #include "libraries.h"
-#include "Request.h"
+#include <string>
 
 class Request;
 
 class Command
 {
 protected:
-    string access;  // the staff member who can access a command 
+    std::string access;
     Request* request;
 
 public:
-    Command(Request *_request);
+    Command(Request* _request);
     virtual ~Command();
-    Request* execute();
-    bool hasAcess(string _staffType);
+    virtual Request* execute() = 0;
+    bool hasAccess(const std::string& _staffType) const;
 };
 
-class SalesCommand : public Command
-{
-public:
-    SalesCommand(Request *_request);
-    ~SalesCommand();
-};
-
-class InventoryCommand : public Command
-{
-public:
-    InventoryCommand(Request *_request);
-    ~InventoryCommand();
-};
-
-class ManagerCommand : public Command
-{
-public:
-    ManagerCommand(Request *_request);
-    ~ManagerCommand();
-};
-
-class GreenHouseCommand : public Command
-{
-public:
-    GreenHouseCommand(Request *_request);
-    ~GreenHouseCommand();
-};
-
-#endif
+#endif // COMMAND_H
