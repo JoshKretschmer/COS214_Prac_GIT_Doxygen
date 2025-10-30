@@ -2,10 +2,20 @@
 
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
-    access = "salesassociate";
+    access = "sales";
 }
 
 SalesCommand::~SalesCommand()
 {
-    // no memory management required as Command is not responsible for Request object once it is passed on :)
+}
+
+Request* SalesCommand::execute()
+{
+    Customer* customer = request->getSender();
+    //all I want to do is add the plant to the customer's current order
+    string plantID = request->getPlantID();
+    string decor = request->getExtra();
+    customer->addPlant(plantID, decor); //note that we need to add functionality to this
+
+    return request;
 }

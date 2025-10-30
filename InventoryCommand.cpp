@@ -7,5 +7,23 @@ InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
 
 InventoryCommand::~InventoryCommand()
 {
-    // no memory management required as Command is not responsible for Request object once it is passed on :)
+}
+
+Request* InventoryCommand::execute()
+{
+    //now I simply want to print the information of the plant
+    //how do I navigate the inventory from here?
+    Staff* receiver = request->getReceiver();
+    InventoryClerk* clerk = dynamic_cast<InventoryClerk*>(receiver);
+    Plant* plant = clerk->getPlant(request->getPlantID());
+    if (plant != nullptr){
+        std::cout << plant->getDetails() << std::endl;
+    }else{
+        std::cout << "Plant not found in inventory." << std::endl;
+    }
+
+
+
+    //temp return
+    return nullptr;
 }

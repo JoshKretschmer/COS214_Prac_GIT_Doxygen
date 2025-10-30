@@ -8,6 +8,7 @@ class SalesCommand : public Command
 public:
     SalesCommand(Request *_request);
     ~SalesCommand();
+    Request* SalesCommand::execute();
 };
 
 

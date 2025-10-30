@@ -20,36 +20,4 @@ public:
     Request* getRequest() { return request; }
 };
 
-class SalesCommand : public Command
-{
-public:
-    SalesCommand(Request *_request);
-    ~SalesCommand();
-    Request* execute() override;
-};
-
-class InventoryCommand : public Command
-{
-public:
-    InventoryCommand(Request *_request);
-    ~InventoryCommand();
-    Request* execute() override;
-};
-
-class ManagerCommand : public Command
-{
-public:
-    ManagerCommand(Request *_request);
-    ~ManagerCommand();
-    Request* execute() override;
-};
-
-class GreenHouseCommand : public Command
-{
-public:
-    GreenHouseCommand(Request *_request);
-    ~GreenHouseCommand();
-    Request* execute() override;
-};
-
 #endif

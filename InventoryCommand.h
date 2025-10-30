@@ -8,6 +8,7 @@ class InventoryCommand : public Command
 public:
     InventoryCommand(Request *_request);
     ~InventoryCommand();
+    Request* InventoryCommand::execute()
 };
 
 

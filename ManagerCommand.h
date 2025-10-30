@@ -8,6 +8,7 @@ class ManagerCommand : public Command
 public:
     ManagerCommand(Request *_request);
     ~ManagerCommand();
+    Request* ManagerCommand::execute();
 };
 
 

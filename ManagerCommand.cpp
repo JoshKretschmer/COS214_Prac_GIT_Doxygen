@@ -7,5 +7,12 @@ ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
 
 ManagerCommand::~ManagerCommand()
 {
-    // no memory management required as Command is not responsible for Request object once it is passed on :)
+}
+
+Request* ManagerCommand::execute()
+{
+    // I am not sure what I can do hree
+    std::cout << "We have informed our manager about your request, we will hopefully be able to help out soon." << std::endl;
+
+    return nullptr;
 }

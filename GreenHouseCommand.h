@@ -8,6 +8,7 @@ class GreenHouseCommand : public Command
 public:
     GreenHouseCommand(Request *_request);
     ~GreenHouseCommand();
+    Request* GreenHouseCommand::execute();
 };
 
 

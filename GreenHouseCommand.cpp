@@ -2,10 +2,18 @@
 
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
-    access = "horticulturist";
+    access = "greenhouse";
 }
 
 GreenHouseCommand::~GreenHouseCommand()
 {
-    // no memory management required as Command is not responsible for Request object once it is passed on :)
+}
+
+Request* GreenHouseCommand::execute()
+{
+    Staff* receiver = request->getReceiver();
+    Horticulturist* horticulturist = dynamic_cast<Horticulturist*>(receiver);
+
+    //we have the horticulturist, now we need to perform whatever action with him
+    return nullptr;
 }
