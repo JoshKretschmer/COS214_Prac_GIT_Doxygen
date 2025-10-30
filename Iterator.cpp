@@ -1,50 +1,26 @@
 #include "Iterator.h"
 
-/*!
- * @brief Abstract class constructor
- */
-Iterator::Iterator() {
+Iterator::Iterator() {}
 
+InventoryIterator::InventoryIterator(Inventory* inventory) : plants(inventory->getPlants()), currentIndex(0) {
 }
 
-/*!
- * @brief Abstract class destructor
- */
-Iterator::~Iterator() {
-
-}
-
-//######################################################
-
-/*!
- * @brief Basic constructor function
- *
- * @param inventory Inventory object on which the iterator will run
- */
-InventoryIterator::InventoryIterator(Inventory* inventory) : inventory(inventory) {
+void InventoryIterator::first() {
     currentIndex = 0;
 }
 
-/*!
- *
- * @return True if end of Inventory has not been reached, false if otherwise
- */
+void InventoryIterator::next() {
+    ++currentIndex;
+}
+
 bool InventoryIterator::hasNext() {
-    if (currentIndex < inventory->getPlantCount()) {
-        return true;
-    }
-    return false;
+    return currentIndex < plants.size();
 }
 
-/*!
- * @brief Moves the iterator pointer to the next object in the list and returns
- *
- * @return next Plant object present in the Inventory
- */
-Plant* InventoryIterator::next() {
+Plant* InventoryIterator::currentItem() {
     if (hasNext()) {
-        return inventory->getPlants()[currentIndex++];
+        return plants[currentIndex];
+    } else {
+        return nullptr;
     }
-    return nullptr;
 }
-

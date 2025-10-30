@@ -2,19 +2,26 @@
 #include <algorithm>
 #include <iostream>
 
-//will do doxygen after rewrite
-//##########################################################
-InventoryComponent::InventoryComponent(NurseryMediator* med) : mediator(med) {}
+InventoryComponent::InventoryComponent() {}
 
-InventoryComponent::~InventoryComponent() {
+InventoryComponent::~InventoryComponent() {}
 
+void InventoryComponent::add(InventoryComponent* component) {}
+
+void InventoryComponent::remove(InventoryComponent* component) {}
+
+vector<Plant*> InventoryComponent::getPlants() {
+    return vector<Plant*>();
 }
 
-//##########################################################
-PlantGroup::PlantGroup(string name, NurseryMediator* med) : groupName(name), InventoryComponent(med) {}
+void InventoryComponent::movePlant(Plant* plant, string newState) {}
+
+PlantGroup::PlantGroup(string name) : InventoryComponent(), groupName(name) {}
 
 PlantGroup::~PlantGroup() {
-    for (auto c : children) delete c;
+    for (auto c : children) {
+        delete c;
+    }
     children.clear();
 }
 
@@ -22,7 +29,6 @@ void PlantGroup::add(InventoryComponent* component) {
     if (!component)
         return;
     children.push_back(component);
-    component->setMediator(mediator);
 }
 
 void PlantGroup::remove(InventoryComponent* component) {
@@ -44,38 +50,40 @@ vector<Plant*> PlantGroup::getPlants() {
 }
 
 void PlantGroup::movePlant(Plant* plant, string newState) {
-    for (auto c : children) c->movePlant(plant, newState);
-    if (mediator) mediator->notifyInventory("MovePlant", *plant);
+    for (auto c : children) {
+        c->movePlant(plant, newState);
+    }
+    
 }
 
-//##########################################################
-Inventory::Inventory(NurseryMediator* med) : InventoryComponent(med) {}
+Inventory::Inventory() : InventoryComponent() {}
 
 Inventory::~Inventory() {
-    for (auto p : plants) delete p;
+    for (auto p : plants) {
+        delete p;
+    }
     plants.clear();
-    for (auto g : groups) delete g;
+
+    for (auto g : groups) {
+        delete g;
+    }
     groups.clear();
 }
 
 void Inventory::addPlant(Plant* plant) {
     plants.push_back(plant);
-    if (mediator) mediator->notifyInventory("AddPlant", *plant);
 }
 
 void Inventory::removePlant(string plantId) {
     for (auto it = plants.begin(); it != plants.end(); ++it) {
-    if ((*it)->getDetails() == plantId) {
-        Plant* removed = *it;
-        plants.erase(it);
-        if (mediator) mediator->notifyInventory("RemovePlant", *removed);
-        delete removed; // free memory
-        break;
+        if ((*it)->getDetails() == plantId) {
+            Plant* removed = *it;
+            plants.erase(it);
+            delete removed; // free memory
+            break;
+        }
     }
 }
-
-}
-
 
 void Inventory::updateStock(string plantType, int quantity) {
     stockLevels[plantType] = quantity;
@@ -89,13 +97,9 @@ InventoryIterator* Inventory::createIterator() {
     return new InventoryIterator(this);
 }
 
-void Inventory::notifyObservers() {
-    // can notify Observer pattern if implemented
-}
-
-void Inventory::notifyMediator(string updateType, Plant& plant) {
-    if (mediator) mediator->notifyInventory(updateType, plant);
-}
+// void Inventory::notifyObservers() {
+//     // can notify Observer pattern if implemented
+// }
 
 int Inventory::getPlantCount() {
     return plants.size();
@@ -103,14 +107,12 @@ int Inventory::getPlantCount() {
 
 void Inventory::add(InventoryComponent* component) {
     groups.push_back(dynamic_cast<PlantGroup*>(component));
-    if (component) component->setMediator(mediator);
 }
 
 void Inventory::remove(InventoryComponent* component) {
     auto it = std::find(groups.begin(), groups.end(), dynamic_cast<PlantGroup*>(component));
     if (it != groups.end()) {
-        if (*it == component)
-            delete *it;
+        if (*it == component) delete *it;
         groups.erase(it);
     }
 }
@@ -126,10 +128,10 @@ vector<Plant*> Inventory::getPlants() {
 
 void Inventory::movePlant(Plant* plant, string newState) {
     if (std::find(plants.begin(), plants.end(), plant) != plants.end()) {
-        // plant is in main inventory
+        return ;// plant is in main inventory
     }
-    for (auto g : groups) g->movePlant(plant, newState);
 
-    if (mediator) mediator->notifyInventory("MovePlant", *plant);
+    for (auto g : groups) {
+        g->movePlant(plant, newState);
+    }
 }
-
