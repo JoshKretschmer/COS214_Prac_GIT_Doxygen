@@ -26,17 +26,22 @@ Order::~Order() {
  */
 void Order::addPlant(Plant *plant) {
     mementos.push_back(createMemento()); // Save state before change
+
     plants.push_back(plant);
     updateCost();
 }
 
 /*!
- *
  * @return new Memento object containing the current Object state
  */
 Memento *Order::createMemento() {
-    return new Memento(plants, totalCost);
-    //fix potential memory leaks
+    vector<Plant*> plantClones;
+    plantClones.reserve(plants.size());
+
+for (auto plant : plants) {
+        plantClones.push_back(plant->clone());
+    }
+    return new Memento(plantClones, totalCost);
 }
 
 /*!

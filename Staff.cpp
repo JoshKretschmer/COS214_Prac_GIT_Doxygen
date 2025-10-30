@@ -47,7 +47,7 @@ void Staff::forwardCommand(Command* command)
     }
     else
     {
-        cout<<errorMessage("NO next handler for" + staffName + "... Request not handled...");
+        cerr<<"NO next handler for" + staffName + "... Request not handled...";
     }
 }
 
