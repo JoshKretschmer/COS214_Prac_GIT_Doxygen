@@ -26,11 +26,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Customer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryClerk.h" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.h" afterDir="false" />
-    </list>
+    <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -182,10 +178,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="C/C++ File.OpheliaTest.cpp" />
       <item itemvalue="Native Application.all" />
       <item itemvalue="Native Application.nursery_system" />
       <item itemvalue="Native Application.run" />
+      <item itemvalue="C/C++ File.OpheliaTest.cpp" />
     </list>
     <recent_temporary>
       <list>
@@ -229,7 +225,7 @@
       <workItem from="1761664929900" duration="50000" />
       <workItem from="1761665185516" duration="66000" />
       <workItem from="1761665344208" duration="10076000" />
-      <workItem from="1761808303674" duration="1285000" />
+      <workItem from="1761808303674" duration="6739000" />
     </task>
     <task id="LOCAL-00001" summary="Defined all classes and function as specified in class diagram">
       <option name="closed" value="true" />
@@ -375,7 +371,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761766110523</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Deleted unneeded class + minor changes">
+      <option name="closed" value="true" />
+      <created>1761809859748</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1761809859748</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fixes to Customer class">
+      <option name="closed" value="true" />
+      <created>1761813510961</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1761813510961</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Minor fixes + removing unneeded function from Plant">
+      <option name="closed" value="true" />
+      <created>1761815066822</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1761815066822</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -424,7 +444,10 @@
     <MESSAGE value="Major Rollback to fix code" />
     <MESSAGE value="Minor changes made during coding logic checks" />
     <MESSAGE value="Rewrote Clone function for Plant + added some Doxygen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rewrote Clone function for Plant + added some Doxygen" />
+    <MESSAGE value="Deleted unneeded class + minor changes" />
+    <MESSAGE value="Fixes to Customer class" />
+    <MESSAGE value="Minor fixes + removing unneeded function from Plant" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes + removing unneeded function from Plant" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

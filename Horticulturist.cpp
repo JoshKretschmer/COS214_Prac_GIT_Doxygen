@@ -9,7 +9,8 @@ void Horticulturist::executeTask(Command* command)
     Request* request = command->execute();
     request->getID();
 
-    // types of request it had do is yet to be discussed :)
+    // types of request it had do is yet to be discussed
+    //Plant creation request?
 }
 
 /*!
@@ -37,15 +38,10 @@ Horticulturist::~Horticulturist()
  *
  * @param plant Plant to be moved to Inventory
  */
-void Horticulturist::movePlantToInventory(Plant* plant)
-{
-    Request* request = new Request();
-    request->setAction(ACTION_STOREPLANT);
-    request->setDescription("just store the plant :)");
-    request->setPlantObject(plant);
-    request->setSender(this);
+string Horticulturist::getActionForMove() {
+    return ACTION_STOREPLANT;  // Specific to Horticulturist
+}
 
-    Command* command = new InventoryCommand(request);
-
-    handleCommand(command);
+string Horticulturist::getDescriptionForMove() {
+    return "just store the plant :)";  // Specific to Horticulturist
 }

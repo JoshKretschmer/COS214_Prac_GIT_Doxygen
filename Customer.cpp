@@ -1,13 +1,15 @@
 #include "Customer.h"
+#include "PlantDecorator.h"
 
 /*!
  * @brief Basic constructor for customer object
  */
-Customer::Customer(string _name,string _id,InventoryClerk* _clerk, Staff* _salesPerson)
+Customer::Customer(string _name,string _id, Staff* _salesPerson)
 {
-    salesPerson = _salesPerson; //will need to reconfigure and add some functions to salesPerson 
+    salesPerson = _salesPerson;
     name = _name;
     id = _id;
+    startPurchase();
 }
 
 /*!
@@ -15,120 +17,84 @@ Customer::Customer(string _name,string _id,InventoryClerk* _clerk, Staff* _sales
  */
 Customer::~Customer()
 {
-    // no memeory management required
+    // no memory management required
 }
 
-/*!
- *
- * @param type type of request to be made
- * @param details details added to the request
- * @param action action to be executed by the request
- * @return The Request object that has been created
- */
 Request *Customer::makeRequest(string type, string details, string action)
 {
-    Request *request;
-    enum class RequestType
-    {
-        SALES = 1,
-        CARE = 2,
-        PURCHASE = 3,
-        INVENTORY = 4,
-        GENERAL = 5
-    };
-
-    RequestType requestType = RequestType::GENERAL;
-
-    if (type == "Sales")
-    {
-        requestType = RequestType::SALES;
-    }
-    else if (type == "Care")
-    {
-        requestType = RequestType::CARE;
-    }
-    else if (type == "Purchase")
-    {
-        requestType = RequestType::PURCHASE;
-    }
-    else if (type == "Inventory")
-    {
-        requestType = RequestType::INVENTORY;
-    }
-
-    switch (requestType)
-    {
-    case RequestType::SALES:
-        request = new Request();
-        break;
-
-    case RequestType::CARE:
-        request = new Request();
-        break;
-
-    case RequestType::PURCHASE:
-        request = new Request();
-        break;
-
-    case RequestType::INVENTORY:
-        request = new Request();
-
-    default:
-        request = new Request(); // this is for GENERAL
-        break;
-    }
-
-    return request;
+    //used to create request
+    //need to be redone once request is set up
 }
 
 /*!
- * @brief Allow the customer to view available Palnt objects
+ * @brief Create a request to get Information from Plants in Inventory
  */
 void Customer::browsePlants()
 {
-    
+    //inventory request
+    //get Plant info from inventory clerk
+
+    //print out plant info
 }
 
 /*!
- * @brief Creates an Order object for the customer to make a purchase
+ * @brief Creates an Order object for the customer to make a purchase on
  */
 void Customer::startPurchase()
 {
+    currentOrder = new Order();
+}
 
+void addPlant(string plantID, string decor) {
+    //create purchase request
+    //this goes thru sales associate
+    //get plant object from inventory
+
+    //if statement to customize
+        //customizeOrder();
+
+    //this->currentOrder->addPlant(...);
+
+    //create new memento
 }
 
 /*!
- * @brief Allows the customer to customize the order they have made
+ * @brief Decorate a specified Plant object before adding it to an order
+ *
+ * @param plant Plant object to be decorated
+ * @param decor Decoration to be added to the plant
+ * @return Decorated Plant or basic Plant
  */
-void Customer::customizeOrder()
+Plant* Customer::customizeOrder(Plant* plant, string decor){
+
+    if (decor == "Arrange") {
+        ArrangementDecorator* newD = new ArrangementDecorator();
+        newD->setWrapped(plant);
+        return newD;
+    } else if (decor == "Pot") {
+        PotDecorator* newD = new PotDecorator();
+        newD->setWrapped(plant);
+        return newD;
+    } else if (decor == "Wrap") {
+        WrapDecorator* newD = new WrapDecorator();
+        newD->setWrapped(plant);
+        return newD;
+    } else {
+        cerr << "Error in Customer::customizeOrder()" << endl;
+        return plant;
+    }
+}
+
+/*!
+ * @brief Undo the last action, i.e. remove the last plant added to the Order
+ */
+void Customer::undoAction()
 {
-    cout<<"\n What would you like to add? \n"
-        <<"\t...POT...\n"
-        <<"1- POT1 Cost R20.00\n"
-        <<"2- POT2 Cost R20.00\n\n"
-        <<"\t...ARRANGEMENT...\n"
-        <<"3- ARRANGEMENT1 Cost R10.00\n"
-        <<"4- ARRANGEMENT2 Cost R10.00\n\n"
-        <<"\t...WRAP...\n"
-        <<"6- WRAP1 Cost R15.00\n"
-        <<"7- WRAP2 Cost R15.00\n\n"
-        <<"CHOICE:(number only): ";
-    
-        int option;
-        cin>>option;
-
+    currentOrder->undoLastAddition();
 }
 
-/*!
- * @brief undo the last customization action
- */
-void Customer::undoCustomization()
-{
-}
 
-/*!
- * @brief Complete a purchase tasks and remove all purchased plants from system
- */
 void Customer::confirmPurchase()
 {
+
 }

@@ -22,7 +22,6 @@ Staff::Staff(string _name)
 Staff::~Staff()
 {
     nextHandler = NULL;
-    //Nothing to destruct
     instanceCount--;
 }
 
@@ -48,8 +47,12 @@ void Staff::forwardCommand(Command* command)
     }
     else
     {
-        cout<<errorMessage("NO next handler for" + staffName + "... Request not handled...");
+        cerr<<"NO next handler for" + staffName + "... Request not handled...";
     }
+}
+
+void Staff::executeTask(Command *_command) {
+    //Need to wait for command/request to be implemented
 }
 
 /*!
@@ -68,4 +71,17 @@ void Staff::handleCommand(Command* command)
         cout<<"\nstaff "<<staffName<<" does not have access to handleCommand...\n";
         forwardCommand(command);
     }
+}
+
+// Template Method implementation
+void Staff::movePlantToInventory(Plant* plant) {
+    Request* request = new Request();
+    request->setAction(getActionForMove());  
+    request->setDescription(getDescriptionForMove()); 
+    request->setPlantObject(plant);
+    request->setSender(this);
+
+    Command* command = new InventoryCommand(request);  //assuming InventoryCommand is a concrete Command subclass
+
+    handleCommand(command);
 }

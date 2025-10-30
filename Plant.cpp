@@ -59,22 +59,6 @@ bool Plant::needsCare() {
 }
 
 
-void Plant::add(InventoryComponent *comp) {
-
-}
-
-void Plant::remove(InventoryComponent *comp) {
-
-}
-
-vector<Plant *> Plant::getPlants() {
-    return vector<Plant*>();
-}
-
-void Plant::movePlant(Plant *plant, string newState) {
-
-}
-
 /*!
  * @brief Increase the health of a plant by num
  *
