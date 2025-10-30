@@ -23,8 +23,8 @@ class Memento {
         ~Memento();
         const vector<Plant*>& getSavedPlants() const;
         double getSavedCost() const;
-        vector<Plant*> getMementos() const { return savedPlants; }
-        vector<Memento*> mementos;
+        //vector<Plant*> getMementos() const { return savedPlants; } //belongs in order (Caretaker)
+        //vector<Memento*> mementos; //belongs in order (Caretaker)
 };
 
 

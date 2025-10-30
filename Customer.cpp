@@ -45,7 +45,12 @@ void Customer::startPurchase()
     currentOrder = new Order();
 }
 
-void addPlant(string plantID, string decor) {
+void Customer::addPlant(string plantID, string decor) {
+    if (!currentOrder) {
+        cout << "Start a purchase first" << endl;
+        return;
+    }
+   
     //create purchase request
     //this goes thru sales associate
     //get plant object from inventory
@@ -56,6 +61,7 @@ void addPlant(string plantID, string decor) {
     //this->currentOrder->addPlant(...);
 
     //create new memento
+    
 }
 
 /*!

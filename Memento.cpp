@@ -22,6 +22,7 @@ Memento::~Memento() {
     for (auto plant : savedPlants) {
         delete plant; // Assuming Plant is dynamically allocated
     }
+    savedPlants.clear();  //to prevent dangling pointers
     savedCost = 0;
 }
 
