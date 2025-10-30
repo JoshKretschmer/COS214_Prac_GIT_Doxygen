@@ -27,6 +27,4 @@ class Memento {
         //vector<Memento*> mementos; //belongs in order (Caretaker)
 };
 
-
-
 #endif //MEMENTO_H
