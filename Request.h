@@ -3,54 +3,37 @@
 
 #include "Staff.h"
 #include "Plant.h"
+#include "Customer.h"
 
 class Staff;
 class Plant;
 
 class Request {
-private:
-
-    static int instanceCount;
-    string id; //<---- do not make a getter and setter here
-
-    string description;
-    string action;
-
-    Staff* sender;
-
-    // ....... horticulturist related pointers ............//
-
-    Plant* plantObject;
-
-    // ....... Sales Associate related pointers ...........//
-
-    // ....... InventoryClerk related info ............//
-
-    // ....... Manager related info ..................//
-
-
-public:
-    Request();
-    ~Request();
-
-    // ........... setters ..............//
-    void setAction(string action);
-    void setDescription(string _description);
-    void setSender(Staff* _sender);
-    void setPlantObject(Plant* plantObject);
-
-
-    // ........... getters ............. //
-    string getID(){return id;};
-    string getDetails();
-    string getDescription(){return description;};
-    string getAction(){return action;};
-    Plant* getPlantObject(){return plantObject;};
-    Staff* getSender(){return sender;};
-
-    // ......... other functions ...........//
-
-    //maybe a bulk request function specific to different staff
+    private:
+        //the request is made, and it is used with the command to do what it does
+        std::string plantID;
+        std::string type;
+        std::string plantType;
+        std::string extra;
+        Customer* sender;
+        //types of commands: sales, inventory, manager, greenhouse
+        Staff* receiver; //who is supposed to handle it
+    public:
+        Request(Customer* _sender, Staff* receiver) ;
+        ~Request();
+        void setPlantType(std::string _plantType);
+        std::string getPlantType();
+        void setPlantID(std::string _plantID);
+        std::string getPlantID();
+        void setType(std::string _type);
+        std::string getType();
+        void setSender(Customer* _sender);
+        Customer* getSender();
+        void setExtra(std::string _extra);
+        std::string getExtra() ;
+        void setReceiver(Staff* _receiver);
+        Staff* getReceiver() ;
 };
+
 
 #endif //REQUEST_H

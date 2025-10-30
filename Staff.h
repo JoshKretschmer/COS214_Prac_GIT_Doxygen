@@ -15,8 +15,11 @@ protected:
     Staff *nextHandler;
     static int instanceCount;
     void forwardCommand(Command* _command);
-    void executeTask(Command* _command);
+    virtual void executeTask(Command* _command);
 
+    //Template Method
+    virtual string getActionForMove() { return ""; } 
+    virtual string getDescriptionForMove() { return ""; }
 public:
     Staff(string _staffName);
     virtual ~Staff();
@@ -25,6 +28,9 @@ public:
     string getStaffID(){return staffID;};
     string getStaffType(){return staffType;};
     void setNextHandler(Staff *_handler);
+
+    // Template Method
+    void movePlantToInventory(Plant* plant);
 };
 
-#endif //STAFF_H
+#endif // STAFF_H

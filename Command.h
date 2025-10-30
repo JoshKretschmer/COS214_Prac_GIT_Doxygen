@@ -2,23 +2,54 @@
 #define COMMAND_H
 
 #include "Request.h"
-#include <string>
-#include <iostream>
-using namespace std;
+#include "Horticulturist.h"
 
 class Request;
+
 class Command
 {
 protected:
-    string access;  // the staff member who can access a command
+    string access;  // the staff member who can access a command 
     Request* request;
 
 public:
     Command(Request *_request);
     virtual ~Command();
-    Request* execute();
+    virtual Request* execute() = 0;
     bool hasAccess(string _staffType);
+    Request* getRequest() { return request; }
 };
 
+class SalesCommand : public Command
+{
+public:
+    SalesCommand(Request *_request);
+    ~SalesCommand();
+    Request* execute() override;
+};
 
-#endif //COMMAND_H
+class InventoryCommand : public Command
+{
+public:
+    InventoryCommand(Request *_request);
+    ~InventoryCommand();
+    Request* execute() override;
+};
+
+class ManagerCommand : public Command
+{
+public:
+    ManagerCommand(Request *_request);
+    ~ManagerCommand();
+    Request* execute() override;
+};
+
+class GreenHouseCommand : public Command
+{
+public:
+    GreenHouseCommand(Request *_request);
+    ~GreenHouseCommand();
+    Request* execute() override;
+};
+
+#endif

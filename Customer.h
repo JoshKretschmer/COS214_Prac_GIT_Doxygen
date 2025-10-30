@@ -20,22 +20,24 @@ using namespace std;
  * Makes request to Staff object to execute processes
  */
 class Customer {
-private:
-    string id;
-    string name;
-    Order* currentOrder;
-    Staff* salesPerson;
-
-public:
-    Customer(string name,string id, Staff* _salesPerson);
-    ~Customer();
-    Request* makeRequest(string type, string details,string action);
-    void browsePlants();
-    void startPurchase();
-    void addPlant(string plantID, string decor);
-    Plant* customizeOrder(Plant* plant, string decor);
-    void undoAction();
-    void confirmPurchase();
+    private:
+        string id;
+        string name;
+        Order* currentOrder;
+        Staff* salesPerson;
+        
+    public:
+        Customer(string name,string id, Staff* _salesPerson);
+        ~Customer();
+        Request* makeRequest(string type, string details,string action);
+        void browsePlants();
+        void startPurchase();
+        void addPlant(string plantID, string decor);
+        Plant* customizeOrder(Plant* plant, string decor);
+        void undoAction();
+        void confirmPurchase();
 };
+
+
 
 #endif //CUSTOMER_H
