@@ -32,11 +32,10 @@ class Customer {
         Request* makeRequest(string type, string details,string action);
         void browsePlants();
         void startPurchase();
-        void addPlant(Plant* plant);
+        void addPlant(string plantID, string decor);
         Plant* customizeOrder(Plant* plant, string decor);
         void undoAction();
         void confirmPurchase();
-        Plant* decoratePlant(string decor);
 };
 
 

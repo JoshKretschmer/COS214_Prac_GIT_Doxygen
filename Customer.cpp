@@ -45,8 +45,9 @@ void Customer::startPurchase()
     currentOrder = new Order();
 }
 
-void addPlant() {
+void addPlant(string plantID, string decor) {
     //create purchase request
+    //this goes thru sales associate
     //get plant object from inventory
 
     //if statement to customize
@@ -65,6 +66,7 @@ void addPlant() {
  * @return Decorated Plant or basic Plant
  */
 Plant* Customer::customizeOrder(Plant* plant, string decor){
+
     if (decor == "Arrange") {
         ArrangementDecorator* newD = new ArrangementDecorator();
         newD->setWrapped(plant);

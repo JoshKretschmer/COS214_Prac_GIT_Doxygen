@@ -51,6 +51,10 @@ void Staff::forwardCommand(Command* command)
     }
 }
 
+void Staff::executeTask(Command *_command) {
+    //Need to wait for command/request to be implemented
+}
+
 /*!
  * @brief Checks if this Staff can handle the Command, if not the Command is forwarded
  *
