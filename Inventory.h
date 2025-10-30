@@ -10,52 +10,56 @@
 using namespace std;
 
 class InventoryIterator;
-class NurseryMediator;
+class InventoryComponent;
 class PlantState;
 
-class InventoryComponent{
-protected:
-    NurseryMediator* mediator;
+class InventoryComponent{//make own file
 public:
-    InventoryComponent(NurseryMediator* med);
+    InventoryComponent();
     virtual ~InventoryComponent();
-    void setMediator(NurseryMediator* med);
+
     virtual void add(InventoryComponent* component);
     virtual void remove(InventoryComponent* component);
     virtual vector<Plant*> getPlants();
-    virtual void notifyObservers();
+
+    //virtual void notifyObservers();
+
     virtual void movePlant(Plant* plant, string newState);
 };
 
-class PlantGroup : public InventoryComponent {
+class PlantGroup : public InventoryComponent {//make own file
 private:
     string groupName;
     vector<InventoryComponent*> children;
 public:
-    PlantGroup(string name, NurseryMediator* med = nullptr);
+    PlantGroup(string name);
     ~PlantGroup();
+
     void add(InventoryComponent* component);
     void remove(InventoryComponent* component);
     vector<Plant*> getPlants();
     void movePlant(Plant* plant, string newState);
 };
 
-class Inventory : public InventoryComponent {
+class Inventory : public InventoryComponent {//keep in this file
 private:
     vector<Plant*> plants;
     map<string, int> stockLevels;
     vector<PlantState*> states;
     vector<PlantGroup*> groups;
 public:
-    Inventory(NurseryMediator* med);
+    Inventory();
     ~Inventory();
+
     void addPlant(Plant* plant);
     void removePlant(string plantId);
     void updateStock(string plantType,int quantity);
     int getStockLevel(string plantType);
+
     InventoryIterator* createIterator();
-    void notifyObservers() override;
-    void notifyMediator(string updateType, Plant& plant);
+
+    //void notifyObservers() override;
+
     int getPlantCount();
     void add(InventoryComponent* component) override;
     void remove(InventoryComponent* component) override;
@@ -64,4 +68,3 @@ public:
 };
 
 #endif //INVENTORY_H
-

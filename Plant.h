@@ -9,10 +9,12 @@
 
 #include "PlantCare.h"
 #include "PlantState.h"
-#include "Inventory.h"
+//#include "Inventory.h"
 #include <string>
 #include <vector>
 #include <iostream>
+
+class InventoryComponent;
 
 using namespace std;
 

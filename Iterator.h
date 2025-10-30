@@ -3,29 +3,31 @@
 
 #include "Plant.h"
 #include "Inventory.h"
+#include <vector>
 
 class Plant;
 class Inventory;
 
 class Iterator {
 public:
-    Iterator();
-    virtual ~Iterator();
-    virtual bool hasNext();
-    virtual Plant* next();
+    virtual ~Iterator() {}
+    virtual void first() = 0;
+    virtual void next() = 0;
+    virtual bool hasNext() = 0;
+    virtual Plant* currentItem() = 0;
 };
 
-class InventoryIterator : public Iterator {
+class InventoryIterator : public Iterator {//own file
 private:
-    Inventory* inventory;
+    std::vector<Plant*> plants;//used to be Inventory* inventory;
     int currentIndex;
 public:
     InventoryIterator(Inventory* inventory);
-    Plant* next();
-    bool hasNext();
+    void first() override;
+    void next() override;
+    bool hasNext() override;
+    Plant* currentItem() override;
 };
-
-
 
 #endif //ITERATOR_H
 
