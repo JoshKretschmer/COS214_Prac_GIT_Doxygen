@@ -12,10 +12,8 @@ private:
 public:
     Horticulturist(string _name);
     ~Horticulturist();
-    
-    virtual void executeTask(Command* command) override;
-
-    void movePlantToInventory(Plant* plant);               // <--- template method (makes reuqest,makes command,sends it off);
+    void executeTask(Command* command) override;
+    void movePlantToInventory(Plant* plant);               // <--- template method (makes request,makes command,sends it off);
 };
 
 

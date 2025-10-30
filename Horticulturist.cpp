@@ -9,7 +9,8 @@ void Horticulturist::executeTask(Command* command)
     Request* request = command->execute();
     request->getID();
 
-    // types of request it had do is yet to be discussed :)
+    // types of request it had do is yet to be discussed
+    //Plant creation request?
 }
 
 /*!

@@ -41,10 +41,6 @@ class Plant{
         double virtual getCost()=0;
         void changeState(PlantState* newState);
         bool needsCare();
-        void add(InventoryComponent* comp);
-        void remove(InventoryComponent* comp);
-        vector<Plant*> getPlants();
-        void movePlant(Plant* plant,string newState);
         int getHealth() { return health; };
         string getID() { return id; };
         string getType() { return type; };

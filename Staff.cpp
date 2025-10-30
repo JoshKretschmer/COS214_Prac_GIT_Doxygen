@@ -22,7 +22,6 @@ Staff::Staff(string _name)
 Staff::~Staff()
 {
     nextHandler = NULL;
-    //Nothing to destruct
     instanceCount--;
 }
 

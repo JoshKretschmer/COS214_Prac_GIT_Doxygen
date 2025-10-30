@@ -14,16 +14,12 @@ private:
     void addBox(Box *_box, string _shelfName);
     Box *removeBox(string _boxID, string _shelfName);
     Plant *unboxPlant(string _boxID, string _shelfName);
-
     void executeTask(Command* command) override;
 
 public:
     InventoryClerk(string _name);
     virtual ~InventoryClerk();
-
     void storePlant(Plant* plant);
-
-
     void assignJob(Inventory *_inventory);
 };
 

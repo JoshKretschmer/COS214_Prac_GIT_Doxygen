@@ -15,29 +15,16 @@ protected:
     string staffType; //<------ initialized in derived classes
     Staff *nextHandler;
     static int instanceCount;
-    
-
     void forwardCommand(Command* _command);  // <--- handled internally. Should not be able to forward a command on "request"
-    
     virtual void executeTask(Command* _command)=0;
-
-
 
 public:
     Staff(string _staffName);
     virtual ~Staff();
-
-    
-
    void handleCommand(Command* command);       //<--- chain of responsibility
-   // virtual void peak() = 0;                 //to peak what the staff makes available to see
-
-
     string getStaffName(){return staffName;};
     string getStaffID(){return staffID;};
     string getStaffType(){return staffType;};
-
-
     void setNextHandler(Staff *_handler);
 
 
