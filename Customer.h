@@ -21,20 +21,22 @@ using namespace std;
  */
 class Customer {
     private:
-        string id;  //should make this static, so each customer instance has a unique id number. Unless in main, we have a list of set cusomter ID numbers we select from.
+        string id;
         string name;
         Order* currentOrder;
         Staff* salesPerson;
         
     public:
-        Customer(string name,string id, InventoryClerk* _clerk, Staff* _salesPerson);  // this makes sense coz a customer should know who they're talking to
+        Customer(string name,string id, Staff* _salesPerson);
         ~Customer();
         Request* makeRequest(string type, string details,string action);
         void browsePlants();
         void startPurchase();
-        void customizeOrder();
-        void undoCustomization();
+        void addPlant(Plant* plant);
+        Plant* customizeOrder(Plant* plant, string decor);
+        void undoAction();
         void confirmPurchase();
+        Plant* decoratePlant(string decor);
 };
 
 

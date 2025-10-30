@@ -26,7 +26,7 @@ class Order {
     public:
         Order();
         ~Order();
-        void addPlant(Plant* plant);
+        void addPlant();
         string getDetails();
         void updateCost();
         Memento* createMemento();
