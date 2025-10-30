@@ -1,11 +1,16 @@
 #ifndef INVENTORYCLERK_H
 #define INVENTORYCLERK_H
 
-#include "libraries.h"
 #include "Staff.h"
 #include "Inventory.h"
 #include "Request.h"
 
+/*!
+ * @class InventoryClerk
+ *
+ * @brief public Staff class responsible for controlling all access to the Inventory object
+ * Adds Plants to the Inventory and fetches (removes) them on request
+ */
 class InventoryClerk : public Staff
 {
 private:

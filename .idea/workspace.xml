@@ -26,26 +26,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="Added seperated header files. Added implementations from completed classes">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_19_10_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_19_10_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_19_10__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_20_07_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_20_07_[Changes]1/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_10_2025_20_07__Changes_.xml" afterDir="false" />
+    <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Command.h" beforeDir="false" afterPath="$PROJECT_DIR$/Command.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Customer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Horticulturist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Horticulturist.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Horticulturist.h" beforeDir="false" afterPath="$PROJECT_DIR$/Horticulturist.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.h" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryClerk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantFactory.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantFactory.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Request.h" beforeDir="false" afterPath="$PROJECT_DIR$/Request.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SalesAssociate.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SalesAssociate.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.h" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryClerk.h" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Iterator.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Iterator.h" beforeDir="false" afterPath="$PROJECT_DIR$/Iterator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlantCare.h" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +61,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {}
@@ -96,8 +84,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/zanri/OneDrive/Desktop/Uni stuff/2025/Sem 2/COS 214/Practicals/COS214_Prac_GIT_Doxygen/Customer.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/zanri/OneDrive/Desktop/Uni stuff/2025/Sem 2/COS 214/Practicals/COS214_Prac_GIT_Doxygen/Customer.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -246,7 +234,7 @@
       <workItem from="1761665185516" duration="66000" />
       <workItem from="1761665344208" duration="10076000" />
       <workItem from="1761808303674" duration="6739000" />
-      <workItem from="1761842912335" duration="5287000" />
+      <workItem from="1761842912335" duration="6974000" />
     </task>
     <task id="LOCAL-00001" summary="Defined all classes and function as specified in class diagram">
       <option name="closed" value="true" />
@@ -416,7 +404,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761815066822</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Began adding Doxygen to files, removed library.h from includes in multiple files">
+      <option name="closed" value="true" />
+      <created>1761851857658</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1761851857658</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +479,8 @@
     <MESSAGE value="Deleted unneeded class + minor changes" />
     <MESSAGE value="Fixes to Customer class" />
     <MESSAGE value="Minor fixes + removing unneeded function from Plant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes + removing unneeded function from Plant" />
+    <MESSAGE value="Began adding Doxygen to files, removed library.h from includes in multiple files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Began adding Doxygen to files, removed library.h from includes in multiple files" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

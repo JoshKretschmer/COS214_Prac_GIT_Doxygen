@@ -20,6 +20,16 @@ Customer::~Customer()
     // no memory management required
 }
 
+/*!
+ * @brief Create a Request object
+ *
+ * Request will be for a Plant from Inventory, or information about the contents of Inventory
+ *
+ * @param type Typ eof request to be made
+ * @param details Details of the request
+ * @param action Action to be done by the request
+ * @return A Request object with the specified details
+ */
 Request *Customer::makeRequest(string type, string details, string action)
 {
     //used to create request
@@ -45,6 +55,12 @@ void Customer::startPurchase()
     currentOrder = new Order();
 }
 
+/*!
+ * @brief Adds a plant to the customer's order
+ *
+ * @param plantID Plant object to be added to the order (if it exists)
+ * @param decor Option to decorate the Plant being purchased (value = wrap/pot/arrange/none)
+ */
 void Customer::addPlant(string plantID, string decor) {
     if (!currentOrder) {
         cout << "Start a purchase first" << endl;
@@ -99,7 +115,9 @@ void Customer::undoAction()
     currentOrder->undoLastAddition();
 }
 
-
+/*!
+ * @brief Complete the purchase process for the customer's current Order
+ */
 void Customer::confirmPurchase()
 {
 

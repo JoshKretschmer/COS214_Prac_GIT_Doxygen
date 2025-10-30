@@ -6,6 +6,11 @@
 
 class Command;
 
+/*!
+ * @class Staff
+ *
+ * @brief Parent class for all specialized staff classes
+ */
 class Staff
 {
 protected:

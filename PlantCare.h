@@ -6,6 +6,11 @@ using namespace std;
 
 class Plant;
 
+/*!
+ * @class PlantCare
+ *
+ * @brief Parent class for different Plant care strategies
+ */
 class PlantCare {
 public:
     PlantCare();
@@ -14,6 +19,11 @@ public:
     virtual string getCareType() = 0;
 };
 
+/*!
+ * @class SunlightStrategy
+ *
+ * @brief Plant care strategy
+ */
 class SunlightStrategy : public PlantCare {
 public:
     SunlightStrategy();
@@ -21,6 +31,11 @@ public:
     string getCareType();
 };
 
+/*!
+ * @class WateringStrategy
+ *
+ * @brief Plant care strategy
+ */
 class WateringStrategy : public PlantCare {
 public:
     WateringStrategy();
@@ -28,6 +43,11 @@ public:
     string getCareType();
 };
 
+/*!
+ * @class FertilizingStrategy
+ *
+ * @brief Plant care strategy
+ */
 class FertilizingStrategy : public PlantCare {
 public:
     FertilizingStrategy();
@@ -35,6 +55,11 @@ public:
     string getCareType();
 };
 
+/*!
+ * @class CompositeCareStrategy
+ *
+ * @brief Combines all other Plant care strategies into one
+ */
 class CompositeCareStrategy : public PlantCare {
 public:
     CompositeCareStrategy();

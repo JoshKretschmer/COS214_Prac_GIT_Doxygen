@@ -8,6 +8,11 @@
 class Plant;
 class Inventory;
 
+/*!
+ * @class Iterator
+ *
+ * @brief Abstract Iterator class
+ */
 class Iterator {
 public:
     Iterator();
@@ -18,6 +23,11 @@ public:
     virtual Plant* currentItem() = 0;
 };
 
+/*!
+ * @class InventoryIterator
+ *
+ * @brief Iterator specifically designed to work with Inventory objects
+ */
 class InventoryIterator : public Iterator {//own file
 private:
     std::vector<Plant*> plants;//used to be Inventory* inventory;
