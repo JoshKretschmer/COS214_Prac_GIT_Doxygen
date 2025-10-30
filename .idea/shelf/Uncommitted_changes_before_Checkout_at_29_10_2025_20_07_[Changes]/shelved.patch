@@ -1,0 +1,888 @@
+Index: Command.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"Command.h\"\r\n#include <iostream>\r\n\r\nCommand::Command() {\r\n\r\n}\r\n\r\n//##################################################\r\n\r\nCareCommand::CareCommand() {\r\n\r\n}\r\n\r\nvoid CareCommand::execute() {\r\n    std::cout << \"Executing plant care command...\" << std::endl;\r\n}\r\n\r\n//##################################################\r\n\r\nPurchaseCommand::PurchaseCommand() {\r\n    \r\n}\r\n\r\nvoid PurchaseCommand::execute() {\r\n    std::cout << \"Executing purchase command...\" << std::endl;\r\n}\r\n\r\n//##################################################\r\n\r\nCommandManager::CommandManager() {\r\n\r\n}\r\n\r\nvoid CommandManager::execute() {\r\n    std::cout << \"Executing command manager sequence...\" << std::endl;\r\n}\r\n\r\nCommand::~Command() {}\r\nCareCommand::~CareCommand() {}\r\nPurchaseCommand::~PurchaseCommand() {}\r\nCommandManager::~CommandManager() {}\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Command.cpp b/Command.cpp
+--- a/Command.cpp	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/Command.cpp	(date 1761761013319)
+@@ -1,44 +1,97 @@
+ #include "Command.h"
+-#include <iostream>
+-
+-Command::Command() {
+ 
++Command::Command(Request*_request)
++{
++    if(_request)
++    {
++        request = _request;
++    }
++    else
++    {
++        cerr<<"requestQueue is NULL object...\nNothign initialized";
++    }
+ }
+ 
+-//##################################################
++Command::~Command()
++{
++    // no memory management required as Command is not responsible for Request object once it is passed on :)
++    // only null the pointer
++}
+ 
+-CareCommand::CareCommand() {
++bool Command::hasAcess(string _staffType)
++{
++    if(access == _staffType)
++    {
++        return true;
++    }
++    else
++    {
++        return false;
++    }
++}
+ 
++Request* Command::execute()
++{
++    if(request)
++    {
++        return request;
++    }
++    else
++    {
++        cerr<<"request queue not set\nNULL returned...";
++        return NULL;
++    }
+ }
+ 
+-void CareCommand::execute() {
+-    std::cout << "Executing plant care command..." << std::endl;
++
++
++
++
++
++InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
++{
++    access = "inventoryclerk";
+ }
+ 
+-//##################################################
++InventoryCommand::~InventoryCommand()
++{
++    // no memory management required as Command is not responsible for Request object once it is passed on :)
++}
+ 
+-PurchaseCommand::PurchaseCommand() {
+-    
++//....................
++
++SalesCommand::SalesCommand(Request *_request) : Command(_request)
++{
++    access = "salesassociate";
+ }
+ 
+-void PurchaseCommand::execute() {
+-    std::cout << "Executing purchase command..." << std::endl;
++SalesCommand::~SalesCommand()
++{
++    // no memory management required as Command is not responsible for Request object once it is passed on :)
+ }
+ 
+-//##################################################
++//.....................
+ 
+-CommandManager::CommandManager() {
+ 
++ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
++{
++    access = "manager";
+ }
+ 
+-void CommandManager::execute() {
+-    std::cout << "Executing command manager sequence..." << std::endl;
++ManagerCommand::~ManagerCommand()
++{
++    // no memory management required as Command is not responsible for Request object once it is passed on :)
+ }
+ 
+-Command::~Command() {}
+-CareCommand::~CareCommand() {}
+-PurchaseCommand::~PurchaseCommand() {}
+-CommandManager::~CommandManager() {}
++//......................
+ 
+ 
++GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
++{
++    access = "horticulturist";
++}
+ 
++GreenHouseCommand::~GreenHouseCommand()
++{
++    // no memory management required as Command is not responsible for Request object once it is passed on :)
++}
+\ No newline at end of file
+Index: Customer.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"Customer.h\"\r\n\r\nCustomer::Customer() {\r\n\r\n}\r\n\r\nCustomer::~Customer() {\r\n\r\n}\r\n\r\nRequest *Customer::makeRequest(string type, string details) {\r\n    return new Request(type, details, \"Placeholder action\");\r\n}\r\n\r\nvoid Customer::browsePlants(Inventory& inventory) {\r\n    //this should have an iterator used here;\r\n}\r\n\r\nvoid Customer::startPurchase(Plant* plant) {\r\n    //invoke the purchase command\r\n}\r\n\r\nvoid Customer::customizeOrder(string customization) {\r\n    //this will utilize the plant decorator \r\n}\r\n\r\nvoid Customer::undoCustomization() {\r\n    //this will invoke the memento\r\n}\r\n\r\nvoid Customer::confirmPurchase() {\r\n    //give output, delete from system, call for inventory.remove();\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Customer.cpp b/Customer.cpp
+--- a/Customer.cpp	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/Customer.cpp	(date 1761761046526)
+@@ -1,34 +1,134 @@
+ #include "Customer.h"
+ 
+-Customer::Customer() {
++/*!
++ * @brief Basic constructor for customer object
++ */
++Customer::Customer(string _name,string _id,InventoryClerk* _clerk, Staff* _salesPerson)
++{
++    salesPerson = _salesPerson; //will need to reconfigure and add some functions to salesPerson
++    name = _name;
++    id = _id;
++}
+ 
++/*!
++ * @brief Baisc destructor for customer object
++ */
++Customer::~Customer()
++{
++    // no memeory management required
+ }
+ 
+-Customer::~Customer() {
++/*!
++ *
++ * @param type type of request to be made
++ * @param details details added to the request
++ * @param action action to be executed by the request
++ * @return The Request object that has been created
++ */
++Request *Customer::makeRequest(string type, string details, string action)
++{
++    Request *request;
++    enum class RequestType
++    {
++        SALES = 1,
++        CARE = 2,
++        PURCHASE = 3,
++        INVENTORY = 4,
++        GENERAL = 5
++    };
++
++    RequestType requestType = RequestType::GENERAL;
+ 
+-}
++    if (type == "Sales" || type == "SALES")
++    {
++        requestType = RequestType::SALES;
++    }
++    else if (type == "Care" || type == "CARE")
++    {
++        requestType = RequestType::CARE;
++    }
++    else if (type == "Purchase" || type == "PURCHASE")
++    {
++        requestType = RequestType::PURCHASE;
++    }
++    else if (type == "Inventory" || type == "INVENTORY")
++    {
++        requestType = RequestType::INVENTORY;
++    }
+ 
+-Request *Customer::makeRequest(string type, string details) {
+-    return new Request(type, details, "Placeholder action");
+-}
++    switch (requestType)
++    {
++    case RequestType::SALES:
++        request = new Request();
++        break;
++
++    case RequestType::CARE:
++        request = new Request();
++        break;
++
++    case RequestType::PURCHASE:
++        request = new Request();
++        break;
++
++    case RequestType::INVENTORY:
++        request = new Request();
++
++    default:
++        request = new Request(); // this is for GENERAL
++        break;
++    }
+ 
+-void Customer::browsePlants(Inventory& inventory) {
+-    //this should have an iterator used here;
++    return request;
+ }
+ 
+-void Customer::startPurchase(Plant* plant) {
+-    //invoke the purchase command
++/*!
++ * @brief Allow the customer to view available Palnt objects
++ */
++void Customer::browsePlants()
++{
++
+ }
+ 
+-void Customer::customizeOrder(string customization) {
+-    //this will utilize the plant decorator 
++/*!
++ * @brief Creates an Order object for the customer to make a purchase
++ */
++void Customer::startPurchase()
++{
++
+ }
+ 
+-void Customer::undoCustomization() {
+-    //this will invoke the memento
++/*!
++ * @brief Allows the customer to customize the order they have made
++ */
++void Customer::customizeOrder()
++{
++    cout<<"\n What would you like to add? \n"
++        <<"\t...POT...\n"
++        <<"1- POT1 Cost R20.00\n"
++        <<"2- POT2 Cost R20.00\n\n"
++        <<"\t...ARRANGEMENT...\n"
++        <<"3- ARRANGEMENT1 Cost R10.00\n"
++        <<"4- ARRANGEMENT2 Cost R10.00\n\n"
++        <<"\t...WRAP...\n"
++        <<"6- WRAP1 Cost R15.00\n"
++        <<"7- WRAP2 Cost R15.00\n\n"
++        <<"CHOICE:(number only): ";
++
++        int option;
++        cin>>option;
++
+ }
+ 
+-void Customer::confirmPurchase() {
+-    //give output, delete from system, call for inventory.remove();
++/*!
++ * @brief undo the last customization action
++ */
++void Customer::undoCustomization()
++{
+ }
+ 
++/*!
++ * @brief Complete a purchase tasks and remove all purchased plants from system
++ */
++void Customer::confirmPurchase()
++{
++}
+\ No newline at end of file
+Index: Inventory.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ifndef INVENTORY_H\r\n#define INVENTORY_H\r\n\r\n#include \"Plant.h\"\r\n#include \"PlantState.h\"\r\n#include \"Iterator.h\"\r\n#include \"Observer.h\"\r\n#include \"NurseryMediator.h\"\r\n#include \"Shelf.h\"\r\n#include <vector>\r\n#include <string>\r\n#include <map>\r\nusing namespace std;\r\n\r\nclass InventoryIterator;\r\nclass NurseryMediator;\r\nclass PlantState;\r\n\r\nclass InventoryComponent : public Subject {\r\nprotected:\r\n    NurseryMediator* mediator;\r\npublic:\r\n    InventoryComponent(NurseryMediator* med);\r\n    virtual ~InventoryComponent();\r\n    void setMediator(NurseryMediator* med);\r\n    virtual void add(InventoryComponent* component);\r\n    virtual void remove(InventoryComponent* component);\r\n    virtual vector<Plant*> getPlants();\r\n    virtual void notifyObservers();\r\n    virtual void movePlant(Plant* plant, string newState);\r\n};\r\n\r\nclass PlantGroup : public InventoryComponent {\r\nprivate:\r\n    string groupName;\r\n    vector<InventoryComponent*> children;\r\npublic:\r\n    PlantGroup(string name, NurseryMediator* med = nullptr);\r\n    ~PlantGroup();\r\n    void add(InventoryComponent* component);\r\n    void remove(InventoryComponent* component);\r\n    vector<Plant*> getPlants();\r\n    void movePlant(Plant* plant, string newState);\r\n};\r\n\r\nclass Inventory : public InventoryComponent {\r\nprivate:\r\n    vector<Plant*> plants;\r\n    Shelf** shelves;\r\n    map<string, int> stockLevels;\r\n    vector<PlantState*> states;\r\n    vector<PlantGroup*> groups;\r\npublic:\r\n    Inventory(NurseryMediator* med);\r\n    ~Inventory();\r\n    void addPlant(Plant* plant);\r\n    void removePlant(string plantId);\r\n    void updateStock(string plantType,int quantity);\r\n    int getStockLevel(string plantType);\r\n    InventoryIterator* createIterator();\r\n    void notifyObservers() override;\r\n    void notifyMediator(string updateType, Plant& plant);\r\n    int getPlantCount();\r\n    void add(InventoryComponent* component) override;\r\n    void remove(InventoryComponent* component) override;\r\n    vector<Plant*> getPlants() override;\r\n    void movePlant(Plant* plant, string newState) override;\r\n};\r\n\r\n#endif //INVENTORY_H\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Inventory.h b/Inventory.h
+--- a/Inventory.h	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/Inventory.h	(date 1761759332630)
+@@ -46,7 +46,6 @@
+ class Inventory : public InventoryComponent {
+ private:
+     vector<Plant*> plants;
+-    Shelf** shelves;
+     map<string, int> stockLevels;
+     vector<PlantState*> states;
+     vector<PlantGroup*> groups;
+Index: PlantCare.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ifndef PLANTCARE_H\r\n#define PLANTCARE_H\r\n\r\n\r\nclass Plant;\r\n\r\nclass PlantCare {\r\n    public:\r\n        PlantCare();\r\n        virtual ~PlantCare();\r\n        virtual bool executeCare();\r\n};\r\n\r\nclass SunlightStrategy : public PlantCare {\r\n    public:\r\n        SunlightStrategy();\r\n        ~SunlightStrategy() override;\r\n        bool executeCare();\r\n};\r\n\r\nclass WateringStrategy : public PlantCare {\r\n    public:\r\n        WateringStrategy();\r\n        ~WateringStrategy() override;\r\n        bool executeCare();\r\n};\r\n\r\nclass FertilizingStrategy : public PlantCare {\r\n    public:\r\n        FertilizingStrategy();\r\n        ~FertilizingStrategy() override;\r\n        bool executeCare();\r\n};\r\n\r\nclass CompositeCareStrategy : public PlantCare {\r\n    public:\r\n        CompositeCareStrategy();\r\n        ~CompositeCareStrategy() override;\r\n        bool executeCare();\r\n};\r\n\r\n\r\n\r\n#endif //PLANTCARE_H\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlantCare.h b/PlantCare.h
+--- a/PlantCare.h	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/PlantCare.h	(date 1761759513413)
+@@ -1,6 +1,8 @@
+ #ifndef PLANTCARE_H
+ #define PLANTCARE_H
+ 
++#include <string>
++using namespace std;
+ 
+ class Plant;
+ 
+@@ -9,6 +11,7 @@
+         PlantCare();
+         virtual ~PlantCare();
+         virtual bool executeCare();
++        virtual string getCareType();
+ };
+ 
+ class SunlightStrategy : public PlantCare {
+@@ -16,6 +19,7 @@
+         SunlightStrategy();
+         ~SunlightStrategy() override;
+         bool executeCare();
++        string getCareType();
+ };
+ 
+ class WateringStrategy : public PlantCare {
+@@ -23,6 +27,7 @@
+         WateringStrategy();
+         ~WateringStrategy() override;
+         bool executeCare();
++        string getCareType();
+ };
+ 
+ class FertilizingStrategy : public PlantCare {
+@@ -30,6 +35,7 @@
+         FertilizingStrategy();
+         ~FertilizingStrategy() override;
+         bool executeCare();
++        string getCareType();
+ };
+ 
+ class CompositeCareStrategy : public PlantCare {
+@@ -37,6 +43,7 @@
+         CompositeCareStrategy();
+         ~CompositeCareStrategy() override;
+         bool executeCare();
++        string getCareType();
+ };
+ 
+ 
+Index: PlantDecorator.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"PlantDecorator.h\"\r\n\r\nConcretePlant::ConcretePlant() {\r\n\r\n}\r\n\r\nstring ConcretePlant::getDetails() {\r\n    return \"\";\r\n}\r\n\r\ndouble ConcretePlant::getCost() {\r\n    return 0.0;\r\n}\r\n\r\n//#################################################\r\n\r\nPlantDecorator::PlantDecorator() {\r\n\r\n}\r\n\r\nPlantDecorator::~PlantDecorator() {\r\n\r\n}\r\n\r\nstring PlantDecorator::getDetails() {\r\n    return \"\";\r\n}\r\n\r\ndouble PlantDecorator::getCost() {\r\n    return 0.0;\r\n}\r\n\r\n//#################################################\r\n\r\nArrangementDecorator::ArrangementDecorator() {\r\n\r\n}\r\n\r\nstring ArrangementDecorator::getDetails() {\r\n    return \"\";\r\n}\r\n\r\ndouble ArrangementDecorator::getCost() {\r\nreturn 0.0;\r\n}\r\n\r\n//#################################################\r\n\r\nPotDecorator::PotDecorator() {\r\n\r\n}\r\n\r\nstring PotDecorator::getDetails() {\r\n    return \"\";\r\n}\r\n\r\ndouble PotDecorator::getCost() {\r\n    return 0.0;\r\n}\r\n\r\n//#################################################\r\n\r\nWrapDecorator::WrapDecorator() {\r\n\r\n}\r\n\r\nstring WrapDecorator::getDetails() {\r\n    return \"\";\r\n}\r\n\r\ndouble WrapDecorator::getCost() {\r\n    return 0.0;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlantDecorator.cpp b/PlantDecorator.cpp
+--- a/PlantDecorator.cpp	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/PlantDecorator.cpp	(date 1761759940062)
+@@ -1,73 +1,158 @@
++/*!
++*  @file PlantDecorator.cpp
++ *
++ *  @brief Contains function definitions for the PlantDecorator functions defined in PlantDecorator.h
++ */
++
+ #include "PlantDecorator.h"
+ 
+-ConcretePlant::ConcretePlant() {
+-
+-}
+-
+-string ConcretePlant::getDetails() {
+-    return "";
+-}
+-
+-double ConcretePlant::getCost() {
+-    return 0.0;
+-}
++//Plant (Component) is ConcretePlant (ConcreteComponent)
+ 
+ //#################################################
+ 
++/*!
++ * @brief Basic constructor function for PlantDecorator
++ */
+ PlantDecorator::PlantDecorator() {
+-
++    wrappedPlant=nullptr;
+ }
+ 
++/*!
++ * @brief Basic destructor function for PlantDecorator
++ */
+ PlantDecorator::~PlantDecorator() {
+-
++    delete wrappedPlant;
+ }
+ 
+-string PlantDecorator::getDetails() {
+-    return "";
+-}
+-
+-double PlantDecorator::getCost() {
+-    return 0.0;
++/*!
++ * @brief Basic setter function for wrappedPlant attribute
++ *
++ * @param wrappedPlant Plant object to be attached to the Decorator object
++ */
++void PlantDecorator::setWrapped(Plant* wrappedPlant) {
++    this->wrappedPlant = wrappedPlant;
+ }
+ 
+ //#################################################
+ 
+-ArrangementDecorator::ArrangementDecorator() {
+-
+-}
+-
++/*!
++ * Return string gotten for wrappedPlant object, appended with "Decoration: Arrangement"
++ *
++ * @return Basic details of decorated plant
++ */
+ string ArrangementDecorator::getDetails() {
+-    return "";
++    if (this->getWrapped() == nullptr) {
++        return "Plant to be decorated has not been set";
++    }
++
++    string det = getWrapped()->getDetails();
++    det += "Decoration: Arrangement \n";
++    return det;
++}
++
++PlantDecorator* ArrangementDecorator::clone() {
++    Plant* newP = this->getWrapped()->clone();
++
++    ArrangementDecorator* newD = new ArrangementDecorator();
++    newD->setWrapped(newP);
++
++    return newD;
+ }
+ 
++/*!
++ * @brief Calculates the price as wrappedPlant->price + 10.00
++ *
++ * @return Full price of decorated plant
++ */
+ double ArrangementDecorator::getCost() {
+-return 0.0;
++    if (this->getWrapped() == nullptr) {
++        return 0;
++    }
++
++    double cost = getWrapped()->getCost();
++    cost += 10;
++    return cost;
+ }
+ 
+ //#################################################
+ 
+-PotDecorator::PotDecorator() {
+-
+-}
+-
++/*!
++ * Return string gotten for wrappedPlant object, appended with "Decoration: Pot"
++ *
++ * @return Basic details of decorated plant
++ */
+ string PotDecorator::getDetails() {
+-    return "";
++    if (this->getWrapped() == nullptr) {
++        return "Plant to be decorated has not been set";
++    }
++
++    string det = getWrapped()->getDetails();
++    det += "Decoration: Pot \n";
++    return det;
+ }
+ 
++/*!
++ * @brief Calculates the price as wrappedPlant->price + 20.00
++ *
++ * @return Full price of decorated plant
++ */
+ double PotDecorator::getCost() {
+-    return 0.0;
++    if (this->getWrapped() == nullptr) {
++        return 0;
++    }
++
++    double cost = getWrapped()->getCost();
++    cost += 20;
++    return cost;
+ }
++
++PlantDecorator *PotDecorator::clone() {
++    Plant* newP = this->getWrapped()->clone();
++
++    PotDecorator* newD = new PotDecorator();
++    newD->setWrapped(newP);
++
++    return newD;
++}
++
+ 
+ //#################################################
+ 
+-WrapDecorator::WrapDecorator() {
+-
+-}
+-
++/*!
++ * Return string gotten for wrappedPlant object, appended with "Decoration: Wrap"
++ *
++ * @return Basic details of decorated plant
++ */
+ string WrapDecorator::getDetails() {
+-    return "";
++    if (this->getWrapped() == nullptr) {
++        return "Plant to be decorated has not been set";
++    }
++
++    string det = getWrapped()->getDetails();
++    det += "Decoration: Wrap \n";
++    return det;
+ }
+ 
++/*!
++ * @brief Calculates the price as wrappedPlant->price + 15.00
++ *
++ * @return Full price of decorated plant
++ */
+ double WrapDecorator::getCost() {
+-    return 0.0;
++    if (this->getWrapped() == nullptr) {
++        return 0;
++    }
++
++    double cost = getWrapped()->getCost();
++    cost += 15;
++    return cost;
+ }
++
++PlantDecorator *WrapDecorator::clone() {
++    Plant* newP = this->getWrapped()->clone();
++
++    WrapDecorator* newD = new WrapDecorator();
++    newD->setWrapped(newP);
++
++    return newD;
++}
+\ No newline at end of file
+Index: PlantDecorator.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ifndef PLANTDECORATOR_H\r\n#define PLANTDECORATOR_H\r\n\r\n#include \"Plant.h\"\r\n#include <string>\r\nusing namespace std;\r\n\r\nclass ConcretePlant : public Plant {\r\n    public:\r\n        ConcretePlant();\r\n        string getDetails();\r\n        double getCost();\r\n};\r\n\r\nclass PlantDecorator : public Plant{\r\n    private:\r\n        Plant* wrappedPlant;\r\n    public:\r\n        PlantDecorator();\r\n        virtual ~PlantDecorator();\r\n        virtual string getDetails();\r\n        virtual double getCost();\r\n};\r\n\r\nclass ArrangementDecorator : public PlantDecorator {\r\n    public:\r\n        ArrangementDecorator();\r\n        string getDetails();\r\n        double getCost();\r\n};\r\n\r\nclass PotDecorator : public PlantDecorator {\r\n    public:\r\n        PotDecorator();\r\n        string getDetails();\r\n        double getCost();\r\n};\r\n\r\nclass WrapDecorator : public PlantDecorator {\r\n    public:\r\n        WrapDecorator();\r\n        string getDetails();\r\n        double getCost();\r\n};\r\n\r\n#endif //PLANTDECORATOR_H\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlantDecorator.h b/PlantDecorator.h
+--- a/PlantDecorator.h	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/PlantDecorator.h	(date 1761759711713)
+@@ -1,3 +1,11 @@
++/*!
++*  @headerfile PlantDecorator.h
++ *
++ *  @brief Contains class definitions for PlantDecorator and its various subclasses
++ *
++ *  Patterns: Decorator
++ */
++
+ #ifndef PLANTDECORATOR_H
+ #define PLANTDECORATOR_H
+ 
+@@ -5,42 +13,59 @@
+ #include <string>
+ using namespace std;
+ 
+-class ConcretePlant : public Plant {
+-    public:
+-        ConcretePlant();
+-        string getDetails();
+-        double getCost();
+-};
+-
++/*!
++ * @class PlantDecorator
++ *
++ * @brief Abstract interface class for various decorator subclasses
++ */
+ class PlantDecorator : public Plant{
+-    private:
+-        Plant* wrappedPlant;
+-    public:
+-        PlantDecorator();
+-        virtual ~PlantDecorator();
+-        virtual string getDetails();
+-        virtual double getCost();
++private:
++    Plant* wrappedPlant;
++protected:
++    Plant* getWrapped() {return wrappedPlant;};
++public:
++    PlantDecorator();
++    ~PlantDecorator();
++    virtual string getDetails() = 0;
++    virtual double getCost() = 0;
++    void setWrapped(Plant* wrappedPlant);
++    virtual PlantDecorator* clone();
+ };
+ 
++/*!
++ * @class ArrangementDecorator
++ *
++ * @brief Concrete decorator class
++ */
+ class ArrangementDecorator : public PlantDecorator {
+-    public:
+-        ArrangementDecorator();
+-        string getDetails();
+-        double getCost();
++public:
++    string getDetails();
++    double getCost();
++    PlantDecorator* clone();
+ };
+ 
++/*!
++ * @class PotDecorator
++ *
++ * @brief Concrete decorator class
++ */
+ class PotDecorator : public PlantDecorator {
+-    public:
+-        PotDecorator();
+-        string getDetails();
+-        double getCost();
++public:
++    string getDetails();
++    double getCost();
++    PlantDecorator* clone();
+ };
+ 
++/*!
++ * @class WrapDecorator
++ *
++ * @brief Concrete decorator class
++ */
+ class WrapDecorator : public PlantDecorator {
+-    public:
+-        WrapDecorator();
+-        string getDetails();
+-        double getCost();
++public:
++    string getDetails();
++    double getCost();
++    PlantDecorator* clone();
+ };
+ 
+-#endif //PLANTDECORATOR_H
++#endif //PLANTDECORATOR_H
+\ No newline at end of file
+Index: Command.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ifndef COMMAND_H\r\n#define COMMAND_H\r\n\r\n\r\n\r\nclass Command {\r\n    public:\r\n        Command();\r\n        virtual ~Command();\r\n        virtual void execute()=0;\r\n};\r\n\r\nclass CareCommand : public Command {\r\n    public:\r\n        CareCommand();\r\n        void execute();\r\n};\r\n\r\nclass PurchaseCommand : public Command {\r\n    public:\r\n        PurchaseCommand();\r\n        void execute();\r\n};\r\n\r\nclass CommandManager : public Command {\r\n    public:\r\n        CommandManager();\r\n        void execute();\r\n};\r\n\r\n\r\n\r\n#endif //COMMAND_H\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Command.h b/Command.h
+--- a/Command.h	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/Command.h	(date 1761760905511)
+@@ -1,33 +1,50 @@
+ #ifndef COMMAND_H
+ #define COMMAND_H
+ 
++#include "libraries.h"
++#include "Request.h"
+ 
++class Request;
+ 
+-class Command {
+-    public:
+-        Command();
+-        virtual ~Command();
+-        virtual void execute()=0;
++class Command
++{
++protected:
++    string access;  // the staff member who can access a command
++    Request* request;
++
++public:
++    Command(Request *_request);
++    virtual ~Command();
++    Request* execute();
++    bool hasAcess(string _staffType);
+ };
+ 
+-class CareCommand : public Command {
+-    public:
+-        CareCommand();
+-        void execute();
++class SalesCommand : public Command
++{
++public:
++    SalesCommand(Request *_request);
++    ~SalesCommand();
+ };
+ 
+-class PurchaseCommand : public Command {
+-    public:
+-        PurchaseCommand();
+-        void execute();
++class InventoryCommand : public Command
++{
++public:
++    InventoryCommand(Request *_request);
++    ~InventoryCommand();
+ };
+ 
+-class CommandManager : public Command {
+-    public:
+-        CommandManager();
+-        void execute();
++class ManagerCommand : public Command
++{
++public:
++    ManagerCommand(Request *_request);
++    ~ManagerCommand();
+ };
+ 
+-
++class GreenHouseCommand : public Command
++{
++public:
++    GreenHouseCommand(Request *_request);
++    ~GreenHouseCommand();
++};
+ 
+-#endif //COMMAND_H
++#endif
+\ No newline at end of file
+Index: PlantCare.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"PlantCare.h\"\r\n#include <iostream>\r\n\r\nusing namespace std;\r\n\r\nPlantCare::PlantCare() {\r\n\r\n}\r\n\r\nbool PlantCare::executeCare() {\r\n    return true;\r\n}\r\n\r\n//#############################################\r\n\r\nSunlightStrategy::SunlightStrategy() {\r\n\r\n}\r\n\r\nbool SunlightStrategy::executeCare() {\r\n    cout << \"Providing sunlight to the plant.\" << endl;\r\n    return true;\r\n}\r\n\r\n//#############################################\r\n\r\nWateringStrategy::WateringStrategy() {\r\n\r\n}\r\n\r\nbool WateringStrategy::executeCare() {\r\n    cout << \"Watering the plant.\" << endl;\r\n    return true;\r\n}\r\n\r\n//#############################################\r\n\r\nFertilizingStrategy::FertilizingStrategy() {\r\n\r\n}\r\n\r\nbool FertilizingStrategy::executeCare() {\r\n    cout << \"Fertilizing the plant.\" << endl;\r\n    return true;\r\n}\r\n\r\n//#############################################\r\n\r\nCompositeCareStrategy::CompositeCareStrategy() {\r\n\r\n}\r\n\r\nbool CompositeCareStrategy::executeCare() {\r\n    cout << \"Executing composite care strategy:\" << endl;\r\n    SunlightStrategy sunlight;\r\n    WateringStrategy water;\r\n    FertilizingStrategy fertilize;\r\n\r\n    sunlight.executeCare();\r\n    water.executeCare();\r\n    fertilize.executeCare();\r\n\r\n    return true;\r\n}\r\n\r\nPlantCare::~PlantCare() {}  \r\nSunlightStrategy::~SunlightStrategy() {}\r\nWateringStrategy::~WateringStrategy() {}\r\nFertilizingStrategy::~FertilizingStrategy() {}\r\nCompositeCareStrategy::~CompositeCareStrategy() {}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PlantCare.cpp b/PlantCare.cpp
+--- a/PlantCare.cpp	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/PlantCare.cpp	(date 1761759513416)
+@@ -22,6 +22,10 @@
+     return true;
+ }
+ 
++string SunlightStrategy::getCareType() {
++    return "Sunlight";
++}
++
+ //#############################################
+ 
+ WateringStrategy::WateringStrategy() {
+@@ -33,6 +37,10 @@
+     return true;
+ }
+ 
++string WateringStrategy::getCareType() {
++    return "Watering";
++}
++
+ //#############################################
+ 
+ FertilizingStrategy::FertilizingStrategy() {
+@@ -44,6 +52,10 @@
+     return true;
+ }
+ 
++string FertilizingStrategy::getCareType() {
++    return "Fertilizing";
++}
++
+ //#############################################
+ 
+ CompositeCareStrategy::CompositeCareStrategy() {
+@@ -63,6 +75,10 @@
+     return true;
+ }
+ 
++string CompositeCareStrategy::getCareType() {
++    return "Composite";
++}
++
+ PlantCare::~PlantCare() {}  
+ SunlightStrategy::~SunlightStrategy() {}
+ WateringStrategy::~WateringStrategy() {}
+Index: Customer.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ifndef CUSTOMER_H\r\n#define CUSTOMER_H\r\n\r\n#include <string>\r\n#include \"Order.h\"\r\n#include \"Request.h\"\r\n#include \"Inventory.h\"\r\nusing namespace std;\r\n\r\nclass Customer {\r\n    private:\r\n        string id;\r\n        Order* currentOrder;\r\n    public:\r\n        Customer();\r\n        ~Customer();\r\n        Request* makeRequest(string type, string details);\r\n        void browsePlants(Inventory& inventory);\r\n        void startPurchase(Plant* plant);\r\n        void customizeOrder(string customization);\r\n        void undoCustomization();\r\n        void confirmPurchase();\r\n};\r\n\r\n\r\n\r\n#endif //CUSTOMER_H\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Customer.h b/Customer.h
+--- a/Customer.h	(revision 049099a05c3e661eb83eda89ff022dfbc2f9fa33)
++++ b/Customer.h	(date 1761761077596)
+@@ -1,27 +1,42 @@
+ #ifndef CUSTOMER_H
+ #define CUSTOMER_H
+ 
++/*!
++ * @headerfile Customer.h
++ */
++
+ #include <string>
+ #include "Order.h"
+ #include "Request.h"
+-#include "Inventory.h"
++#include "Staff.h"
++#include "InventoryClerk.h"
+ using namespace std;
+ 
++/*!
++ * @class Customer
++ *
++ * @brief Class for objects that execute the purchasing and decoration process on plants
++ *
++ * Makes request to Staff object to execute processes
++ */
+ class Customer {
+-    private:
+-        string id;
+-        Order* currentOrder;
+-    public:
+-        Customer();
+-        ~Customer();
+-        Request* makeRequest(string type, string details);
+-        void browsePlants(Inventory& inventory);
+-        void startPurchase(Plant* plant);
+-        void customizeOrder(string customization);
+-        void undoCustomization();
+-        void confirmPurchase();
++private:
++    string id;  //should make this static, so each customer instance has a unique id number. Unless in main, we have a list of set cusomter ID numbers we select from.
++    string name;
++    Order* currentOrder;
++    Staff* salesPerson;
++
++public:
++    Customer(string name,string id, InventoryClerk* _clerk, Staff* _salesPerson);  // this makes sense coz a customer should know who they talking to
++    ~Customer();
++    Request* makeRequest(string type, string details,string action);
++    void browsePlants();
++    void startPurchase();
++    void customizeOrder();
++    void undoCustomization();
++    void confirmPurchase();
+ };
+ 
+ 
+ 
+-#endif //CUSTOMER_H
++#endif //CUSTOMER_H
+\ No newline at end of file

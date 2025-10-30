@@ -51,6 +51,11 @@ void Staff::forwardCommand(Command* command)
     }
 }
 
+/*!
+ * @brief executes the specified Command
+ *
+ * @param _command Command object containing the Request to be run
+ */
 void Staff::executeTask(Command *_command) {
     //Need to wait for command/request to be implemented
 }
@@ -73,7 +78,11 @@ void Staff::handleCommand(Command* command)
     }
 }
 
-// Template Method implementation
+/*!
+ * @brief Template method implementation
+ *
+ * @param plant Plant object to be moved to Inventory
+ */
 void Staff::movePlantToInventory(Plant* plant) {
     Request* request = new Request();
     request->setAction(getActionForMove());  

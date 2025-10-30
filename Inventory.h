@@ -13,6 +13,11 @@ class InventoryIterator;
 class InventoryComponent;
 class PlantState;
 
+/*!
+ * @class InventoryComponent
+ *
+ * @brief Parent class for object classes that can be stored in the Inventory, as well as the Inventory itself
+ */
 class InventoryComponent{//make own file
 public:
     InventoryComponent();
@@ -27,6 +32,11 @@ public:
     virtual void movePlant(Plant* plant, string newState);
 };
 
+/*!
+ * @class PlantGroup
+ *
+ * @brief Subclass used to organize the Plant objects in Inventory into categories
+ */
 class PlantGroup : public InventoryComponent {//make own file
 private:
     string groupName;
@@ -41,6 +51,11 @@ public:
     void movePlant(Plant* plant, string newState);
 };
 
+/*!
+ * @class Inventory
+ *
+ * @brief Class for the main Inventory object that serves as storage for all sellable Plants in the system
+ */
 class Inventory : public InventoryComponent {//keep in this file
 private:
     vector<Plant*> plants;

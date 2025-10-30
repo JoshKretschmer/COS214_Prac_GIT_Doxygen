@@ -18,7 +18,13 @@ SalesAssociate::SalesAssociate(string _name, Staff* clerk) : Staff(_name)
 SalesAssociate::~SalesAssociate(){
 }
 
-
+/*!
+ * @brief executes the specified Command object
+ *
+ * Command is from the client to get a Plant from the InventoryClerk for purchase
+ *
+ * @param command Command object containing the Request to be run
+ */
 void SalesAssociate::executeTask(Command *command)
 {
     //need command to be written first

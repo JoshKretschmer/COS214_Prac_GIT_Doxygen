@@ -32,16 +32,16 @@ Horticulturist::~Horticulturist()
 }
 
 /*!
- * @brief Sends a request to move the specified Plant to Inventory
- *
- * Creates a new request, encapsulates it in a command, and sends it to be handled by the relevant Staff
- *
- * @param plant Plant to be moved to Inventory
+ * @return Request action for moving/storing a plant
  */
 string Horticulturist::getActionForMove() {
     return ACTION_STOREPLANT;  // Specific to Horticulturist
 }
 
+/*!
+ *
+ * @return Request description from moving/storing a plant
+ */
 string Horticulturist::getDescriptionForMove() {
     return "just store the plant :)";  // Specific to Horticulturist
 }

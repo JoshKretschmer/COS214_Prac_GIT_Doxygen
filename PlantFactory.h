@@ -1,7 +1,6 @@
 #ifndef PLANTFACTORY_H
 #define PLANTFACTORY_H
 
-#include "libraries.h"
 #include "Plant.h"
 
 
