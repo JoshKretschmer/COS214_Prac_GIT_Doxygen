@@ -3,7 +3,7 @@
 //
 
 #include "Horticulturist.h"
-#include "Inventory.h"  // Need this for movePlantToInventory
+#include "Inventory.h"  //for movePlantToInventory?
 
 Horticulturist::Horticulturist(string _name) : Staff(_name) {
     staffType = "Horticulturist";
@@ -16,7 +16,7 @@ void Horticulturist::executeTask(Command* command) {
     //duties related to plantcare and maintanence
     cout << "Horticulturist " << staffName << " executing task" << endl;
 
-    //waiting for command
+    //waiting for command to be implemented
     
 }
 
@@ -33,6 +33,6 @@ void Horticulturist::movePlantToInventory(Plant* plant) {
     //execute the command
     //executeTask(command);
     
-    //now just print until Command pattern is ready
+    //just print until command pattern is ready
     cout << "Would move plant " << plant->getID() << " to inventory" << endl;
 }
