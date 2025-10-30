@@ -94,7 +94,7 @@ void Customer::browsePlants()
  */
 void Customer::startPurchase()
 {
-    
+
 }
 
 /*!

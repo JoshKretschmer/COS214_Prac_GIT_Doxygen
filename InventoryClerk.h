@@ -15,17 +15,14 @@ private:
     Box *removeBox(string _boxID, string _shelfName);
     Plant *unboxPlant(string _boxID, string _shelfName);
 
-    virtual void executeTask(Command* command) override;
-    // virtual void handleRequest(Request *request) override;
+    void executeTask(Command* command) override;
 
 public:
     InventoryClerk(string _name);
     virtual ~InventoryClerk();
 
     void storePlant(Plant* plant);
-   // virtual void peak() override;
 
-    // can implement Mediator here
 
     void assignJob(Inventory *_inventory);
 };

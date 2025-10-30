@@ -28,23 +28,8 @@
   <component name="ChangeListManager">
     <list default="true" id="fd7a4f1d-6122-4082-884f-b974eed4c478" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Box.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Box.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Command.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Customer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Customer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Horticulturist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Horticulturist.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inventory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Inventory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InventoryClerk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Memento.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Memento.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Order.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Order.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plant.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Plant.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantCare.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantCare.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantDecorator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantDecorator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantFactory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantFactory.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlantState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PlantState.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Request.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Request.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shelf.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Shelf.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SimulationTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/SimulationTime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Staff.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Staff.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InventoryClerk.h" beforeDir="false" afterPath="$PROJECT_DIR$/InventoryClerk.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,25 +54,25 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="FinalCode" />
+        <entry key="$PROJECT_DIR$" value="Josh" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {}
-}]]></component>
-  <component name="GitHubPullRequestState"><![CDATA[{
-  "prStates": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitHubPullRequestState">{
+  &quot;prStates&quot;: [
     {
-      "id": {
-        "id": "PR_kwDOP2ofYs6vQF-m",
-        "number": 1
+      &quot;id&quot;: {
+        &quot;id&quot;: &quot;PR_kwDOP2ofYs6vQF-m&quot;,
+        &quot;number&quot;: 1
       },
-      "lastSeen": 1761671302147
+      &quot;lastSeen&quot;: 1761671302147
     }
   ]
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen&quot;,
@@ -163,7 +148,7 @@
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Kalu&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;inventory-iterator-working&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/zanri/OneDrive/Desktop/Uni stuff/2025/Sem 2/COS 214/Practicals/COS214_Prac_GIT_Doxygen&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -244,6 +229,7 @@
       <workItem from="1761664929900" duration="50000" />
       <workItem from="1761665185516" duration="66000" />
       <workItem from="1761665344208" duration="10076000" />
+      <workItem from="1761808303674" duration="1285000" />
     </task>
     <task id="LOCAL-00001" summary="Defined all classes and function as specified in class diagram">
       <option name="closed" value="true" />
@@ -365,7 +351,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761671347669</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Major Rollback to fix code">
+      <option name="closed" value="true" />
+      <created>1761762112145</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1761762112145</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Minor changes made during coding logic checks">
+      <option name="closed" value="true" />
+      <created>1761763547087</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1761763547087</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Rewrote Clone function for Plant + added some Doxygen">
+      <option name="closed" value="true" />
+      <created>1761766110523</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1761766110523</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,7 +421,10 @@
     <MESSAGE value="minor commit" />
     <MESSAGE value="Currently busy with the restructuring of the&#10;Inventory &amp; Staff cor-ordination" />
     <MESSAGE value="Doxygen for all header files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Doxygen for all header files" />
+    <MESSAGE value="Major Rollback to fix code" />
+    <MESSAGE value="Minor changes made during coding logic checks" />
+    <MESSAGE value="Rewrote Clone function for Plant + added some Doxygen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rewrote Clone function for Plant + added some Doxygen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
