@@ -72,3 +72,16 @@ void Staff::handleCommand(Command* command)
         forwardCommand(command);
     }
 }
+
+// Template Method implementation
+void Staff::movePlantToInventory(Plant* plant) {
+    Request* request = new Request();
+    request->setAction(getActionForMove());  
+    request->setDescription(getDescriptionForMove()); 
+    request->setPlantObject(plant);
+    request->setSender(this);
+
+    Command* command = new InventoryCommand(request);  //assuming InventoryCommand is a concrete Command subclass
+
+    handleCommand(command);
+}

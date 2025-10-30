@@ -38,15 +38,10 @@ Horticulturist::~Horticulturist()
  *
  * @param plant Plant to be moved to Inventory
  */
-void Horticulturist::movePlantToInventory(Plant* plant)
-{
-    Request* request = new Request();
-    request->setAction(ACTION_STOREPLANT);
-    request->setDescription("just store the plant :)");
-    request->setPlantObject(plant);
-    request->setSender(this);
+string Horticulturist::getActionForMove() {
+    return ACTION_STOREPLANT;  // Specific to Horticulturist
+}
 
-    Command* command = new InventoryCommand(request);
-
-    handleCommand(command);
+string Horticulturist::getDescriptionForMove() {
+    return "just store the plant :)";  // Specific to Horticulturist
 }
