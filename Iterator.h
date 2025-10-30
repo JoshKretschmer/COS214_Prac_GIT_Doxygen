@@ -21,7 +21,7 @@ public:
 class InventoryIterator : public Iterator {//own file
 private:
     std::vector<Plant*> plants;//used to be Inventory* inventory;
-    size_t currentIndex;
+    int currentIndex;
 public:
     InventoryIterator(Inventory* inventory);
     void first() override;

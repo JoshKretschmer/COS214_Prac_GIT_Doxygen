@@ -4,17 +4,8 @@
 
 InventoryComponent::InventoryComponent() {}
 
-InventoryComponent::~InventoryComponent() {}
-
-void InventoryComponent::add(InventoryComponent* component) {}
-
-void InventoryComponent::remove(InventoryComponent* component) {}
-
-vector<Plant*> InventoryComponent::getPlants() {
-    return vector<Plant*>();
+InventoryComponent::~InventoryComponent() {
 }
-
-void InventoryComponent::movePlant(Plant* plant, string newState) {}
 
 PlantGroup::PlantGroup(string name) : InventoryComponent(), groupName(name) {}
 
