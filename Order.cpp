@@ -17,6 +17,14 @@ Order::~Order() {
     for (auto plant : plants) {
         delete plant;
     }
+    for (auto m : mementos) {
+        delete m;
+    }
+    mementos.clear();
+    for (auto m : redoMementos) {
+        delete m;
+    }
+    redoMementos.clear();
 }
 
 /*!
@@ -38,7 +46,7 @@ Memento *Order::createMemento() {
     vector<Plant*> plantClones;
     plantClones.reserve(plants.size());
 
-for (auto plant : plants) {
+    for (auto plant : plants) {
         plantClones.push_back(plant->clone());
     }
     return new Memento(plantClones, totalCost);
@@ -53,6 +61,14 @@ vector<Memento*>& Order::getMementos() {
 }
 
 /*!
+ *
+ * @return All stored redo states of the object
+ */
+vector<Memento*>& Order::getRedoMementos() {
+    return redoMementos; 
+}
+
+/*!
  * @brief Restores the Object to a previous state
  *
  * @param memento Contains previous state to be restored
@@ -61,15 +77,15 @@ void Order::restoreMemento(Memento *memento) {
     if (!memento) {
         return;
     }
-        for (auto* p : plants)
-    delete p;
+    for (auto* p : plants)
+        delete p;
     plants.clear();
 
     for (auto* saved : memento->getSavedPlants()){
         plants.push_back(saved->clone());
     }
 
-        totalCost = memento->getSavedCost();
+    totalCost = memento->getSavedCost();
     cout << "Order restored. Current total cost: " << totalCost << endl;
 }
 
@@ -106,18 +122,48 @@ void Order::undoLastAddition() {
     Memento* last = mementos.back();
     mementos.pop_back();
 
-    for (auto* p : plants)
-        delete p;
-    plants.clear();
+    redoMementos.push_back(createMemento()); // Save current state for redo
 
-    for (auto* saved : last->getSavedPlants())
-        plants.push_back(saved->clone());
-
-    totalCost = last->getSavedCost();
-
-    std::cout << "Order restored. Current total cost: " << totalCost << std::endl;
+    restoreMemento(last);
     delete last;
 }
 
+/*!
+ * @brief redo last undone action on the Object
+ */
+void Order::redoLastStep() {
+    if (redoMementos.empty()) return;
 
+    Memento* next = redoMementos.back();
+    redoMementos.pop_back();
 
+    mementos.push_back(createMemento()); // Save current state for undo
+
+    restoreMemento(next);
+    delete next;
+}
+
+/*!
+ * @return Copy of the plants in the order
+ */
+vector<Plant*> Order::getPlants() const {
+    return plants;
+}
+
+/*!
+ * @return Pointer to the last plant in the order (or nullptr if empty)
+ */
+Plant* Order::getLastPlant() {
+    if (plants.empty()) return nullptr;
+    return plants.back();
+}
+
+/*!
+ * @brief Replace the last plant in the order with a new one (e.g., decorated)
+ */
+void Order::replaceLastPlant(Plant* newPlant) {
+    if (plants.empty()) return;
+    delete plants.back();
+    plants.back() = newPlant;
+    updateCost();
+}

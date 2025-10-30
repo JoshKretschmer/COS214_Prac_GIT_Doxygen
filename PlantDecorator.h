@@ -29,7 +29,7 @@ public:
     virtual string getDetails() = 0;
     virtual double getCost() = 0;
     void setWrapped(Plant* wrappedPlant);
-    virtual PlantDecorator* clone();
+    virtual PlantDecorator* clone() = 0;
 };
 
 /*!
@@ -41,7 +41,7 @@ class ArrangementDecorator : public PlantDecorator {
 public:
     string getDetails();
     double getCost();
-    PlantDecorator* clone();
+    PlantDecorator* clone() override;
 };
 
 /*!
@@ -53,7 +53,7 @@ class PotDecorator : public PlantDecorator {
 public:
     string getDetails();
     double getCost();
-    PlantDecorator* clone();
+    PlantDecorator* clone() override;
 };
 
 /*!
@@ -65,7 +65,7 @@ class WrapDecorator : public PlantDecorator {
 public:
     string getDetails();
     double getCost();
-    PlantDecorator* clone();
+    PlantDecorator* clone() override;
 };
 
 #endif //PLANTDECORATOR_H

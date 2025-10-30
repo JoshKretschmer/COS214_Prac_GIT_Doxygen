@@ -35,7 +35,7 @@ Horticulturist::~Horticulturist()
  * @return Request action for moving/storing a plant
  */
 string Horticulturist::getActionForMove() {
-    return ACTION_STOREPLANT;  // Specific to Horticulturist
+    return "ACTION_STOREPLANT";  // Specific to Horticulturist
 }
 
 /*!

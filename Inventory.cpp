@@ -7,11 +7,18 @@
  */
 InventoryComponent::InventoryComponent() {}
 
-/*!
- * @brief Basic destructor function
- */
-InventoryComponent::~InventoryComponent() {
+InventoryComponent::~InventoryComponent() {}
+
+void InventoryComponent::add(InventoryComponent* component) {}
+
+void InventoryComponent::remove(InventoryComponent* component) {}
+
+vector<Plant*> InventoryComponent::getPlants() {
+    return vector<Plant*>();
 }
+
+void InventoryComponent::movePlant(Plant* plant, string newState) {}
+
 
 /*!
  * @brief Basic constructor function

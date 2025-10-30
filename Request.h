@@ -1,8 +1,10 @@
 #ifndef REQUEST_H
 #define REQUEST_H
 
+#include <string>
 #include "Staff.h"
 #include "Plant.h"
+using namespace std;
 
 class Staff;
 class Plant;
