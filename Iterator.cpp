@@ -2,8 +2,6 @@
 
 Iterator::Iterator() {}
 
-Iterator::~Iterator() {}
-
 InventoryIterator::InventoryIterator(Inventory* inventory) : plants(inventory->getPlants()), currentIndex(0) {
 }
 
@@ -26,4 +24,3 @@ Plant* InventoryIterator::currentItem() {
         return nullptr;
     }
 }
-
