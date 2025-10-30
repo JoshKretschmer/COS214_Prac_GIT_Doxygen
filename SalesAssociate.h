@@ -4,6 +4,7 @@
 #include "Staff.h"
 #include "Command.h"
 
+
 class SalesAssociate : public Staff
 {
 private:
@@ -14,4 +15,7 @@ public:
     ~SalesAssociate();
 };
 
-#endif //SALESASSOCIATE_H
+
+
+
+#endif
