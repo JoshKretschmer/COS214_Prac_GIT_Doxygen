@@ -1,15 +1,28 @@
 #include "InventoryCommand.h"
 #include "Request.h"
 
+/*!
+ * @brief Basic constructor function
+ *
+ * @param _request Request object to be contained
+ */
 InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
 {
     access = "inventoryclerk";
 }
 
+/*!
+ * @brief Basic destructor function
+ */
 InventoryCommand::~InventoryCommand()
 {
 }
 
+/*!
+ * @brief Executes the Request inside Command
+ *
+ * @return Details of Plants stored in inventory
+ */
 Request* InventoryCommand::execute()
 {
     //now I simply want to print the information of the plant
