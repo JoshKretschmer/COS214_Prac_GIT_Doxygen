@@ -16,6 +16,5 @@ Request* SalesCommand::execute()
     string plantID = request->getPlantID();
     string decor = request->getExtra();
     customer->addPlant(plantID, decor); //note that we need to add functionality to this
-
-    return request;
+    std::cout << request->getReceiver() << " has added " << plantID << " to your order.\n";
 }
