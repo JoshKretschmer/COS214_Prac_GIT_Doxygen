@@ -34,6 +34,7 @@ Request *Customer::makeRequest(string type, string details, string action)
 {
     //used to create request
     //need to be redone once request is set up
+    return NULL;
 }
 
 /*!

@@ -12,10 +12,10 @@
 class SalesAssociate : public Staff
 {
 private:
-    virtual void executeTask(Command* command) override;
+    void executeTask(Command* command) override;
 
 public:
-    SalesAssociate(string _name);
+    SalesAssociate(std::string _name, Staff* clerk);
     ~SalesAssociate();
 };
 

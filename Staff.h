@@ -1,10 +1,13 @@
 #ifndef STAFF_H
 #define STAFF_H
 
+#include <string>
 #include "Request.h"
 #include "Command.h"
+using namespace std;
 
 class Command;
+class Plant;
 
 /*!
  * @class Staff
