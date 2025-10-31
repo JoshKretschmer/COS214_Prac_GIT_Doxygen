@@ -45,6 +45,7 @@ Horticulturist::~Horticulturist()
  */
 string Horticulturist::getActionForMove() {
     //return ACTION_STOREPLANT;  // Specific to Horticulturist
+    return "";
 }
 
 string Horticulturist::getDescriptionForMove() {

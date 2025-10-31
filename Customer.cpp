@@ -1,5 +1,8 @@
 #include "Customer.h"
 #include "PlantDecorator.h"
+#include "PotDecorator.h"
+#include "WrapDecorator.h"
+#include "ArrangementDecorator.h"
 
 /*!
  * @brief Basic constructor for customer object

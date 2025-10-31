@@ -1,10 +1,9 @@
 #ifndef INVENTORYCLERK_H
 #define INVENTORYCLERK_H
 
-#include "Command.h"
 #include "Staff.h"
 #include "Inventory.h"
-#include "Request.h"
+#include "InventoryIterator.h"
 
 class InventoryClerk : public Staff
 {

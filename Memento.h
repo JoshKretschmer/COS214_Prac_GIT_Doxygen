@@ -23,7 +23,8 @@ public:
     ~Memento();
     const vector<Plant*>& getSavedPlants() const;
     double getSavedCost() const;
-    vector<Plant*> getMementos() const { return savedPlants; }
+    vector<Plant*> getMementos() const { return savedPlants; };
+};
 
 
 

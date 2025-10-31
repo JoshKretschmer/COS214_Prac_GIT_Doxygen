@@ -21,4 +21,6 @@ Request* InventoryCommand::execute()
     }else{
         std::cout << "Plant not found in inventory." << std::endl;
     }
+
+    return nullptr;
 }

@@ -74,25 +74,3 @@ Plant * InventoryClerk::getPlant(string plantID) {
     //return plant
     return returnPlant;
 }
-
-Plant * InventoryClerk::getPlant(string plantID) {
-
-    //find plant
-    Iterator* it = new InventoryIterator(inventory);
-    Plant* returnPlant = NULL;
-
-    while (it->hasNext()) {
-        if (it->currentItem()->getID() == plantID) {
-            returnPlant = it->currentItem();
-        }
-        it->next();
-    }
-
-    if (returnPlant != NULL) {
-        cout << "Plant does not exist in inventory";
-        return returnPlant;
-    }
-
-    //return plant
-    return returnPlant;
-}

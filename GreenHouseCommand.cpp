@@ -17,4 +17,5 @@ Request* GreenHouseCommand::execute()
 
 
     //we have the horticulturist, now we need to perform whatever action with him
+    return nullptr;
 }

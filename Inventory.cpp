@@ -3,6 +3,7 @@
 #include "InventoryIterator.h"
 #include "Inventory.h"
 #include "PlantGroup.h"
+#include <vector>
 
 Inventory::Inventory() : InventoryComponent() {}
 
