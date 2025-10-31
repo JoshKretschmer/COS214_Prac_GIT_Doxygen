@@ -3,15 +3,28 @@
 #include "Customer.h"
 #include "Request.h"
 
+/*!
+ * @brief Basic constructor function
+ *
+ * @param _request Request object to be contained
+ */
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
     access = "sales";
 }
 
+/*!
+ * @brief Basic destructor function
+ */
 SalesCommand::~SalesCommand()
 {
 }
 
+/*!
+ * @brief Executes the Request inside Command (add Plant to Order)
+ *
+ * @return nullptr
+ */
 Request *SalesCommand::execute()
 {
     Customer *customer = request->getSender();

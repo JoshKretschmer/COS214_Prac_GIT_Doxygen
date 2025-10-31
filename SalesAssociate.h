@@ -3,6 +3,11 @@
 
 #include "Staff.h"
 
+/*!
+ * @class SalesAssociate
+ *
+ * @brief public Staff class responsible for interacting with customer and passing on their requests
+ */
 class SalesAssociate : public Staff
 {
 private:

@@ -1,6 +1,13 @@
 #include "InventoryClerk.h"
 #include "Request.h"
 
+/*!
+ * @brief executes the specified Command
+ *
+ * Either adding a Plant to inventory, removing it from inventory, or returning a description of the contents of Inventory
+ *
+ * @param command Command object containing the Request to be run
+ */
 void InventoryClerk::executeTask(Command *command)
 {
     if (command->getRequest()->getType() != "inventory")

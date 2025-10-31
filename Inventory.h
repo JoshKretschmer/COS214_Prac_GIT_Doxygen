@@ -10,6 +10,11 @@
 class Plant;
 class PlantGroup;
 
+/*!
+ * @class Inventory
+ *
+ * @brief Class for the main Inventory object that serves as storage for all sellable Plants in the system
+ */
 class Inventory : public InventoryComponent
 { // keep in this file
 private:

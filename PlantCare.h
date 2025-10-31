@@ -5,8 +5,12 @@
 
 class Plant;
 
-class PlantCare
-{
+/*!
+ * @class PlantCare
+ *
+ * @brief Abstract parent class for various plant care strategies
+ */
+class PlantCare {
 public:
     PlantCare();
     ~PlantCare();

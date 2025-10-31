@@ -6,6 +6,12 @@
 #include "InventoryIterator.h"
 #include "Command.h"
 
+/*!
+ * @class InventoryClerk
+ *
+ * @brief public Staff class responsible for controlling all access to the Inventory object
+ * Adds Plants to the Inventory and fetches (removes) them on request
+ */
 class InventoryClerk : public Staff
 {
 private:

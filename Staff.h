@@ -12,6 +12,11 @@ class Command;
 class Plant;
 class Request;
 
+/*!
+ * @class Horticulturist
+ *
+ * @brief Parent class for Staff members
+ */
 class Staff
 {
 protected:

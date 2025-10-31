@@ -3,12 +3,25 @@
 #include "Request.h"
 #include <iostream>
 
+/*!
+     * @brief Constructor for Manager
+     *
+     * @param _name Name of the manager
+ */
 Manager::Manager(std::string _name) : Staff(_name) {
     staffType = "manager";
 }
 
+/*!
+     * @brief Destructor for Manager
+ */
 Manager::~Manager() = default;
 
+/*!
+     * @brief Executes the command if this staff can handle it
+     *
+     * @param command The command to execute
+*/
 void Manager::executeTask(Command* command) {
     Request* req = command->getRequest();
     

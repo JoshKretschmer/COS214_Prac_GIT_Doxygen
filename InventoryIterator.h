@@ -6,10 +6,14 @@
 class Inventory;
 class Plant;
 
-class InventoryIterator : public Iterator
-{ // own file
+/*!
+ * @class InventoryIterator
+ *
+ * @brief Basic application of the iterator design pattern to step through the plants contained in an Inventory object
+ */
+class InventoryIterator : public Iterator {
 private:
-    std::vector<Plant *> plants; // used to be Inventory* inventory;
+    std::vector<Plant *> plants;
     int currentIndex;
 
 public:

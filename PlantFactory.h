@@ -3,6 +3,11 @@
 
 #include "Plant.h"
 
+/*!
+ * @class PlantFactory
+ *
+ * @brief Abstract parent factory for specific plant factories
+ */
 class PlantFactory {
 public:
     PlantFactory();
