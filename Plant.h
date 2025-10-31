@@ -47,6 +47,12 @@ public:
     void incrementHealth(int num);
     std::string getState();
     Plant *clone();
+
+    PlantCare *getCareRegime() const { return careRegime; }
+    void setCareRegime(PlantCare *care) { careRegime = care; }
+
+    int getHealth() const { return health; }
+    void setHealth(int h) { health = h; }
 };
 
 #endif // PLANT_H

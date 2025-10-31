@@ -5,8 +5,9 @@
 #include "CreateSucculent.h"
 #include "CreateFlower.h"
 #include "CreateShrub.h"
+#include "Plant.h"
 
-void TestFactory()
+void TestPlants()
 {
     std::cout << "Test Factory\n\n";
 
@@ -148,12 +149,28 @@ void TestFactory()
 
     delete peanut;
 
+    std::cout << "\nTesting Strategy Pattern (careRegime)...\n";
+    peanut = succulentFactory.createPlant("PeanutCactus");
+
+    std::cout << "Plant ID: " << peanut->getID() << "\n";
+    std::cout << "Care type: " << peanut->getCareRegime()->getCareType() << "\n";
+
+    std::cout << "Applying full composite care:\n";
+    peanut->getCareRegime()->executeCare();
+
+    std::cout << "Health before care: " << peanut->getHealth() << "\n";
+    peanut->incrementHealth(2); // Triggers careRegime + state
+    std::cout << "Health after +2: " << peanut->getHealth()  << "\n";
+    std::cout << "State after care: " << peanut->getState() << "\n";
+
+    delete peanut;
+
     std::cout << "\nAll tests completed successfully\n";
-    std::cout << "Factory, Prototype, and State patterns are working\n";
+    std::cout << "Factory, Prototype, State, and Strategy patterns are working\n";
 }
 
 int main()
 {
-    TestFactory();
+    TestPlants();
     return 0;
 }

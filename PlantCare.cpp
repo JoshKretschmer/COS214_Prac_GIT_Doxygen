@@ -16,3 +16,4 @@ PlantCare::~PlantCare()
 {
     std::cout << "Destroying PlantCare base\n";
 }
+
