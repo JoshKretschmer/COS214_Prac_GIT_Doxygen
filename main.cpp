@@ -5,7 +5,10 @@
 #include "CreateSucculent.h"
 #include "CreateFlower.h"
 #include "CreateShrub.h"
+#include "Inventory.h"
+#include "PlantGroup.h"
 #include "Plant.h"
+#include "PlantCare.h"
 
 void TestPlants()
 {
@@ -160,7 +163,7 @@ void TestPlants()
 
     std::cout << "Health before care: " << peanut->getHealth() << "\n";
     peanut->incrementHealth(2); // Triggers careRegime + state
-    std::cout << "Health after +2: " << peanut->getHealth()  << "\n";
+    std::cout << "Health after +2: " << peanut->getHealth() << "\n";
     std::cout << "State after care: " << peanut->getState() << "\n";
 
     delete peanut;
@@ -169,8 +172,46 @@ void TestPlants()
     std::cout << "Factory, Prototype, State, and Strategy patterns are working\n";
 }
 
+void TestComposite()
+{
+    std::cout << "\n=== COMPOSITE PATTERN TESTS ===\n\n";
+
+    Inventory inventory;
+
+    CreateSucculent succulentFactory;
+    CreateFlower flowerFactory;
+
+    // create plants
+    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
+    Plant *orchid = flowerFactory.createPlant("Orchid");
+
+    // create groups
+    PlantGroup *succulents = new PlantGroup("Succulents");
+    PlantGroup *flowers = new PlantGroup("Flowers");
+
+    // add plants to groups 
+    succulents->add(peanut);
+    flowers->add(orchid);   
+
+    // add groups to inventory
+    inventory.add(succulents);
+    inventory.add(flowers);
+
+    // test total plants
+    std::vector<Plant *> allPlants = inventory.getPlants();
+    std::cout << "Total plants: " << allPlants.size() << "\n";
+    assert(allPlants.size() == 2); 
+
+    // remove a group
+    inventory.remove(flowers);
+    std::cout << "After removing Flowers group: " << inventory.getPlants().size() << "\n";
+    assert(inventory.getPlants().size() == 1); 
+
+    std::cout << "Composite test passed\n";
+}
 int main()
 {
     TestPlants();
+    TestComposite();
     return 0;
 }

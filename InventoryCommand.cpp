@@ -1,5 +1,6 @@
 #include "InventoryCommand.h"
 #include "Request.h"
+#include "Plant.h"
 
 /*!
  * @brief Basic constructor function

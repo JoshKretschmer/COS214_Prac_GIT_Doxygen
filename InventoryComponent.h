@@ -10,8 +10,8 @@ using namespace std;
 
 #include "PlantState.h"
 #include "Iterator.h"
-#include "Plant.h"
 
+class Plant;
 /*!
  * @class InventoryComponent
  *
@@ -23,11 +23,10 @@ public:
     InventoryComponent();
     virtual ~InventoryComponent();
 
-    virtual void add(InventoryComponent *component);
-    virtual void remove(InventoryComponent *component);
+    virtual void add(InventoryComponent *component)  = 0;
+    virtual void remove(InventoryComponent *component)  = 0;
     virtual vector<Plant *> getPlants() = 0;
-
-    virtual void movePlant(Plant *plant, std::string newState);
+    virtual void movePlant(Plant *plant, std::string newState)  = 0;
 };
 
 #endif // INVENTORYCOMPONENT_H

@@ -1,4 +1,3 @@
-// Plant.cpp
 #include "Plant.h"
 #include "SeedingState.h"
 #include "CompositeStrategy.h"
@@ -157,4 +156,25 @@ Plant *Plant::clone()
     }
 
     return newPlant;
+}
+
+void Plant::add(InventoryComponent *)
+{
+    std::cout << "Calling Plant::add() - ignored (leaf node)\n";
+}
+
+void Plant::remove(InventoryComponent *)
+{
+    std::cout << "Calling Plant::remove() - ignored (leaf node)\n";
+}
+
+std::vector<Plant *> Plant::getPlants()
+{
+    std::cout << "Calling Plant::getPlants() - returning this plant\n";
+    return {this};
+}
+
+void Plant::movePlant(Plant *, std::string)
+{
+    std::cout << "Calling Plant::movePlant() - ignored (leaf node)\n";
 }

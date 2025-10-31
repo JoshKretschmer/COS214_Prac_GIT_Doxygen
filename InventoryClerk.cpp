@@ -1,5 +1,6 @@
 #include "InventoryClerk.h"
 #include "Request.h"
+#include "Plant.h"
 
 /*!
  * @brief executes the specified Command

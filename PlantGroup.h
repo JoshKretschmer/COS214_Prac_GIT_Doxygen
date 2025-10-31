@@ -2,8 +2,9 @@
 #define PLANTGROUP_H
 
 #include "InventoryComponent.h"
-#include "Plant.h"
 #include <vector>
+
+class Plant;
 
 /*!
  * @class PlantGroup
@@ -14,16 +15,18 @@ class PlantGroup : public InventoryComponent
 {
 private:
     std::string groupName;
-    vector<InventoryComponent *> children;
+    std::vector<InventoryComponent *> children; // holds Plant* or PlantGroup*
 
 public:
     PlantGroup(std::string name);
-    ~PlantGroup();
+    ~PlantGroup() override;
 
-    void add(InventoryComponent *component);
-    void remove(InventoryComponent *component);
-    vector<Plant *> getPlants();
-    void movePlant(Plant *plant, std::string newState);
+    void add(InventoryComponent *component) override;
+    void remove(InventoryComponent *component) override;
+    std::vector<Plant *> getPlants() override;
+    void movePlant(Plant *plant, std::string newState) override;
+
+    const std::string &getName() const { return groupName; }
 };
 
 #endif // PLANTGROUP_H

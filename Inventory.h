@@ -7,8 +7,8 @@
 #include <map>
 #include <string>
 
-class Plant;
-class PlantGroup;
+class Plant;       
+class PlantGroup;   
 
 /*!
  * @class Inventory
@@ -16,16 +16,15 @@ class PlantGroup;
  * @brief Class for the main Inventory object that serves as storage for all sellable Plants in the system
  */
 class Inventory : public InventoryComponent
-{ // keep in this file
+{
 private:
-    vector<Plant *> plants;
-    map<string, int> stockLevels;
-    vector<PlantState *> states;
-    vector<PlantGroup *> groups;
+    std::vector<Plant*> plants;
+    std::map<std::string, int> stockLevels;
+    std::vector<PlantGroup*> groups;
 
 public:
     Inventory();
-    ~Inventory();
+    ~Inventory() override;
 
     void addPlant(Plant *plant);
     void removePlant(std::string plantId);
@@ -34,12 +33,10 @@ public:
 
     InventoryIterator *createIterator();
 
-    // void notifyObservers() override;
-
     int getPlantCount();
     void add(InventoryComponent *component) override;
     void remove(InventoryComponent *component) override;
-    vector<Plant *> getPlants() override;
+    std::vector<Plant*> getPlants() override;
     void movePlant(Plant *plant, std::string newState) override;
 };
 
