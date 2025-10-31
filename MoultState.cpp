@@ -13,14 +13,17 @@
  *
  * @param plant Plant object for which the state is being checked (and perhaps changed)
  */
-void MoultState::handleCare(Plant* plant) {
+void MoultState::handleCare(Plant *plant)
+{
+    std::cout << "MoultState: Checking health for plant ID " << plant->getID() << "\n";
     int hp = plant->getHealth();
-    if (hp <= 0) {
-        //plant has died
+    if (hp <= 0)
+    {
         cout << "Plant " + plant->getID() + " has died.\n";
         plant->changeState(new DeadState);
-    } else if (hp >= 3) {
-        //go to growing state
+    }
+    else if (hp >= 3)
+    {
         plant->changeState(new GrowingState);
     }
 }
@@ -28,6 +31,8 @@ void MoultState::handleCare(Plant* plant) {
 /*!
  * @return "Moulting"
  */
-std::string MoultState::getStateName() {
+std::string MoultState::getStateName()
+{
+    std::cout << "Getting state name: Moulting\n";
     return "Moulting";
 }

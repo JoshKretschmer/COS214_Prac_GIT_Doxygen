@@ -3,11 +3,13 @@
 
 #include "PlantCare.h"
 
-class WateringStrategy : public PlantCare {
+class WateringStrategy : public PlantCare
+{
 public:
     WateringStrategy();
     bool executeCare();
     std::string getCareType();
+    virtual PlantCare *clone() const override;
 };
 
-#endif //WATERINGSTRATEGY_H
+#endif // WATERINGSTRATEGY_H

@@ -4,15 +4,16 @@
 /*!
  * @brief Basic constructor function
  */
-WateringStrategy::WateringStrategy() {
-
+WateringStrategy::WateringStrategy()
+{
 }
 
 /*!
  *
  * @return Output message and return true
  */
-bool WateringStrategy::executeCare() {
+bool WateringStrategy::executeCare()
+{
     std::cout << "Watering the plant." << std::endl;
     return true;
 }
@@ -20,6 +21,13 @@ bool WateringStrategy::executeCare() {
 /*!
  * @return Watering
  */
-std::string WateringStrategy::getCareType() {
+std::string WateringStrategy::getCareType()
+{
     return "Watering";
+}
+
+PlantCare *WateringStrategy::clone() const
+{
+    std::cout << "Cloning WateringStrategy\n";
+    return new WateringStrategy();
 }

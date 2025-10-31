@@ -8,13 +8,17 @@
  *
  * @param plant Plant object for which the state is being checked
  */
-void DeadState::handleCare(Plant *plant) {
+void DeadState::handleCare(Plant *plant)
+{
+    std::cout << "DeadState: Plant is dead, no care needed\n";
     cout << "Dead\n";
 }
 
 /*!
  * @return "Dead"
  */
-std::string DeadState::getStateName() {
+std::string DeadState::getStateName()
+{
+    std::cout << "Getting state name: Dead\n";
     return "Dead";
 }

@@ -2,6 +2,7 @@
 #include "Plant.h"
 #include "PlantState.h"
 #include "MoultState.h"
+#include <iostream>
 
 /*!
  * @brief Determines which state change should occur, if any, according to Plant->health
@@ -11,10 +12,12 @@
  *
  * @param plant Plant object for which the state is being checked (and perhaps changed)
  */
-void MatureState::handleCare(Plant* plant) {
+void MatureState::handleCare(Plant *plant)
+{
+    std::cout << "MatureState: Checking health for plant ID " << plant->getID() << "\n";
     int hp = plant->getHealth();
-    if (hp <= 2) {
-        //go to MoultState
+    if (hp <= 2)
+    {
         plant->changeState(new MoultState);
     }
 }
@@ -22,6 +25,8 @@ void MatureState::handleCare(Plant* plant) {
 /*!
  * @return "Matured"
  */
-std::string MatureState::getStateName() {
+std::string MatureState::getStateName()
+{
+    std::cout << "Getting state name: Matured\n";
     return "Matured";
 }

@@ -3,6 +3,7 @@
 #include "PlantState.h"
 #include "MoultState.h"
 #include "MatureState.h"
+#include <iostream>
 
 /*!
  * @brief Determines which state change should occur, if any, according to Plant->health
@@ -12,13 +13,16 @@
  *
  * @param plant Plant object for which the state is being checked (and perhaps changed)
  */
-void GrowingState::handleCare(Plant* plant) {
+void GrowingState::handleCare(Plant *plant)
+{
+    std::cout << "GrowingState: Checking health for plant ID " << plant->getID() << "\n";
     int hp = plant->getHealth();
-    if (hp <=1) {
-        //go to moult state
+    if (hp <= 1)
+    {
         plant->changeState(new MoultState);
-    } else if (hp >= 4) {
-        //go to matureState
+    }
+    else if (hp >= 4)
+    {
         plant->changeState(new MatureState);
     }
 }
@@ -26,6 +30,8 @@ void GrowingState::handleCare(Plant* plant) {
 /*!
  * @return "Growing"
  */
-std::string GrowingState::getStateName() {
+std::string GrowingState::getStateName()
+{
+    std::cout << "Getting state name: Growing\n";
     return "Growing";
 }

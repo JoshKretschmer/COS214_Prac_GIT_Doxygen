@@ -10,13 +10,19 @@
  * @param name Specifies which plant object to create
  * @return Plant object of specified class, or nullptr as error
  */
-Plant *CreateFlower::createPlant(std::string name) {
-    if (name == "Marigold") {
+Plant *CreateFlower::createPlant(std::string name)
+{
+    if (name == "Marigold")
+    {
         return new Marigold();
-    } else if (name == "Orchid") {
+    }
+    else if (name == "Orchid")
+    {
         return new Orchid();
-    } else {
-        std::cerr << "Invalid plant name " + name + ", please try again" << std::endl ;
+    }
+    else
+    {
+        std::cerr << "Invalid plant name " + name + ", please try again" << std::endl;
         return nullptr;
     }
 }

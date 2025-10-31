@@ -4,15 +4,16 @@
 /*!
  * @brief Basic constructor function
  */
-SunlightStrategy::SunlightStrategy() {
-
+SunlightStrategy::SunlightStrategy()
+{
 }
 
 /*!
  *
  * @return Output message and return true
  */
-bool SunlightStrategy::executeCare() {
+bool SunlightStrategy::executeCare()
+{
     std::cout << "Providing sunlight to the plant." << std::endl;
     return true;
 }
@@ -20,6 +21,13 @@ bool SunlightStrategy::executeCare() {
 /*!
  * @return Sunlight
  */
-std::string SunlightStrategy::getCareType() {
+std::string SunlightStrategy::getCareType()
+{
     return "Sunlight";
+}
+
+PlantCare *SunlightStrategy::clone() const
+{
+    std::cout << "Cloning SunlightStrategy\n";
+    return new SunlightStrategy();
 }

@@ -11,6 +11,7 @@ public:
     ~PlantCare();
     virtual bool executeCare() = 0;
     virtual std::string getCareType() = 0;
+    virtual PlantCare* clone() const = 0;
 };
 
 #endif //PLANTCARE_H

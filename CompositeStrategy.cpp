@@ -7,8 +7,8 @@
 /*!
  * @brief Basic constructor function
  */
-CompositeCareStrategy::CompositeCareStrategy() {
-
+CompositeCareStrategy::CompositeCareStrategy()
+{
 }
 
 /*!
@@ -16,7 +16,8 @@ CompositeCareStrategy::CompositeCareStrategy() {
  *
  * @return True
  */
-bool CompositeCareStrategy::executeCare() {
+bool CompositeCareStrategy::executeCare()
+{
     std::cout << "Executing composite care strategy:" << std::endl;
     SunlightStrategy sunlight;
     WateringStrategy water;
@@ -32,6 +33,14 @@ bool CompositeCareStrategy::executeCare() {
 /*!
  * @return Composite
  */
-std::string CompositeCareStrategy::getCareType() {
+std::string CompositeCareStrategy::getCareType()
+{
     return "Composite";
+}
+
+PlantCare *CompositeCareStrategy::clone() const
+{
+    std::cout << "Cloning CompositeCareStrategy\n";
+    CompositeCareStrategy *copy = new CompositeCareStrategy();
+    return copy;
 }

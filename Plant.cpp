@@ -1,3 +1,4 @@
+// Plant.cpp
 #include "Plant.h"
 #include "SeedingState.h"
 #include "CompositeStrategy.h"
@@ -7,13 +8,20 @@
 #include "Marigold.h"
 #include "BeeBlossom.h"
 #include "HoneySuckle.h"
+#include "GrowingState.h"
+#include "MatureState.h"
+#include "MoultState.h"
+#include "DeadState.h"
+#include <iostream>
 
 /*!
  * @brief Plant constructor function
  *
  * Initializes information shared by all plants (health, currState, careRegime)
  */
-Plant::Plant() {
+Plant::Plant()
+{
+    std::cout << "Constructing a Plant (health=0, seeding state, composite care)\n";
     health = 0;
     currState = new SeedingState();
     careRegime = new CompositeCareStrategy();
@@ -22,7 +30,9 @@ Plant::Plant() {
 /*!
  * @brief Destructor for Plant class
  */
-Plant::~Plant() {
+Plant::~Plant()
+{
+    std::cout << "Destroying Plant (ID: " << id << ", Type: " << type << ")\n";
     delete currState;
     delete careRegime;
 }
@@ -34,10 +44,12 @@ Plant::~Plant() {
  *
  * @param newState State that Plant object is being set to
  */
-void Plant::changeState(PlantState *newState) {
-    newState->getStateName();
+void Plant::changeState(PlantState *newState)
+{
+    std::cout << "Changing plant state from '" << currState->getStateName()
+              << "' to '" << newState->getStateName() << "'\n";
     delete currState;
-    this->currState=newState;
+    this->currState = newState;
 }
 
 /*!
@@ -47,17 +59,19 @@ void Plant::changeState(PlantState *newState) {
  *
  * @return bool stating whether care is needed
  */
-bool Plant::needsCare() {
-    if (this->getState() == "Dead") {
+bool Plant::needsCare()
+{
+    std::cout << "Checking if plant needs care (health=" << health << ", state=" << getState() << ")\n";
+    if (this->getState() == "Dead")
+    {
         return false;
     }
-
-    if (this->health <5) {
+    if (this->health < 5)
+    {
         return true;
     }
     return false;
 }
-
 
 /*!
  * @brief Increase the health of a plant by num
@@ -67,50 +81,80 @@ bool Plant::needsCare() {
  *
  * @param num amount with which to increase health (negative number used for decrease)
  */
-void Plant::incrementHealth(int num) {
-    this->health= this->health + num;
+void Plant::incrementHealth(int num)
+{
+    std::cout << "Incrementing plant health by " << num << " (was " << health << ")";
+    this->health = this->health + num;
+    std::cout << " -> now " << health << "\n";
     this->currState->handleCare(this);
 }
 
 /*!
  * @return name of the current state of the plant as a string
  */
-std::string Plant::getState() {
+std::string Plant::getState()
+{
+    std::cout << "Getting current plant state\n";
     return currState->getStateName();
 }
 
 /*!
  * @return Concrete copy of Plant object
  */
-Plant *Plant::clone() {
-    Plant *newPlant;
+Plant *Plant::clone()
+{
+    std::cout << "Cloning plant: " << type << " (ID: " << id << ")\n";
 
-    if (this->type == "Succulent") {
-        if (this->getID().substr(0,2) == "PC") {
+    Plant *newPlant = nullptr;
+
+    if (this->type == "Succulent")
+    {
+        if (this->getID().substr(0, 2) == "PC")
             newPlant = new PeanutCactus();
-        } else if (this->getID().substr(0,2) == "HL") {
+        else if (this->getID().substr(0, 2) == "HL")
             newPlant = new HouseLeek();
-        }
-    } else if (this->type == "Flower") {
-        if (this->getID().substr(0,2) == "OR") {
+    }
+    else if (this->type == "Flower")
+    {
+        if (this->getID().substr(0, 2) == "OR")
             newPlant = new Orchid();
-        } else if (this->getID().substr(0,2) == "MG") {
+        else if (this->getID().substr(0, 2) == "MG")
             newPlant = new Marigold();
-        }
-    } else if (this->type == "Shrub") {
-        if (this->getID().substr(0,2) == "BB") {
+    }
+    else if (this->type == "Shrub")
+    {
+        if (this->getID().substr(0, 2) == "BB")
             newPlant = new BeeBlossom();
-        } else if (this->getID().substr(0,2) == "HS") {
+        else if (this->getID().substr(0, 2) == "HS")
             newPlant = new HoneySuckle();
-        }
     }
 
-    newPlant->id = this->id;
-    newPlant->type = this->type;   //redundancy for double-checking
-    newPlant->price = this->price;
-    newPlant->currState = this->currState;
-    newPlant->careRegime = this->careRegime;
-    newPlant->health = this->health;
+    if (newPlant)
+    {
+        newPlant->id = this->id;
+        newPlant->type = this->type;
+        newPlant->price = this->price;
+        newPlant->health = this->health;
+
+        delete newPlant->currState;
+        delete newPlant->careRegime;
+        newPlant->currState = nullptr;
+        newPlant->careRegime = nullptr;
+
+        std::string stateName = this->currState->getStateName();
+        if (stateName == "Seeding")
+            newPlant->currState = new SeedingState();
+        else if (stateName == "Growing")
+            newPlant->currState = new GrowingState();
+        else if (stateName == "Mature")
+            newPlant->currState = new MatureState();
+        else if (stateName == "Moulting")
+            newPlant->currState = new MoultState();
+        else if (stateName == "Dead")
+            newPlant->currState = new DeadState();
+
+        newPlant->careRegime = this->careRegime->clone();
+    }
 
     return newPlant;
 }

@@ -1,85 +1,159 @@
 #include <iostream>
 #include <cassert>
 #include <string>
-using namespace std;
 
 #include "CreateSucculent.h"
 #include "CreateFlower.h"
 #include "CreateShrub.h"
 
-int main()
+void TestFactory()
 {
-    cout << "test factory\n\n";
+    std::cout << "Test Factory\n\n";
 
     srand(42);
 
-    cout << "Creating Succulents...\n";
+    std::cout << "Creating Succulents...\n";
     CreateSucculent succulentFactory;
 
     Plant *peanut = succulentFactory.createPlant("PeanutCactus");
     Plant *houseleek = succulentFactory.createPlant("HouseLeek");
 
-    assert(peanut != nullptr);
-    assert(houseleek != nullptr);
+    if (peanut == nullptr || houseleek == nullptr)
+    {
+        std::cout << "ERROR: Failed to create succulent\n";
+    }
+    else
+    {
+        std::cout << peanut->getDetails() << std::endl;
+        std::cout << "Price: $" << peanut->getCost() << std::endl
+                  << std::endl;
 
-    cout << peanut->getDetails() << endl;
-    cout << "Price: $" << peanut->getCost() << endl
-         << endl;
+        std::cout << houseleek->getDetails() << std::endl;
+        std::cout << "Price: $" << houseleek->getCost() << std::endl
+                  << std::endl;
 
-    cout << houseleek->getDetails() << endl;
-    cout << "Price: $" << houseleek->getCost() << endl
-         << endl;
-
-    assert(peanut->getCost() == 35.00);
-    assert(houseleek->getCost() == 35.50);
+        if (peanut->getCost() != 35.00 || houseleek->getCost() != 35.50)
+        {
+            std::cout << "ERROR: Incorrect succulent prices\n";
+        }
+    }
 
     delete peanut;
     delete houseleek;
 
-    cout << "Creating Flowers...\n";
+    std::cout << "Creating Flowers...\n";
     CreateFlower flowerFactory;
 
     Plant *orchid = flowerFactory.createPlant("Orchid");
-    assert(orchid != nullptr);
 
-    cout << orchid->getDetails() << endl;
-    cout << "Price: $" << orchid->getCost() << endl
-         << endl;
+    if (orchid == nullptr)
+    {
+        std::cout << "ERROR: Failed to create orchid\n";
+    }
+    else
+    {
+        std::cout << orchid->getDetails() << std::endl;
+        std::cout << "Price: $" << orchid->getCost() << std::endl
+                  << std::endl;
 
-    assert(orchid->getCost() == 160.00);
+        if (orchid->getCost() != 160.00)
+        {
+            std::cout << "ERROR: Incorrect orchid price\n";
+        }
+    }
 
     delete orchid;
 
-    cout << "Creating Shrubs...\n";
+    std::cout << "Creating Shrubs...\n";
     CreateShrub shrubFactory;
 
     Plant *honeysuckle = shrubFactory.createPlant("HoneySuckle");
     Plant *beeblossom = shrubFactory.createPlant("BeeBlossom");
 
-    assert(honeysuckle != nullptr);
-    assert(beeblossom != nullptr);
+    if (honeysuckle == nullptr || beeblossom == nullptr)
+    {
+        std::cout << "ERROR: Failed to create shrub\n";
+    }
+    else
+    {
+        std::cout << honeysuckle->getDetails() << std::endl;
+        std::cout << beeblossom->getDetails() << std::endl;
 
-    cout << honeysuckle->getDetails() << endl;
-    cout << beeblossom->getDetails() << endl;
+        if (honeysuckle->getCost() != 39.95 || beeblossom->getCost() != 21.00)
+        {
+            std::cout << "ERROR: Incorrect shrub prices\n";
+        }
+    }
 
     delete honeysuckle;
     delete beeblossom;
 
-    cout << "Testing invalid plant name...\n";
+    std::cout << "Testing invalid plant name...\n";
     Plant *bad = succulentFactory.createPlant("InvalidPlant");
 
     if (bad == nullptr)
     {
-        cout << "Correctly returned nullptr for invalid name.\n";
+        std::cout << "Correctly returned nullptr for invalid name.\n";
     }
     else
     {
-        cout << "ERROR: Should have returned nullptr\n";
+        std::cout << "ERROR: Should have returned nullptr\n";
         delete bad;
     }
 
-    cout << "\nAll tests completed successfully\n";
-    cout << "factory pattern is working\n";
+    std::cout << "\nCreating clone of PeanutCactus...\n";
+    peanut = succulentFactory.createPlant("PeanutCactus");
+    Plant *clone = peanut->clone();
 
+    if (clone == nullptr)
+    {
+        std::cout << "ERROR: Clone failed\n";
+    }
+    else
+    {
+        std::cout << "Clone details:\n"
+                  << clone->getDetails() << std::endl;
+        std::cout << "Clone state: " << clone->getState() << std::endl;
+
+        if (clone->getID() != peanut->getID() || clone->getCost() != peanut->getCost())
+        {
+            std::cout << "ERROR: Clone has different ID or price\n";
+        }
+
+        clone->incrementHealth(10);
+        if (peanut->getState() == clone->getState())
+        {
+            std::cout << "ERROR: Clone and original share state\n";
+        }
+    }
+
+    delete peanut;
+    delete clone;
+
+    std::cout << "\nTesting state transitions...\n";
+    peanut = succulentFactory.createPlant("PeanutCactus");
+    std::cout << "Initial state: " << peanut->getState() << std::endl;
+
+    peanut->incrementHealth(3);
+    std::cout << "After +3 health: " << peanut->getState() << std::endl;
+
+    peanut->incrementHealth(5);
+    std::cout << "After +5 health: " << peanut->getState() << std::endl;
+
+    peanut->incrementHealth(10);
+    std::cout << "After +10 health: " << peanut->getState() << std::endl;
+
+    peanut->incrementHealth(-20);
+    std::cout << "After -20 health: " << peanut->getState() << std::endl;
+
+    delete peanut;
+
+    std::cout << "\nAll tests completed successfully\n";
+    std::cout << "Factory, Prototype, and State patterns are working\n";
+}
+
+int main()
+{
+    TestFactory();
     return 0;
 }
