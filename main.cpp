@@ -168,13 +168,12 @@ void TestPlants()
 
     delete peanut;
 
-    std::cout << "\nAll tests completed successfully\n";
     std::cout << "Factory, Prototype, State, and Strategy patterns are working\n";
 }
 
 void TestComposite()
 {
-    std::cout << "\n=== COMPOSITE PATTERN TESTS ===\n\n";
+    std::cout << "Test Composite \n\n";
 
     Inventory inventory;
 
@@ -207,7 +206,7 @@ void TestComposite()
     std::cout << "After removing Flowers group: " << inventory.getPlants().size() << "\n";
     assert(inventory.getPlants().size() == 1); 
 
-    std::cout << "Composite test passed\n";
+    std::cout << "Composite is working\n";
 }
 int main()
 {
