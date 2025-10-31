@@ -12,6 +12,11 @@ using namespace std;
 #include "Iterator.h"
 #include "Plant.h"
 
+/*!
+ * @class InventoryComponent
+ *
+ * @brief Parent class for object classes that can be stored in the Inventory, as well as the Inventory itself
+ */
 class InventoryComponent
 {
 public:

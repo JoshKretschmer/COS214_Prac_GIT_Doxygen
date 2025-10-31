@@ -3,6 +3,12 @@
 
 #include "Succulent.h"
 
+
+/*!
+ * @class PeanutCactus
+ *
+ * @brief public subclass of Succulent, specific kind of plant
+ */
 class PeanutCactus : public Succulent {
 public:
     PeanutCactus();

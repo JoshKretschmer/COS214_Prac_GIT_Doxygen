@@ -3,6 +3,11 @@
 
 #include "PlantCare.h"
 
+/*!
+ * @class FertilizingStrategy
+ *
+ * @brief Concrete PlantCare Strategy class.
+ */
 class FertilizingStrategy : public PlantCare
 {
 public:

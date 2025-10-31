@@ -3,6 +3,11 @@
 
 #include "PlantFactory.h"
 
+/*!
+ * @class CreateShrub
+ *
+ * @brief Creator class for BeeBlossom and HoneySuckle classes
+ */
 class CreateShrub : public PlantFactory {
 public:
     Plant* createPlant(std::string name);

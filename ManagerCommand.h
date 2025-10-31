@@ -3,6 +3,9 @@
 
 #include "Command.h"
 
+/*!
+ *
+ */
 class ManagerCommand : public Command
 {
 public:

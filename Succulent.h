@@ -3,6 +3,11 @@
 
 #include "Plant.h"
 
+/*!
+ * @class Succulent
+ *
+ * @brief public subclass of Plant, category of plants
+ */
 class Succulent : public Plant {
 public:
     Succulent();

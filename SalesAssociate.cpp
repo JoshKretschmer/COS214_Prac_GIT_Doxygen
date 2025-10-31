@@ -20,6 +20,9 @@ SalesAssociate::~SalesAssociate(){
 }
 
 
+/*!
+ * @param command Command object containing request to be executed
+ */
 void SalesAssociate::executeTask(Command *command)
 {
     if (command->getRequest()->getType() != "sales") {

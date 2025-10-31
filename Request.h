@@ -6,6 +6,11 @@
 class Customer;
 class Staff;
 
+/*!
+ * @class Request
+ *
+ * @brief Acts as an Information package contained within the Command objects
+ */
 class Request {
     private:
         //the request is made, and it is used with the command to do what it does

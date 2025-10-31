@@ -5,6 +5,11 @@
 #include "Plant.h"
 #include <vector>
 
+/*!
+ * @class PlantGroup
+ *
+ * @brief Subclass used to organize the Plant objects in Inventory into categories
+ */
 class PlantGroup : public InventoryComponent
 {
 private:

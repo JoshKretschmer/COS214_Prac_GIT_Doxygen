@@ -52,6 +52,10 @@ void Staff::forwardCommand(Command *command)
     }
 }
 
+/*!
+ *
+ * @param _command Command object containing request to be executed
+ */
 void Staff::executeTask(Command *_command)
 {
     // Need to wait for command/request to be implemented
@@ -75,7 +79,11 @@ void Staff::handleCommand(Command *command)
     }
 }
 
-// Template Method implementation
+/*!
+ * @brief Template Method implementation
+ *
+ * @param plant Plant object to be moved to Inventory
+ */
 void Staff::movePlantToInventory(Plant *plant)
 {
 }

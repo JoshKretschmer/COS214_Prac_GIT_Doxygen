@@ -4,6 +4,11 @@
 #include <string>
 class Plant;
 
+/*!
+ * @class Iterator
+ *
+ * @brief Abstract parent class of InventoryIterator
+ */
 class Iterator
 {
 public:

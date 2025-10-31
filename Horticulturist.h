@@ -4,6 +4,11 @@
 #include "Staff.h"
 #include "Command.h"
 
+/*!
+ * @class Horticulturist
+ *
+ * @brief public Staff class responsible for the growing(creation), monitoring, care, and management of Plant objects
+ */
 class Horticulturist : public Staff
 {
 private:

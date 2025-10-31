@@ -3,6 +3,11 @@
 
 #include "PlantFactory.h"
 
+/*!
+ * @class CreateSucculent
+ *
+ * @brief Creator class for PeanutCactus and HouseLeek classes
+ */
 class CreateSucculent : public PlantFactory {
 public:
     Plant* createPlant(std::string name);
