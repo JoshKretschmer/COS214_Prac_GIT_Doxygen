@@ -1,74 +1,73 @@
 #include "Request.h"
 
-int Request::instanceCount = 1;
-
-Request::Request()
+Request::Request(Customer* sender, Staff* receiver) : sender(sender), receiver(receiver)
 {
-    id = "REQUEST" + to_string(instanceCount);
-    description = "";
-    action = "";
-    sender = NULL;
-    plantObject = NULL;
-    instanceCount++;
+    plantID = "";
+    type = "";
+    plantType = "";
+    sender = nullptr;
 }
 
 Request::~Request()
 {
-    // zero memory management ! remember we passing the pointers!
-    if(sender)
-    {
-        sender = NULL;
-    }
-
-    if(plantObject)
-    {
-        plantObject = NULL;
-    }
-
-    instanceCount--;
 }
 
-void Request::setDescription(string _description)
+void Request::setPlantType(std::string _plantType)
 {
-    description = _description;
+    plantType = _plantType;
 }
 
-void Request::setAction(string _action)
+std::string Request::getPlantType()
 {
-    action = _action;
+    return plantType;
 }
 
-void Request::setSender(Staff* _sender)
+void Request::setPlantID(std::string _plantID)
 {
-    if(_sender)
-    {
-        sender = _sender;
-    }
-    else
-    {
-        cerr<<"Sender is a NULL object...";
-    }
+    plantID = _plantID;
 }
 
-void Request::setPlantObject( Plant* _plantObject)
+std::string Request::getPlantID()
 {
-    if(_plantObject)
-    {
-        plantObject = _plantObject;
-    }
-    else
-    {
-        cerr<<"Plant is a NULL object";
-    }
+    return plantID;
 }
 
-string Request::getDetails()
+void Request::setType(std::string _type)
 {
-    string details = "";
+    type = _type;
+}
 
-    details += "REQUEST ID: "+id + "\n"
-             + "REQUEST ACTION: "+action + "\n"
-             + "REQUEST DESCRIPTION: "+description + "\n";
+std::string Request::getType()
+{
+    return type;
+}
 
-    return details;
+void Request::setSender(Customer* _sender)
+{
+    sender = _sender;
+}
+
+Customer* Request::getSender()
+{
+    return sender;
+}
+
+void Request::setExtra(std::string _extra)
+{
+    extra = _extra;
+}
+
+std::string Request::getExtra()
+{
+    return extra;
+}
+
+void Request::setReceiver(Staff* _receiver)
+{
+    receiver = _receiver;
+}
+
+Staff* Request::getReceiver()
+{
+    return receiver;
 }
