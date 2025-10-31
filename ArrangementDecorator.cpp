@@ -1,17 +1,25 @@
 #include "ArrangementDecorator.h"
+#include <iostream>
 
 /*!
  * Return string gotten for wrappedPlant object, appended with "Decoration: Arrangement"
  *
  * @return Basic details of decorated plant
  */
-std::string ArrangementDecorator::getDetails() {
-    if (this->getWrapped() == nullptr) {
+std::string ArrangementDecorator::getDetails()
+{
+    std::cout << "Calling ArrangementDecorator::getDetails()\n";
+
+    if (this->getWrapped() == nullptr)
+    {
+        std::cout << "ArrangementDecorator::getDetails() returning error message (no wrapped plant)\n";
         return "Plant to be decorated has not been set";
     }
 
     std::string det = getWrapped()->getDetails();
     det += "Decoration: Arrangement \n";
+
+    std::cout << "ArrangementDecorator::getDetails() returning: \"" << det << "\"\n";
     return det;
 }
 
@@ -19,12 +27,16 @@ std::string ArrangementDecorator::getDetails() {
  *
  * @return Concrete clone of Decorator object
  */
-PlantDecorator* ArrangementDecorator::clone() {
-    Plant* newP = this->getWrapped()->clone();
+PlantDecorator *ArrangementDecorator::clone()
+{
+    std::cout << "Calling ArrangementDecorator::clone()\n";
 
-    ArrangementDecorator* newD = new ArrangementDecorator();
+    Plant *newP = this->getWrapped()->clone();
+
+    ArrangementDecorator *newD = new ArrangementDecorator();
     newD->setWrapped(newP);
 
+    std::cout << "ArrangementDecorator::clone() returning new ArrangementDecorator with wrapped plant\n";
     return newD;
 }
 
@@ -33,12 +45,19 @@ PlantDecorator* ArrangementDecorator::clone() {
  *
  * @return Full price of decorated plant
  */
-double ArrangementDecorator::getCost() {
-    if (this->getWrapped() == nullptr) {
+double ArrangementDecorator::getCost()
+{
+    std::cout << "Calling ArrangementDecorator::getCost()\n";
+
+    if (this->getWrapped() == nullptr)
+    {
+        std::cout << "ArrangementDecorator::getCost() returning 0 (no wrapped plant)\n";
         return 0;
     }
 
     double cost = getWrapped()->getCost();
     cost += 10;
+
+    std::cout << "ArrangementDecorator::getCost() returning " << cost << "\n";
     return cost;
 }

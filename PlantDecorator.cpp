@@ -1,17 +1,23 @@
 #include "PlantDecorator.h"
+#include <iostream>
 
 /*!
  * @brief Basic constructor function for PlantDecorator
  */
-PlantDecorator::PlantDecorator() {
-    wrappedPlant=nullptr;
+PlantDecorator::PlantDecorator()
+{
+    std::cout << "Calling PlantDecorator Constructor\n";
+    wrappedPlant = nullptr;
 }
 
 /*!
  * @brief Basic destructor function for PlantDecorator
  */
-PlantDecorator::~PlantDecorator() {
+PlantDecorator::~PlantDecorator()
+{
+    std::cout << "Calling PlantDecorator Deconstructor - deleting wrappedPlant\n";
     delete wrappedPlant;
+    wrappedPlant = nullptr;
 }
 
 /*!
@@ -19,6 +25,9 @@ PlantDecorator::~PlantDecorator() {
  *
  * @param wrappedPlant Plant object to be attached to the Decorator object
  */
-void PlantDecorator::setWrapped(Plant* wrappedPlant) {
+void PlantDecorator::setWrapped(Plant *wrappedPlant)
+{
+    std::cout << "Calling PlantDecorator::setWrapped(wrappedPlant="
+              << (wrappedPlant ? wrappedPlant->getDetails().c_str() : "null") << ")\n";
     this->wrappedPlant = wrappedPlant;
 }

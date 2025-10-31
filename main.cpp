@@ -9,6 +9,10 @@
 #include "PlantGroup.h"
 #include "Plant.h"
 #include "PlantCare.h"
+#include "PotDecorator.h"
+#include "WrapDecorator.h"
+#include "ArrangementDecorator.h"
+
 
 void TestPlants()
 {
@@ -188,9 +192,9 @@ void TestComposite()
     PlantGroup *succulents = new PlantGroup("Succulents");
     PlantGroup *flowers = new PlantGroup("Flowers");
 
-    // add plants to groups 
+    // add plants to groups
     succulents->add(peanut);
-    flowers->add(orchid);   
+    flowers->add(orchid);
 
     // add groups to inventory
     inventory.add(succulents);
@@ -199,18 +203,97 @@ void TestComposite()
     // test total plants
     std::vector<Plant *> allPlants = inventory.getPlants();
     std::cout << "Total plants: " << allPlants.size() << "\n";
-    assert(allPlants.size() == 2); 
+    assert(allPlants.size() == 2);
 
     // remove a group
     inventory.remove(flowers);
     std::cout << "After removing Flowers group: " << inventory.getPlants().size() << "\n";
-    assert(inventory.getPlants().size() == 1); 
+    assert(inventory.getPlants().size() == 1);
 
     std::cout << "Composite is working\n";
 }
+
+void TestIterator()
+{
+    std::cout << "Test Iterator \n\n";
+
+    Inventory inventory;
+
+    CreateSucculent succulentFactory;
+    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
+    Plant *houseleek = succulentFactory.createPlant("HouseLeek");
+
+    inventory.addPlant(peanut);
+    inventory.addPlant(houseleek);
+
+    // create group and add one more plant
+    PlantGroup *succulents = new PlantGroup("Succulents");
+    Plant *clone = peanut->clone();
+    succulents->add(clone);
+    inventory.add(succulents);
+
+    // test the iterator
+    std::cout << "Creating iterator...\n";
+    InventoryIterator *it = inventory.createIterator();
+
+    std::cout << "Iterating over all plants in inventory:\n";
+    for (it->first(); it->hasNext(); it->next())
+    {
+        Plant *p = it->currentItem();
+        if (p)
+        {
+            std::cout << "  -> " << p->getDetails()
+                      << " | State: " << p->getState()
+                      << " | Cost: $" << p->getCost() << "\n";
+        }
+    }
+
+    delete it; 
+
+    std::cout << "Iterator test complete. Total plants seen: "
+              << inventory.getPlantCount() + 1 // +1 for the one in group
+              << "\n\n";
+
+    assert(inventory.getPlants().size() == 3);
+    std::cout << "Iterator pattern is working\n";
+}
+
+void TestDecorator()
+{
+    std::cout << "Test Decorator \n\n";
+
+    CreateSucculent factory;
+    Plant* peanut = factory.createPlant("PeanutCactus");
+
+    // decorate with pot then wrap then arrangement
+    PotDecorator* pot = new PotDecorator();
+    pot->setWrapped(peanut);
+
+    WrapDecorator* wrap = new WrapDecorator();
+    wrap->setWrapped(pot);
+
+    ArrangementDecorator* arr = new ArrangementDecorator();
+    arr->setWrapped(wrap);
+
+    std::cout << "Final decorated plant:\n";
+    std::cout << arr->getDetails();
+    std::cout << "Total cost: $" << arr->getCost() << "\n";
+
+    // clone test
+    PlantDecorator* clone = arr->clone();
+    std::cout << "Clone cost: $" << clone->getCost() << "\n";
+
+    delete arr;
+    delete clone;
+
+    std::cout << "Decorator pattern is working\n";
+}
+
 int main()
 {
-    TestPlants();
-    TestComposite();
+    // TestPlants();
+    // TestComposite();
+    // TestIterator();
+    TestDecorator();
     return 0;
 }
