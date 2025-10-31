@@ -20,7 +20,7 @@ protected:
     Staff *nextHandler;
     static int instanceCount;
     void forwardCommand(Command* _command);
-    void executeTask(Command* _command);
+    virtual void executeTask(Command *command) = 0; // temporary so it stops bitching in the staff stuff. Change if needed
 
     //Template Method
     virtual string getActionForMove() { return ""; } 

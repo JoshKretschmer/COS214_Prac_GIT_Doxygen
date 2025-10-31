@@ -1,7 +1,6 @@
 #ifndef SALESASSOCIATE_H
 #define SALESASSOCIATE_H
 
-#include "libraries.h"
 #include "Staff.h"
 #include "Command.h"
 
