@@ -3,6 +3,11 @@
 
 #include "PlantCare.h"
 
+/*!
+ * @class CompositeCareStrategy
+ *
+ * @brief Concrete PlantCare Strategy class. Combines all other PlantCare strategies into one
+ */
 class CompositeCareStrategy : public PlantCare
 {
 public:

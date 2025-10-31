@@ -6,6 +6,12 @@
 class Request;
 class Staff;
 
+/*!
+ * @class Command
+ *
+ * @brief Parent Class of the various specific command classes
+ * Encapsulated a request inside an object to control access to it and allow for the passing of a request along the CoR
+ */
 class Command
 {
 protected:

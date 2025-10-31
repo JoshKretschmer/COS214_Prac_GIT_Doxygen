@@ -3,6 +3,11 @@
 
 #include "Command.h"
 
+/*!
+ * @class SalesCommand
+ *
+ * @brief Commands to be handled by The SalesAssociate, wjo acts as a middleman between Customer and InventoryClerk
+ */
 class SalesCommand : public Command
 {
 public:

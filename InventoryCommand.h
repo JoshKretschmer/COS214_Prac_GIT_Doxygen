@@ -4,6 +4,11 @@
 #include "Command.h"
 #include "InventoryClerk.h"
 
+/*!
+ * @class InventoryCommand
+ *
+ * @brief Contains requests to add, remove, and fetche objects from Inventory
+ */
 class InventoryCommand : public Command
 {
 public:
