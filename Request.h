@@ -2,6 +2,9 @@
 #define REQUEST_H
 
 #include "Staff.h"
+#include "Horticulturist.h"
+#include "InventoryClerk.h"
+#include "SalesAssociate.h"
 #include "Plant.h"
 #include "Customer.h"
 
