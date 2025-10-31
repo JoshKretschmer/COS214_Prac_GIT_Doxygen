@@ -1,6 +1,7 @@
 #include "CreateShrub.h"
 #include "HoneySuckle.h"
 #include "BeeBlossom.h"
+#include <iostream>
 
 /*!
  * @brief Creator function for Plant objects of type Shrub
@@ -9,7 +10,7 @@
  * @param name Specifies which plant object to create
  * @return Plant object of specified class, or nullptr as error
  */
-Plant *CreateShrub::createPlant(string name) {
+Plant *CreateShrub::createPlant(std::string name) {
     if (name == "HoneySuckle") {
         return new HoneySuckle();
     } else if (name == "BeeBlossom") {

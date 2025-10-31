@@ -7,7 +7,7 @@ class SunlightStrategy : public PlantCare {
 public:
     SunlightStrategy();
     bool executeCare();
-    string getCareType();
+    std::string getCareType();
 };
 
 #endif //SUNLIGHTSTRATEGY_H

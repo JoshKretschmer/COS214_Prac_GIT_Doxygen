@@ -1,4 +1,5 @@
 #include "InventoryIterator.h"
+#include "Inventory.h"
 
 InventoryIterator::InventoryIterator(Inventory* inventory) : plants(inventory->getPlants()), currentIndex(0) {
 }

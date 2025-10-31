@@ -13,7 +13,7 @@
 class GrowingState : public PlantState {
 public:
     void handleCare(Plant* plant);
-    string getStateName();
+    std::string getStateName();
 };
 
 #endif //GROWINGSTATE_H

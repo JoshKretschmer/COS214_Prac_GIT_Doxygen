@@ -13,13 +13,13 @@ SunlightStrategy::SunlightStrategy() {
  * @return Output message and return true
  */
 bool SunlightStrategy::executeCare() {
-    cout << "Providing sunlight to the plant." << endl;
+    std::cout << "Providing sunlight to the plant." << std::endl;
     return true;
 }
 
 /*!
  * @return Sunlight
  */
-string SunlightStrategy::getCareType() {
+std::string SunlightStrategy::getCareType() {
     return "Sunlight";
 }

@@ -3,6 +3,7 @@
 #include "PlantState.h"
 #include "GrowingState.h"
 #include "DeadState.h"
+#include <iostream>
 
 /*!
  * @brief Determines which state change should occur, if any, according to Plant->health
@@ -26,6 +27,6 @@ void SeedingState::handleCare(Plant *plant) {
 /*!
  * @return "Seeding"
  */
-string SeedingState::getStateName() {
+std::string SeedingState::getStateName() {
     return "Seeding";
 }

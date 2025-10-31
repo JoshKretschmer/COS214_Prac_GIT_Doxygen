@@ -6,11 +6,11 @@
  */
 
 #include <string>
-#include "Order.h"
-#include "Request.h"
-#include "Staff.h"
-#include "InventoryClerk.h"
-using namespace std;
+#include <vector>
+class Order;
+class Staff;
+class Request;
+class Plant;
 
 /*!
  * @class Customer
@@ -19,25 +19,27 @@ using namespace std;
  *
  * Makes request to Staff object to execute processes
  */
-class Customer {
-    private:
-        string id;
-        string name;
-        Order* currentOrder;
-        Staff* salesPerson;
-        
-    public:
-        Customer(string name,string id, Staff* _salesPerson);
-        ~Customer();
-        Request* makeRequest(string type, string details,string action);
-        void browsePlants();
-        void startPurchase();
-        void addPlant(string plantID, string decor);
-        Plant* customizeOrder(Plant* plant, string decor);
-        void undoAction();
-        void confirmPurchase();
+class Customer
+{
+private:
+    std::string id;
+    std::string name;
+    Order *currentOrder;
+    Staff *salesPerson;
+
+public:
+    Customer(std::string name, std::string id, Staff *_salesPerson);
+    ~Customer();
+    Request *makeRequest(std::string type, std::string plantID, std::string extra);
+    void browsePlants();
+    void startPurchase();
+    void addPlant(std::string plantID, std::string decor);
+    Plant *customizeOrder(Plant *plant, std::string decor);
+    void undoAction();
+    void confirmPurchase();
+
+    std::string getName() const { return name; }
+    std::string getID() const { return id; }
 };
 
-
-
-#endif //CUSTOMER_H
+#endif // CUSTOMER_H

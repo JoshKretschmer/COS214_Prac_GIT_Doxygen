@@ -1,6 +1,7 @@
 #include "CreateFlower.h"
 #include "Marigold.h"
 #include "Orchid.h"
+#include <iostream>
 
 /*!
  * @brief Creator function for Plant objects of type Flower
@@ -9,7 +10,7 @@
  * @param name Specifies which plant object to create
  * @return Plant object of specified class, or nullptr as error
  */
-Plant *CreateFlower::createPlant(string name) {
+Plant *CreateFlower::createPlant(std::string name) {
     if (name == "Marigold") {
         return new Marigold();
     } else if (name == "Orchid") {

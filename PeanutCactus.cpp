@@ -2,7 +2,7 @@
 
 PeanutCactus::PeanutCactus() : Succulent::Succulent() {
     int randomNum = rand() % 101;
-    this->id = "PC" + to_string(randomNum);
+    this->id = "PC" + std::to_string(randomNum);
 
     this->price = 35.00;
 }
@@ -12,8 +12,8 @@ PeanutCactus::PeanutCactus() : Succulent::Succulent() {
  *
  * @return string containing basic details of the plant
  */
-string PeanutCactus::getDetails() {
-    string det;
+std::string PeanutCactus::getDetails() {
+    std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Peanut Cactus" + "\n";

@@ -2,7 +2,6 @@
 #define PLANTCARE_H
 
 #include <string>
-using namespace std;
 
 class Plant;
 
@@ -11,7 +10,7 @@ public:
     PlantCare();
     ~PlantCare();
     virtual bool executeCare() = 0;
-    virtual string getCareType() = 0;
+    virtual std::string getCareType() = 0;
 };
 
 #endif //PLANTCARE_H

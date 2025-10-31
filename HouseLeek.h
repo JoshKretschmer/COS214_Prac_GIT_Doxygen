@@ -11,7 +11,7 @@
 class HouseLeek : public Succulent {
 public:
     HouseLeek();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

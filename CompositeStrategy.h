@@ -7,7 +7,7 @@ class CompositeCareStrategy : public PlantCare {
 public:
     CompositeCareStrategy();
     bool executeCare();
-    string getCareType();
+    std::string getCareType();
 };
 
 #endif //COMPOSITESTRATEGY_H

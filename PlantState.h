@@ -20,7 +20,7 @@ public:
     PlantState();
     virtual ~PlantState();
     void virtual handleCare(Plant* plant)=0;
-    string virtual getStateName()=0;
+     std::string virtual getStateName()=0;
 };
 
 #endif //PLANTSTATE_H

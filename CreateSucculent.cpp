@@ -1,6 +1,7 @@
 #include "CreateSucculent.h"
 #include "PeanutCactus.h"
 #include "HouseLeek.h"
+#include <iostream>
 
 /*!
  * @brief Creator function for Plant objects of type Succulent
@@ -9,7 +10,7 @@
  * @param name Specifies which plant object to create
  * @return Plant object of specified class, or nullptr as error
  */
-Plant *CreateSucculent::createPlant(string name) {
+Plant *CreateSucculent::createPlant(std::string name) {
     if (name == "PeanutCactus") {
         return new PeanutCactus();
     } else if (name == "HouseLeek") {

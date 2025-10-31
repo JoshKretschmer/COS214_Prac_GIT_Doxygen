@@ -11,7 +11,7 @@
 class BeeBlossom : public Shrub {
 public:
     BeeBlossom();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

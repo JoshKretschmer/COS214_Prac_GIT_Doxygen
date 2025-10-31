@@ -1,13 +1,19 @@
 #include "Customer.h"
+#include "SalesCommand.h"
+#include "InventoryCommand.h"
 #include "PlantDecorator.h"
 #include "PotDecorator.h"
 #include "WrapDecorator.h"
 #include "ArrangementDecorator.h"
+#include "Request.h"
+#include "Order.h"
+
+#include <iostream>
 
 /*!
  * @brief Basic constructor for customer object
  */
-Customer::Customer(string _name,string _id, Staff* _salesPerson)
+Customer::Customer(string _name, string _id, Staff *_salesPerson)
 {
     salesPerson = _salesPerson;
     name = _name;
@@ -20,17 +26,18 @@ Customer::Customer(string _name,string _id, Staff* _salesPerson)
  */
 Customer::~Customer()
 {
-    // no memory management required
+    delete currentOrder;
 }
 
 Request *Customer::makeRequest(string type, string plantID, string extra)
 {
-    //used to create request
-    //need to be redone once request is set up
-    Request* newRequest = new Request(this, salesPerson);
-    newRequest->setType(type);
-    newRequest->setPlantID(plantID);
-    newRequest->setExtra(extra);
+    // used to create request
+    // need to be redone once request is set up
+    Request *r = new Request(this, salesPerson);
+    r->setType(type);
+    r->setPlantID(plantID);
+    r->setExtra(extra);
+    return r;
 }
 
 /*!
@@ -38,10 +45,16 @@ Request *Customer::makeRequest(string type, string plantID, string extra)
  */
 void Customer::browsePlants()
 {
-    //inventory request
-    //get Plant info from inventory clerk
+    string plantID;
+    cout << "Enter plant ID to browse (or 'quit'): ";
+    cin >> plantID;
+    if (plantID == "quit")
+        return;
 
-    //print out plant info
+    Request *req = makeRequest("inventory", plantID, "");
+    InventoryCommand cmd(req);
+    salesPerson->handleCommand(&cmd);
+    delete req;
 }
 
 /*!
@@ -52,8 +65,34 @@ void Customer::startPurchase()
     currentOrder = new Order();
 }
 
-void addPlant(string plantID, string decor) {
-    
+void Customer::addPlant(string plantID, string decor)
+{
+    Request *req = makeRequest("sales", plantID, decor);
+    SalesCommand cmd(req);
+    salesPerson->handleCommand(&cmd);
+
+    InventoryClerk *clerk = dynamic_cast<InventoryClerk *>(salesPerson->getNextHandler());
+    Plant *plant = nullptr;
+    if (clerk)
+    {
+        plant = clerk->getPlant(plantID);
+    }
+
+    if (!plant)
+    {
+        cerr << "Could not obtain plant " << plantID << " for the order.\n";
+        delete req;
+        return;
+    }
+
+    if (!decor.empty())
+    {
+        plant = customizeOrder(plant, decor);
+    }
+
+    currentOrder->addPlant(plant);
+    cout << "Plant " << plantID << " added to your order.\n";
+    delete req;
 }
 
 /*!
@@ -63,22 +102,30 @@ void addPlant(string plantID, string decor) {
  * @param decor Decoration to be added to the plant
  * @return Decorated Plant or basic Plant
  */
-Plant* Customer::customizeOrder(Plant* plant, string decor){
+Plant *Customer::customizeOrder(Plant *plant, string decor)
+{
 
-    if (decor == "Arrange") {
-        ArrangementDecorator* newD = new ArrangementDecorator();
+    if (decor == "Arrange")
+    {
+        ArrangementDecorator *newD = new ArrangementDecorator();
         newD->setWrapped(plant);
         return newD;
-    } else if (decor == "Pot") {
-        PotDecorator* newD = new PotDecorator();
+    }
+    else if (decor == "Pot")
+    {
+        PotDecorator *newD = new PotDecorator();
         newD->setWrapped(plant);
         return newD;
-    } else if (decor == "Wrap") {
-        WrapDecorator* newD = new WrapDecorator();
+    }
+    else if (decor == "Wrap")
+    {
+        WrapDecorator *newD = new WrapDecorator();
         newD->setWrapped(plant);
         return newD;
-    } else {
-        cerr << "Error in Customer::customizeOrder()" << endl;
+    }
+    else
+    {
+        cerr << "Unknown decoration '" << decor << "'. Plant unchanged.\n";
         return plant;
     }
 }
@@ -88,11 +135,29 @@ Plant* Customer::customizeOrder(Plant* plant, string decor){
  */
 void Customer::undoAction()
 {
+    if (currentOrder->isEmpty())
+    {
+        cout << "Nothing to undo.\n";
+        return;
+    }
     currentOrder->undoLastAddition();
+    cout << "Last plant removed from the order.\n";
 }
-
 
 void Customer::confirmPurchase()
 {
+    if (currentOrder->isEmpty())
+    {
+        cout << "Your order is empty – nothing to confirm.\n";
+        return;
+    }
 
+    cout << "\n=== FINAL ORDER ===\n";
+    currentOrder->printOrder();
+    cout << "====================\n";
+
+    cout << "Purchase confirmed! Thank you, " << name << ".\n";
+
+    delete currentOrder;
+    startPurchase();
 }

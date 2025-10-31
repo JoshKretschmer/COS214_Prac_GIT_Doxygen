@@ -6,7 +6,7 @@
 class Succulent : public Plant {
 public:
     Succulent();
-    string virtual getDetails()=0;
+    std::string virtual getDetails()=0;
     double virtual getCost()=0;
 };
 

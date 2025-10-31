@@ -1,4 +1,5 @@
 #include "InventoryCommand.h"
+#include "Request.h"
 
 InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
 {

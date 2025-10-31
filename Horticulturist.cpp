@@ -1,4 +1,6 @@
 #include "Horticulturist.h"
+#include "Command.h"
+#include "Request.h"
 
 /*!
  *
@@ -23,7 +25,7 @@ void Horticulturist::executeTask(Command* command)
  *
  * @param name Name of new Horticulturist
  */
-Horticulturist::Horticulturist(string name) : Staff(name)
+Horticulturist::Horticulturist(std::string name) : Staff(name)
 {
     staffType = "horticulturist";
 }
@@ -43,11 +45,11 @@ Horticulturist::~Horticulturist()
  *
  * @param plant Plant to be moved to Inventory
  */
-string Horticulturist::getActionForMove() {
+std::string Horticulturist::getActionForMove() {
     //return ACTION_STOREPLANT;  // Specific to Horticulturist
     return "";
 }
 
-string Horticulturist::getDescriptionForMove() {
+std::string Horticulturist::getDescriptionForMove() {
     return "just store the plant :)";  // Specific to Horticulturist
 }

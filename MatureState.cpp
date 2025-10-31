@@ -22,6 +22,6 @@ void MatureState::handleCare(Plant* plant) {
 /*!
  * @return "Matured"
  */
-string MatureState::getStateName() {
+std::string MatureState::getStateName() {
     return "Matured";
 }

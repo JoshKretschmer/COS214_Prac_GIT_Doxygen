@@ -1,9 +1,6 @@
+// Memento.h
 #ifndef MEMENTO_H
 #define MEMENTO_H
-
-/*!
- * @headerfile Memento.h
- */
 
 #include "Plant.h"
 #include <vector>
@@ -11,22 +8,20 @@
 /*!
  * @class Memento
  *
- * @brief Saves a copy of Plant objects for the purpose of undoing changes made to the Order objects
+ * @brief Stores a snapshot of an Order's state for undo/redo.
  */
-class Memento {
+class Memento
+{
 private:
-    vector<Plant*> savedPlants;
+    std::vector<Plant *> savedPlants;
     double savedCost;
 
 public:
-    Memento(const std::vector<Plant*>& plants, double cost);
+    Memento(const std::vector<Plant *> &plants, double cost);
     ~Memento();
-    const vector<Plant*>& getSavedPlants() const;
+
+    const std::vector<Plant *> &getSavedPlants() const;
     double getSavedCost() const;
-    vector<Plant*> getMementos() const { return savedPlants; };
 };
 
-
-
-
-#endif //MEMENTO_H
+#endif // MEMENTO_H

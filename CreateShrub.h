@@ -5,7 +5,7 @@
 
 class CreateShrub : public PlantFactory {
 public:
-    Plant* createPlant(string name);
+    Plant* createPlant(std::string name);
 };
 
 #endif //CREATESHRUB_H

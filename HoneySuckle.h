@@ -11,7 +11,7 @@
 class HoneySuckle : public Shrub {
 public:
     HoneySuckle();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

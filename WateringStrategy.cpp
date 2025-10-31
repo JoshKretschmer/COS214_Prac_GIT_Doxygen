@@ -13,13 +13,13 @@ WateringStrategy::WateringStrategy() {
  * @return Output message and return true
  */
 bool WateringStrategy::executeCare() {
-    cout << "Watering the plant." << endl;
+    std::cout << "Watering the plant." << std::endl;
     return true;
 }
 
 /*!
  * @return Watering
  */
-string WateringStrategy::getCareType() {
+std::string WateringStrategy::getCareType() {
     return "Watering";
 }

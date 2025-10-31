@@ -1,4 +1,5 @@
 #include "Staff.h"
+#include "Command.h"
 
 int Staff::instanceCount = 1;
 
@@ -7,10 +8,10 @@ int Staff::instanceCount = 1;
  *
  * @param _name value for staffName attribute
  */
-Staff::Staff(string _name)
+Staff::Staff(std::string _name)
 {
     staffName = _name;
-    staffID = "STAFF"+to_string(instanceCount);
+    staffID = "STAFF" + std::to_string(instanceCount);
     instanceCount++;
 
     nextHandler = NULL;
@@ -29,7 +30,7 @@ Staff::~Staff()
  *
  * @param _handler Next Staff object in chain of command
  */
-void Staff::setNextHandler(Staff * _handler)
+void Staff::setNextHandler(Staff *_handler)
 {
     nextHandler = _handler;
 }
@@ -39,20 +40,21 @@ void Staff::setNextHandler(Staff * _handler)
  *
  * @param command Command object to be forwarded
  */
-void Staff::forwardCommand(Command* command)
+void Staff::forwardCommand(Command *command)
 {
-    if(nextHandler)
+    if (nextHandler)
     {
         nextHandler->handleCommand(command);
     }
     else
     {
-        cerr<<"NO next handler for" + staffName + "... Request not handled...";
+        cerr << "NO next handler for" + staffName + "... Request not handled...";
     }
 }
 
-void Staff::executeTask(Command *_command) {
-    //Need to wait for command/request to be implemented
+void Staff::executeTask(Command *_command)
+{
+    // Need to wait for command/request to be implemented
 }
 
 /*!
@@ -60,20 +62,20 @@ void Staff::executeTask(Command *_command) {
  *
  * @param command Command object to be executed
  */
-void Staff::handleCommand(Command* command)
+void Staff::handleCommand(Command *command)
 {
-    if(command->hasAccess(staffType))
+    if (command->hasAccess(staffType))
     {
         executeTask(command);
     }
     else
     {
-        cout<<"\nstaff "<<staffName<<" does not have access to handleCommand...\n";
+        cout << "\nstaff " << staffName << " does not have access to handleCommand...\n";
         forwardCommand(command);
     }
 }
 
 // Template Method implementation
-void Staff::movePlantToInventory(Plant* plant) {
-    
+void Staff::movePlantToInventory(Plant *plant)
+{
 }

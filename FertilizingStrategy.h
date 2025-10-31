@@ -7,7 +7,7 @@ class FertilizingStrategy : public PlantCare {
 public:
     FertilizingStrategy();
     bool executeCare();
-    string getCareType();
+    std::string getCareType();
 };
 
 #endif //FERTILIZINGSTRATEGY_H

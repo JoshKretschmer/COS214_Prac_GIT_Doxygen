@@ -6,7 +6,7 @@
 class Orchid : public Flower {
 public:
     Orchid();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

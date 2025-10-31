@@ -11,7 +11,7 @@
 class Marigold : public Flower {
 public:
     Marigold();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

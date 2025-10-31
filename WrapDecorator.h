@@ -10,7 +10,7 @@
  */
 class WrapDecorator : public PlantDecorator {
 public:
-    string getDetails();
+    std::string getDetails();
     double getCost();
     PlantDecorator* clone();
 };

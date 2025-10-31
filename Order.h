@@ -1,9 +1,7 @@
+// Order.h
 #ifndef ORDER_H
 #define ORDER_H
 
-/*!
- * @headerfile Order.h
- */
 #include "Plant.h"
 #include "Memento.h"
 #include <string>
@@ -15,34 +13,40 @@ class Memento;
 /*!
  * @class Order
  *
- * @brief Contains information of a in progress purchase being made by a Customer object
+ * @brief Represents a customer's in-progress purchase.
  */
-class Order {
+class Order
+{
 private:
-    string orderId;
-    vector<Plant*> plants;
+    std::string orderId;
+    std::vector<Plant *> plants;
     double totalCost;
-    vector<Memento*> mementos; //undo
-    vector<Memento*> redoMementos; //redo
+    std::vector<Memento *> mementos;     // undo stack
+    std::vector<Memento *> redoMementos; // redo stack
+
 public:
     Order();
     ~Order();
 
-    void addPlant(Plant* plant);
-    string getDetails();
+    void addPlant(Plant *plant);
+    std::string getDetails() const;
     void updateCost();
 
-    Memento* createMemento();
-    void restoreMemento(Memento* memento);
-    vector<Memento*>& getMementos();
-    vector<Memento*>& getRedoMementos();
+    Memento *createMemento();
+    void restoreMemento(Memento *memento);
+
+    std::vector<Memento *> &getMementos();
+    std::vector<Memento *> &getRedoMementos();
 
     void undoLastAddition();
     void redoLastStep();
 
-    vector<Plant*> getPlants() const;
-    Plant* getLastPlant();
-    void replaceLastPlant(Plant* newPlant);
+    std::vector<Plant *> getPlants() const;
+    Plant *getLastPlant() const;
+    void replaceLastPlant(Plant *newPlant);
+
+    bool isEmpty() const { return plants.empty(); }
+    void printOrder() const;
 };
 
-#endif //ORDER_H
+#endif // ORDER_H

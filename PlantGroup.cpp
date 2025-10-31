@@ -2,7 +2,7 @@
 #include "InventoryComponent.h"
 #include "Plant.h"
 
-PlantGroup::PlantGroup(string name) : InventoryComponent(), groupName(name) {}
+PlantGroup::PlantGroup( std::string name) : InventoryComponent(), groupName(name) {}
 
 PlantGroup::~PlantGroup() {
     for (auto c : children) {
@@ -35,7 +35,7 @@ vector<Plant*> PlantGroup::getPlants() {
     return result;
 }
 
-void PlantGroup::movePlant(Plant* plant, string newState) {
+void PlantGroup::movePlant(Plant* plant,  std::string newState) {
     for (auto c : children) {
         c->movePlant(plant, newState);
     }

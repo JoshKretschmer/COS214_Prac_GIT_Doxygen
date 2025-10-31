@@ -13,13 +13,13 @@ FertilizingStrategy::FertilizingStrategy() {
  * @return Output message and return true
  */
 bool FertilizingStrategy::executeCare() {
-    cout << "Fertilizing the plant." << endl;
+    std::cout << "Fertilizing the plant." << std::endl;
     return true;
 }
 
 /*!
  * @return Fertilizing
  */
-string FertilizingStrategy::getCareType() {
+std::string FertilizingStrategy::getCareType() {
     return "Fertilizing";
 }

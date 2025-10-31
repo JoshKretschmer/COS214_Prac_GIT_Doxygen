@@ -17,7 +17,7 @@ CompositeCareStrategy::CompositeCareStrategy() {
  * @return True
  */
 bool CompositeCareStrategy::executeCare() {
-    cout << "Executing composite care strategy:" << endl;
+    std::cout << "Executing composite care strategy:" << std::endl;
     SunlightStrategy sunlight;
     WateringStrategy water;
     FertilizingStrategy fertilize;
@@ -32,6 +32,6 @@ bool CompositeCareStrategy::executeCare() {
 /*!
  * @return Composite
  */
-string CompositeCareStrategy::getCareType() {
+std::string CompositeCareStrategy::getCareType() {
     return "Composite";
 }

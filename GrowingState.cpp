@@ -26,6 +26,6 @@ void GrowingState::handleCare(Plant* plant) {
 /*!
  * @return "Growing"
  */
-string GrowingState::getStateName() {
+std::string GrowingState::getStateName() {
     return "Growing";
 }

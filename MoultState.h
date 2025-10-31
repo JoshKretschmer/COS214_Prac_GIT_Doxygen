@@ -13,7 +13,7 @@
 class MoultState : public PlantState {
 public:
     void handleCare(Plant* plant);
-    string getStateName();
+    std::string getStateName();
 };
 
 #endif //MOULTSTATE_H

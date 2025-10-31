@@ -7,7 +7,7 @@ class PlantFactory {
 public:
     PlantFactory();
     virtual ~PlantFactory();
-    virtual Plant* createPlant(string name)=0;
+    virtual Plant* createPlant( std::string name)=0;
 };
 
 #endif //PLANTFACTORY_H

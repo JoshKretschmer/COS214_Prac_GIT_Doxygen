@@ -8,9 +8,9 @@ class ManagerCommand : public Command
 public:
     ManagerCommand(Request *_request);
     ~ManagerCommand();
-    Request* ManagerCommand::execute();
+
+    // Looks like this cause it needs to be able to handle anything and not just a specfifc thing
+    Request *execute() override;
 };
 
-
-
-#endif //MANAGERCOMMAND_H
+#endif // MANAGERCOMMAND_H

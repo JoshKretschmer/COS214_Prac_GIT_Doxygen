@@ -1,12 +1,14 @@
 #include "SalesAssociate.h"
 #include "Customer.h"
+#include "Command.h"
+#include "Request.h"
 
 /*!
  * @brief Basic constructor
  *
  * @param _name name of Staff member
  */
-SalesAssociate::SalesAssociate(string _name) : Staff(_name)
+SalesAssociate::SalesAssociate( std::string _name) : Staff(_name)
 {
     staffType = "SalesAssociate";
 }

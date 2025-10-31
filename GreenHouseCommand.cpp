@@ -1,4 +1,5 @@
 #include "GreenHouseCommand.h"
+#include "Request.h"
 
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {

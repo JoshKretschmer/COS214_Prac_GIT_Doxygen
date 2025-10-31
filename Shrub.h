@@ -11,7 +11,7 @@
 class Shrub : public Plant {
 public:
     Shrub();
-    string virtual getDetails()=0;
+    std::string virtual getDetails()=0;
     double virtual getCost()=0;
 };
 

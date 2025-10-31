@@ -5,7 +5,7 @@
 
 class CreateSucculent : public PlantFactory {
 public:
-    Plant* createPlant(string name);
+    Plant* createPlant(std::string name);
 };
 
 #endif //CREATESUCCULENT_H

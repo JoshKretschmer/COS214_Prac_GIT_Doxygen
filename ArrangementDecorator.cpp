@@ -5,12 +5,12 @@
  *
  * @return Basic details of decorated plant
  */
-string ArrangementDecorator::getDetails() {
+std::string ArrangementDecorator::getDetails() {
     if (this->getWrapped() == nullptr) {
         return "Plant to be decorated has not been set";
     }
 
-    string det = getWrapped()->getDetails();
+    std::string det = getWrapped()->getDetails();
     det += "Decoration: Arrangement \n";
     return det;
 }

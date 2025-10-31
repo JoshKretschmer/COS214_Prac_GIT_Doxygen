@@ -28,6 +28,6 @@ void MoultState::handleCare(Plant* plant) {
 /*!
  * @return "Moulting"
  */
-string MoultState::getStateName() {
+std::string MoultState::getStateName() {
     return "Moulting";
 }

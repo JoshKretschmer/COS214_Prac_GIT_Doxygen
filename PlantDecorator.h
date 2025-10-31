@@ -3,7 +3,6 @@
 
 #include "Plant.h"
 #include <string>
-using namespace std;
 
 /*!
  * @class PlantDecorator
@@ -18,10 +17,10 @@ protected:
 public:
     PlantDecorator();
     ~PlantDecorator();
-    virtual string getDetails() = 0;
+    virtual std::string getDetails() = 0;
     virtual double getCost() = 0;
     void setWrapped(Plant* wrappedPlant);
-    virtual PlantDecorator* clone();
+    // virtual PlantDecorator* clone();
 };
 
 #endif //PLANTDECORATOR_H

@@ -7,7 +7,7 @@
  */
 HouseLeek::HouseLeek() : Succulent::Succulent() {
     int randomNum = rand() % 101;
-    this->id = "HL" + to_string(randomNum);
+    this->id = "HL" + std::to_string(randomNum);
 
     this->price = 35.50;
 }
@@ -17,8 +17,8 @@ HouseLeek::HouseLeek() : Succulent::Succulent() {
  *
  * @return string containing basic details of the plant
  */
-string HouseLeek::getDetails() {
-    string det;
+std::string HouseLeek::getDetails() {
+    std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: House Leek" + "\n";

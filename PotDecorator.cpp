@@ -1,16 +1,16 @@
 #include "PotDecorator.h"
 
 /*!
- * Return string gotten for wrappedPlant object, appended with "Decoration: Pot"
+ * Return std::string gotten for wrappedPlant object, appended with "Decoration: Pot"
  *
  * @return Basic details of decorated plant
  */
-string PotDecorator::getDetails() {
+std::string PotDecorator::getDetails() {
     if (this->getWrapped() == nullptr) {
         return "Plant to be decorated has not been set";
     }
 
-    string det = getWrapped()->getDetails();
+    std::string det = getWrapped()->getDetails();
     det += "Decoration: Pot \n";
     return det;
 }

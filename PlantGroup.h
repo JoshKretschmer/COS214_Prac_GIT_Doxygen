@@ -2,22 +2,23 @@
 #define PLANTGROUP_H
 
 #include "InventoryComponent.h"
+#include "Plant.h"
 #include <vector>
 
-class PlantGroup : public InventoryComponent {
+class PlantGroup : public InventoryComponent
+{
 private:
-    string groupName;
-    vector<InventoryComponent*> children;
+    std::string groupName;
+    vector<InventoryComponent *> children;
+
 public:
-    PlantGroup(string name);
+    PlantGroup(std::string name);
     ~PlantGroup();
 
-    void add(InventoryComponent* component);
-    void remove(InventoryComponent* component);
-    vector<Plant*> getPlants();
-    void movePlant(Plant* plant, string newState);
+    void add(InventoryComponent *component);
+    void remove(InventoryComponent *component);
+    vector<Plant *> getPlants();
+    void movePlant(Plant *plant, std::string newState);
 };
 
-
-
-#endif //PLANTGROUP_H
+#endif // PLANTGROUP_H

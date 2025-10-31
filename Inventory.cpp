@@ -23,7 +23,7 @@ void Inventory::addPlant(Plant* plant) {
     plants.push_back(plant);
 }
 
-void Inventory::removePlant(string plantId) {
+void Inventory::removePlant(std::string plantId) {
     for (auto it = plants.begin(); it != plants.end(); ++it) {
         if ((*it)->getDetails() == plantId) {
             Plant* removed = *it;
@@ -34,11 +34,11 @@ void Inventory::removePlant(string plantId) {
     }
 }
 
-void Inventory::updateStock(string plantType, int quantity) {
+void Inventory::updateStock(std::string plantType, int quantity) {
     stockLevels[plantType] = quantity;
 }
 
-int Inventory::getStockLevel(string plantType) {
+int Inventory::getStockLevel(std::string plantType) {
     return stockLevels[plantType];
 }
 
@@ -75,7 +75,7 @@ vector<Plant*> Inventory::getPlants() {
     return allPlants;
 }
 
-void Inventory::movePlant(Plant* plant, string newState) {
+void Inventory::movePlant(Plant* plant, std::string newState) {
     if (std::find(plants.begin(), plants.end(), plant) != plants.end()) {
         return ;// plant is in main inventory
     }

@@ -7,7 +7,7 @@
  */
 BeeBlossom::BeeBlossom() : Shrub::Shrub() {
     int randomNum = rand() % 101;
-    this->id = "BB" + to_string(randomNum);
+    this->id = "BB" + std::to_string(randomNum);
 
     this->price = 21.00;
 }
@@ -17,8 +17,8 @@ BeeBlossom::BeeBlossom() : Shrub::Shrub() {
  *
  * @return string containing basic details of the plant
  */
-string BeeBlossom::getDetails() {
-    string det;
+std::string BeeBlossom::getDetails() {
+    std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Bee Blossom" + "\n";

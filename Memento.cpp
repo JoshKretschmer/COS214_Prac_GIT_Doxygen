@@ -1,42 +1,45 @@
+// Memento.cpp
 #include "Memento.h"
 
 /*!
- * @brief Basic Memento creator function
+ * @brief Constructs a Memento by deep-copying the given plants and cost.
  *
- * @param plants Plant objects to be stored from the Order Object
- * @param cost Total cost of all Plant objects to be stored
+ * @param plants Current plants in the Order.
+ * @param cost   Current total cost of the Order.
  */
-Memento::Memento(const vector<Plant*>& plants, double cost) {
+Memento::Memento(const std::vector<Plant *> &plants, double cost)
+{
     savedCost = cost;
-    // Deep copy plants to avoid external modification
-    for (auto plant : plants) {
-        savedPlants.push_back(plant->clone());
+    savedPlants.reserve(plants.size());
+    for (auto *p : plants)
+    {
+        savedPlants.push_back(p->clone());
     }
 }
 
 /*!
- * @brief Basic Memento destructor
+ * @brief Destroys the Memento and frees all cloned plants.
  */
-Memento::~Memento() {
-    // Cleanup if necessary
-    for (auto plant : savedPlants) {
-        delete plant; // Assuming Plant is dynamically allocated
+Memento::~Memento()
+{
+    for (auto *p : savedPlants)
+    {
+        delete p;
     }
-    savedCost = 0;
 }
 
 /*!
- *
- * @return Plant objects stored in the Memento
+ * @return Vector of cloned plants stored in this snapshot.
  */
-const vector<Plant*>& Memento::getSavedPlants() const {
+const std::vector<Plant *> &Memento::getSavedPlants() const
+{
     return savedPlants;
 }
 
 /*!
- *
- * @return Cost of Plant objects stored in Memento
+ * @return Total cost stored in this snapshot.
  */
-double Memento::getSavedCost() const {
+double Memento::getSavedCost() const
+{
     return savedCost;
 }

@@ -7,7 +7,7 @@
  */
 Marigold::Marigold() : Flower::Flower() {
     int randomNum = rand() % 101;
-    this->id = "MG" + to_string(randomNum);
+    this->id = "MG" + std::to_string(randomNum);
 
     this->price = 16.00;
 }
@@ -17,8 +17,8 @@ Marigold::Marigold() : Flower::Flower() {
  *
  * @return string containing basic details of the plant
  */
-string Marigold::getDetails() {
-    string det;
+std::string Marigold::getDetails() {
+    std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Marigold" + "\n";

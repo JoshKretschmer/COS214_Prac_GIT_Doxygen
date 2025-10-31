@@ -1,14 +1,16 @@
 #include "InventoryClerk.h"
+#include "Request.h"
 
-void InventoryClerk::executeTask(Command* command)
+void InventoryClerk::executeTask(Command *command)
 {
-    if (command->getRequest()->getType() != "inventory") {
+    if (command->getRequest()->getType() != "inventory")
+    {
         // Forward to next handler if not an inventory command
         forwardCommand(command);
         return;
     }
     command->getRequest()->setReceiver(this);
-    Request* request = command->execute();
+    Request *request = command->execute();
 }
 
 /*!
@@ -16,7 +18,7 @@ void InventoryClerk::executeTask(Command* command)
  *
  * @param _name name of staff member
  */
-InventoryClerk::InventoryClerk(string _name) : Staff(_name)
+InventoryClerk::InventoryClerk(std::string _name) : Staff(_name)
 {
     staffType = "inventoryclerk";
     inventory = NULL;
@@ -33,7 +35,7 @@ InventoryClerk::~InventoryClerk()
 /*!
  * @param _inventory Inventory object that the Clerk is able to interact with
  */
-void InventoryClerk::assignJob(Inventory* _inventory)
+void InventoryClerk::assignJob(Inventory *_inventory)
 {
     inventory = _inventory;
 }
@@ -41,7 +43,7 @@ void InventoryClerk::assignJob(Inventory* _inventory)
 /*!
  * @param plant Plant object to be added to the Inventory
  */
-void InventoryClerk::storePlant(Plant * plant)
+void InventoryClerk::storePlant(Plant *plant)
 {
     this->inventory->addPlant(plant);
 }
@@ -50,27 +52,33 @@ void InventoryClerk::storePlant(Plant * plant)
  * @param plantID id of the plant to be fetched from the inventory
  * @return Plant object that has been fetched
  */
-Plant * InventoryClerk::getPlant(string plantID) {
+Plant *InventoryClerk::getPlant(std::string plantID)
+{
+    if (!inventory)
+        return nullptr;
 
-    //find plant
-    Iterator* it = new InventoryIterator(inventory);
-    Plant* returnPlant = NULL;
+    Iterator *it = new InventoryIterator(inventory);
+    Plant *foundPlant = nullptr;
 
-    while (it->hasNext()) {
-        if (it->currentItem()->getID() == plantID) {
-            returnPlant = it->currentItem();
+    while (it->hasNext())
+    {
+        Plant *current = it->currentItem();
+        if (current->getID() == plantID)
+        {
+            foundPlant = current;
+            break; // found it
         }
         it->next();
     }
+    delete it; 
 
-    if (returnPlant != NULL) {
-        cout << "Plant does not exist in inventory";
-        return returnPlant;
+    if (!foundPlant)
+    {
+        std::cout << "Plant not found in inventory.\n";
+        return nullptr;
     }
 
-    //remove from inventory
-    this->inventory->removePlant(plantID);
-
-    //return plant
-    return returnPlant;
+    // remove from inventory and return
+    inventory->removePlant(plantID);
+    return foundPlant;
 }

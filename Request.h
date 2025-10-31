@@ -1,15 +1,10 @@
 #ifndef REQUEST_H
 #define REQUEST_H
 
-#include "Staff.h"
-#include "Horticulturist.h"
-#include "InventoryClerk.h"
-#include "SalesAssociate.h"
-#include "Plant.h"
-#include "Customer.h"
+#include <string>  
 
+class Customer;
 class Staff;
-class Plant;
 
 class Request {
     private:

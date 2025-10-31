@@ -1,26 +1,28 @@
 #ifndef INVENTORYCOMPONENT_H
 #define INVENTORYCOMPONENT_H
 
-#include "Plant.h"
-#include "PlantState.h"
-#include "Iterator.h"
-#include <vector>
 #include <string>
+#include <vector>
 #include <map>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-class InventoryComponent{
+#include "PlantState.h"
+#include "Iterator.h"
+#include "Plant.h"
+
+class InventoryComponent
+{
 public:
     InventoryComponent();
     virtual ~InventoryComponent();
 
-    virtual void add(InventoryComponent* component);
-    virtual void remove(InventoryComponent* component);
-    virtual vector<Plant*> getPlants();
+    virtual void add(InventoryComponent *component);
+    virtual void remove(InventoryComponent *component);
+    virtual vector<Plant *> getPlants() = 0;
 
-    //virtual void notifyObservers();
-
-    virtual void movePlant(Plant* plant, string newState);
+    virtual void movePlant(Plant *plant, std::string newState);
 };
 
-#endif //INVENTORYCOMPONENT_H
+#endif // INVENTORYCOMPONENT_H

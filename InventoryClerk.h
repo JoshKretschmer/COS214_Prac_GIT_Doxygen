@@ -4,6 +4,7 @@
 #include "Staff.h"
 #include "Inventory.h"
 #include "InventoryIterator.h"
+#include "Command.h"
 
 class InventoryClerk : public Staff
 {
@@ -12,10 +13,10 @@ private:
     void executeTask(Command* command) override;
 
 public:
-    InventoryClerk(string _name);
+    InventoryClerk(std::string _name);
     ~InventoryClerk();
     void storePlant(Plant* plant);
-    Plant* getPlant(string plantID);
+    Plant* getPlant(std::string plantID);
     void assignJob(Inventory *_inventory);
 };
 

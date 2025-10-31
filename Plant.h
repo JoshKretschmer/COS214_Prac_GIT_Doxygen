@@ -7,17 +7,13 @@
  *@brief Class hierarchy for main plant product
  */
 
-#include "PlantCare.h"
-#include "PlantState.h"
-//#include "Inventory.h"
 #include <string>
 #include <vector>
-#include <iostream>
+
+#include "PlantCare.h"
+#include "PlantState.h"
 
 class InventoryComponent;
-
-using namespace std;
-
 
 /*!
  * @class Plant
@@ -28,27 +24,29 @@ using namespace std;
  *  Product in Factory Method, ConcreteComponent in Decorator, Context for State
  *
  */
-class Plant{
+class Plant
+{
 protected:
-    string id;//
-    string type;
+    std::string id; //
+    std::string type;
     double price;
-    PlantState* currState;//
-    PlantCare* careRegime;
+    PlantState *currState; //
+    PlantCare *careRegime;
     int health;
+
 public:
     Plant();
     virtual ~Plant();
-    string virtual getDetails()=0;
-    double virtual getCost()=0;
-    void changeState(PlantState* newState);
+    std::string virtual getDetails() = 0;
+    double virtual getCost() = 0;
+    void changeState(PlantState *newState);
     bool needsCare();
     int getHealth() { return health; };
-    string getID() { return id; };
-    string getType() { return type; };
+    std::string getID() { return id; };
+    std::string getType() { return type; };
     void incrementHealth(int num);
-    string getState();
-    Plant* clone();
+    std::string getState();
+    Plant *clone();
 };
 
-#endif //PLANT_H
+#endif // PLANT_H

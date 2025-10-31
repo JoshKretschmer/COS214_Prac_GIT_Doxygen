@@ -1,4 +1,5 @@
 #include "DeadState.h"
+#include <iostream>
 
 /*!
  * @brief Placeholder function for dead plants that must be removed from system
@@ -14,6 +15,6 @@ void DeadState::handleCare(Plant *plant) {
 /*!
  * @return "Dead"
  */
-string DeadState::getStateName() {
+std::string DeadState::getStateName() {
     return "Dead";
 }

@@ -13,7 +13,7 @@
 class DeadState : public PlantState {
 public:
     void handleCare(Plant* plant);
-    string getStateName();
+    std::string getStateName();
 };
 
 #endif //DEADSTATE_H

@@ -6,7 +6,7 @@
 class PeanutCactus : public Succulent {
 public:
     PeanutCactus();
-    string getDetails();
+    std::string getDetails();
     double getCost();
 };
 

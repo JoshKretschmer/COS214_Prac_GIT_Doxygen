@@ -7,7 +7,7 @@
  */
 HoneySuckle::HoneySuckle() : Shrub::Shrub() {
     int randomNum = rand() % 101;
-    this->id = "HS" + to_string(randomNum);
+    this->id = "HS" + std::to_string(randomNum);
 
     this->price = 39.95;
 }
@@ -17,8 +17,8 @@ HoneySuckle::HoneySuckle() : Shrub::Shrub() {
  *
  * @return string containing basic details of the plant
  */
-string HoneySuckle::getDetails() {
-    string det;
+std::string HoneySuckle::getDetails() {
+    std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
     det = det + "Name: Honey Suckle" + "\n";

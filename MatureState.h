@@ -13,7 +13,7 @@
 class MatureState : public PlantState {
 public:
     void handleCare(Plant* plant);
-    string getStateName();
+    std::string getStateName();
 };
 
 #endif //MATURESTATE_H

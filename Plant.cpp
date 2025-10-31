@@ -75,7 +75,7 @@ void Plant::incrementHealth(int num) {
 /*!
  * @return name of the current state of the plant as a string
  */
-string Plant::getState() {
+std::string Plant::getState() {
     return currState->getStateName();
 }
 

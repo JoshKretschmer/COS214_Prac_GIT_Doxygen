@@ -9,7 +9,7 @@ Command::~Command()
 {
 }
 
-bool Command::hasAccess(string _staffType)
+bool Command::hasAccess(std::string _staffType)
 {
     return (_staffType == access);
 }
