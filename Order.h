@@ -46,6 +46,7 @@ public:
     void replaceLastPlant(Plant *newPlant);
 
     bool isEmpty() const { return plants.empty(); }
+    double getTotalCost() const; 
     void printOrder() const;
 };
 

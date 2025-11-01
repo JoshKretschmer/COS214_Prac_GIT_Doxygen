@@ -102,29 +102,30 @@ std::string Plant::getState()
  */
 Plant *Plant::clone()
 {
-    std::cout << "Cloning plant: " << type << " (ID: " << id << ")\n";
+    std::cout << "Calling Plant::clone() for plant (ID=" << (id.empty() ? "none" : id)
+              << ", Type=" << (type.empty() ? "none" : type) << ")\n";
 
     Plant *newPlant = nullptr;
 
-    if (this->type == "Succulent")
+    if (type == "Succulent")
     {
-        if (this->getID().substr(0, 2) == "PC")
-            newPlant = new PeanutCactus();
-        else if (this->getID().substr(0, 2) == "HL")
+        if (id.substr(0, 2) == "HL")
             newPlant = new HouseLeek();
+        else if (id.substr(0, 2) == "PC")
+            newPlant = new PeanutCactus();
     }
-    else if (this->type == "Flower")
+    else if (type == "Orchid")
     {
-        if (this->getID().substr(0, 2) == "OR")
+        if (id.substr(0, 2) == "OR")
             newPlant = new Orchid();
-        else if (this->getID().substr(0, 2) == "MG")
+        else if (id.substr(0, 2) == "MG")
             newPlant = new Marigold();
     }
-    else if (this->type == "Shrub")
+    else if (type == "Shrub")
     {
-        if (this->getID().substr(0, 2) == "BB")
+        if (id.substr(0, 2) == "BB")
             newPlant = new BeeBlossom();
-        else if (this->getID().substr(0, 2) == "HS")
+        else if (id.substr(0, 2) == "HS")
             newPlant = new HoneySuckle();
     }
 
@@ -140,21 +141,50 @@ Plant *Plant::clone()
         newPlant->currState = nullptr;
         newPlant->careRegime = nullptr;
 
-        std::string stateName = this->currState->getStateName();
-        if (stateName == "Seeding")
+        if (this->currState)
+        {
+            std::string stateName = this->currState->getStateName();
+            std::cout << "Plant::clone() cloning state: " << stateName << "\n";
+            if (stateName == "Seeding")
+                newPlant->currState = new SeedingState();
+            else if (stateName == "Growing")
+                newPlant->currState = new GrowingState();
+            else if (stateName == "Mature")
+                newPlant->currState = new MatureState();
+            else if (stateName == "Moulting")
+                newPlant->currState = new MoultState();
+            else if (stateName == "Dead")
+                newPlant->currState = new DeadState();
+            else
+            {
+                std::cerr << "Plant::clone() - unknown state: " << stateName << "\n";
+                newPlant->currState = new SeedingState(); // Default state
+            }
+        }
+        else
+        {
+            std::cout << "Plant::clone() - currState is null, setting default SeedingState\n";
             newPlant->currState = new SeedingState();
-        else if (stateName == "Growing")
-            newPlant->currState = new GrowingState();
-        else if (stateName == "Mature")
-            newPlant->currState = new MatureState();
-        else if (stateName == "Moulting")
-            newPlant->currState = new MoultState();
-        else if (stateName == "Dead")
-            newPlant->currState = new DeadState();
+        }
 
-        newPlant->careRegime = this->careRegime->clone();
+        if (this->careRegime)
+        {
+            newPlant->careRegime = this->careRegime->clone();
+            std::cout << "Plant::clone() cloned careRegime\n";
+        }
+        else
+        {
+            std::cout << "Plant::clone() - careRegime is null, setting default CompositeCareStrategy\n";
+            newPlant->careRegime = new CompositeCareStrategy();
+        }
+    }
+    else
+    {
+        std::cerr << "Plant::clone() - failed to create new plant for type: "
+                  << (type.empty() ? "none" : type) << "\n";
     }
 
+    std::cout << "Plant::clone() returning " << (newPlant ? newPlant->getDetails() : "null") << "\n";
     return newPlant;
 }
 

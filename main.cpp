@@ -24,6 +24,8 @@
 #include "SalesCommand.h"
 #include "SalesAssociate.h"
 #include "Order.h"
+#include "PaymentSystem.h"
+#include "PurchaseFacade.h"
 
 void TestPlants()
 {
@@ -405,7 +407,7 @@ void TestMemento()
 
     Order order;
 
-    // Add plants
+    // add plants
     CreateSucculent factory;
     Plant *peanut = factory.createPlant("PeanutCactus");
     Plant *houseleek = factory.createPlant("HouseLeek");
@@ -416,17 +418,17 @@ void TestMemento()
     std::cout << "Current order:\n";
     order.printOrder();
 
-    // Undo last addition
+    // undo last addition
     order.undoLastAddition();
     std::cout << "After undo:\n";
     order.printOrder();
 
-    // Redo
+    // redo
     order.redoLastStep();
     std::cout << "After redo:\n";
     order.printOrder();
 
-    // Confirm empty after reset
+    // confirm empty after reset
     order.undoLastAddition();
     order.undoLastAddition();
     if (order.isEmpty())
@@ -437,6 +439,46 @@ void TestMemento()
     std::cout << "Memento pattern is working\n";
 }
 
+void TestFacade()
+{
+    std::cout << "Test Facade \n\n";
+
+    // setup
+    Inventory inventory;
+    PaymentSystem paymentSystem;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    inventory.addPlant(peanut);
+    SalesAssociate sales("Alice");
+    Customer customer("Eve", "CUST001", &sales);
+
+    // create facade
+    PurchaseFacade facade(&inventory, &paymentSystem);
+
+    // initiate purchase
+    Order *order = facade.initiatePurchase(&customer, factory.createPlant("PeanutCactus"));
+
+    // add customization
+    facade.addCustomization(order, "Pot");
+
+    // undo and redo
+    facade.undoLastStep(order);
+    facade.redoStep(order);
+
+    // complete purchase
+    facade.completePurchase(order);
+
+    // verify inventory
+    if (inventory.getPlants().empty())
+    {
+        std::cout << "Inventory is empty after purchase\n";
+    }
+
+    delete order;
+
+    std::cout << "Facade pattern is working\n";
+}
+
 int main()
 {
     // TestPlants();
@@ -445,6 +487,7 @@ int main()
     //  TestDecorator();
     // TestCommand();
     // TestChainOfResponsibility();
-    TestMemento();
+    // TestMemento();
+    TestFacade();
     return 0;
 }

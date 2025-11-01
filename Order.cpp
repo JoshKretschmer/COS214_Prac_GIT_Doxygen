@@ -40,7 +40,7 @@ void Order::addPlant(Plant *plant)
 {
     std::cout << "Calling Order::addPlant(plant="
               << (plant ? plant->getDetails() : "null") << ")\n";
-    mementos.push_back(createMemento()); // snapshot before change
+    mementos.push_back(createMemento());
     plants.push_back(plant);
     updateCost();
     std::cout << "Order::addPlant() added plant, new size=" << plants.size()
@@ -61,7 +61,7 @@ string Order::getDetails() const
         details += "- " + p->getDetails() + "\n";
     }
     details += "Total cost: " + std::to_string(totalCost) + "\n";
-    std::cout << "Order::getDetails() returning: \"" << details << "\"\n";
+    std::cout << "Order::getDetails() returning details\n";
     return details;
 }
 
@@ -109,15 +109,28 @@ void Order::restoreMemento(Memento *memento)
         return;
     }
 
-    // delete current plants
     for (auto *p : plants)
         delete p;
     plants.clear();
 
-    // clone saved plants
     for (auto *saved : memento->getSavedPlants())
     {
-        plants.push_back(saved->clone());
+        if (saved)
+        {
+            Plant *cloned = saved->clone();
+            if (cloned)
+            {
+                plants.push_back(cloned);
+            }
+            else
+            {
+                std::cerr << "Order::restoreMemento() - failed to clone plant\n";
+            }
+        }
+        else
+        {
+            std::cerr << "Order::restoreMemento() - null plant in memento, skipping\n";
+        }
     }
 
     totalCost = memento->getSavedCost();
@@ -159,7 +172,7 @@ void Order::undoLastAddition()
     Memento *last = mementos.back();
     mementos.pop_back();
 
-    redoMementos.push_back(createMemento()); // save for redo
+    redoMementos.push_back(createMemento());
     restoreMemento(last);
     delete last;
 
@@ -182,7 +195,7 @@ void Order::redoLastStep()
     Memento *next = redoMementos.back();
     redoMementos.pop_back();
 
-    mementos.push_back(createMemento()); // save for undo
+    mementos.push_back(createMemento());
     restoreMemento(next);
     delete next;
 
@@ -242,4 +255,14 @@ void Order::printOrder() const
     cout << fixed << setprecision(2);
     cout << getDetails();
     std::cout << "Order::printOrder() completed\n";
+}
+
+/*!
+ * @brief Returns the total cost of the order.
+ * @return Total cost of all plants in the order.
+ */
+double Order::getTotalCost() const
+{
+    std::cout << "Calling Order::getTotalCost() returning " << totalCost << "\n";
+    return totalCost;
 }

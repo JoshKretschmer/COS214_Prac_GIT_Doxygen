@@ -16,7 +16,22 @@ Memento::Memento(const std::vector<Plant *> &plants, double cost)
     savedPlants.reserve(plants.size());
     for (auto *p : plants)
     {
-        savedPlants.push_back(p->clone());
+        if (p)
+        {
+            Plant *cloned = p->clone();
+            if (cloned)
+            {
+                savedPlants.push_back(cloned);
+            }
+            else
+            {
+                std::cerr << "Memento Constructor: Failed to clone plant\n";
+            }
+        }
+        else
+        {
+            std::cerr << "Memento Constructor: Null plant pointer skipped\n";
+        }
     }
     std::cout << "Memento Constructor cloned " << savedPlants.size() << " plants\n";
 }
