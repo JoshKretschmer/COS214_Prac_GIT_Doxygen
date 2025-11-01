@@ -1,0 +1,30 @@
+makeCXX = g++
+CXXFLAGS = -g --coverage -pthread -Wall
+GCOVFLAGS = -f -m -r -j
+
+TARGET = main
+
+SRCS =  $(wildcard src/*.cpp)
+OBJS = $(SRCS:.cpp=.o)
+GCOV_FILES = $(SRCS:.cpp=.cpp.gcov)
+
+HDRS = $(wildcard inc*.h)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+%.o: %.cpp $(HDRS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+run: $(TARGET)
+	./$(TARGET)
+
+coverage: run
+	gcov $(GCOVFLAGS) $(SRCS)
+
+clean:
+	rm -f $(OBJS) $(TARGET) src/*.gcda src/*.gcno src/*.gcov src/*.gcov.json.gz
+
+.PHONY: all run coverage clean
