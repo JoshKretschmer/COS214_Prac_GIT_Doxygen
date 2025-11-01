@@ -17,7 +17,7 @@
 <h4 align="center">
   A C++ project showcasing <strong>Strategy</strong>, <strong>Observer</strong>, <strong>State</strong>, <strong>Command</strong>, and <strong>Memento</strong> design patterns.<br>
   Built with care, precision, and a little too much coffee.<br>
-  Developed by <strong>Git_doxygen Team</strong> for the University of Pretoria's COS214 course.
+  Developed by <strong>Git_doxygen Team</strong> for the University of Pretoria&apos;s COS214 course.
 </h4>
 
 <!-- TEAM BADGES -->
