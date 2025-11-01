@@ -7,46 +7,29 @@
 
 PurchaseFacade::PurchaseFacade(Inventory *inv, PaymentSystem *ps)
 {
-    std::cout << "Calling PurchaseFacade Constructor (inventory="
-              << (inv ? "non-null" : "null")
-              << ", paymentSystem=" << (ps ? "non-null" : "null") << ")\n";
     inventory = inv;
     paymentSystem = ps;
-    std::cout << "PurchaseFacade Constructor initialized\n";
 }
 
 PurchaseFacade::~PurchaseFacade()
 {
-    std::cout << "Calling PurchaseFacade Deconstructor\n";
 }
 
 void PurchaseFacade::setPaymentSystem(PaymentSystem *ps)
 {
-    std::cout << "Calling PurchaseFacade::setPaymentSystem(ps="
-              << (ps ? "non-null" : "null") << ")\n";
     paymentSystem = ps;
-    std::cout << "PurchaseFacade::setPaymentSystem() set paymentSystem\n";
 }
 
 Order *PurchaseFacade::initiatePurchase(Customer *customer, Plant *plant)
 {
-    std::cout << "Calling PurchaseFacade::initiatePurchase(customer="
-              << (customer ? customer->getName() : "null")
-              << ", plant=" << (plant ? plant->getDetails() : "null") << ")\n";
-
     Order *order = new Order();
     order->addPlant(plant);
 
-    std::cout << "PurchaseFacade::initiatePurchase() returning new Order\n";
     return order;
 }
 
 void PurchaseFacade::addCustomization(Order *order, std::string customization)
 {
-    std::cout << "Calling PurchaseFacade::addCustomization(order="
-              << (order ? order->getDetails() : "null")
-              << ", customization=\"" << customization << "\")\n";
-
     if (!order)
     {
         std::cout << "PurchaseFacade::addCustomization() - null order, nothing done\n";
@@ -87,9 +70,6 @@ void PurchaseFacade::addCustomization(Order *order, std::string customization)
 
 bool PurchaseFacade::processPayment(Order *order)
 {
-    std::cout << "Calling PurchaseFacade::processPayment(order="
-              << (order ? order->getDetails() : "null") << ")\n";
-
     if (!order)
     {
         std::cout << "PurchaseFacade::processPayment() - null order, returning false\n";
@@ -99,8 +79,6 @@ bool PurchaseFacade::processPayment(Order *order)
     if (paymentSystem)
     {
         bool result = paymentSystem->process(order->getTotalCost());
-        std::cout << "PurchaseFacade::processPayment() - paymentSystem processed, result="
-                  << (result ? "true" : "false") << "\n";
         return result;
     }
 
@@ -110,49 +88,31 @@ bool PurchaseFacade::processPayment(Order *order)
 
 void PurchaseFacade::undoLastStep(Order *order)
 {
-    std::cout << "Calling PurchaseFacade::undoLastStep(order="
-              << (order ? order->getDetails() : "null") << ")\n";
-
     order->undoLastAddition();
-
-    std::cout << "PurchaseFacade::undoLastStep() completed\n";
 }
 
 void PurchaseFacade::redoStep(Order *order)
 {
-    std::cout << "Calling PurchaseFacade::redoStep(order="
-              << (order ? order->getDetails() : "null") << ")\n";
-
     order->redoLastStep();
 
-    std::cout << "PurchaseFacade::redoStep() completed\n";
 }
 
 void PurchaseFacade::completePurchase(Order *order)
 {
-    std::cout << "Calling PurchaseFacade::completePurchase(order="
-              << (order ? order->getDetails() : "null") << ")\n";
-
     if (processPayment(order))
     {
         vector<Plant *> plants = order->getPlants();
-        std::cout << "PurchaseFacade::completePurchase() removing "
-                  << plants.size() << " plants from inventory\n";
         for (auto p : plants)
         {
             inventory->removePlant(p->getID());
         }
 
         vector<Memento *> &undos = order->getMementos();
-        std::cout << "PurchaseFacade::completePurchase() clearing "
-                  << undos.size() << " undo mementos\n";
         for (auto m : undos)
             delete m;
         undos.clear();
 
         vector<Memento *> &redos = order->getRedoMementos();
-        std::cout << "PurchaseFacade::completePurchase() clearing "
-                  << redos.size() << " redo mementos\n";
         for (auto m : redos)
             delete m;
         redos.clear();
@@ -164,15 +124,10 @@ void PurchaseFacade::completePurchase(Order *order)
         std::cout << "Payment failed.\n";
     }
 
-    std::cout << "PurchaseFacade::completePurchase() completed\n";
 }
 
 Plant *PurchaseFacade::customizePlant(Plant *plant, std::string decor)
 {
-    std::cout << "Calling PurchaseFacade::customizePlant(plant="
-              << (plant ? plant->getDetails() : "null")
-              << ", decor=\"" << decor << "\")\n";
-
     if (!plant)
     {
         std::cout << "PurchaseFacade::customizePlant() - null plant, returning nullptr\n";
@@ -210,9 +165,6 @@ Plant *PurchaseFacade::customizePlant(Plant *plant, std::string decor)
 
 void PurchaseFacade::addPlantToOrder(Order* order, Plant* plant)
 {
-    std::cout << "Calling PurchaseFacade::addPlantToOrder(order="
-              << (order ? order->getDetails() : "null")
-              << ", plant=" << (plant ? plant->getDetails() : "null") << ")\n";
 
     if (!order || !plant)
     {

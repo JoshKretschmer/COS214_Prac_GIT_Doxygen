@@ -25,7 +25,5 @@ PlantDecorator::~PlantDecorator()
  */
 void PlantDecorator::setWrapped(Plant *wrappedPlant)
 {
-    std::cout << "Calling PlantDecorator::setWrapped(wrappedPlant="
-              << (wrappedPlant ? wrappedPlant->getDetails().c_str() : "null") << ")\n";
     this->wrappedPlant = wrappedPlant;
 }

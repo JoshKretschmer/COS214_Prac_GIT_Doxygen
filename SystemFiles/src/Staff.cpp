@@ -13,7 +13,6 @@ int Staff::instanceCount = 1;
  */
 Staff::Staff(std::string _name)
 {
-    std::cout << "Calling Staff Constructor (name=\"" << _name << "\")\n";
     staffName = _name;
     staffID = "STAFF" + std::to_string(instanceCount);
     instanceCount++;
@@ -35,11 +34,7 @@ Staff::~Staff()
  */
 void Staff::setNextHandler(Staff *_handler)
 {
-    std::cout << "Calling Staff::setNextHandler(handler="
-              << (_handler ? _handler->getStaffName() : "null") << ")\n";
     nextHandler = _handler;
-    std::cout << "Staff::setNextHandler() set nextHandler to "
-              << (nextHandler ? nextHandler->getStaffName() : "null") << "\n";
 }
 
 /*!
@@ -49,13 +44,8 @@ void Staff::setNextHandler(Staff *_handler)
  */
 void Staff::forwardCommand(Command *command)
 {
-    std::cout << "Calling Staff::forwardCommand(command="
-              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
-
     if (nextHandler)
     {
-        std::cout << "Staff::forwardCommand() forwarding to "
-                  << nextHandler->getStaffName() << "\n";
         nextHandler->handleCommand(command);
     }
     else
@@ -83,19 +73,12 @@ void Staff::executeTask(Command *_command)
  */
 void Staff::handleCommand(Command *command)
 {
-    std::cout << "Calling Staff::handleCommand(command="
-              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
-
     if (command->hasAccess(staffType))
     {
-        std::cout << "Staff::handleCommand() - " << staffName
-                  << " has access, executing task\n";
         executeTask(command);
     }
     else
     {
-        std::cout << "Staff::handleCommand() - " << staffName
-                  << " does not have access, forwarding\n";
         forwardCommand(command);
     }
 }

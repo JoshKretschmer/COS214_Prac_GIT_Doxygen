@@ -13,8 +13,6 @@
  */
 void InventoryClerk::executeTask(Command *command)
 {
-    std::cout << "Calling InventoryClerk::executeTask(command="
-              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
 
     if (command->getRequest()->getType() != "inventory")
     {
@@ -26,8 +24,6 @@ void InventoryClerk::executeTask(Command *command)
     std::cout << "InventoryClerk::executeTask() setting receiver to " << staffName << "\n";
     command->getRequest()->setReceiver(this);
     command->execute();
-
-    std::cout << "InventoryClerk::executeTask() completed\n";
 }
 
 /*!
@@ -54,10 +50,7 @@ InventoryClerk::~InventoryClerk()
  */
 void InventoryClerk::assignJob(Inventory *_inventory)
 {
-    std::cout << "Calling InventoryClerk::assignJob(inventory="
-              << (_inventory ? "non-null" : "null") << ")\n";
     inventory = _inventory;
-    std::cout << "InventoryClerk::assignJob() assigned inventory\n";
 }
 
 /*!
@@ -79,8 +72,6 @@ void InventoryClerk::storePlant(Plant *plant)
  */
 Plant *InventoryClerk::getPlant(std::string plantID)
 {
-    std::cout << "Calling InventoryClerk::getPlant(plantID=\"" << plantID << "\")\n";
-
     if (!inventory)
     {
         std::cout << "InventoryClerk::getPlant() returning nullptr (no inventory)\n";
@@ -112,7 +103,5 @@ Plant *InventoryClerk::getPlant(std::string plantID)
     }
 
     inventory->removePlant(plantID);
-    std::cout << "InventoryClerk::getPlant() removed plantID=\"" << plantID
-              << "\" and returning plant\n";
     return foundPlant;
 }

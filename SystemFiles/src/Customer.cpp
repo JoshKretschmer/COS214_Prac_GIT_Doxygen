@@ -18,7 +18,6 @@ Customer::Customer(std::string _name, std::string _id, Staff *_salesPerson)
     name = _name;
     id = _id;
     startPurchase();
-    std::cout << "Customer Constructor created customer: " << name << " (" << id << ")\n";
 }
 
 /*!
@@ -26,7 +25,6 @@ Customer::Customer(std::string _name, std::string _id, Staff *_salesPerson)
  */
 Customer::~Customer()
 {
-    std::cout << "Calling Customer Deconstructor (name=\"" << name << "\")\n";
     delete currentOrder;
     currentOrder = nullptr;
 }
@@ -41,15 +39,11 @@ Customer::~Customer()
  */
 Request *Customer::makeRequest(std::string type, std::string plantID, std::string extra)
 {
-    std::cout << "Calling Customer::makeRequest(type=\"" << type
-              << "\", plantID=\"" << plantID << "\", extra=\"" << extra << "\")\n";
-
     Request *r = new Request(this, salesPerson);
     r->setType(type);
     r->setPlantID(plantID);
     r->setExtra(extra);
 
-    std::cout << "Customer::makeRequest() returning Request for plantID=\"" << plantID << "\"\n";
     return r;
 }
 
@@ -83,11 +77,7 @@ void Customer::browsePlants()
  */
 void Customer::startPurchase()
 {
-    std::cout << "Calling Customer::startPurchase()\n";
-
     currentOrder = new Order();
-
-    std::cout << "Customer::startPurchase() created new Order\n";
 }
 
 /*!

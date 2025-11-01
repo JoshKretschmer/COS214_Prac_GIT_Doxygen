@@ -27,7 +27,6 @@ ManagerCommand::~ManagerCommand()
  */
 Request *ManagerCommand::execute()
 {
-    std::cout << "Calling ManagerCommand::execute()\n";
 
     Customer *customer = request->getSender();
     std::string plantID = request->getPlantID();

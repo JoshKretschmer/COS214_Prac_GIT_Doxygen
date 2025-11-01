@@ -27,9 +27,6 @@ Manager::~Manager()
  */
 void Manager::executeTask(Command *command)
 {
-    std::cout << "Calling Manager::executeTask(command="
-              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
-
     Request *req = command->getRequest();
 
     std::cout << "Manager " << staffName << " is now handling the request: ";
@@ -42,6 +39,4 @@ void Manager::executeTask(Command *command)
     {
         std::cout << "Manager has processed the request.\n";
     }
-
-    std::cout << "Manager::executeTask() completed\n";
 }

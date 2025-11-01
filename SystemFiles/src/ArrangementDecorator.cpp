@@ -8,8 +8,6 @@
  */
 std::string ArrangementDecorator::getDetails()
 {
-    std::cout << "Calling ArrangementDecorator::getDetails()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "ArrangementDecorator::getDetails() returning error message (no wrapped plant)\n";
@@ -19,7 +17,6 @@ std::string ArrangementDecorator::getDetails()
     std::string det = getWrapped()->getDetails();
     det += "Decoration: Arrangement \n";
 
-    std::cout << "ArrangementDecorator::getDetails() returning: \"" << det << "\"\n";
     return det;
 }
 
@@ -29,14 +26,12 @@ std::string ArrangementDecorator::getDetails()
  */
 PlantDecorator *ArrangementDecorator::clone()
 {
-    std::cout << "Calling ArrangementDecorator::clone()\n";
 
     Plant *newP = this->getWrapped()->clone();
 
     ArrangementDecorator *newD = new ArrangementDecorator();
     newD->setWrapped(newP);
 
-    std::cout << "ArrangementDecorator::clone() returning new ArrangementDecorator with wrapped plant\n";
     return newD;
 }
 
@@ -47,8 +42,6 @@ PlantDecorator *ArrangementDecorator::clone()
  */
 double ArrangementDecorator::getCost()
 {
-    std::cout << "Calling ArrangementDecorator::getCost()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "ArrangementDecorator::getCost() returning 0 (no wrapped plant)\n";
@@ -58,6 +51,5 @@ double ArrangementDecorator::getCost()
     double cost = getWrapped()->getCost();
     cost += 10;
 
-    std::cout << "ArrangementDecorator::getCost() returning " << cost << "\n";
     return cost;
 }

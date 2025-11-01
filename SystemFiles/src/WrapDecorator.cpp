@@ -8,8 +8,6 @@
  */
 std::string WrapDecorator::getDetails()
 {
-    std::cout << "Calling WrapDecorator::getDetails()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "WrapDecorator::getDetails() returning error message (no wrapped plant)\n";
@@ -19,7 +17,6 @@ std::string WrapDecorator::getDetails()
     std::string det = getWrapped()->getDetails();
     det += "Decoration: Wrap \n";
 
-    std::cout << "WrapDecorator::getDetails() returning: \"" << det << "\"\n";
     return det;
 }
 
@@ -30,8 +27,6 @@ std::string WrapDecorator::getDetails()
  */
 double WrapDecorator::getCost()
 {
-    std::cout << "Calling WrapDecorator::getCost()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "WrapDecorator::getCost() returning 0 (no wrapped plant)\n";
@@ -41,7 +36,6 @@ double WrapDecorator::getCost()
     double cost = getWrapped()->getCost();
     cost += 15;
 
-    std::cout << "WrapDecorator::getCost() returning " << cost << "\n";
     return cost;
 }
 
@@ -51,13 +45,10 @@ double WrapDecorator::getCost()
  */
 PlantDecorator *WrapDecorator::clone()
 {
-    std::cout << "Calling WrapDecorator::clone()\n";
-
     Plant *newP = this->getWrapped()->clone();
 
     WrapDecorator *newD = new WrapDecorator();
     newD->setWrapped(newP);
 
-    std::cout << "WrapDecorator::clone() returning new WrapDecorator with wrapped plant\n";
     return newD;
 }

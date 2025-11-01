@@ -26,8 +26,6 @@ Command::~Command()
  */
 bool Command::hasAccess(std::string _staffType)
 {
-    std::cout << "Calling Command::hasAccess(staffType=\"" << _staffType << "\")\n";
     bool result = (_staffType == access);
-    std::cout << "Command::hasAccess() returning " << (result ? "true" : "false") << "\n";
     return result;
 }

@@ -27,8 +27,6 @@ InventoryCommand::~InventoryCommand()
  */
 Request *InventoryCommand::execute()
 {
-    std::cout << "Calling InventoryCommand::execute()\n";
-
     Staff *receiver = request->getReceiver();
     InventoryClerk *clerk = dynamic_cast<InventoryClerk *>(receiver);
     Plant *plant = clerk->getPlant(request->getPlantID());
