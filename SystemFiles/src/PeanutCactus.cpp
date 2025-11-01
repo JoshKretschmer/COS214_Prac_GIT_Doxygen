@@ -22,7 +22,6 @@ PeanutCactus::PeanutCactus() : Succulent::Succulent()
  */
 std::string PeanutCactus::getDetails()
 {
-    std::cout << "Getting details for PeanutCactus (ID: " << id << ")\n";
     std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -35,6 +34,5 @@ std::string PeanutCactus::getDetails()
  */
 double PeanutCactus::getCost()
 {
-    std::cout << "Getting cost of PeanutCactus\n";
     return this->price;
 }

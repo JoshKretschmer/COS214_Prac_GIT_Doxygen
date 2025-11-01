@@ -18,9 +18,7 @@ InventoryIterator::InventoryIterator(Inventory *inventory)
  */
 void InventoryIterator::first()
 {
-    std::cout << "Calling InventoryIterator::first()\n";
     currentIndex = 0;
-    std::cout << "InventoryIterator::first() - currentIndex reset to 0\n";
 }
 
 /*!
@@ -28,11 +26,7 @@ void InventoryIterator::first()
  */
 void InventoryIterator::next()
 {
-    std::cout << "Calling InventoryIterator::next() - before: currentIndex="
-              << currentIndex << "\n";
     ++currentIndex;
-    std::cout << "InventoryIterator::next() - after: currentIndex="
-              << currentIndex << "\n";
 }
 
 /*!
@@ -40,11 +34,7 @@ void InventoryIterator::next()
  */
 bool InventoryIterator::hasNext()
 {
-    std::cout << "Calling InventoryIterator::hasNext() - currentIndex="
-              << currentIndex << ", size=" << plants.size() << "\n";
     bool result = currentIndex < plants.size();
-    std::cout << "InventoryIterator::hasNext() returning "
-              << (result ? "true" : "false") << "\n";
     return result;
 }
 
@@ -53,15 +43,10 @@ bool InventoryIterator::hasNext()
  */
 Plant *InventoryIterator::currentItem()
 {
-    std::cout << "Calling InventoryIterator::currentItem() - currentIndex="
-              << currentIndex << "\n";
-
     Plant *result = nullptr;
     if (hasNext())
     {
         result = plants[currentIndex];
-        std::cout << "InventoryIterator::currentItem() returning plant: "
-                  << (result ? result->getDetails().c_str() : "null") << "\n";
     }
     else
     {

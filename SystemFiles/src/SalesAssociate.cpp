@@ -11,7 +11,6 @@
  */
 SalesAssociate::SalesAssociate(std::string _name) : Staff(_name)
 {
-    std::cout << "Calling SalesAssociate Constructor (name=\"" << _name << "\")\n";
     staffType = "SalesAssociate";
 }
 

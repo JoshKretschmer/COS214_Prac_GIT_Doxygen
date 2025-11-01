@@ -22,7 +22,6 @@ HoneySuckle::HoneySuckle() : Shrub::Shrub()
  */
 std::string HoneySuckle::getDetails()
 {
-    std::cout << "Getting details for HoneySuckle (ID: " << id << ")\n";
     std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -35,6 +34,5 @@ std::string HoneySuckle::getDetails()
  */
 double HoneySuckle::getCost()
 {
-    std::cout << "Getting cost of HoneySuckle\n";
     return this->price;
 }

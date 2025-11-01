@@ -22,11 +22,8 @@ PaymentSystem::~PaymentSystem()
  */
 bool PaymentSystem::process(double amount)
 {
-    std::cout << "Calling PaymentSystem::process(amount=" << amount << ")\n";
-
     // Simulate payment processing (always succeed for testing)
     bool result = (amount >= 0); // Fail if amount is negative
-    std::cout << "PaymentSystem::process() returning " << (result ? "true" : "false") << "\n";
 
     return result;
 }

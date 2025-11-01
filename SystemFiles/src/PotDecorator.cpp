@@ -8,8 +8,6 @@
  */
 std::string PotDecorator::getDetails()
 {
-    std::cout << "Calling PotDecorator::getDetails()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "PotDecorator::getDetails() returning error message (no wrapped plant)\n";
@@ -19,7 +17,6 @@ std::string PotDecorator::getDetails()
     std::string det = getWrapped()->getDetails();
     det += "Decoration: Pot \n";
 
-    std::cout << "PotDecorator::getDetails() returning: \"" << det << "\"\n";
     return det;
 }
 
@@ -30,8 +27,6 @@ std::string PotDecorator::getDetails()
  */
 double PotDecorator::getCost()
 {
-    std::cout << "Calling PotDecorator::getCost()\n";
-
     if (this->getWrapped() == nullptr)
     {
         std::cout << "PotDecorator::getCost() returning 0 (no wrapped plant)\n";
@@ -41,7 +36,6 @@ double PotDecorator::getCost()
     double cost = getWrapped()->getCost();
     cost += 20;
 
-    std::cout << "PotDecorator::getCost() returning " << cost << "\n";
     return cost;
 }
 

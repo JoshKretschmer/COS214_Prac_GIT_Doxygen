@@ -32,8 +32,6 @@ Inventory::~Inventory()
  */
 void Inventory::addPlant(Plant *plant)
 {
-    std::cout << "Calling Inventory::addPlant(plant="
-              << (plant ? plant->getDetails().c_str() : "null") << ")\n";
     if (plant)
         plants.push_back(plant);
 }
@@ -45,7 +43,6 @@ void Inventory::addPlant(Plant *plant)
  */
 void Inventory::removePlant(std::string plantId)
 {
-    std::cout << "Calling Inventory::removePlant(plantId=\"" << plantId << "\")\n";
     auto it = std::find_if(plants.begin(), plants.end(),
                            [&](Plant *p)
                            { return p->getDetails() == plantId; });
@@ -62,8 +59,6 @@ void Inventory::removePlant(std::string plantId)
  */
 void Inventory::updateStock(std::string plantType, int quantity)
 {
-    std::cout << "Calling Inventory::updateStock(plantType=\"" << plantType
-              << "\", quantity=" << quantity << ")\n";
     stockLevels[plantType] = quantity;
 }
 
@@ -74,8 +69,6 @@ void Inventory::updateStock(std::string plantType, int quantity)
 int Inventory::getStockLevel(std::string plantType)
 {
     int lvl = stockLevels[plantType];
-    std::cout << "Calling Inventory::getStockLevel(plantType=\"" << plantType
-              << "\") returning " << lvl << "\n";
     return lvl;
 }
 
@@ -84,7 +77,6 @@ int Inventory::getStockLevel(std::string plantType)
  */
 InventoryIterator *Inventory::createIterator()
 {
-    std::cout << "Calling Inventory::createIterator()\n";
     return new InventoryIterator(this);
 }
 
@@ -94,7 +86,6 @@ InventoryIterator *Inventory::createIterator()
 int Inventory::getPlantCount()
 {
     int cnt = static_cast<int>(plants.size());
-    std::cout << "Calling Inventory::getPlantCount() returning " << cnt << "\n";
     return cnt;
 }
 
@@ -103,8 +94,6 @@ int Inventory::getPlantCount()
  */
 void Inventory::add(InventoryComponent *component)
 {
-    std::cout << "Calling Inventory::add(component="
-              << (component ? "non-null" : "null") << ")\n";
     if (!component)
         return;
 
@@ -144,9 +133,6 @@ void Inventory::add(InventoryComponent *component)
  */
 void Inventory::remove(InventoryComponent *component)
 {
-    std::cout << "Calling Inventory::remove(component="
-              << (component ? "non-null" : "null") << ")\n";
-
     // top-level groups first
     auto git = std::find(groups.begin(), groups.end(), component);
     if (git != groups.end())
@@ -166,7 +152,6 @@ void Inventory::remove(InventoryComponent *component)
  */
 std::vector<Plant *> Inventory::getPlants()
 {
-    std::cout << "Calling Inventory::getPlants() - start aggregation\n";
     std::vector<Plant *> all;
 
     for (Plant *p : plants)
@@ -180,7 +165,6 @@ std::vector<Plant *> Inventory::getPlants()
         all.insert(all.end(), gp.begin(), gp.end());
     }
 
-    std::cout << "Inventory::getPlants() returning " << all.size() << " plants\n";
     return all;
 }
 
@@ -192,10 +176,6 @@ std::vector<Plant *> Inventory::getPlants()
  */
 void Inventory::movePlant(Plant *plant, std::string newState)
 {
-    std::cout << "Calling Inventory::movePlant(plant="
-              << (plant ? plant->getDetails().c_str() : "null")
-              << ", newState=\"" << newState << "\")\n";
-
     // 1) remove from uncategorized list if present
     auto pit = std::find(plants.begin(), plants.end(), plant);
     if (pit != plants.end())

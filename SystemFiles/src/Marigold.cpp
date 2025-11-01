@@ -22,7 +22,6 @@ Marigold::Marigold() : Flower::Flower()
  */
 std::string Marigold::getDetails()
 {
-    std::cout << "Getting details for Marigold (ID: " << id << ")\n";
     std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -35,6 +34,5 @@ std::string Marigold::getDetails()
  */
 double Marigold::getCost()
 {
-    std::cout << "Getting cost of Marigold\n";
     return this->price;
 }

@@ -22,7 +22,6 @@ Orchid::Orchid() : Flower::Flower()
  */
 std::string Orchid::getDetails()
 {
-    std::cout << "Getting details for Orchid (ID: " << id << ")\n";
     std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";
@@ -35,6 +34,5 @@ std::string Orchid::getDetails()
  */
 double Orchid::getCost()
 {
-    std::cout << "Getting cost of Orchid\n";
     return this->price;
 }

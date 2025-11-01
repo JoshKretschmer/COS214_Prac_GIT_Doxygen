@@ -91,7 +91,7 @@ void Plant::incrementHealth(int num)
  */
 std::string Plant::getState()
 {
-    std::cout << "Getting current plant state\n";
+    
     return currState->getStateName();
 }
 
@@ -100,9 +100,6 @@ std::string Plant::getState()
  */
 Plant *Plant::clone()
 {
-    std::cout << "Calling Plant::clone() for plant (ID=" << (id.empty() ? "none" : id)
-              << ", Type=" << (type.empty() ? "none" : type) << ")\n";
-
     Plant *newPlant = nullptr;
 
     if (type == "Succulent")
@@ -142,7 +139,7 @@ Plant *Plant::clone()
         if (this->currState)
         {
             std::string stateName = this->currState->getStateName();
-            std::cout << "Plant::clone() cloning state: " << stateName << "\n";
+            
             if (stateName == "Seeding")
                 newPlant->currState = new SeedingState();
             else if (stateName == "Growing")
@@ -178,11 +175,10 @@ Plant *Plant::clone()
     }
     else
     {
-        std::cerr << "Plant::clone() - failed to create new plant for type: "
-                  << (type.empty() ? "none" : type) << "\n";
+        //std::cerr << "Plant::clone() - failed to create new plant for type: "
+                  //<< (type.empty() ? "none" : type) << "\n";
     }
 
-    std::cout << "Plant::clone() returning " << (newPlant ? newPlant->getDetails() : "null") << "\n";
     return newPlant;
 }
 

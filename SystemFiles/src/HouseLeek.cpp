@@ -34,6 +34,5 @@ std::string HouseLeek::getDetails()
  */
 double HouseLeek::getCost()
 {
-    std::cout << "Getting cost of HouseLeek\n";
     return this->price;
 }

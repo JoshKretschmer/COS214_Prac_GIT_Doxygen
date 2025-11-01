@@ -23,7 +23,7 @@ Memento::Memento(const std::vector<Plant *> &plants, double cost)
             }
             else
             {
-                std::cerr << "Memento Constructor: Failed to clone plant\n";
+                //std::cerr << "Memento Constructor: Failed to clone plant\n";
             }
         }
         else
@@ -49,7 +49,6 @@ Memento::~Memento()
  */
 const std::vector<Plant *> &Memento::getSavedPlants() const
 {
-    std::cout << "Calling Memento::getSavedPlants() - size=" << savedPlants.size() << "\n";
     return savedPlants;
 }
 
@@ -58,6 +57,5 @@ const std::vector<Plant *> &Memento::getSavedPlants() const
  */
 double Memento::getSavedCost() const
 {
-    std::cout << "Calling Memento::getSavedCost() returning " << savedCost << "\n";
     return savedCost;
 }

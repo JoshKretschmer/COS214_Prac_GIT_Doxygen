@@ -11,9 +11,6 @@
  */
 Request::Request(Customer *sender, Staff *receiver) : sender(sender), receiver(receiver)
 {
-    std::cout << "Calling Request Constructor (sender="
-              << (sender ? sender->getName() : "null")
-              << ", receiver=" << (receiver ? receiver->getStaffName() : "null") << ")\n";
     plantID = "";
     type = "";
     plantType = "";
@@ -33,9 +30,7 @@ Request::~Request()
  */
 void Request::setPlantType(std::string _plantType)
 {
-    std::cout << "Calling Request::setPlantType(plantType=\"" << _plantType << "\")\n";
     plantType = _plantType;
-    std::cout << "Request::setPlantType() set plantType to \"" << plantType << "\"\n";
 }
 
 /*!
@@ -44,7 +39,6 @@ void Request::setPlantType(std::string _plantType)
  */
 std::string Request::getPlantType()
 {
-    std::cout << "Calling Request::getPlantType() returning \"" << plantType << "\"\n";
     return plantType;
 }
 
@@ -54,9 +48,7 @@ std::string Request::getPlantType()
  */
 void Request::setPlantID(std::string _plantID)
 {
-    std::cout << "Calling Request::setPlantID(plantID=\"" << _plantID << "\")\n";
     plantID = _plantID;
-    std::cout << "Request::setPlantID() set plantID to \"" << plantID << "\"\n";
 }
 
 /*!
@@ -65,7 +57,6 @@ void Request::setPlantID(std::string _plantID)
  */
 std::string Request::getPlantID()
 {
-    std::cout << "Calling Request::getPlantID() returning \"" << plantID << "\"\n";
     return plantID;
 }
 
@@ -75,9 +66,7 @@ std::string Request::getPlantID()
  */
 void Request::setType(std::string _type)
 {
-    std::cout << "Calling Request::setType(type=\"" << _type << "\")\n";
     type = _type;
-    std::cout << "Request::setType() set type to \"" << type << "\"\n";
 }
 
 /*!
@@ -86,7 +75,6 @@ void Request::setType(std::string _type)
  */
 std::string Request::getType()
 {
-    std::cout << "Calling Request::getType() returning \"" << type << "\"\n";
     return type;
 }
 
@@ -109,8 +97,6 @@ void Request::setSender(Customer *_sender)
  */
 Customer *Request::getSender()
 {
-    std::cout << "Calling Request::getSender() returning "
-              << (sender ? sender->getName() : "null") << "\n";
     return sender;
 }
 
@@ -120,9 +106,7 @@ Customer *Request::getSender()
  */
 void Request::setExtra(std::string _extra)
 {
-    std::cout << "Calling Request::setExtra(extra=\"" << _extra << "\")\n";
     extra = _extra;
-    std::cout << "Request::setExtra() set extra to \"" << extra << "\"\n";
 }
 
 /*!
@@ -131,7 +115,6 @@ void Request::setExtra(std::string _extra)
  */
 std::string Request::getExtra()
 {
-    std::cout << "Calling Request::getExtra() returning \"" << extra << "\"\n";
     return extra;
 }
 
@@ -141,11 +124,7 @@ std::string Request::getExtra()
  */
 void Request::setReceiver(Staff *_receiver)
 {
-    std::cout << "Calling Request::setReceiver(receiver="
-              << (_receiver ? _receiver->getStaffName() : "null") << ")\n";
     receiver = _receiver;
-    std::cout << "Request::setReceiver() set receiver to "
-              << (receiver ? receiver->getStaffName() : "null") << "\n";
 }
 
 /*!
@@ -154,7 +133,5 @@ void Request::setReceiver(Staff *_receiver)
  */
 Staff *Request::getReceiver()
 {
-    std::cout << "Calling Request::getReceiver() returning "
-              << (receiver ? receiver->getStaffName() : "null") << "\n";
     return receiver;
 }
