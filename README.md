@@ -8,17 +8,20 @@
 
 <!-- ANIMATED TEXT -->
 <h1 align="center">  
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Poppins&size=40&pause=1000&color=00B67A&center=true&vCenter=true&width=435&height=50&lines=WHat's+Up+Geeks;Welcome+to+Team+Git_doxygen+Repo!;COS214+Design+Patterns+Project"/>
-  </a>
+  <a href="https://cdn.pixabay.com/photo/2016/07/23/18/41/greenhouse-1537250_1280.jpg">
+  <img src="https://cdn.pixabay.com/photo/2016/07/23/18/41/greenhouse-1537250_1280.jpg" style="width: 300px; max-width: 100%; height: auto;" alt="Greenhouse Banner"/>
+</a>
 </h1>
 
-<!-- ABOUT OUR PROJECT -->
-<h4 align="center">
-  A C++ project showcasing <strong>Strategy</strong>, <strong>Observer</strong>, <strong>State</strong>, <strong>Command</strong>, and <strong>Memento</strong> design patterns.<br>
-  Built with care, precision, and a little too much coffee.<br>
-  Developed by <strong>Git_doxygen Team</strong> for the University of Pretoria&apos;s COS214 course.
-</h4>
+<!-- PROJECT OVERVIEW -->
+
+Welcome to the **Greenhouse Management System**, a C++ project simulating a living greenhouse where plants grow, staff tend to them, and customers interact with an evolving ecosystem.  
+This system demonstrates object-oriented programming excellence and the effective use of **software design patterns** to maintain modular, scalable, and maintainable architecture.  
+
+The project showcases how plants transition through life stages, how staff coordinate daily routines, and how customers experience a smooth and dynamic nursery environment — all coded with care by **GitDoxygen Team**.
+ 
+Built with care, precision, and a little too much coffee.  
+Developed by **GitDoxygen Team**.
 
 <!-- TEAM BADGES -->
 <div align="center">
@@ -33,77 +36,57 @@
     <a href="mailto:nkosibridgett43@gmail.com"><img src="https://img.shields.io/badge/Contact%20Us-Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"></a>
 </div>
 
+## Team GitDoxygen
 
-## 📝 Project Overview
-
-**Project Name:** Git_Doxygen  
-**Date:** 28-10-2025  
-
-**Team Lead:** Ane
-
-### Overview
-The COS214 PlantCare project is a C++ system designed to simulate a greenhouse and nursery environment.  
-It handles plant growth, care routines, inventory management, staff coordination, and customer interactions, implementing multiple design patterns to maintain clean and scalable architecture.
-
-### Goals
-- Enable staff to execute plant care routines (watering, fertilizing, pruning, sunlight management).  
-- Track plant growth stages and lifecycle states for different plant types.  
-- Maintain real-time inventory that synchronizes greenhouse stock with the sales floor.  
-- Support staff-customer coordination for purchases, recommendations, and browsing.  
-- Allow customers to customize orders and revert actions (undo/redo functionality).  
-- Ensure a modular and extendable system architecture using design patterns.
-
-### Specifications
-- **Staff Plant Care Execution**: Staff perform care routines on plants using the Strategy and Command patterns to adapt dynamically.  
-- **Plant Monitoring**: Plants notify staff of required care; Observer and State patterns manage reactive updates and lifecycle stages.  
-- **Staff–Inventory Coordination**: Mediator and Composite patterns ensure staff can update inventory in a centralized, organized way.  
-- **Customer Interactions**: Customers can browse plants (Iterator), customize orders (Decorator & Builder), and receive recommendations (Strategy).  
-- **Purchase Process**: Simplified via Facade and Bridge patterns, integrating staff, inventory, and payment handling.  
-- **Undo/Redo Orders**: Memento pattern captures snapshots of order states for safe reversal of actions.  
----
-
-## 🌼 Meet the Team
-
-- **Ané de Ridder** – Always curious, bringing energy and fresh ideas to the team.  
-- **Bridget Nkosi** – Loves problem-solving and exploring creative solutions.
-- **David Kalu** – Curious and analytical, always ready to tackle challenges head-on.  
-- **Joshua Kretschmer** – Keeps the team connected and ensures things run smoothly. 
-- **Joshua Kretschmer** – Keeps the team connected and ensures things run smoothly.  
-- **Michelle Njoroge** – Brings creativity and a sense of style to everything she touches.
-- **Ophelia Greyling** – Detail-oriented and passionate about making things clear and organized.     
+<table> <tr><th>Member</th><th>Roles</th><th>Description</th></tr> <tr> <td align="center"> <strong>Ané de Ridder</strong><br><em>Team Lead</em><br> <img src="https://cdn-icons-png.flaticon.com/512/7662/7662083.png" width="200" height="200"><br> <a href="#"><img src="https://img.shields.io/badge/GitHub-006400?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">Project Coordination 🌼<br>System Planning<br>Documentation</td> <td>Our guiding sunlight — keeps the greenhouse running smoothly ☀️</td> </tr> <tr> <td align="center"> <strong>Bridget Nkosi</strong><br><em>Database Developer</em><br> <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png" width="200" height="200"><br> <a href="https://github.com/nkosibridgett"><img src="https://img.shields.io/badge/GitHub-228B22?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">Database 🌱<br>Integration<br>System Logic</td> <td>Ensures every root (data entry) grows strong and connected 🌿</td> </tr> <tr> <td align="center"> <strong>David Kalu</strong><br><em>System Developer</em><br> <img src="https://cdn-icons-png.flaticon.com/512/7662/7662005.png" width="200" height="200"><br> <a href="#"><img src="https://img.shields.io/badge/GitHub-2E8B57?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">Observer Logic 🌾<br>State Management<br>Testing</td> <td>The system’s gardener — keeps code healthy and reactive 🍃</td> </tr> <tr> <td align="center"> <strong>Michelle Njoroge</strong><br><em>Frontend & Visuals</em><br> <img src="https://cdn-icons-png.flaticon.com/512/7662/7662129.png" width="200" height="200"><br> <a href="#"><img src="https://img.shields.io/badge/GitHub-32CD32?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">UI Design 🌸<br>Testing<br>Documentation</td> <td>Adds life and vibrance to the greenhouse visuals 🌼</td> </tr> <tr> <td align="center"> <strong>Joshua Kretschmer</strong><br><em>Backend Developer</em><br> <img src="https://cdn-icons-png.flaticon.com/512/7662/7662081.png" width="200" height="200"><br> <a href="#"><img src="https://img.shields.io/badge/GitHub-006400?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">System Architecture 🌲<br>Facade & Bridge<br>Performance</td> <td>Ensures the soil (backend) stays rich and well-structured 🌳</td> </tr> <tr> <td align="center"> <strong>Ophelia Greyling</strong><br><em>Documentation & QA</em><br> <img src="https://cdn-icons-png.flaticon.com/512/7662/7662124.png" width="200" height="200"><br> <a href="#"><img src="https://img.shields.io/badge/GitHub-228B22?style=for-the-badge&logo=github&logoColor=white"></a> </td> <td align="center">Quality Control 🌻<br>Testing<br>Reviews</td> <td>Prunes bugs, cultivates clarity — ensures everything blooms cleanly 🌺</td> </tr> </table>    
 
 ---
 
-## 🧩 Implemented Design Patterns
+## Implemented Design Patterns
+| **Pattern(s)** | **Purpose** | **Application in System** |
+|----------------|-------------|-----------------------------|
+| **Strategy & Command** | Define flexible plant care routines | Staff plant maintenance and daily care operations |
+| **Observer & State** | Notify staff and customers of updates | Real-time plant growth and status alerts |
+| **Mediator & Composite** | Manage centralized communication | Coordination between staff and inventory subsystems |
+| **Chain of Responsibility** | Escalate requests through hierarchy | Staff–customer query handling |
+| **Decorator & Builder** | Add plant customizations dynamically | Decorative pots, packaging, and personalized orders |
+| **Abstract Factory** | Introduce new plant families | Add new stock types without modifying core code |
+| **Iterator** | Simplify plant browsing | Traverse collections of plants |
+| **Facade & Bridge** | Provide unified, simplified interfaces | Purchase and transaction processing |
+| **Memento** | Store and restore states | Undo/redo feature for order building |
+| **Template & Adapter** | Extend operations and integrate modules | Structural reusability and legacy integration |
 
-| Pattern | Purpose | Key Files |
-|:--|:--|:--|
-| **Strategy** | Allows customizable plant care routines (watering, fertilizing, sunlight) | `PlantCare.cpp`, `Strategy.cpp` |
-| **Command** | Encapsulates plant care and purchase actions as commands for flexibility | `Command.cpp`, `PlantCare.cpp` |
-| **Observer** | Notifies staff/customers of plant updates and stock changes in real time | `Observer.cpp`, `PlantState.cpp` |
-| **State** | Models plant life cycles (seedling → mature → sellable → dying) | `PlantState.cpp`, `State.cpp` |
-| **Mediator** | Coordinates communication between staff, inventory, and customers | `Mediator.cpp`, `Inventory.cpp` |
-| **Composite** | Structures inventory collections and plant groups | `Inventory.cpp`, `PlantCollection.cpp` |
-| **Decorator** | Allows dynamic customization of plants and orders (pots, gift wrapping) | `Decorator.cpp`, `Plant.cpp` |
-| **Abstract Factory** | Introduces new stock/families of plants without tightly coupling code | `AbstractFactory.cpp`, `PlantFactory.cpp` |
-| **Iterator** | Enables browsing and traversing of available plant collections | `Iterator.cpp`, `PlantCollection.cpp` |
-| **Facade** | Simplifies purchase process by providing a unified interface | `Facade.cpp`, `PurchaseSystem.cpp` |
-| **Memento** | Supports undo/redo of orders and customization history | `Memento.cpp`, `Order.cpp` |
-| **Chain of Responsibility** | Handles customer queries in sequence, escalates if needed | `Chain.cpp`, `CustomerRequest.cpp` |
-| **Bridge** | Separates abstraction (e.g., purchase interface) from implementation | `Bridge.cpp`, `PurchaseSystem.cpp` |
-| **Template** | Defines skeleton of operations while allowing certain steps to vary | `Template.cpp`, `PlantCare.cpp` |
-| **Adapter** | Integrates external or legacy modules into the system | `Adapter.cpp`, `ExternalModule.cpp` |
+## 📚 Documentation
+  
+- [📘 Functional Requirements](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Functional_Requirements.pdf)
+- [🧩 Specifications](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Specifications.pdf)
+- [🌿 Design Pattern Report](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Design_Pattern_Report.pdf)
+- [🧠 UML Diagrams](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Bridget/UMLs)
+- [📗 Doxygen Documentation](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Bridget/Doxygen)
 
----
 
-## Compilation Instructions
+## Setup Guide
+
+### Prerequisites
 
 ```bash
-# Option 1 — Using Makefile
+# (With the Assumption WSL environment)
+sudo apt-get install libboost-all-dev
+sudo apt-get install nlohmann-json3-dev
+sudo apt-get install doctest-dev
+
+## Cloning the Repository
+git clone -b Bridget --single-branch https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
+cd COS214_Prac_GIT_Doxygen
+
+## Building the Project
+
+# Using Makefile
 make
 ./demo
 
-# Option 2 — Manual build
+# Manual compilation (optional)
 g++ -std=c++11 *.cpp -o demo
 ./demo
->>>>>>> origin/Bridget
+
+
