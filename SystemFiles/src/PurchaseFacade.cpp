@@ -12,10 +12,12 @@ PurchaseFacade::PurchaseFacade(Inventory *inv, PaymentSystem *ps)
               << ", paymentSystem=" << (ps ? "non-null" : "null") << ")\n";
     inventory = inv;
     paymentSystem = ps;
+    std::cout << "PurchaseFacade Constructor initialized\n";
 }
 
 PurchaseFacade::~PurchaseFacade()
 {
+    std::cout << "Calling PurchaseFacade Deconstructor\n";
 }
 
 void PurchaseFacade::setPaymentSystem(PaymentSystem *ps)
@@ -204,4 +206,20 @@ Plant *PurchaseFacade::customizePlant(Plant *plant, std::string decor)
         std::cout << "PurchaseFacade::customizePlant() returning original plant\n";
         return plant;
     }
+}
+
+void PurchaseFacade::addPlantToOrder(Order* order, Plant* plant)
+{
+    std::cout << "Calling PurchaseFacade::addPlantToOrder(order="
+              << (order ? order->getDetails() : "null")
+              << ", plant=" << (plant ? plant->getDetails() : "null") << ")\n";
+
+    if (!order || !plant)
+    {
+        std::cout << "PurchaseFacade::addPlantToOrder() - null order or plant, nothing done\n";
+        return;
+    }
+
+    order->addPlant(plant);
+    std::cout << "PurchaseFacade::addPlantToOrder() - added plant: " << plant->getDetails() << "\n";
 }

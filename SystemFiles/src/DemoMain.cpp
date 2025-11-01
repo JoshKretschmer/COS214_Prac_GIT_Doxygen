@@ -1,7 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <string>
-
+#include <limits>
 #include "../inc/CreateSucculent.h"
 #include "../inc/CreateFlower.h"
 #include "../inc/CreateShrub.h"
@@ -27,335 +26,128 @@
 #include "../inc/PaymentSystem.h"
 #include "../inc/PurchaseFacade.h"
 
-void TestPlants()
+// helper function to clear input buffer
+void clearInputBuffer()
 {
-    std::cout << "Test Factory\n\n";
-
-    srand(42);
-
-    std::cout << "Creating Succulents...\n";
-    CreateSucculent succulentFactory;
-
-    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
-    Plant *houseleek = succulentFactory.createPlant("HouseLeek");
-
-    if (peanut == nullptr || houseleek == nullptr)
-    {
-        std::cout << "ERROR: Failed to create succulent\n";
-    }
-    else
-    {
-        std::cout << peanut->getDetails() << std::endl;
-        std::cout << "Price: $" << peanut->getCost() << std::endl
-                  << std::endl;
-
-        std::cout << houseleek->getDetails() << std::endl;
-        std::cout << "Price: $" << houseleek->getCost() << std::endl
-                  << std::endl;
-
-        if (peanut->getCost() != 35.00 || houseleek->getCost() != 35.50)
-        {
-            std::cout << "ERROR: Incorrect succulent prices\n";
-        }
-    }
-
-    delete peanut;
-    delete houseleek;
-
-    std::cout << "Creating Flowers...\n";
-    CreateFlower flowerFactory;
-
-    Plant *orchid = flowerFactory.createPlant("Orchid");
-
-    if (orchid == nullptr)
-    {
-        std::cout << "ERROR: Failed to create orchid\n";
-    }
-    else
-    {
-        std::cout << orchid->getDetails() << std::endl;
-        std::cout << "Price: $" << orchid->getCost() << std::endl
-                  << std::endl;
-
-        if (orchid->getCost() != 160.00)
-        {
-            std::cout << "ERROR: Incorrect orchid price\n";
-        }
-    }
-
-    delete orchid;
-
-    std::cout << "Creating Shrubs...\n";
-    CreateShrub shrubFactory;
-
-    Plant *honeysuckle = shrubFactory.createPlant("HoneySuckle");
-    Plant *beeblossom = shrubFactory.createPlant("BeeBlossom");
-
-    if (honeysuckle == nullptr || beeblossom == nullptr)
-    {
-        std::cout << "ERROR: Failed to create shrub\n";
-    }
-    else
-    {
-        std::cout << honeysuckle->getDetails() << std::endl;
-        std::cout << beeblossom->getDetails() << std::endl;
-
-        if (honeysuckle->getCost() != 39.95 || beeblossom->getCost() != 21.00)
-        {
-            std::cout << "ERROR: Incorrect shrub prices\n";
-        }
-    }
-
-    delete honeysuckle;
-    delete beeblossom;
-
-    std::cout << "Testing invalid plant name...\n";
-    Plant *bad = succulentFactory.createPlant("InvalidPlant");
-
-    if (bad == nullptr)
-    {
-        std::cout << "Correctly returned nullptr for invalid name.\n";
-    }
-    else
-    {
-        std::cout << "ERROR: Should have returned nullptr\n";
-        delete bad;
-    }
-
-    std::cout << "\nCreating clone of PeanutCactus...\n";
-    peanut = succulentFactory.createPlant("PeanutCactus");
-    Plant *clone = peanut->clone();
-
-    if (clone == nullptr)
-    {
-        std::cout << "ERROR: Clone failed\n";
-    }
-    else
-    {
-        std::cout << "Clone details:\n"
-                  << clone->getDetails() << std::endl;
-        std::cout << "Clone state: " << clone->getState() << std::endl;
-
-        if (clone->getID() != peanut->getID() || clone->getCost() != peanut->getCost())
-        {
-            std::cout << "ERROR: Clone has different ID or price\n";
-        }
-
-        clone->incrementHealth(10);
-        if (peanut->getState() == clone->getState())
-        {
-            std::cout << "ERROR: Clone and original share state\n";
-        }
-    }
-
-    delete peanut;
-    delete clone;
-
-    std::cout << "\nTesting state transitions...\n";
-    peanut = succulentFactory.createPlant("PeanutCactus");
-    std::cout << "Initial state: " << peanut->getState() << std::endl;
-
-    peanut->incrementHealth(3);
-    std::cout << "After +3 health: " << peanut->getState() << std::endl;
-
-    peanut->incrementHealth(5);
-    std::cout << "After +5 health: " << peanut->getState() << std::endl;
-
-    peanut->incrementHealth(10);
-    std::cout << "After +10 health: " << peanut->getState() << std::endl;
-
-    peanut->incrementHealth(-20);
-    std::cout << "After -20 health: " << peanut->getState() << std::endl;
-
-    delete peanut;
-
-    std::cout << "\nTesting Strategy Pattern (careRegime)...\n";
-    peanut = succulentFactory.createPlant("PeanutCactus");
-
-    std::cout << "Plant ID: " << peanut->getID() << "\n";
-    std::cout << "Care type: " << peanut->getCareRegime()->getCareType() << "\n";
-
-    std::cout << "Applying full composite care:\n";
-    peanut->getCareRegime()->executeCare();
-
-    std::cout << "Health before care: " << peanut->getHealth() << "\n";
-    peanut->incrementHealth(2); // Triggers careRegime + state
-    std::cout << "Health after +2: " << peanut->getHealth() << "\n";
-    std::cout << "State after care: " << peanut->getState() << "\n";
-
-    delete peanut;
-
-    std::cout << "Factory, Prototype, State and Strategy patterns are working\n";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-void TestComposite()
+// helper function to display the main menu
+void displayMenu()
 {
-    std::cout << "Test Composite \n\n";
+    std::cout << "\n=== Plant Nursery Demo ===\n";
+    std::cout << "1. Browse Plants\n";
+    std::cout << "2. Create Custom Order\n";
+    std::cout << "3. View Inventory\n";
+    std::cout << "4. Process Staff Request\n";
+    std::cout << "5. Undo Last Order Action\n";
+    std::cout << "6. Redo Last Order Action\n";
+    std::cout << "7. Complete Purchase\n";
+    std::cout << "8. Exit\n";
+    std::cout << "Enter your choice (1-8): ";
+}
 
+// helper function to create a plant based on user input
+Plant *createPlant()
+{
+    std::cout << "\nSelect plant type:\n";
+    std::cout << "1. Succulent\n2. Flower\n3. Shrub\n";
+    int typeChoice;
+    std::cin >> typeChoice;
+    clearInputBuffer();
+
+    std::string plantName;
+    Plant *plant = nullptr;
+
+    if (typeChoice == 1)
+    {
+        CreateSucculent factory;
+        std::cout << "Enter succulent name (PeanutCactus, HouseLeek): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
+    }
+    else if (typeChoice == 2)
+    {
+        CreateFlower factory;
+        std::cout << "Enter flower name (Orchid): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
+    }
+    else if (typeChoice == 3)
+    {
+        CreateShrub factory;
+        std::cout << "Enter shrub name (HoneySuckle, BeeBlossom): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
+    }
+    else
+    {
+        std::cout << "Invalid plant type.\n";
+        return nullptr;
+    }
+
+    if (!plant)
+    {
+        std::cout << "Failed to create plant. Invalid name.\n";
+    }
+    return plant;
+}
+
+// helper function to add customization to a plant
+Plant *customizePlant(Plant *plant)
+{
+    if (!plant)
+        return nullptr;
+
+    std::cout << "\nAdd customizations to " << plant->getDetails() << ":\n";
+    std::cout << "1. Pot\n2. Wrap\n3. Arrangement\n4. Done\n";
+
+    Plant *current = plant;
+    int choice;
+    do
+    {
+        std::cout << "Enter customization choice (1-4): ";
+        std::cin >> choice;
+        clearInputBuffer();
+
+        if (choice == 1)
+        {
+            PotDecorator *pot = new PotDecorator();
+            pot->setWrapped(current);
+            current = pot;
+            std::cout << "Added Pot. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice == 2)
+        {
+            WrapDecorator *wrap = new WrapDecorator();
+            wrap->setWrapped(current);
+            current = wrap;
+            std::cout << "Added Wrap. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice == 3)
+        {
+            ArrangementDecorator *arr = new ArrangementDecorator();
+            arr->setWrapped(current);
+            current = arr;
+            std::cout << "Added Arrangement. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice != 4)
+        {
+            std::cout << "Invalid choice.\n";
+        }
+    } while (choice != 4);
+
+    return current;
+}
+
+int main()
+{
+    std::cout << "Welcome to the Plant Nursery Demo\n";
+
+    // initialize system components
     Inventory inventory;
-
-    CreateSucculent succulentFactory;
-    CreateFlower flowerFactory;
-
-    // create plants
-    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
-    Plant *orchid = flowerFactory.createPlant("Orchid");
-
-    // create groups
-    PlantGroup *succulents = new PlantGroup("Succulents");
-    PlantGroup *flowers = new PlantGroup("Flowers");
-
-    // add plants to groups
-    succulents->add(peanut);
-    flowers->add(orchid);
-
-    // add groups to inventory
-    inventory.add(succulents);
-    inventory.add(flowers);
-
-    // test total plants
-    std::vector<Plant *> allPlants = inventory.getPlants();
-    std::cout << "Total plants: " << allPlants.size() << "\n";
-    assert(allPlants.size() == 2);
-
-    // remove a group
-    inventory.remove(flowers);
-    std::cout << "After removing Flowers group: " << inventory.getPlants().size() << "\n";
-    assert(inventory.getPlants().size() == 1);
-
-    std::cout << "Composite is working\n";
-}
-
-void TestIterator()
-{
-    std::cout << "Test Iterator \n\n";
-
-    Inventory inventory;
-
-    CreateSucculent succulentFactory;
-    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
-    Plant *houseleek = succulentFactory.createPlant("HouseLeek");
-
-    inventory.addPlant(peanut);
-    inventory.addPlant(houseleek);
-
-    // create group and add one more plant
-    PlantGroup *succulents = new PlantGroup("Succulents");
-    Plant *clone = peanut->clone();
-    succulents->add(clone);
-    inventory.add(succulents);
-
-    // test the iterator
-    std::cout << "Creating iterator...\n";
-    InventoryIterator *it = inventory.createIterator();
-
-    std::cout << "Iterating over all plants in inventory:\n";
-    for (it->first(); it->hasNext(); it->next())
-    {
-        Plant *p = it->currentItem();
-        if (p)
-        {
-            std::cout << "  -> " << p->getDetails()
-                      << " | State: " << p->getState()
-                      << " | Cost: $" << p->getCost() << "\n";
-        }
-    }
-
-    delete it;
-
-    std::cout << "Iterator test complete. Total plants seen: "
-              << inventory.getPlantCount() + 1 // +1 for the one in group
-              << "\n\n";
-
-    assert(inventory.getPlants().size() == 3);
-    std::cout << "Iterator pattern is working\n";
-}
-
-void TestDecorator()
-{
-    std::cout << "Test Decorator \n\n";
-
-    CreateSucculent factory;
-    Plant *peanut = factory.createPlant("PeanutCactus");
-
-    // decorate with pot then wrap then arrangement
-    PotDecorator *pot = new PotDecorator();
-    pot->setWrapped(peanut);
-
-    WrapDecorator *wrap = new WrapDecorator();
-    wrap->setWrapped(pot);
-
-    ArrangementDecorator *arr = new ArrangementDecorator();
-    arr->setWrapped(wrap);
-
-    std::cout << "Final decorated plant:\n";
-    std::cout << arr->getDetails();
-    std::cout << "Total cost: $" << arr->getCost() << "\n";
-
-    // clone test
-    PlantDecorator *clone = arr->clone();
-    std::cout << "Clone cost: $" << clone->getCost() << "\n";
-
-    delete arr;
-    delete clone;
-
-    std::cout << "Decorator pattern is working\n";
-}
-
-void TestCommand()
-{
-    std::cout << "Test Command \n\n";
-
-    // create staff object for salesperson
-    Staff salesPerson("SalesBob");
-    Customer customer("Alice", "CUST001", &salesPerson);
-    InventoryClerk clerk("Bob");
-    Horticulturist horti("Charlie");
-    Manager manager("Dave");
-
-    // chain is clerk then horti then manager
-    clerk.setNextHandler(&horti);
-    horti.setNextHandler(&manager);
-
-    // test InventoryCommand
-    Request *req1 = new Request(&customer, &clerk);
-    req1->setPlantID("PC001");
-    req1->setType("inventory");
-    InventoryCommand cmd1(req1);
-    clerk.handleCommand(&cmd1);
-
-    // test GreenHouseCommand
-    Request *req2 = new Request(&customer, &horti);
-    req2->setPlantID("PC002");
-    req2->setType("greenhouse");
-    GreenHouseCommand cmd2(req2);
-    clerk.handleCommand(&cmd2); // should forward to horti
-
-    // test ManagerCommand
-    Request *req3 = new Request(&customer, &manager);
-    req3->setPlantID("PC003");
-    req3->setType("manager");
-    ManagerCommand cmd3(req3);
-    clerk.handleCommand(&cmd3); // should forward to manager
-
-    delete req1;
-    delete req2;
-    delete req3;
-
-    std::cout << "Command pattern is working\n";
-}
-
-void TestChainOfResponsibility()
-{
-    std::cout << "Test Chain of Responsibility \n\n";
-
-    // create inventory and plants
-    Inventory inventory;
-    CreateSucculent factory;
-    Plant *peanut = factory.createPlant("PeanutCactus");
-    inventory.addPlant(peanut);
-
-    // create staff chain
+    PaymentSystem paymentSystem;
     SalesAssociate sales("Alice");
     InventoryClerk clerk("Bob");
     Horticulturist horti("Charlie");
@@ -363,131 +155,194 @@ void TestChainOfResponsibility()
     sales.setNextHandler(&clerk);
     clerk.setNextHandler(&horti);
     horti.setNextHandler(&manager);
-
-    // assign inventory to clerk
     clerk.assignJob(&inventory);
-
-    // create customer
     Customer customer("Eve", "CUST001", &sales);
-
-    // test sales command (handled by SalesAssociate)
-    std::cout << "Testing sales command...\n";
-    Request *req1 = customer.makeRequest("sales", "PC001", "Pot");
-    SalesCommand cmd1(req1);
-    sales.handleCommand(&cmd1);
-    delete req1;
-
-    // test inventory command (forwarded to InventoryClerk)
-    std::cout << "\nTesting inventory command...\n";
-    Request *req2 = customer.makeRequest("inventory", "PC001", "");
-    InventoryCommand cmd2(req2);
-    sales.handleCommand(&cmd2);
-    delete req2;
-
-    // test greenhouse command (forwarded to Horticulturist)
-    std::cout << "\nTesting greenhouse command...\n";
-    Request *req3 = customer.makeRequest("greenhouse", "PC001", "");
-    GreenHouseCommand cmd3(req3);
-    sales.handleCommand(&cmd3);
-    delete req3;
-
-    // test manager command (forwarded to Manager)
-    std::cout << "\nTesting manager command...\n";
-    Request *req4 = customer.makeRequest("manager", "PC001", "");
-    ManagerCommand cmd4(req4);
-    sales.handleCommand(&cmd4);
-    delete req4;
-
-    std::cout << "Chain of Responsibility pattern is working\n";
-}
-
-void TestMemento()
-{
-    std::cout << "Test Memento \n\n";
-
-    Order order;
-
-    // add plants
-    CreateSucculent factory;
-    Plant *peanut = factory.createPlant("PeanutCactus");
-    Plant *houseleek = factory.createPlant("HouseLeek");
-
-    order.addPlant(peanut);
-    order.addPlant(houseleek);
-
-    std::cout << "Current order:\n";
-    order.printOrder();
-
-    // undo last addition
-    order.undoLastAddition();
-    std::cout << "After undo:\n";
-    order.printOrder();
-
-    // redo
-    order.redoLastStep();
-    std::cout << "After redo:\n";
-    order.printOrder();
-
-    // confirm empty after reset
-    order.undoLastAddition();
-    order.undoLastAddition();
-    if (order.isEmpty())
-    {
-        std::cout << "Order is empty after undos\n";
-    }
-
-    std::cout << "Memento pattern is working\n";
-}
-
-void TestFacade()
-{
-    std::cout << "Test Facade \n\n";
-
-    // setup
-    Inventory inventory;
-    PaymentSystem paymentSystem;
-    CreateSucculent factory;
-    Plant *peanut = factory.createPlant("PeanutCactus");
-    inventory.addPlant(peanut);
-    SalesAssociate sales("Alice");
-    Customer customer("Eve", "CUST001", &sales);
-
-    // create facade
     PurchaseFacade facade(&inventory, &paymentSystem);
+    Order *currentOrder = nullptr;
 
-    // initiate purchase
-    Order *order = facade.initiatePurchase(&customer, factory.createPlant("PeanutCactus"));
+    // seed inventory with some plants
+    CreateSucculent succulentFactory;
+    CreateFlower flowerFactory;
+    CreateShrub shrubFactory;
+    inventory.addPlant(succulentFactory.createPlant("PeanutCactus"));
+    inventory.addPlant(succulentFactory.createPlant("HouseLeek"));
+    inventory.addPlant(flowerFactory.createPlant("Orchid"));
+    inventory.addPlant(shrubFactory.createPlant("HoneySuckle"));
 
-    // add customization
-    facade.addCustomization(order, "Pot");
-
-    // undo and redo
-    facade.undoLastStep(order);
-    facade.redoStep(order);
-
-    // complete purchase
-    facade.completePurchase(order);
-
-    // verify inventory
-    if (inventory.getPlants().empty())
+    int choice;
+    do
     {
-        std::cout << "Inventory is empty after purchase\n";
+        displayMenu();
+        std::cin >> choice;
+        clearInputBuffer();
+
+        switch (choice)
+        {
+        case 1:
+        { 
+            // * Browse Plants
+            std::cout << "\nCurrent Inventory:\n";
+            InventoryIterator *it = inventory.createIterator();
+            for (it->first(); it->hasNext(); it->next())
+            {
+                Plant *p = it->currentItem();
+                if (p)
+                {
+                    std::cout << "  -> " << p->getDetails()
+                              << " | State: " << p->getState()
+                              << " | Cost: $" << p->getCost() << "\n";
+                }
+            }
+            delete it;
+            break;
+        }
+        case 2:
+        { 
+            // * Create Custom Order
+            if (!currentOrder)
+            {
+                Plant *plant = createPlant();
+                if (plant)
+                {
+                    currentOrder = facade.initiatePurchase(&customer, plant);
+                    std::cout << "Order created for " << plant->getDetails() << "\n";
+                }
+            }
+            Plant *customizedPlant = createPlant();
+            if (customizedPlant)
+            {
+                customizedPlant = customizePlant(customizedPlant);
+                facade.addPlantToOrder(currentOrder, customizedPlant);
+                std::cout << "Added to order: " << customizedPlant->getDetails() << ", Cost: $" << customizedPlant->getCost() << "\n";
+            }
+            break;
+        }
+        case 3:
+        { 
+            // * View Inventory
+            std::cout << "\nInventory Details:\n";
+            std::vector<Plant *> plants = inventory.getPlants();
+            std::cout << "Total plants: " << plants.size() << "\n";
+            for (Plant *p : plants)
+            {
+                std::cout << "  -> " << p->getDetails() << ", Cost: $" << p->getCost() << "\n";
+            }
+            break;
+        }
+        case 4:
+        { 
+            // * Process Staff Request
+            std::cout << "\nSelect request type:\n";
+            std::cout << "1. Sales\n2. Inventory\n3. Greenhouse\n4. Manager\n";
+            int reqType;
+            std::cin >> reqType;
+            clearInputBuffer();
+
+            std::string type;
+            if (reqType == 1)
+                type = "sales";
+            else if (reqType == 2)
+                type = "inventory";
+            else if (reqType == 3)
+                type = "greenhouse";
+            else if (reqType == 4)
+                type = "manager";
+            else
+            {
+                std::cout << "Invalid request type.\n";
+                break;
+            }
+
+            std::string plantID;
+            std::cout << "Enter plant ID (e.g., PC001): ";
+            std::getline(std::cin, plantID);
+
+            Request *req = customer.makeRequest(type, plantID, type == "sales" ? "Pot" : "");
+            if (type == "sales")
+            {
+                SalesCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "inventory")
+            {
+                InventoryCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "greenhouse")
+            {
+                GreenHouseCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "manager")
+            {
+                ManagerCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            delete req;
+            break;
+        }
+        case 5:
+        {
+            // * Undo Last Order Action
+            if (currentOrder)
+            {
+                facade.undoLastStep(currentOrder);
+                std::cout << "Undone last action. Current order:\n";
+                currentOrder->printOrder();
+            }
+            else
+            {
+                std::cout << "No order to undo.\n";
+            }
+            break;
+        }
+        case 6:
+        {
+            // * Redo Last Order Action
+            if (currentOrder)
+            {
+                facade.redoStep(currentOrder);
+                std::cout << "Redone last action. Current order:\n";
+                currentOrder->printOrder();
+            }
+            else
+            {
+                std::cout << "No order to redo.\n";
+            }
+            break;
+        }
+        case 7:
+        {
+            // * Complete Purchase
+            if (currentOrder)
+            {
+                facade.completePurchase(currentOrder);
+                std::cout << "Purchase completed\n";
+                delete currentOrder;
+                currentOrder = nullptr;
+            }
+            else
+            {
+                std::cout << "No order to complete.\n";
+            }
+            break;
+        }
+        case 8:
+        { 
+            // exit
+            std::cout << "Thank you for visiting the Plant Nursery\n";
+            break;
+        }
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 8);
+
+    // cleanup
+    if (currentOrder)
+    {
+        delete currentOrder;
     }
 
-    delete order;
-
-    std::cout << "Facade pattern is working\n";
-}
-
-int main()
-{
-    TestPlants();
-    TestComposite();
-    TestIterator();
-     TestDecorator();
-    TestCommand();
-    TestChainOfResponsibility();
-    TestMemento();
-    TestFacade();
     return 0;
 }

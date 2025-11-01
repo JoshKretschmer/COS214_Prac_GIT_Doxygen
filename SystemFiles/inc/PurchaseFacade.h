@@ -30,6 +30,8 @@ public:
     void undoLastStep(Order *order);
     void redoStep(Order *order);
     void completePurchase(Order *order);
+
+    void addPlantToOrder(Order *order, Plant *plant);
 };
 
 #endif // PURCHASEFACADE_H
