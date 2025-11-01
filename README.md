@@ -56,13 +56,13 @@ Developed by **GitDoxygen Team**.
 | **Memento** | Store and restore states | Undo/redo feature for order building |
 | **Template & Adapter** | Extend operations and integrate modules | Structural reusability and legacy integration |
 
-## 📚 Documentation
+##  Documentation
   
-- [📘 Functional Requirements](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Functional_Requirements.pdf)
-- [🧩 Specifications](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Specifications.pdf)
-- [🌿 Design Pattern Report](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Design_Pattern_Report.pdf)
-- [🧠 UML Diagrams](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Bridget/UMLs)
-- [📗 Doxygen Documentation](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Bridget/Doxygen)
+- [ Functional Requirements](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Functional_Requirements.pdf)
+- [ Specifications](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Specifications.pdf)
+- [ Design Pattern Report](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/blob/Bridget/Documents/Functional_Requirements.pdf)
+- [ UML Diagrams](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Ophelia_Dev/diagrams/final_prac05.pdf)
+- [ Doxygen Documentation](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/main/SystemFiles/Doxyfile.txt)
 
 
 ## Setup Guide
