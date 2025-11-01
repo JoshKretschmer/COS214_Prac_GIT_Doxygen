@@ -1,5 +1,8 @@
 #include "Staff.h"
 #include "Command.h"
+#include "Plant.h"
+#include "Request.h"
+#include <iostream>
 
 int Staff::instanceCount = 1;
 
@@ -10,11 +13,12 @@ int Staff::instanceCount = 1;
  */
 Staff::Staff(std::string _name)
 {
+    std::cout << "Calling Staff Constructor (name=\"" << _name << "\")\n";
     staffName = _name;
     staffID = "STAFF" + std::to_string(instanceCount);
     instanceCount++;
-
-    nextHandler = NULL;
+    nextHandler = nullptr;
+    std::cout << "Staff Constructor created " << staffID << "\n";
 }
 
 /*!
@@ -22,7 +26,8 @@ Staff::Staff(std::string _name)
  */
 Staff::~Staff()
 {
-    nextHandler = NULL;
+    std::cout << "Calling Staff Deconstructor (ID=" << staffID << ")\n";
+    nextHandler = nullptr;
     instanceCount--;
 }
 
@@ -32,7 +37,11 @@ Staff::~Staff()
  */
 void Staff::setNextHandler(Staff *_handler)
 {
+    std::cout << "Calling Staff::setNextHandler(handler="
+              << (_handler ? _handler->getStaffName() : "null") << ")\n";
     nextHandler = _handler;
+    std::cout << "Staff::setNextHandler() set nextHandler to "
+              << (nextHandler ? nextHandler->getStaffName() : "null") << "\n";
 }
 
 /*!
@@ -42,13 +51,19 @@ void Staff::setNextHandler(Staff *_handler)
  */
 void Staff::forwardCommand(Command *command)
 {
+    std::cout << "Calling Staff::forwardCommand(command="
+              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
+
     if (nextHandler)
     {
+        std::cout << "Staff::forwardCommand() forwarding to "
+                  << nextHandler->getStaffName() << "\n";
         nextHandler->handleCommand(command);
     }
     else
     {
-        cerr << "NO next handler for" + staffName + "... Request not handled...";
+        std::cerr << "NO next handler for " << staffName
+                  << "... Request not handled...\n";
     }
 }
 
@@ -58,7 +73,9 @@ void Staff::forwardCommand(Command *command)
  */
 void Staff::executeTask(Command *_command)
 {
-    // Need to wait for command/request to be implemented
+    std::cout << "Calling Staff::executeTask(command="
+              << (_command ? _command->getRequest()->getPlantID() : "null") << ")\n";
+    std::cout << "Staff::executeTask() - no action (base class)\n";
 }
 
 /*!
@@ -68,13 +85,19 @@ void Staff::executeTask(Command *_command)
  */
 void Staff::handleCommand(Command *command)
 {
+    std::cout << "Calling Staff::handleCommand(command="
+              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
+
     if (command->hasAccess(staffType))
     {
+        std::cout << "Staff::handleCommand() - " << staffName
+                  << " has access, executing task\n";
         executeTask(command);
     }
     else
     {
-        cout << "\nstaff " << staffName << " does not have access to handleCommand...\n";
+        std::cout << "Staff::handleCommand() - " << staffName
+                  << " does not have access, forwarding\n";
         forwardCommand(command);
     }
 }
@@ -86,4 +109,7 @@ void Staff::handleCommand(Command *command)
  */
 void Staff::movePlantToInventory(Plant *plant)
 {
+    std::cout << "Calling Staff::movePlantToInventory(plant="
+              << (plant ? plant->getDetails() : "null") << ")\n";
+    std::cout << "Staff::movePlantToInventory() - no action (base class)\n";
 }

@@ -7,18 +7,21 @@
 #include "ArrangementDecorator.h"
 #include "Request.h"
 #include "Order.h"
-
 #include <iostream>
 
 /*!
  * @brief Basic constructor for customer object
  */
-Customer::Customer(string _name, string _id, Staff *_salesPerson)
+Customer::Customer(std::string _name, std::string _id, Staff *_salesPerson)
 {
+    std::cout << "Calling Customer Constructor (name=\"" << _name
+              << "\", id=\"" << _id << "\", salesPerson="
+              << (_salesPerson ? _salesPerson->getStaffName() : "null") << ")\n";
     salesPerson = _salesPerson;
     name = _name;
     id = _id;
     startPurchase();
+    std::cout << "Customer Constructor created customer: " << name << " (" << id << ")\n";
 }
 
 /*!
@@ -26,17 +29,30 @@ Customer::Customer(string _name, string _id, Staff *_salesPerson)
  */
 Customer::~Customer()
 {
+    std::cout << "Calling Customer Deconstructor (name=\"" << name << "\")\n";
     delete currentOrder;
+    currentOrder = nullptr;
 }
 
-Request *Customer::makeRequest(string type, string plantID, string extra)
+/*!
+ * @brief Create a request with specified type, plantID, and extra information
+ *
+ * @param type Type of the request (e.g., "inventory", "sales")
+ * @param plantID Unique ID of the plant
+ * @param extra Additional information for the request
+ * @return Newly created Request object
+ */
+Request *Customer::makeRequest(std::string type, std::string plantID, std::string extra)
 {
-    // used to create request
-    // need to be redone once request is set up
+    std::cout << "Calling Customer::makeRequest(type=\"" << type
+              << "\", plantID=\"" << plantID << "\", extra=\"" << extra << "\")\n";
+
     Request *r = new Request(this, salesPerson);
     r->setType(type);
     r->setPlantID(plantID);
     r->setExtra(extra);
+
+    std::cout << "Customer::makeRequest() returning Request for plantID=\"" << plantID << "\"\n";
     return r;
 }
 
@@ -45,16 +61,24 @@ Request *Customer::makeRequest(string type, string plantID, string extra)
  */
 void Customer::browsePlants()
 {
-    string plantID;
-    cout << "Enter plant ID to browse (or 'quit'): ";
-    cin >> plantID;
+    std::cout << "Calling Customer::browsePlants()\n";
+
+    std::string plantID;
+    std::cout << "Enter plant ID to browse (or 'quit'): ";
+    std::cin >> plantID;
+
     if (plantID == "quit")
+    {
+        std::cout << "Customer::browsePlants() quitting\n";
         return;
+    }
 
     Request *req = makeRequest("inventory", plantID, "");
     InventoryCommand cmd(req);
     salesPerson->handleCommand(&cmd);
     delete req;
+
+    std::cout << "Customer::browsePlants() completed for plantID=\"" << plantID << "\"\n";
 }
 
 /*!
@@ -62,11 +86,24 @@ void Customer::browsePlants()
  */
 void Customer::startPurchase()
 {
+    std::cout << "Calling Customer::startPurchase()\n";
+
     currentOrder = new Order();
+
+    std::cout << "Customer::startPurchase() created new Order\n";
 }
 
-void Customer::addPlant(string plantID, string decor)
+/*!
+ * @brief Add a plant to the customer's current order, optionally with decoration
+ *
+ * @param plantID Unique ID of the plant to add
+ * @param decor Decoration type to apply (e.g., "Pot", "Wrap", "Arrange")
+ */
+void Customer::addPlant(std::string plantID, std::string decor)
 {
+    std::cout << "Calling Customer::addPlant(plantID=\"" << plantID
+              << "\", decor=\"" << decor << "\")\n";
+
     Request *req = makeRequest("sales", plantID, decor);
     SalesCommand cmd(req);
     salesPerson->handleCommand(&cmd);
@@ -76,23 +113,33 @@ void Customer::addPlant(string plantID, string decor)
     if (clerk)
     {
         plant = clerk->getPlant(plantID);
+        std::cout << "Customer::addPlant() got plant: "
+                  << (plant ? plant->getDetails() : "null") << "\n";
+    }
+    else
+    {
+        std::cout << "Customer::addPlant() - no valid clerk found\n";
     }
 
     if (!plant)
     {
-        cerr << "Could not obtain plant " << plantID << " for the order.\n";
+        std::cerr << "Could not obtain plant " << plantID << " for the order.\n";
         delete req;
+        std::cout << "Customer::addPlant() failed - no plant\n";
         return;
     }
 
     if (!decor.empty())
     {
         plant = customizeOrder(plant, decor);
+        std::cout << "Customer::addPlant() applied decoration: \"" << decor << "\"\n";
     }
 
     currentOrder->addPlant(plant);
-    cout << "Plant " << plantID << " added to your order.\n";
+    std::cout << "Plant " << plantID << " added to your order.\n";
     delete req;
+
+    std::cout << "Customer::addPlant() completed\n";
 }
 
 /*!
@@ -102,30 +149,37 @@ void Customer::addPlant(string plantID, string decor)
  * @param decor Decoration to be added to the plant
  * @return Decorated Plant or basic Plant
  */
-Plant *Customer::customizeOrder(Plant *plant, string decor)
+Plant *Customer::customizeOrder(Plant *plant, std::string decor)
 {
+    std::cout << "Calling Customer::customizeOrder(plant="
+              << (plant ? plant->getDetails() : "null")
+              << ", decor=\"" << decor << "\")\n";
 
     if (decor == "Arrange")
     {
         ArrangementDecorator *newD = new ArrangementDecorator();
         newD->setWrapped(plant);
+        std::cout << "Customer::customizeOrder() returning ArrangementDecorator\n";
         return newD;
     }
     else if (decor == "Pot")
     {
         PotDecorator *newD = new PotDecorator();
         newD->setWrapped(plant);
+        std::cout << "Customer::customizeOrder() returning PotDecorator\n";
         return newD;
     }
     else if (decor == "Wrap")
     {
         WrapDecorator *newD = new WrapDecorator();
         newD->setWrapped(plant);
+        std::cout << "Customer::customizeOrder() returning WrapDecorator\n";
         return newD;
     }
     else
     {
-        cerr << "Unknown decoration '" << decor << "'. Plant unchanged.\n";
+        std::cerr << "Unknown decoration '" << decor << "'. Plant unchanged.\n";
+        std::cout << "Customer::customizeOrder() returning original plant\n";
         return plant;
     }
 }
@@ -135,29 +189,42 @@ Plant *Customer::customizeOrder(Plant *plant, string decor)
  */
 void Customer::undoAction()
 {
+    std::cout << "Calling Customer::undoAction()\n";
+
     if (currentOrder->isEmpty())
     {
-        cout << "Nothing to undo.\n";
+        std::cout << "Nothing to undo.\n";
+        std::cout << "Customer::undoAction() completed - order empty\n";
         return;
     }
+
     currentOrder->undoLastAddition();
-    cout << "Last plant removed from the order.\n";
+    std::cout << "Last plant removed from the order.\n";
+    std::cout << "Customer::undoAction() completed\n";
 }
 
+/*!
+ * @brief Confirm the customer's current order and finalize the purchase
+ */
 void Customer::confirmPurchase()
 {
+    std::cout << "Calling Customer::confirmPurchase()\n";
+
     if (currentOrder->isEmpty())
     {
-        cout << "Your order is empty – nothing to confirm.\n";
+        std::cout << "Your order is empty – nothing to confirm.\n";
+        std::cout << "Customer::confirmPurchase() completed - order empty\n";
         return;
     }
 
-    cout << "\n=== FINAL ORDER ===\n";
+    std::cout << "\n=== FINAL ORDER ===\n";
     currentOrder->printOrder();
-    cout << "====================\n";
+    std::cout << "====================\n";
 
-    cout << "Purchase confirmed! Thank you, " << name << ".\n";
+    std::cout << "Purchase confirmed! Thank you, " << name << ".\n";
 
     delete currentOrder;
     startPurchase();
+
+    std::cout << "Customer::confirmPurchase() completed\n";
 }

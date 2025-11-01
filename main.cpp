@@ -12,7 +12,17 @@
 #include "PotDecorator.h"
 #include "WrapDecorator.h"
 #include "ArrangementDecorator.h"
-
+#include "Request.h"
+#include "Customer.h"
+#include "Staff.h"
+#include "InventoryClerk.h"
+#include "Horticulturist.h"
+#include "Manager.h"
+#include "InventoryCommand.h"
+#include "GreenHouseCommand.h"
+#include "ManagerCommand.h"
+#include "SalesCommand.h"
+#include "SalesAssociate.h"
 
 void TestPlants()
 {
@@ -248,7 +258,7 @@ void TestIterator()
         }
     }
 
-    delete it; 
+    delete it;
 
     std::cout << "Iterator test complete. Total plants seen: "
               << inventory.getPlantCount() + 1 // +1 for the one in group
@@ -263,16 +273,16 @@ void TestDecorator()
     std::cout << "Test Decorator \n\n";
 
     CreateSucculent factory;
-    Plant* peanut = factory.createPlant("PeanutCactus");
+    Plant *peanut = factory.createPlant("PeanutCactus");
 
     // decorate with pot then wrap then arrangement
-    PotDecorator* pot = new PotDecorator();
+    PotDecorator *pot = new PotDecorator();
     pot->setWrapped(peanut);
 
-    WrapDecorator* wrap = new WrapDecorator();
+    WrapDecorator *wrap = new WrapDecorator();
     wrap->setWrapped(pot);
 
-    ArrangementDecorator* arr = new ArrangementDecorator();
+    ArrangementDecorator *arr = new ArrangementDecorator();
     arr->setWrapped(wrap);
 
     std::cout << "Final decorated plant:\n";
@@ -280,7 +290,7 @@ void TestDecorator()
     std::cout << "Total cost: $" << arr->getCost() << "\n";
 
     // clone test
-    PlantDecorator* clone = arr->clone();
+    PlantDecorator *clone = arr->clone();
     std::cout << "Clone cost: $" << clone->getCost() << "\n";
 
     delete arr;
@@ -289,11 +299,112 @@ void TestDecorator()
     std::cout << "Decorator pattern is working\n";
 }
 
+void TestCommand()
+{
+    std::cout << "Test Command \n\n";
+
+    // create staff object for salesperson
+    Staff salesPerson("SalesBob");
+    Customer customer("Alice", "CUST001", &salesPerson);
+    InventoryClerk clerk("Bob");
+    Horticulturist horti("Charlie");
+    Manager manager("Dave");
+
+    // chain is clerk then horti then manager
+    clerk.setNextHandler(&horti);
+    horti.setNextHandler(&manager);
+
+    // test InventoryCommand
+    Request *req1 = new Request(&customer, &clerk);
+    req1->setPlantID("PC001");
+    req1->setType("inventory");
+    InventoryCommand cmd1(req1);
+    clerk.handleCommand(&cmd1);
+
+    // test GreenHouseCommand
+    Request *req2 = new Request(&customer, &horti);
+    req2->setPlantID("PC002");
+    req2->setType("greenhouse");
+    GreenHouseCommand cmd2(req2);
+    clerk.handleCommand(&cmd2); // should forward to horti
+
+    // test ManagerCommand
+    Request *req3 = new Request(&customer, &manager);
+    req3->setPlantID("PC003");
+    req3->setType("manager");
+    ManagerCommand cmd3(req3);
+    clerk.handleCommand(&cmd3); // should forward to manager
+
+    delete req1;
+    delete req2;
+    delete req3;
+
+    std::cout << "Command pattern is working\n";
+}
+
+void TestChainOfResponsibility()
+{
+    std::cout << "Test Chain of Responsibility \n\n";
+
+    // create inventory and plants
+    Inventory inventory;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    inventory.addPlant(peanut);
+
+    // create staff chain
+    SalesAssociate sales("Alice");
+    InventoryClerk clerk("Bob");
+    Horticulturist horti("Charlie");
+    Manager manager("Dave");
+    sales.setNextHandler(&clerk);
+    clerk.setNextHandler(&horti);
+    horti.setNextHandler(&manager);
+
+    // assign inventory to clerk
+    clerk.assignJob(&inventory);
+
+    // create customer
+    Customer customer("Eve", "CUST001", &sales);
+
+    // test sales command (handled by SalesAssociate)
+    std::cout << "Testing sales command...\n";
+    Request *req1 = customer.makeRequest("sales", "PC001", "Pot");
+    SalesCommand cmd1(req1);
+    sales.handleCommand(&cmd1);
+    delete req1;
+
+    // test inventory command (forwarded to InventoryClerk)
+    std::cout << "\nTesting inventory command...\n";
+    Request *req2 = customer.makeRequest("inventory", "PC001", "");
+    InventoryCommand cmd2(req2);
+    sales.handleCommand(&cmd2);
+    delete req2;
+
+    // test greenhouse command (forwarded to Horticulturist)
+    std::cout << "\nTesting greenhouse command...\n";
+    Request *req3 = customer.makeRequest("greenhouse", "PC001", "");
+    GreenHouseCommand cmd3(req3);
+    sales.handleCommand(&cmd3);
+    delete req3;
+
+    // test manager command (forwarded to Manager)
+    std::cout << "\nTesting manager command...\n";
+    Request *req4 = customer.makeRequest("manager", "PC001", "");
+    ManagerCommand cmd4(req4);
+    sales.handleCommand(&cmd4);
+    delete req4;
+
+    std::cout << "Chain of Responsibility pattern is working\n";
+}
+
 int main()
 {
     // TestPlants();
     // TestComposite();
     // TestIterator();
-    TestDecorator();
+    //  TestDecorator();
+    // TestCommand();
+    TestChainOfResponsibility();
     return 0;
 }

@@ -1,5 +1,6 @@
 #include "GreenHouseCommand.h"
 #include "Request.h"
+#include <iostream>
 
 /*!
  * @brief Basic constructor function
@@ -8,6 +9,8 @@
  */
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
+    std::cout << "Calling GreenHouseCommand Constructor (request="
+              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "greenhouse";
 }
 
@@ -16,6 +19,7 @@ GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
  */
 GreenHouseCommand::~GreenHouseCommand()
 {
+    std::cout << "Calling GreenHouseCommand Deconstructor\n";
 }
 
 /*!
@@ -23,13 +27,15 @@ GreenHouseCommand::~GreenHouseCommand()
  *
  * @return nullptr
  */
-Request* GreenHouseCommand::execute()
+Request *GreenHouseCommand::execute()
 {
-    Staff* receiver = request->getReceiver();
-    Horticulturist* horticulturist = dynamic_cast<Horticulturist*>(receiver);
-    std::cout << horticulturist->getStaffName() << " is now tending to: " << request->getPlantID() << endl;
+    std::cout << "Calling GreenHouseCommand::execute()\n";
 
+    Staff *receiver = request->getReceiver();
+    Horticulturist *horticulturist = dynamic_cast<Horticulturist *>(receiver);
 
-    //we have the horticulturist, now we need to perform whatever action with him
+    std::cout << (horticulturist ? horticulturist->getStaffName() : "null")
+              << " is now tending to: " << request->getPlantID() << "\n";
+
     return nullptr;
 }

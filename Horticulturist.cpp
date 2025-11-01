@@ -1,23 +1,29 @@
 #include "Horticulturist.h"
 #include "Command.h"
 #include "Request.h"
+#include <iostream>
 
 /*!
  *
  * @param command Command object containing request to be executed
  */
-void Horticulturist::executeTask(Command* command)
+void Horticulturist::executeTask(Command *command)
 {
-    if (command->getRequest()->getType() != "greenhouse") {
-        // Forward to next handler if not a greenhouse command
+    std::cout << "Calling Horticulturist::executeTask(command="
+              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
+
+    if (command->getRequest()->getType() != "greenhouse")
+    {
+        std::cout << "Horticulturist::executeTask() - not a greenhouse command, forwarding\n";
         forwardCommand(command);
         return;
     }
-    command->getRequest()->setReceiver(this);
-    Request* request = command->execute();
 
-    // types of request it had do is yet to be discussed
-    //Plant creation request?
+    std::cout << "Horticulturist::executeTask() setting receiver to " << staffName << "\n";
+    command->getRequest()->setReceiver(this);
+    Request *request = command->execute();
+
+    std::cout << "Horticulturist::executeTask() completed\n";
 }
 
 /*!
@@ -27,7 +33,9 @@ void Horticulturist::executeTask(Command* command)
  */
 Horticulturist::Horticulturist(std::string name) : Staff(name)
 {
+    std::cout << "Calling Horticulturist Constructor (name=\"" << name << "\")\n";
     staffType = "horticulturist";
+    std::cout << "Horticulturist Constructor set staffType to \"horticulturist\"\n";
 }
 
 /*!
@@ -35,7 +43,7 @@ Horticulturist::Horticulturist(std::string name) : Staff(name)
  */
 Horticulturist::~Horticulturist()
 {
-    //no memory management as of yet
+    std::cout << "Calling Horticulturist Deconstructor (ID=" << staffID << ")\n";
 }
 
 /*!
@@ -45,11 +53,18 @@ Horticulturist::~Horticulturist()
  *
  * @param plant Plant to be moved to Inventory
  */
-std::string Horticulturist::getActionForMove() {
-    //return ACTION_STOREPLANT;  // Specific to Horticulturist
-    return "";
+std::string Horticulturist::getActionForMove()
+{
+    std::cout << "Calling Horticulturist::getActionForMove()\n";
+    std::string result = "";
+    std::cout << "Horticulturist::getActionForMove() returning \"" << result << "\"\n";
+    return result;
 }
 
-std::string Horticulturist::getDescriptionForMove() {
-    return "just store the plant :)";  // Specific to Horticulturist
+std::string Horticulturist::getDescriptionForMove()
+{
+    std::cout << "Calling Horticulturist::getDescriptionForMove()\n";
+    std::string result = "just store the plant :)";
+    std::cout << "Horticulturist::getDescriptionForMove() returning \"" << result << "\"\n";
+    return result;
 }

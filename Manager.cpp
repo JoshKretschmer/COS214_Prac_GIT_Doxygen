@@ -4,36 +4,47 @@
 #include <iostream>
 
 /*!
-     * @brief Constructor for Manager
-     *
-     * @param _name Name of the manager
+ * @brief Constructor for Manager
+ *
+ * @param _name Name of the manager
  */
-Manager::Manager(std::string _name) : Staff(_name) {
+Manager::Manager(std::string _name) : Staff(_name)
+{
+    std::cout << "Calling Manager Constructor (name=\"" << _name << "\")\n";
     staffType = "manager";
+    std::cout << "Manager Constructor set staffType to \"manager\"\n";
 }
 
 /*!
-     * @brief Destructor for Manager
+ * @brief Destructor for Manager
  */
-Manager::~Manager() = default;
+Manager::~Manager()
+{
+    std::cout << "Calling Manager Deconstructor (ID=" << staffID << ")\n";
+}
 
 /*!
-     * @brief Executes the command if this staff can handle it
-     *
-     * @param command The command to execute
-*/
-void Manager::executeTask(Command* command) {
-    Request* req = command->getRequest();
-    
-    // Manager handles ANY request that reaches it
-    req->setReceiver(this);
+ * @brief Executes the command if this staff can handle it
+ *
+ * @param command The command to execute
+ */
+void Manager::executeTask(Command *command)
+{
+    std::cout << "Calling Manager::executeTask(command="
+              << (command ? command->getRequest()->getPlantID() : "null") << ")\n";
+
+    Request *req = command->getRequest();
 
     std::cout << "Manager " << staffName << " is now handling the request: ";
     std::cout << "Type='" << req->getType() << "', PlantID='" << req->getPlantID() << "'\n";
 
-    Request* result = command->execute();
+    req->setReceiver(this);
+    Request *result = command->execute();
 
-    if (result == nullptr) {
+    if (result == nullptr)
+    {
         std::cout << "Manager has processed the request.\n";
     }
+
+    std::cout << "Manager::executeTask() completed\n";
 }

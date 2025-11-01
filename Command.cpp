@@ -1,4 +1,6 @@
 #include "Command.h"
+#include <iostream>
+#include "Request.h"
 
 /*!
  * @brief Basic constructor function
@@ -7,6 +9,8 @@
  */
 Command::Command(Request *_request)
 {
+    std::cout << "Calling Command Constructor (request="
+              << (_request ? _request->getPlantID() : "null") << ")\n";
     request = _request;
 }
 
@@ -15,6 +19,7 @@ Command::Command(Request *_request)
  */
 Command::~Command()
 {
+    std::cout << "Calling Command Deconstructor\n";
 }
 
 /*!
@@ -24,6 +29,8 @@ Command::~Command()
  */
 bool Command::hasAccess(std::string _staffType)
 {
-    return (_staffType == access);
+    std::cout << "Calling Command::hasAccess(staffType=\"" << _staffType << "\")\n";
+    bool result = (_staffType == access);
+    std::cout << "Command::hasAccess() returning " << (result ? "true" : "false") << "\n";
+    return result;
 }
-

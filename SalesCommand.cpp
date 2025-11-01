@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Customer.h"
 #include "Request.h"
+#include "Staff.h"
 
 /*!
  * @brief Basic constructor function
@@ -10,7 +11,10 @@
  */
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
+    std::cout << "Calling SalesCommand Constructor (request="
+              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "sales";
+    std::cout << "SalesCommand Constructor set access to \"sales\"\n";
 }
 
 /*!
@@ -18,6 +22,7 @@ SalesCommand::SalesCommand(Request *_request) : Command(_request)
  */
 SalesCommand::~SalesCommand()
 {
+    std::cout << "Calling SalesCommand Deconstructor\n";
 }
 
 /*!
@@ -27,12 +32,21 @@ SalesCommand::~SalesCommand()
  */
 Request *SalesCommand::execute()
 {
+    std::cout << "Calling SalesCommand::execute()\n";
+
     Customer *customer = request->getSender();
-    // all I want to do is add the plant to the customer's current order
     std::string plantID = request->getPlantID();
     std::string decor = request->getExtra();
-    customer->addPlant(plantID, decor); // note that we need to add functionality to this
-    std::cout << request->getReceiver() << " has added " << plantID << " to your order.\n";
 
+    std::cout << "SalesCommand::execute() adding plantID=\"" << plantID
+              << "\" with decor=\"" << decor << "\" for customer="
+              << (customer ? customer->getName() : "null") << "\n";
+
+    customer->addPlant(plantID, decor);
+
+    std::cout << (request->getReceiver() ? request->getReceiver()->getStaffName() : "null")
+              << " has added " << plantID << " to your order.\n";
+
+    std::cout << "SalesCommand::execute() returning nullptr\n";
     return nullptr;
 }
