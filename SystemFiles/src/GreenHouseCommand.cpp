@@ -9,8 +9,6 @@
  */
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
-    std::cout << "Calling GreenHouseCommand Constructor (request="
-              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "greenhouse";
 }
 
@@ -19,7 +17,7 @@ GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
  */
 GreenHouseCommand::~GreenHouseCommand()
 {
-    std::cout << "Calling GreenHouseCommand Deconstructor\n";
+
 }
 
 /*!

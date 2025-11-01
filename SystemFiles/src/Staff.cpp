@@ -18,7 +18,6 @@ Staff::Staff(std::string _name)
     staffID = "STAFF" + std::to_string(instanceCount);
     instanceCount++;
     nextHandler = nullptr;
-    std::cout << "Staff Constructor created " << staffID << "\n";
 }
 
 /*!
@@ -26,7 +25,6 @@ Staff::Staff(std::string _name)
  */
 Staff::~Staff()
 {
-    std::cout << "Calling Staff Deconstructor (ID=" << staffID << ")\n";
     nextHandler = nullptr;
     instanceCount--;
 }

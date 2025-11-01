@@ -9,8 +9,6 @@
  */
 Command::Command(Request *_request)
 {
-    std::cout << "Calling Command Constructor (request="
-              << (_request ? _request->getPlantID() : "null") << ")\n";
     request = _request;
 }
 
@@ -19,7 +17,6 @@ Command::Command(Request *_request)
  */
 Command::~Command()
 {
-    std::cout << "Calling Command Deconstructor\n";
 }
 
 /*!

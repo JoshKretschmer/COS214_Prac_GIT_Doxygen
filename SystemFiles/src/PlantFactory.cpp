@@ -6,7 +6,7 @@
  */
 PlantFactory::PlantFactory()
 {
-    std::cout << "Calling basic PlantFactory Constructor\n";
+   
 }
 
 /*!
@@ -14,5 +14,5 @@ PlantFactory::PlantFactory()
  */
 PlantFactory::~PlantFactory()
 {
-    std::cout << "Calling basic PlantFactory Deconstructor\n";
+  
 }

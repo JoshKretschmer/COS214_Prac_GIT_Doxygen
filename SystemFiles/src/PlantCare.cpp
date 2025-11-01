@@ -6,6 +6,6 @@
  */
 PlantCare::PlantCare()
 {
-    std::cout << "Constructing PlantCare base\n";
+    
 }
 

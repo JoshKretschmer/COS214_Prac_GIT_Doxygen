@@ -6,7 +6,6 @@
  */
 PlantState::PlantState()
 {
-    std::cout << "Constructing PlantState base\n";
 }
 
 /*!
@@ -14,5 +13,4 @@ PlantState::PlantState()
  */
 PlantState::~PlantState()
 {
-    std::cout << "Destroying PlantState base\n";
 }

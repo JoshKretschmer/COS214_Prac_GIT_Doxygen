@@ -10,7 +10,6 @@
  */
 Orchid::Orchid() : Flower::Flower()
 {
-    std::cout << "Constructing Orchid\n";
     int randomNum = rand() % 101;
     this->id = "OR" + std::to_string(randomNum);
     this->price = 160.00;

@@ -14,9 +14,6 @@
  */
 Customer::Customer(std::string _name, std::string _id, Staff *_salesPerson)
 {
-    std::cout << "Calling Customer Constructor (name=\"" << _name
-              << "\", id=\"" << _id << "\", salesPerson="
-              << (_salesPerson ? _salesPerson->getStaffName() : "null") << ")\n";
     salesPerson = _salesPerson;
     name = _name;
     id = _id;

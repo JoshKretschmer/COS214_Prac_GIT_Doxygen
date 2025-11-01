@@ -10,11 +10,9 @@ using namespace std;
  */
 Order::Order()
 {
-    std::cout << "Calling Order Constructor\n";
     totalCost = 0.0;
     static int nextId = 1;
     orderId = "ORD" + std::to_string(nextId++);
-    std::cout << "Order Constructor created orderId=\"" << orderId << "\"\n";
 }
 
 /*!
@@ -22,7 +20,6 @@ Order::Order()
  */
 Order::~Order()
 {
-    std::cout << "Calling Order Deconstructor (orderId=\"" << orderId << "\")\n";
     for (auto *p : plants)
         delete p;
     for (auto *m : mementos)

@@ -10,8 +10,6 @@
  */
 Memento::Memento(const std::vector<Plant *> &plants, double cost)
 {
-    std::cout << "Calling Memento Constructor (plants.size()=" << plants.size()
-              << ", cost=" << cost << ")\n";
     savedCost = cost;
     savedPlants.reserve(plants.size());
     for (auto *p : plants)
@@ -33,7 +31,6 @@ Memento::Memento(const std::vector<Plant *> &plants, double cost)
             std::cerr << "Memento Constructor: Null plant pointer skipped\n";
         }
     }
-    std::cout << "Memento Constructor cloned " << savedPlants.size() << " plants\n";
 }
 
 /*!
@@ -41,8 +38,6 @@ Memento::Memento(const std::vector<Plant *> &plants, double cost)
  */
 Memento::~Memento()
 {
-    std::cout << "Calling Memento Deconstructor - deleting "
-              << savedPlants.size() << " cloned plants\n";
     for (auto *p : savedPlants)
     {
         delete p;

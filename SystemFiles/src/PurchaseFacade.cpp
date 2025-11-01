@@ -12,12 +12,10 @@ PurchaseFacade::PurchaseFacade(Inventory *inv, PaymentSystem *ps)
               << ", paymentSystem=" << (ps ? "non-null" : "null") << ")\n";
     inventory = inv;
     paymentSystem = ps;
-    std::cout << "PurchaseFacade Constructor initialized\n";
 }
 
 PurchaseFacade::~PurchaseFacade()
 {
-    std::cout << "Calling PurchaseFacade Deconstructor\n";
 }
 
 void PurchaseFacade::setPaymentSystem(PaymentSystem *ps)

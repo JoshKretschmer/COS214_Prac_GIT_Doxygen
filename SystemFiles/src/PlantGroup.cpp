@@ -12,7 +12,6 @@
 PlantGroup::PlantGroup(std::string name)
     : InventoryComponent(), groupName(std::move(name))
 {
-    std::cout << "Calling PlantGroup Constructor (name=\"" << groupName << "\")\n";
 }
 
 /*!
@@ -20,7 +19,6 @@ PlantGroup::PlantGroup(std::string name)
  */
 PlantGroup::~PlantGroup()
 {
-    std::cout << "Calling PlantGroup Deconstructor (name=\"" << groupName << "\")\n";
     for (auto c : children) delete c;
     children.clear();
 }

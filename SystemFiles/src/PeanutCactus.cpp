@@ -10,7 +10,6 @@
  */
 PeanutCactus::PeanutCactus() : Succulent::Succulent()
 {
-    std::cout << "Constructing PeanutCactus\n";
     int randomNum = rand() % 101;
     this->id = "PC" + std::to_string(randomNum);
     this->price = 35.00;

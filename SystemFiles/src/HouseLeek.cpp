@@ -10,7 +10,6 @@
  */
 HouseLeek::HouseLeek() : Succulent::Succulent()
 {
-    std::cout << "Constructing HouseLeek\n";
     int randomNum = rand() % 101;
     this->id = "HL" + std::to_string(randomNum);
     this->price = 35.50;
@@ -23,7 +22,6 @@ HouseLeek::HouseLeek() : Succulent::Succulent()
  */
 std::string HouseLeek::getDetails()
 {
-    std::cout << "Getting details for HouseLeek (ID: " << id << ")\n";
     std::string det;
     det = det + "ID: " + id + "\n";
     det = det + "Type: " + type + "\n";

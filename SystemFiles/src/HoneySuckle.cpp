@@ -10,7 +10,6 @@
  */
 HoneySuckle::HoneySuckle() : Shrub::Shrub()
 {
-    std::cout << "Constructing HoneySuckle\n";
     int randomNum = rand() % 101;
     this->id = "HS" + std::to_string(randomNum);
     this->price = 39.95;

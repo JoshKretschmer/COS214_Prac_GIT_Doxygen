@@ -11,8 +11,6 @@
 InventoryIterator::InventoryIterator(Inventory *inventory)
     : plants(inventory->getPlants()), currentIndex(0)
 {
-    std::cout << "Calling InventoryIterator Constructor (inventory size="
-              << plants.size() << ")\n";
 }
 
 /*!

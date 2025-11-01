@@ -6,7 +6,6 @@
  */
 PlantDecorator::PlantDecorator()
 {
-    std::cout << "Calling PlantDecorator Constructor\n";
     wrappedPlant = nullptr;
 }
 
@@ -15,7 +14,6 @@ PlantDecorator::PlantDecorator()
  */
 PlantDecorator::~PlantDecorator()
 {
-    std::cout << "Calling PlantDecorator Deconstructor - deleting wrappedPlant\n";
     delete wrappedPlant;
     wrappedPlant = nullptr;
 }

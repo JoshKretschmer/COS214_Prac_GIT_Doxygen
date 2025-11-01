@@ -6,7 +6,6 @@
  */
 PaymentSystem::PaymentSystem()
 {
-    std::cout << "Calling PaymentSystem Constructor\n";
 }
 
 /*!
@@ -14,7 +13,6 @@ PaymentSystem::PaymentSystem()
  */
 PaymentSystem::~PaymentSystem()
 {
-    std::cout << "Calling PaymentSystem Deconstructor\n";
 }
 
 /*!

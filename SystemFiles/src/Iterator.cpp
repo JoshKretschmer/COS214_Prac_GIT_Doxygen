@@ -6,5 +6,4 @@
  */
 Iterator::Iterator() 
 {
-    std::cout << "Calling Iterator Constructor\n";
 }

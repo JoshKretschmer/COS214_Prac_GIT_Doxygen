@@ -10,8 +10,6 @@
  */
 ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
 {
-    std::cout << "Calling ManagerCommand Constructor (request="
-              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "manager";
 }
 
@@ -20,7 +18,6 @@ ManagerCommand::ManagerCommand(Request *_request) : Command(_request)
  */
 ManagerCommand::~ManagerCommand()
 {
-    std::cout << "Calling ManagerCommand Deconstructor\n";
 }
 
 /*!

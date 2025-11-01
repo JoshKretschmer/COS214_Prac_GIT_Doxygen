@@ -37,10 +37,8 @@ void InventoryClerk::executeTask(Command *command)
  */
 InventoryClerk::InventoryClerk(std::string _name) : Staff(_name)
 {
-    std::cout << "Calling InventoryClerk Constructor (name=\"" << _name << "\")\n";
     staffType = "inventoryclerk";
     inventory = nullptr;
-    std::cout << "InventoryClerk Constructor set staffType to \"inventoryclerk\"\n";
 }
 
 /*!
@@ -48,7 +46,6 @@ InventoryClerk::InventoryClerk(std::string _name) : Staff(_name)
  */
 InventoryClerk::~InventoryClerk()
 {
-    std::cout << "Calling InventoryClerk Deconstructor (ID=" << staffID << ")\n";
     inventory = nullptr;
 }
 

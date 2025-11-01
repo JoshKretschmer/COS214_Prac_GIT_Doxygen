@@ -10,7 +10,7 @@
  */
 Inventory::Inventory() : InventoryComponent()
 {
-    std::cout << "Calling Inventory Constructor\n";
+
 }
 
 /*!
@@ -18,12 +18,10 @@ Inventory::Inventory() : InventoryComponent()
  */
 Inventory::~Inventory()
 {
-    std::cout << "Calling Inventory Deconstructor - deleting uncategorized plants\n";
     for (auto p : plants)
         delete p;
     plants.clear();
 
-    std::cout << "Calling Inventory Deconstructor - deleting groups\n";
     for (auto g : groups)
         delete g;
     groups.clear();

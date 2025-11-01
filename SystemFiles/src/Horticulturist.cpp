@@ -32,9 +32,7 @@ void Horticulturist::executeTask(Command *command)
  */
 Horticulturist::Horticulturist(std::string name) : Staff(name)
 {
-    std::cout << "Calling Horticulturist Constructor (name=\"" << name << "\")\n";
     staffType = "horticulturist";
-    std::cout << "Horticulturist Constructor set staffType to \"horticulturist\"\n";
 }
 
 /*!
@@ -42,7 +40,6 @@ Horticulturist::Horticulturist(std::string name) : Staff(name)
  */
 Horticulturist::~Horticulturist()
 {
-    std::cout << "Calling Horticulturist Deconstructor (ID=" << staffID << ")\n";
 }
 
 /*!

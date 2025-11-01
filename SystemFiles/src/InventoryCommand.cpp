@@ -10,8 +10,6 @@
  */
 InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
 {
-    std::cout << "Calling InventoryCommand Constructor (request="
-              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "inventoryclerk";
 }
 
@@ -20,7 +18,6 @@ InventoryCommand::InventoryCommand(Request *_request) : Command(_request)
  */
 InventoryCommand::~InventoryCommand()
 {
-    std::cout << "Calling InventoryCommand Deconstructor\n";
 }
 
 /*!

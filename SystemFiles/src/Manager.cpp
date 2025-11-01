@@ -10,9 +10,7 @@
  */
 Manager::Manager(std::string _name) : Staff(_name)
 {
-    std::cout << "Calling Manager Constructor (name=\"" << _name << "\")\n";
     staffType = "manager";
-    std::cout << "Manager Constructor set staffType to \"manager\"\n";
 }
 
 /*!
@@ -20,7 +18,6 @@ Manager::Manager(std::string _name) : Staff(_name)
  */
 Manager::~Manager()
 {
-    std::cout << "Calling Manager Deconstructor (ID=" << staffID << ")\n";
 }
 
 /*!

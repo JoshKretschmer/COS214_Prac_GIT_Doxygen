@@ -24,7 +24,7 @@ Request::Request(Customer *sender, Staff *receiver) : sender(sender), receiver(r
  */
 Request::~Request()
 {
-    std::cout << "Calling Request Deconstructor\n";
+
 }
 
 /*!

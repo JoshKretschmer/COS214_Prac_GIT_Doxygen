@@ -20,7 +20,6 @@
  */
 Plant::Plant()
 {
-    std::cout << "Constructing a Plant (health=0, seeding state, composite care)\n";
     health = 0;
     currState = new SeedingState();
     careRegime = new CompositeCareStrategy();
@@ -31,7 +30,6 @@ Plant::Plant()
  */
 Plant::~Plant()
 {
-    std::cout << "Destroying Plant (ID: " << id << ", Type: " << type << ")\n";
     delete currState;
     delete careRegime;
 }

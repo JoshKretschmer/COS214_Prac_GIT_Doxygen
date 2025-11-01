@@ -13,7 +13,6 @@ SalesAssociate::SalesAssociate(std::string _name) : Staff(_name)
 {
     std::cout << "Calling SalesAssociate Constructor (name=\"" << _name << "\")\n";
     staffType = "SalesAssociate";
-    std::cout << "SalesAssociate Constructor set staffType to \"SalesAssociate\"\n";
 }
 
 /*!
@@ -21,7 +20,6 @@ SalesAssociate::SalesAssociate(std::string _name) : Staff(_name)
  */
 SalesAssociate::~SalesAssociate()
 {
-    std::cout << "Calling SalesAssociate Deconstructor (ID=" << staffID << ")\n";
 }
 
 /*!

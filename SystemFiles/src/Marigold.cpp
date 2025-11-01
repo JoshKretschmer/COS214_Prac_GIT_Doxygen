@@ -10,7 +10,6 @@
  */
 Marigold::Marigold() : Flower::Flower()
 {
-    std::cout << "Constructing Marigold\n";
     int randomNum = rand() % 101;
     this->id = "MG" + std::to_string(randomNum);
     this->price = 16.00;

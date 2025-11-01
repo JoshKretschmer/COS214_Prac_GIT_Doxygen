@@ -4,12 +4,10 @@
 
 InventoryComponent::InventoryComponent()
 {
-    std::cout << "Calling InventoryComponent Constructor\n";
 }
 
 InventoryComponent::~InventoryComponent()
 {
-    std::cout << "Calling InventoryComponent Deconstructor\n";
 }
 
 void InventoryComponent::add(InventoryComponent *component)

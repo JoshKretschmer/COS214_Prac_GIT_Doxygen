@@ -11,10 +11,7 @@
  */
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
-    std::cout << "Calling SalesCommand Constructor (request="
-              << (_request ? _request->getPlantID() : "null") << ")\n";
     access = "sales";
-    std::cout << "SalesCommand Constructor set access to \"sales\"\n";
 }
 
 /*!
@@ -22,7 +19,7 @@ SalesCommand::SalesCommand(Request *_request) : Command(_request)
  */
 SalesCommand::~SalesCommand()
 {
-    std::cout << "Calling SalesCommand Deconstructor\n";
+   
 }
 
 /*!

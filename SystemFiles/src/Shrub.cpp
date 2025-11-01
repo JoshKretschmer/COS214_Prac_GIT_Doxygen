@@ -8,6 +8,5 @@
  */
 Shrub::Shrub() : Plant::Plant()
 {
-    std::cout << "Constructing a Shrub\n";
     type = "Shrub";
 }

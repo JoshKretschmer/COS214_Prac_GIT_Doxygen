@@ -10,7 +10,6 @@
  */
 BeeBlossom::BeeBlossom() : Shrub::Shrub()
 {
-    std::cout << "Constructing BeeBlossom\n";
     int randomNum = rand() % 101;
     this->id = "BB" + std::to_string(randomNum);
     this->price = 21.00;
