@@ -8,7 +8,8 @@
 
 <!-- ANIMATED TEXT -->
 <h1 align="center">  
- <a href="https://unsplash.com/photos/JSwqRRX-G_Q" target="_blank"><img src="https://images.unsplash.com/photo-1596160211697-4055e4298cc4?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1280&h=853&fit=crop" target="_blank"></a>
+ <a href="https://unsplash.com/photos/JSwqRRX-G_Q">
+  <img src="https://images.unsplash.com/photo-1596160211697-4055e4298cc4?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1280&h=853&fit=crop" style="width:300px;max-width:100%;height:auto;" alt="Greenhouse"/>
 </a>
 
 
