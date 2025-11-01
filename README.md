@@ -9,7 +9,7 @@
 <!-- ANIMATED TEXT -->
 <h1 align="center">  
   <a href="https://images.unsplash.com/photo-1508857650881-64475119d798?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=greenhouse-plants-unsplash.jpg">
-  <img src="https://images.unsplash.com/photo-1508857650881-64475119d798?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=greenhouse-plants-unsplash.jpg" style="width: 300px; max-width: 100%; height: auto;" alt="Greenhouse Banner"/>
+  <img src="https://images.unsplash.com/photo-1508857650881-64475119d798?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=greenhouse-plants-unsplash.jpg" style="width: 300px; max-width: 100%; height: auto;" alt="Greenhouse"/>
 </a>
 
 </h1>
