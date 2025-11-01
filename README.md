@@ -8,8 +8,7 @@
 
 <!-- ANIMATED TEXT -->
 <h1 align="center">  
- <a href="https://unsplash.com/photos/JSwqRRX-G_Q">
-  <img src="https://images.unsplash.com/photo-1596160211697-4055e4298cc4?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1280&h=853&fit=crop" style="width:300px;max-width:100%;height:auto;" alt="Greenhouse Banner"/>
+ <a href="https://unsplash.com/photos/JSwqRRX-G_Q" target="_blank"><img src="https://images.unsplash.com/photo-1596160211697-4055e4298cc4?ixlib=rb-4.0&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1280&h=853&fit=crop" target="_blank"></a>
 </a>
 
 
@@ -27,7 +26,6 @@ Developed by **GitDoxygen Team**.
 
 <!-- TEAM BADGES -->
 <div align="center">
-    <a href="https://www.up.ac.za/"><img src="https://img.shields.io/badge/University%20of%20Pretoria-002F6C?style=for-the-badge&logo=google-scholar&logoColor=white" target="_blank"></a>
     <a href="https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Bridget" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Branch-Bridget-181717?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
     <a href="https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Josh" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Branch-Josh-181717?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
     <a href="https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen/tree/Kalu" target="_blank"><img src="https://img.shields.io/badge/GitHub%20Branch-Kalu-181717?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a>
