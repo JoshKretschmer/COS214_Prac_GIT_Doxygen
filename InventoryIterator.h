@@ -11,10 +11,11 @@ class Plant;
  *
  * @brief Basic application of the iterator design pattern to step through the plants contained in an Inventory object
  */
-class InventoryIterator : public Iterator {
+class InventoryIterator : public Iterator
+{
 private:
     std::vector<Plant *> plants;
-    int currentIndex;
+    std::size_t currentIndex; // changed from int to fix warnings
 
 public:
     InventoryIterator(Inventory *inventory);

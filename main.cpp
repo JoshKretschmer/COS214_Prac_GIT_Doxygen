@@ -481,13 +481,13 @@ void TestFacade()
 
 int main()
 {
-    // TestPlants();
-    // TestComposite();
-    // TestIterator();
-    //  TestDecorator();
-    // TestCommand();
-    // TestChainOfResponsibility();
-    // TestMemento();
+    TestPlants();
+    TestComposite();
+    TestIterator();
+     TestDecorator();
+    TestCommand();
+    TestChainOfResponsibility();
+    TestMemento();
     TestFacade();
     return 0;
 }

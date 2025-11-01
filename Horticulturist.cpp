@@ -21,8 +21,7 @@ void Horticulturist::executeTask(Command *command)
 
     std::cout << "Horticulturist::executeTask() setting receiver to " << staffName << "\n";
     command->getRequest()->setReceiver(this);
-    Request *request = command->execute();
-
+    command->execute();
     std::cout << "Horticulturist::executeTask() completed\n";
 }
 

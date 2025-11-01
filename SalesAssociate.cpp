@@ -41,7 +41,7 @@ void SalesAssociate::executeTask(Command *command)
 
     std::cout << "SalesAssociate::executeTask() setting receiver to " << staffName << "\n";
     command->getRequest()->setReceiver(this);
-    Request *request = command->execute();
+    command->execute();
 
     std::cout << "SalesAssociate::executeTask() completed\n";
 }

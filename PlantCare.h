@@ -13,7 +13,7 @@ class Plant;
 class PlantCare {
 public:
     PlantCare();
-    ~PlantCare();
+    virtual ~PlantCare() = default;
     virtual bool executeCare() = 0;
     virtual std::string getCareType() = 0;
     virtual PlantCare *clone() const = 0;

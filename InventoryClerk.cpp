@@ -25,7 +25,7 @@ void InventoryClerk::executeTask(Command *command)
 
     std::cout << "InventoryClerk::executeTask() setting receiver to " << staffName << "\n";
     command->getRequest()->setReceiver(this);
-    Request *request = command->execute();
+    command->execute();
 
     std::cout << "InventoryClerk::executeTask() completed\n";
 }
