@@ -1,7 +1,7 @@
-// Order.cpp
 #include "Order.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -10,9 +10,11 @@ using namespace std;
  */
 Order::Order()
 {
+    std::cout << "Calling Order Constructor\n";
     totalCost = 0.0;
     static int nextId = 1;
-    orderId = "ORD" + to_string(nextId++);
+    orderId = "ORD" + std::to_string(nextId++);
+    std::cout << "Order Constructor created orderId=\"" << orderId << "\"\n";
 }
 
 /*!
@@ -20,6 +22,7 @@ Order::Order()
  */
 Order::~Order()
 {
+    std::cout << "Calling Order Deconstructor (orderId=\"" << orderId << "\")\n";
     for (auto *p : plants)
         delete p;
     for (auto *m : mementos)
@@ -35,9 +38,13 @@ Order::~Order()
  */
 void Order::addPlant(Plant *plant)
 {
+    std::cout << "Calling Order::addPlant(plant="
+              << (plant ? plant->getDetails() : "null") << ")\n";
     mementos.push_back(createMemento()); // snapshot before change
     plants.push_back(plant);
     updateCost();
+    std::cout << "Order::addPlant() added plant, new size=" << plants.size()
+              << ", totalCost=" << totalCost << "\n";
 }
 
 /*!
@@ -47,12 +54,14 @@ void Order::addPlant(Plant *plant)
  */
 string Order::getDetails() const
 {
+    std::cout << "Calling Order::getDetails() for orderId=\"" << orderId << "\"\n";
     string details = "Order ID: " + orderId + "\nPlants:\n";
     for (auto *p : plants)
     {
         details += "- " + p->getDetails() + "\n";
     }
-    details += "Total cost: " + to_string(totalCost) + "\n";
+    details += "Total cost: " + std::to_string(totalCost) + "\n";
+    std::cout << "Order::getDetails() returning: \"" << details << "\"\n";
     return details;
 }
 
@@ -61,11 +70,13 @@ string Order::getDetails() const
  */
 void Order::updateCost()
 {
+    std::cout << "Calling Order::updateCost() - before: totalCost=" << totalCost << "\n";
     totalCost = 0.0;
     for (auto *p : plants)
     {
         totalCost += p->getCost();
     }
+    std::cout << "Order::updateCost() - after: totalCost=" << totalCost << "\n";
 }
 
 /*!
@@ -75,7 +86,11 @@ void Order::updateCost()
  */
 Memento *Order::createMemento()
 {
-    return new Memento(plants, totalCost);
+    std::cout << "Calling Order::createMemento() - current plants.size()="
+              << plants.size() << ", totalCost=" << totalCost << "\n";
+    Memento *m = new Memento(plants, totalCost);
+    std::cout << "Order::createMemento() returning new Memento\n";
+    return m;
 }
 
 /*!
@@ -85,8 +100,14 @@ Memento *Order::createMemento()
  */
 void Order::restoreMemento(Memento *memento)
 {
+    std::cout << "Calling Order::restoreMemento(memento="
+              << (memento ? "non-null" : "null") << ")\n";
+
     if (!memento)
+    {
+        std::cout << "Order::restoreMemento() - no memento, nothing done\n";
         return;
+    }
 
     // delete current plants
     for (auto *p : plants)
@@ -100,6 +121,8 @@ void Order::restoreMemento(Memento *memento)
     }
 
     totalCost = memento->getSavedCost();
+    std::cout << "Order::restoreMemento() restored to plants.size()="
+              << plants.size() << ", totalCost=" << totalCost << "\n";
 }
 
 /*!
@@ -107,6 +130,7 @@ void Order::restoreMemento(Memento *memento)
  */
 vector<Memento *> &Order::getMementos()
 {
+    std::cout << "Calling Order::getMementos() - size=" << mementos.size() << "\n";
     return mementos;
 }
 
@@ -115,6 +139,7 @@ vector<Memento *> &Order::getMementos()
  */
 vector<Memento *> &Order::getRedoMementos()
 {
+    std::cout << "Calling Order::getRedoMementos() - size=" << redoMementos.size() << "\n";
     return redoMementos;
 }
 
@@ -123,8 +148,13 @@ vector<Memento *> &Order::getRedoMementos()
  */
 void Order::undoLastAddition()
 {
+    std::cout << "Calling Order::undoLastAddition() - mementos.size()=" << mementos.size() << "\n";
+
     if (mementos.empty())
+    {
+        std::cout << "Order::undoLastAddition() - no mementos, nothing done\n";
         return;
+    }
 
     Memento *last = mementos.back();
     mementos.pop_back();
@@ -132,6 +162,8 @@ void Order::undoLastAddition()
     redoMementos.push_back(createMemento()); // save for redo
     restoreMemento(last);
     delete last;
+
+    std::cout << "Order::undoLastAddition() completed - new plants.size()=" << plants.size() << "\n";
 }
 
 /*!
@@ -139,8 +171,13 @@ void Order::undoLastAddition()
  */
 void Order::redoLastStep()
 {
+    std::cout << "Calling Order::redoLastStep() - redoMementos.size()=" << redoMementos.size() << "\n";
+
     if (redoMementos.empty())
+    {
+        std::cout << "Order::redoLastStep() - no redo mementos, nothing done\n";
         return;
+    }
 
     Memento *next = redoMementos.back();
     redoMementos.pop_back();
@@ -148,6 +185,8 @@ void Order::redoLastStep()
     mementos.push_back(createMemento()); // save for undo
     restoreMemento(next);
     delete next;
+
+    std::cout << "Order::redoLastStep() completed - new plants.size()=" << plants.size() << "\n";
 }
 
 /*!
@@ -155,6 +194,7 @@ void Order::redoLastStep()
  */
 vector<Plant *> Order::getPlants() const
 {
+    std::cout << "Calling Order::getPlants() - size=" << plants.size() << "\n";
     return plants;
 }
 
@@ -163,7 +203,11 @@ vector<Plant *> Order::getPlants() const
  */
 Plant *Order::getLastPlant() const
 {
-    return plants.empty() ? nullptr : plants.back();
+    std::cout << "Calling Order::getLastPlant() - size=" << plants.size() << "\n";
+    Plant *result = plants.empty() ? nullptr : plants.back();
+    std::cout << "Order::getLastPlant() returning "
+              << (result ? result->getDetails() : "null") << "\n";
+    return result;
 }
 
 /*!
@@ -173,11 +217,20 @@ Plant *Order::getLastPlant() const
  */
 void Order::replaceLastPlant(Plant *newPlant)
 {
+    std::cout << "Calling Order::replaceLastPlant(newPlant="
+              << (newPlant ? newPlant->getDetails() : "null") << ")\n";
+
     if (plants.empty())
+    {
+        std::cout << "Order::replaceLastPlant() - empty plants, nothing done\n";
         return;
+    }
+
     delete plants.back();
     plants.back() = newPlant;
     updateCost();
+
+    std::cout << "Order::replaceLastPlant() completed - new totalCost=" << totalCost << "\n";
 }
 
 /*!
@@ -185,6 +238,8 @@ void Order::replaceLastPlant(Plant *newPlant)
  */
 void Order::printOrder() const
 {
+    std::cout << "Calling Order::printOrder() for orderId=\"" << orderId << "\"\n";
     cout << fixed << setprecision(2);
     cout << getDetails();
+    std::cout << "Order::printOrder() completed\n";
 }

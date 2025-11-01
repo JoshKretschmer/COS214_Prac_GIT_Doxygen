@@ -23,6 +23,7 @@
 #include "ManagerCommand.h"
 #include "SalesCommand.h"
 #include "SalesAssociate.h"
+#include "Order.h"
 
 void TestPlants()
 {
@@ -182,7 +183,7 @@ void TestPlants()
 
     delete peanut;
 
-    std::cout << "Factory, Prototype, State, and Strategy patterns are working\n";
+    std::cout << "Factory, Prototype, State and Strategy patterns are working\n";
 }
 
 void TestComposite()
@@ -398,6 +399,44 @@ void TestChainOfResponsibility()
     std::cout << "Chain of Responsibility pattern is working\n";
 }
 
+void TestMemento()
+{
+    std::cout << "Test Memento \n\n";
+
+    Order order;
+
+    // Add plants
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    Plant *houseleek = factory.createPlant("HouseLeek");
+
+    order.addPlant(peanut);
+    order.addPlant(houseleek);
+
+    std::cout << "Current order:\n";
+    order.printOrder();
+
+    // Undo last addition
+    order.undoLastAddition();
+    std::cout << "After undo:\n";
+    order.printOrder();
+
+    // Redo
+    order.redoLastStep();
+    std::cout << "After redo:\n";
+    order.printOrder();
+
+    // Confirm empty after reset
+    order.undoLastAddition();
+    order.undoLastAddition();
+    if (order.isEmpty())
+    {
+        std::cout << "Order is empty after undos\n";
+    }
+
+    std::cout << "Memento pattern is working\n";
+}
+
 int main()
 {
     // TestPlants();
@@ -405,6 +444,7 @@ int main()
     // TestIterator();
     //  TestDecorator();
     // TestCommand();
-    TestChainOfResponsibility();
+    // TestChainOfResponsibility();
+    TestMemento();
     return 0;
 }
