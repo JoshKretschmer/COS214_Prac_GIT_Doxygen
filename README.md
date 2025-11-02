@@ -32,17 +32,17 @@ The simulation demonstrates object-oriented design excellence through patterns l
 # Setup
 
 
-
-```bash
 ### Prerequisites
+
+```
 sudo apt-get install libboost-all-dev
 sudo apt-get install doctest-dev
 ```
 
 ### Cloning
+```
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
 cd COS214_Prac_GIT_Doxygen/SystemFiles/src
-
 ```
 
 
@@ -66,6 +66,27 @@ Testing
  make run_tests 
 
 ```
+
+- **Compilation**:  
+  ```bash
+  cd SystemFiles
+  make all
+  ```
+
+- **Demo Main**:  
+  ```bash
+  make run_demo
+  ```
+  
+  - **Terminal Demo Main**:  
+  ```bash
+  make run_terminal
+  ```
+
+- **Unit Tests**:  
+  ```bash
+  make run_tests
+  ```
 
 ### Running
 
