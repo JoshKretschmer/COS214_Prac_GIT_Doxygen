@@ -1,0 +1,54 @@
+\doxysection{Order.\+h}
+\hypertarget{_order_8h_source}{}\label{_order_8h_source}\index{inc/Order.h@{inc/Order.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Order.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ ORDER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ ORDER\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Plant.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Memento.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_memento}{Memento}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order_a7b6a660b03708ed5b4e1c4a6dc2a664a}{Order}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ orderId;}
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<Plant\ *>\ plants;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ totalCost;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<Memento\ *>\ mementos;\ \ \ \ \ \textcolor{comment}{//\ undo\ stack}}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<Memento\ *>\ redoMementos;\ \textcolor{comment}{//\ redo\ stack}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_order_a7b6a660b03708ed5b4e1c4a6dc2a664a}{Order}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_order_a8fb25876ccbd534465f5f96ef9bb2212}{\string~Order}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a437b2812d60fa268e5acbae987179fd7}{addPlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant);}
+\DoxyCodeLine{00032\ \ \ \ \ std::string\ \mbox{\hyperlink{class_order_a0afe973eac4e4c8448f25fabd069a68b}{getDetails}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a8af8a5b2c97bc18b65d5a6fa78f15de5}{updateCost}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_memento}{Memento}}\ *\mbox{\hyperlink{class_order_a55b1e71a3c57b57538b9fbe90701b0de}{createMemento}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a838313fbcbf6525aa28747f8a696da80}{restoreMemento}}(\mbox{\hyperlink{class_memento}{Memento}}\ *memento);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<Memento\ *>\ \&\mbox{\hyperlink{class_order_a36554f3988c511da6184b082f05d0967}{getMementos}}();}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<Memento\ *>\ \&\mbox{\hyperlink{class_order_add1b46e09e148448ecf95d370f46d646}{getRedoMementos}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_ac441d8effedd13c757e348505510c45f}{undoLastAddition}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a75d20760b0073647d46316862b9136ac}{redoLastStep}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ std::vector<Plant\ *>\ \mbox{\hyperlink{class_order_afb4891c44a38ffc82b634cd759e2226d}{getPlants}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}\ *\mbox{\hyperlink{class_order_acbf7441e63750ca21938591b394d40e4}{getLastPlant}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a00482118ddd8305032f94d5c84962180}{replaceLastPlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *newPlant);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ isEmpty()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ plants.empty();\ \}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_order_aa8ef569e9a5ba17cc1215cf32a7877d7}{getTotalCost}}()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_order_a64be17bf3260942be50b8bac9e228687}{printOrder}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ORDER\_H}}
+
+\end{DoxyCode}

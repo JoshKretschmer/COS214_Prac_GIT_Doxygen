@@ -1,0 +1,95 @@
+\doxysection{Sales\+Associate Class Reference}
+\hypertarget{class_sales_associate}{}\label{class_sales_associate}\index{SalesAssociate@{SalesAssociate}}
+
+
+public \doxylink{class_staff}{Staff} class responsible for interacting with customer and passing on their requests  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Associate.\+h$>$}
+
+Inheritance diagram for Sales\+Associate\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sales_associate}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sales_associate_a625ff8631969c6341142efef9430d9c0}{Sales\+Associate}} (string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Basic constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_sales_associate_a68072381930d1483708613b32e701a8f}\label{class_sales_associate_a68072381930d1483708613b32e701a8f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sales\+Associate} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for sales associate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}} (std\+::string \+\_\+staff\+Name)
+\begin{DoxyCompactList}\small\item\em Basic constructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Staff} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_staff_ab668649dc03641164967fdcb6d26400f}{handle\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{class_staff}{Staff} can handle the \doxylink{class_command}{Command}, if not the \doxylink{class_command}{Command} is forwarded. \end{DoxyCompactList}\item 
+std\+::string {\bfseries get\+Staff\+Name} ()
+\item 
+std\+::string {\bfseries get\+Staff\+ID} ()
+\item 
+std\+::string {\bfseries get\+Staff\+Type} ()
+\item 
+void \mbox{\hyperlink{class_staff_a18831f84d0110b3af1549106c490507f}{set\+Next\+Handler}} (\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+handler)
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Next\+Handler} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_staff_a44ab2e5cc6801f8bad2e00264d2a0a42}{forward\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}\+\_\+command)
+\begin{DoxyCompactList}\small\item\em Sends the \doxylink{class_command}{Command} object to the next\+Handler \doxylink{class_staff}{Staff} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries staff\+Name}
+\item 
+std\+::string {\bfseries staff\+ID}
+\item 
+std\+::string {\bfseries staff\+Type}
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries next\+Handler}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries instance\+Count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+public \doxylink{class_staff}{Staff} class responsible for interacting with customer and passing on their requests 
+
+\label{doc-constructors}
+\Hypertarget{class_sales_associate_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sales_associate_a625ff8631969c6341142efef9430d9c0}\index{SalesAssociate@{SalesAssociate}!SalesAssociate@{SalesAssociate}}
+\index{SalesAssociate@{SalesAssociate}!SalesAssociate@{SalesAssociate}}
+\doxysubsubsection{\texorpdfstring{SalesAssociate()}{SalesAssociate()}}
+{\footnotesize\ttfamily \label{class_sales_associate_a625ff8631969c6341142efef9430d9c0} 
+Sales\+Associate\+::\+Sales\+Associate (\begin{DoxyParamCaption}\item[{string}]{\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & name of \doxylink{class_staff}{Staff} member \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Sales\+Associate.\+h\item 
+src/Sales\+Associate.\+cpp\end{DoxyCompactItemize}

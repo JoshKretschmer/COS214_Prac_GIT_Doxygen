@@ -1,0 +1,33 @@
+\doxysection{Plant\+Group.\+h}
+\hypertarget{_plant_group_8h_source}{}\label{_plant_group_8h_source}\index{inc/PlantGroup.h@{inc/PlantGroup.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLANTGROUP\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLANTGROUP\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}InventoryComponent.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_group_a8fd58a8e9c10467aea18c26e3c98e7ea}{PlantGroup}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ groupName;}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<InventoryComponent\ *>\ children;\ \textcolor{comment}{//\ holds\ Plant*\ or\ PlantGroup*}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_plant_group_a8fd58a8e9c10467aea18c26e3c98e7ea}{PlantGroup}}(std::string\ name);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_plant_group_a95dadbcf4f8779bb5e1b5a311221f573}{\string~PlantGroup}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_group_a794d2a9a1d96c41094eaa97b5846b2ea}{add}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_group_af437f423a16735aa9d155dff2b719ea5}{remove}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<Plant\ *>\ \mbox{\hyperlink{class_plant_group_a42b6d5f2925e8c12e3570590cba71af4}{getPlants}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_group_a808dc661e282d2f165e3c4a78d2d0004}{movePlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant,\ std::string\ newState)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&getName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ groupName;\ \}}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLANTGROUP\_H}}
+
+\end{DoxyCode}

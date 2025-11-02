@@ -1,0 +1,87 @@
+\doxysection{Sunlight\+Strategy Class Reference}
+\hypertarget{class_sunlight_strategy}{}\label{class_sunlight_strategy}\index{SunlightStrategy@{SunlightStrategy}}
+
+
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class.  
+
+
+
+
+{\ttfamily \#include $<$Sunlight\+Strategy.\+h$>$}
+
+Inheritance diagram for Sunlight\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sunlight_strategy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_sunlight_strategy_a51211942d823c997040de58d20835193}\label{class_sunlight_strategy_a51211942d823c997040de58d20835193} 
+{\bfseries Sunlight\+Strategy} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sunlight_strategy_ae35e2521e855bfef364082a9571d70db}{execute\+Care}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_sunlight_strategy_ae22a47e3d7a39e362099b3a873b1bc63}{get\+Care\+Type}} ()
+\item 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sunlight_strategy_ada2c689acb6662ee3aaf4e2bf87fb00e}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_care}{Plant\+Care}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Care} ()
+\begin{DoxyCompactList}\small\item\em Basic Abstract class constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class. 
+
+\label{doc-func-members}
+\Hypertarget{class_sunlight_strategy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sunlight_strategy_ada2c689acb6662ee3aaf4e2bf87fb00e}\index{SunlightStrategy@{SunlightStrategy}!clone@{clone}}
+\index{clone@{clone}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_sunlight_strategy_ada2c689acb6662ee3aaf4e2bf87fb00e} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} Sunlight\+Strategy\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Cloning \doxylink{class_sunlight_strategy}{Sunlight\+Strategy} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_sunlight_strategy_ae35e2521e855bfef364082a9571d70db}\index{SunlightStrategy@{SunlightStrategy}!executeCare@{executeCare}}
+\index{executeCare@{executeCare}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{executeCare()}{executeCare()}}
+{\footnotesize\ttfamily \label{class_sunlight_strategy_ae35e2521e855bfef364082a9571d70db} 
+bool Sunlight\+Strategy\+::execute\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Output message and return true 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_sunlight_strategy_ae22a47e3d7a39e362099b3a873b1bc63}\index{SunlightStrategy@{SunlightStrategy}!getCareType@{getCareType}}
+\index{getCareType@{getCareType}!SunlightStrategy@{SunlightStrategy}}
+\doxysubsubsection{\texorpdfstring{getCareType()}{getCareType()}}
+{\footnotesize\ttfamily \label{class_sunlight_strategy_ae22a47e3d7a39e362099b3a873b1bc63} 
+std\+::string Sunlight\+Strategy\+::get\+Care\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Sunlight 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Sunlight\+Strategy.\+h\item 
+src/Sunlight\+Strategy.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,117 @@
+\doxysection{Inventory\+Component Class Reference}
+\hypertarget{class_inventory_component}{}\label{class_inventory_component}\index{InventoryComponent@{InventoryComponent}}
+
+
+Parent class for object classes that can be stored in the \doxylink{class_inventory}{Inventory}, as well as the \doxylink{class_inventory}{Inventory} itself.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Component.\+h$>$}
+
+Inheritance diagram for Inventory\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.800000cm]{class_inventory_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_component_a2a630180957861aba18b9e199d1cf720}\label{class_inventory_component_a2a630180957861aba18b9e199d1cf720} 
+{\bfseries Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_component_a6e02cd76630e1deb7c4b6f76fbdc8bae}\label{class_inventory_component_a6e02cd76630e1deb7c4b6f76fbdc8bae} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}{add}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component)=0
+\begin{DoxyCompactList}\small\item\em Adds a component to the inventory. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}{remove}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component)=0
+\begin{DoxyCompactList}\small\item\em Removes a component from the inventory. \end{DoxyCompactList}\item 
+virtual vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_inventory_component_abd7d18817dfad9aef34e3cfe9762c110}{get\+Plants}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}{move\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string new\+State)=0
+\begin{DoxyCompactList}\small\item\em Moves a plant to a new state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parent class for object classes that can be stored in the \doxylink{class_inventory}{Inventory}, as well as the \doxylink{class_inventory}{Inventory} itself. 
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_component_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}\index{InventoryComponent@{InventoryComponent}!add@{add}}
+\index{add@{add}!InventoryComponent@{InventoryComponent}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262} 
+void Inventory\+Component\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Adds a component to the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Pointer to the \doxylink{class_inventory_component}{Inventory\+Component}\textquotesingle{}s add \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_inventory_a75c851ceaf4944f57b372ef36946968b}{Inventory}}, \mbox{\hyperlink{class_plant_a6ca7421fe0fcbdeb4b90ad3fa0c33514}{Plant}}, and \mbox{\hyperlink{class_plant_group_a794d2a9a1d96c41094eaa97b5846b2ea}{Plant\+Group}}.
+
+\Hypertarget{class_inventory_component_abd7d18817dfad9aef34e3cfe9762c110}\index{InventoryComponent@{InventoryComponent}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!InventoryComponent@{InventoryComponent}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_inventory_component_abd7d18817dfad9aef34e3cfe9762c110} 
+virtual vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ Inventory\+Component\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_inventory_a6a4836ed20ac1b5efd356c3ae3534245}{Inventory}}, \mbox{\hyperlink{class_plant_a077f8c8ae26f3990265c43cdfd50e088}{Plant}}, and \mbox{\hyperlink{class_plant_group_a42b6d5f2925e8c12e3570590cba71af4}{Plant\+Group}}.
+
+\Hypertarget{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}\index{InventoryComponent@{InventoryComponent}!movePlant@{movePlant}}
+\index{movePlant@{movePlant}!InventoryComponent@{InventoryComponent}}
+\doxysubsubsection{\texorpdfstring{movePlant()}{movePlant()}}
+{\footnotesize\ttfamily \label{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2} 
+void Inventory\+Component\+::move\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{std\+::string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Moves a plant to a new state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Pointer to the \doxylink{class_plant}{Plant} to move. \\
+\hline
+{\em new\+State} & The new state for the plant. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_inventory_a966d9550fb5ac669b296d568e1726b54}{Inventory}}, \mbox{\hyperlink{class_plant_a538ecaee51682ceca60b3bc6c14fb680}{Plant}}, and \mbox{\hyperlink{class_plant_group_a808dc661e282d2f165e3c4a78d2d0004}{Plant\+Group}}.
+
+\Hypertarget{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}\index{InventoryComponent@{InventoryComponent}!remove@{remove}}
+\index{remove@{remove}!InventoryComponent@{InventoryComponent}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914} 
+void Inventory\+Component\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Removes a component from the inventory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Pointer to the \doxylink{class_inventory_component}{Inventory\+Component}\textquotesingle{}s remove. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_inventory_a3e390845a12ea7c6d6806125924f34e7}{Inventory}}, \mbox{\hyperlink{class_plant_a276396fbe27eee76882a034baa527caf}{Plant}}, and \mbox{\hyperlink{class_plant_group_af437f423a16735aa9d155dff2b719ea5}{Plant\+Group}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Inventory\+Component.\+h\item 
+src/Inventory\+Component.\+cpp\end{DoxyCompactItemize}

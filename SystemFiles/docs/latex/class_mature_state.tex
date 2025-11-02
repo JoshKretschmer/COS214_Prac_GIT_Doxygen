@@ -1,0 +1,81 @@
+\doxysection{Mature\+State Class Reference}
+\hypertarget{class_mature_state}{}\label{class_mature_state}\index{MatureState@{MatureState}}
+
+
+State in which \doxylink{class_plant}{Plant} objects can be sold.  
+
+
+
+
+{\ttfamily \#include $<$Mature\+State.\+h$>$}
+
+Inheritance diagram for Mature\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mature_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_mature_state_ab70a09ff07f231efeff7854c5df7b2d6}{handle\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Determines which state change should occur, if any, according to Plant-\/\texorpdfstring{$>$}{>}health. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_mature_state_a3d5645b93e12fcff95cc7f4a93a7c475}{get\+State\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_state}{Plant\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+State in which \doxylink{class_plant}{Plant} objects can be sold. 
+
+Can transition to \doxylink{class_moult_state}{Moult\+State}, or be removed from system by a purchase action 
+
+\label{doc-func-members}
+\Hypertarget{class_mature_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_mature_state_a3d5645b93e12fcff95cc7f4a93a7c475}\index{MatureState@{MatureState}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily \label{class_mature_state_a3d5645b93e12fcff95cc7f4a93a7c475} 
+std\+::string Mature\+State\+::get\+State\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+"{}\+Matured"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+\Hypertarget{class_mature_state_ab70a09ff07f231efeff7854c5df7b2d6}\index{MatureState@{MatureState}!handleCare@{handleCare}}
+\index{handleCare@{handleCare}!MatureState@{MatureState}}
+\doxysubsubsection{\texorpdfstring{handleCare()}{handleCare()}}
+{\footnotesize\ttfamily \label{class_mature_state_ab70a09ff07f231efeff7854c5df7b2d6} 
+void Mature\+State\+::handle\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Determines which state change should occur, if any, according to Plant-\/\texorpdfstring{$>$}{>}health. 
+
+\doxylink{class_plant}{Plant} object can regress to \doxylink{class_moult_state}{Moult\+State}, or be removed from the system due to sale Called after any plant care function is executed
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object for which the state is being checked (and perhaps changed) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Mature\+State.\+h\item 
+src/Mature\+State.\+cpp\end{DoxyCompactItemize}

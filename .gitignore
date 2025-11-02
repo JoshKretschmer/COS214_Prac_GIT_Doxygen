@@ -43,8 +43,6 @@
 # other
 .vscode
 main
-html
-latex
 *.o
 *.gcda
 *.gcno

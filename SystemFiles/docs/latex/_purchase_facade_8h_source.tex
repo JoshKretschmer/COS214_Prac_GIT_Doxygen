@@ -1,0 +1,44 @@
+\doxysection{Purchase\+Facade.\+h}
+\hypertarget{_purchase_facade_8h_source}{}\label{_purchase_facade_8h_source}\index{inc/PurchaseFacade.h@{inc/PurchaseFacade.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PURCHASEFACADE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PURCHASEFACADE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Inventory.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}PaymentSystem.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Order.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Plant.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Customer.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_purchase_facade_a04a499be6b8cc73a3942c7998da9cb03}{PurchaseFacade}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_inventory}{Inventory}}\ *inventory;}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_payment_system}{PaymentSystem}}\ *paymentSystem;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}\ *customizePlant(\mbox{\hyperlink{class_plant}{Plant}}\ *plant,\ std::string\ decor);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_purchase_facade_a04a499be6b8cc73a3942c7998da9cb03}{PurchaseFacade}}(\mbox{\hyperlink{class_inventory}{Inventory}}\ *inv,\ \mbox{\hyperlink{class_payment_system}{PaymentSystem}}\ *ps);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_purchase_facade_aa7d8ad6026d2548d426ae7397a7a87e9}{\string~PurchaseFacade}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_a458ac07f0a2653b13fedfa5a72c9ee74}{setPaymentSystem}}(\mbox{\hyperlink{class_payment_system}{PaymentSystem}}\ *ps);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_order}{Order}}\ *\mbox{\hyperlink{class_purchase_facade_a3e08425dd7232f9fbb0fd55338c10347}{initiatePurchase}}(\mbox{\hyperlink{class_customer}{Customer}}\ *customer,\ \mbox{\hyperlink{class_plant}{Plant}}\ *plant);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_a9028e049b7e4eb8baeab5adab28a3a9c}{addCustomization}}(\mbox{\hyperlink{class_order}{Order}}\ *order,\ std::string\ customization);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_purchase_facade_a40cdedb9ed46a0045c2632a65af2e6fe}{processPayment}}(\mbox{\hyperlink{class_order}{Order}}\ *order);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_aaa1b807aabad3c34dce1c5cd4c1c4234}{undoLastStep}}(\mbox{\hyperlink{class_order}{Order}}\ *order);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_a2ee6ead54a1e551afff302b332b0653d}{redoStep}}(\mbox{\hyperlink{class_order}{Order}}\ *order);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_a86ec6ac1b9bd7302d4cfbbc04c87b57f}{completePurchase}}(\mbox{\hyperlink{class_order}{Order}}\ *order);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_purchase_facade_acb6d301e88b704679fef2dceb917ba45}{addPlantToOrder}}(\mbox{\hyperlink{class_order}{Order}}\ *order,\ \mbox{\hyperlink{class_plant}{Plant}}\ *plant);}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PURCHASEFACADE\_H}}
+
+\end{DoxyCode}

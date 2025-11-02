@@ -1,0 +1,64 @@
+\doxysection{Plant\+State Class Reference}
+\hypertarget{class_plant_state}{}\label{class_plant_state}\index{PlantState@{PlantState}}
+
+
+Abstract parent class for concrete state classes.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+State.\+h$>$}
+
+Inheritance diagram for Plant\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plant_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_plant_state_a565d04fb4b05c30da70a112a0d25ea04}\label{class_plant_state_a565d04fb4b05c30da70a112a0d25ea04} 
+{\bfseries Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_state_a30b77856181f7ac6ea6036bc5b8c6c9a}\label{class_plant_state_a30b77856181f7ac6ea6036bc5b8c6c9a} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_plant_state_ac737c30ae8e1643c66a8cdf9b088554e}{handle\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_plant_state_a3e49b2a124391e1475c7a5ac2ce537fa}{get\+State\+Name}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract parent class for concrete state classes. 
+
+\label{doc-func-members}
+\Hypertarget{class_plant_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_state_a3e49b2a124391e1475c7a5ac2ce537fa}\index{PlantState@{PlantState}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!PlantState@{PlantState}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily \label{class_plant_state_a3e49b2a124391e1475c7a5ac2ce537fa} 
+virtual std\+::string Plant\+State\+::get\+State\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_dead_state_a1bf8bcb70398f2d41e594181dde29e88}{Dead\+State}}, \mbox{\hyperlink{class_growing_state_a7fc53c7e8897a73b8a67fc3c41c4aa19}{Growing\+State}}, \mbox{\hyperlink{class_mature_state_a3d5645b93e12fcff95cc7f4a93a7c475}{Mature\+State}}, \mbox{\hyperlink{class_moult_state_a25dbff66c6786d81c49a5d8941158113}{Moult\+State}}, and \mbox{\hyperlink{class_seeding_state_a7755edec15212cb8ea507b7f890c6e4e}{Seeding\+State}}.
+
+\Hypertarget{class_plant_state_ac737c30ae8e1643c66a8cdf9b088554e}\index{PlantState@{PlantState}!handleCare@{handleCare}}
+\index{handleCare@{handleCare}!PlantState@{PlantState}}
+\doxysubsubsection{\texorpdfstring{handleCare()}{handleCare()}}
+{\footnotesize\ttfamily \label{class_plant_state_ac737c30ae8e1643c66a8cdf9b088554e} 
+virtual void Plant\+State\+::handle\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_dead_state_acfad0fea1d2a248a8ef58ba837aa91d1}{Dead\+State}}, \mbox{\hyperlink{class_growing_state_a38e4dc8a6558549422b1fe30707172a4}{Growing\+State}}, \mbox{\hyperlink{class_mature_state_ab70a09ff07f231efeff7854c5df7b2d6}{Mature\+State}}, \mbox{\hyperlink{class_moult_state_a00692fe84fa1bfa0be7575045c5ef413}{Moult\+State}}, and \mbox{\hyperlink{class_seeding_state_ad64370b0c370f6c7647ac1148ccbf816}{Seeding\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Plant\+State.\+h\item 
+src/Plant\+State.\+cpp\end{DoxyCompactItemize}

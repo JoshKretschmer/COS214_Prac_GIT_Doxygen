@@ -1,0 +1,29 @@
+\doxysection{Command.\+h}
+\hypertarget{_command_8h_source}{}\label{_command_8h_source}\index{inc/Command.h@{inc/Command.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ COMMAND\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ COMMAND\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request}{Request}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_staff}{Staff}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_command_a85a537c687e707178333545e860dbada}{Command}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ access;\ \ \textcolor{comment}{//\ the\ staff\ member\ who\ can\ access\ a\ command\ }}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}*\ request;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_command_a85a537c687e707178333545e860dbada}{Command}}(\mbox{\hyperlink{class_request}{Request}}\ *\_request);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_command_ab552bb3a07fdd1acbfd8ea76e69b2278}{\string~Command}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_request}{Request}}*\ execute()\ =\ 0;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_command_afe5c2b6190adf485a869ed0c354f1db0}{hasAccess}}(std::string\ \_staffType);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}*\ getRequest()\ \{\ \textcolor{keywordflow}{return}\ request;\ \}}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

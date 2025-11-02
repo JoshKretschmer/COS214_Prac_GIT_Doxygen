@@ -1,0 +1,87 @@
+\doxysection{Fertilizing\+Strategy Class Reference}
+\hypertarget{class_fertilizing_strategy}{}\label{class_fertilizing_strategy}\index{FertilizingStrategy@{FertilizingStrategy}}
+
+
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class.  
+
+
+
+
+{\ttfamily \#include $<$Fertilizing\+Strategy.\+h$>$}
+
+Inheritance diagram for Fertilizing\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_fertilizing_strategy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_fertilizing_strategy_a0c5e5690bb453f20cb00e725befa25dd}\label{class_fertilizing_strategy_a0c5e5690bb453f20cb00e725befa25dd} 
+{\bfseries Fertilizing\+Strategy} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fertilizing_strategy_a3e58c39212b2f4c9dc02029571193952}{execute\+Care}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_fertilizing_strategy_ad921078a1d9cc3ca09c83f81079e83d2}{get\+Care\+Type}} ()
+\item 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_fertilizing_strategy_aed7886170d14917deaf34dbf49bb91ee}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_care}{Plant\+Care}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Care} ()
+\begin{DoxyCompactList}\small\item\em Basic Abstract class constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class. 
+
+\label{doc-func-members}
+\Hypertarget{class_fertilizing_strategy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_fertilizing_strategy_aed7886170d14917deaf34dbf49bb91ee}\index{FertilizingStrategy@{FertilizingStrategy}!clone@{clone}}
+\index{clone@{clone}!FertilizingStrategy@{FertilizingStrategy}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_fertilizing_strategy_aed7886170d14917deaf34dbf49bb91ee} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} Fertilizing\+Strategy\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Clone \doxylink{class_fertilizing_strategy}{Fertilizing\+Strategy} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_fertilizing_strategy_a3e58c39212b2f4c9dc02029571193952}\index{FertilizingStrategy@{FertilizingStrategy}!executeCare@{executeCare}}
+\index{executeCare@{executeCare}!FertilizingStrategy@{FertilizingStrategy}}
+\doxysubsubsection{\texorpdfstring{executeCare()}{executeCare()}}
+{\footnotesize\ttfamily \label{class_fertilizing_strategy_a3e58c39212b2f4c9dc02029571193952} 
+bool Fertilizing\+Strategy\+::execute\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Output message and return true 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_fertilizing_strategy_ad921078a1d9cc3ca09c83f81079e83d2}\index{FertilizingStrategy@{FertilizingStrategy}!getCareType@{getCareType}}
+\index{getCareType@{getCareType}!FertilizingStrategy@{FertilizingStrategy}}
+\doxysubsubsection{\texorpdfstring{getCareType()}{getCareType()}}
+{\footnotesize\ttfamily \label{class_fertilizing_strategy_ad921078a1d9cc3ca09c83f81079e83d2} 
+std\+::string Fertilizing\+Strategy\+::get\+Care\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Fertilizing 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Fertilizing\+Strategy.\+h\item 
+src/Fertilizing\+Strategy.\+cpp\end{DoxyCompactItemize}

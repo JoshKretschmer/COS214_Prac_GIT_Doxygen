@@ -1,0 +1,199 @@
+\doxysection{Request Class Reference}
+\hypertarget{class_request}{}\label{class_request}\index{Request@{Request}}
+
+
+Acts as an Information package contained within the \doxylink{class_command}{Command} objects.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_request_a50bd2767895d112e903b9f589c7c1a2b}{Request}} (\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*}\+\_\+sender, \mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}receiver)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_request_a4d57c725686701f773eb3630630a7ea2}\label{class_request_a4d57c725686701f773eb3630630a7ea2} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Request} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_request_a00c334ad1f26ba22587802156a11bfc7}{set\+Plant\+Type}} (std\+::string \+\_\+plant\+Type)
+\item 
+std\+::string \mbox{\hyperlink{class_request_a9c06fc94eb33e0ed92e4d603710dbb77}{get\+Plant\+Type}} ()
+\item 
+void \mbox{\hyperlink{class_request_a3c49021dcbf8d09c8241eec3af8a7144}{set\+Plant\+ID}} (std\+::string \+\_\+plant\+ID)
+\item 
+std\+::string \mbox{\hyperlink{class_request_afafc7584c4d4a112551331660987d778}{get\+Plant\+ID}} ()
+\item 
+void \mbox{\hyperlink{class_request_ac09a49481af10861f0b2a3362cbd8732}{set\+Type}} (std\+::string \+\_\+type)
+\item 
+std\+::string \mbox{\hyperlink{class_request_aa7202348a591bff7a3db56527bb47f4c}{get\+Type}} ()
+\item 
+void \mbox{\hyperlink{class_request_aad5ea660af289aa51aa1a64915ec2bb8}{set\+Sender}} (\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*}\+\_\+sender)
+\item 
+\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_request_a85fc1e5350040cd68e257f7ea3a735ef}{get\+Sender}} ()
+\item 
+void \mbox{\hyperlink{class_request_a4231382fe4ee0626bfb376b7a7c5ed50}{set\+Extra}} (std\+::string \+\_\+extra)
+\item 
+std\+::string \mbox{\hyperlink{class_request_adbda996481e8d0cae9862f9db12d25ca}{get\+Extra}} ()
+\item 
+void \mbox{\hyperlink{class_request_a88e09b76d3918af3f5ce4cda5639baa1}{set\+Receiver}} (\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+receiver)
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_request_a12aa9b05edb01d7f04041b1b8d294206}{get\+Receiver}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Acts as an Information package contained within the \doxylink{class_command}{Command} objects. 
+
+\label{doc-constructors}
+\Hypertarget{class_request_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_request_a50bd2767895d112e903b9f589c7c1a2b}\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily \label{class_request_a50bd2767895d112e903b9f589c7c1a2b} 
+Request\+::\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*}}]{sender}{, }\item[{\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}}]{receiver}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & Object that created/sent the \doxylink{class_request}{Request} \\
+\hline
+{\em receiver} & \doxylink{class_staff}{Staff} member expected to receive and fulfil the \doxylink{class_request}{Request} \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_request_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_request_adbda996481e8d0cae9862f9db12d25ca}\index{Request@{Request}!getExtra@{getExtra}}
+\index{getExtra@{getExtra}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getExtra()}{getExtra()}}
+{\footnotesize\ttfamily \label{class_request_adbda996481e8d0cae9862f9db12d25ca} 
+std\+::string Request\+::get\+Extra (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Additional information that has been added to the request 
+\end{DoxyReturn}
+\Hypertarget{class_request_afafc7584c4d4a112551331660987d778}\index{Request@{Request}!getPlantID@{getPlantID}}
+\index{getPlantID@{getPlantID}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getPlantID()}{getPlantID()}}
+{\footnotesize\ttfamily \label{class_request_afafc7584c4d4a112551331660987d778} 
+std\+::string Request\+::get\+Plant\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Unique ID of the \doxylink{class_plant}{Plant} object attached to the \doxylink{class_request}{Request} 
+\end{DoxyReturn}
+\Hypertarget{class_request_a9c06fc94eb33e0ed92e4d603710dbb77}\index{Request@{Request}!getPlantType@{getPlantType}}
+\index{getPlantType@{getPlantType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getPlantType()}{getPlantType()}}
+{\footnotesize\ttfamily \label{class_request_a9c06fc94eb33e0ed92e4d603710dbb77} 
+std\+::string Request\+::get\+Plant\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Category/\+State of the \doxylink{class_plant}{Plant} object attached to the \doxylink{class_request}{Request} 
+\end{DoxyReturn}
+\Hypertarget{class_request_a12aa9b05edb01d7f04041b1b8d294206}\index{Request@{Request}!getReceiver@{getReceiver}}
+\index{getReceiver@{getReceiver}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getReceiver()}{getReceiver()}}
+{\footnotesize\ttfamily \label{class_request_a12aa9b05edb01d7f04041b1b8d294206} 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} Request\+::get\+Receiver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+The object to which the request will be sent 
+\end{DoxyReturn}
+\Hypertarget{class_request_a85fc1e5350040cd68e257f7ea3a735ef}\index{Request@{Request}!getSender@{getSender}}
+\index{getSender@{getSender}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getSender()}{getSender()}}
+{\footnotesize\ttfamily \label{class_request_a85fc1e5350040cd68e257f7ea3a735ef} 
+\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*} Request\+::get\+Sender (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the object that created the \doxylink{class_request}{Request} 
+\end{DoxyReturn}
+\Hypertarget{class_request_aa7202348a591bff7a3db56527bb47f4c}\index{Request@{Request}!getType@{getType}}
+\index{getType@{getType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \label{class_request_aa7202348a591bff7a3db56527bb47f4c} 
+std\+::string Request\+::get\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+type of the \doxylink{class_plant}{Plant} object attached to the \doxylink{class_request}{Request} 
+\end{DoxyReturn}
+\Hypertarget{class_request_a4231382fe4ee0626bfb376b7a7c5ed50}\index{Request@{Request}!setExtra@{setExtra}}
+\index{setExtra@{setExtra}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setExtra()}{setExtra()}}
+{\footnotesize\ttfamily \label{class_request_a4231382fe4ee0626bfb376b7a7c5ed50} 
+void Request\+::set\+Extra (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+extra}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+extra} & Additional information to be added to the request \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_request_a3c49021dcbf8d09c8241eec3af8a7144}\index{Request@{Request}!setPlantID@{setPlantID}}
+\index{setPlantID@{setPlantID}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setPlantID()}{setPlantID()}}
+{\footnotesize\ttfamily \label{class_request_a3c49021dcbf8d09c8241eec3af8a7144} 
+void Request\+::set\+Plant\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+plant\+ID}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+plant\+ID} & Unique ID of the \doxylink{class_plant}{Plant} to be attached to the \doxylink{class_request}{Request} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_request_a00c334ad1f26ba22587802156a11bfc7}\index{Request@{Request}!setPlantType@{setPlantType}}
+\index{setPlantType@{setPlantType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setPlantType()}{setPlantType()}}
+{\footnotesize\ttfamily \label{class_request_a00c334ad1f26ba22587802156a11bfc7} 
+void Request\+::set\+Plant\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+plant\+Type}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+plant\+Type} & Category/\+State of the \doxylink{class_plant}{Plant} object to attach to the \doxylink{class_request}{Request} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_request_a88e09b76d3918af3f5ce4cda5639baa1}\index{Request@{Request}!setReceiver@{setReceiver}}
+\index{setReceiver@{setReceiver}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setReceiver()}{setReceiver()}}
+{\footnotesize\ttfamily \label{class_request_a88e09b76d3918af3f5ce4cda5639baa1} 
+void Request\+::set\+Receiver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}}]{\+\_\+receiver}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+receiver} & Specifies the object to which the request will be sent \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_request_aad5ea660af289aa51aa1a64915ec2bb8}\index{Request@{Request}!setSender@{setSender}}
+\index{setSender@{setSender}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setSender()}{setSender()}}
+{\footnotesize\ttfamily \label{class_request_aad5ea660af289aa51aa1a64915ec2bb8} 
+void Request\+::set\+Sender (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*}}]{\+\_\+sender}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+sender} & Specifies the object that created the \doxylink{class_request}{Request} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_request_ac09a49481af10861f0b2a3362cbd8732}\index{Request@{Request}!setType@{setType}}
+\index{setType@{setType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily \label{class_request_ac09a49481af10861f0b2a3362cbd8732} 
+void Request\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+type}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+type} & type of the \doxylink{class_plant}{Plant} to be attached to the \doxylink{class_request}{Request} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Request.\+h\item 
+src/Request.\+cpp\end{DoxyCompactItemize}

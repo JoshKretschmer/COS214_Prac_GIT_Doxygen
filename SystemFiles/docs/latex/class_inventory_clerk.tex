@@ -1,0 +1,142 @@
+\doxysection{Inventory\+Clerk Class Reference}
+\hypertarget{class_inventory_clerk}{}\label{class_inventory_clerk}\index{InventoryClerk@{InventoryClerk}}
+
+
+public \doxylink{class_staff}{Staff} class responsible for controlling all access to the \doxylink{class_inventory}{Inventory} object Adds Plants to the \doxylink{class_inventory}{Inventory} and fetches (removes) them on request  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Clerk.\+h$>$}
+
+Inheritance diagram for Inventory\+Clerk\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_inventory_clerk}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_clerk_a547797899636233c3bb10e973f33b3b9}{Inventory\+Clerk}} (std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Basic constuctor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_clerk_a7d8f50b61ef397aa8c82244bdf52460f}\label{class_inventory_clerk_a7d8f50b61ef397aa8c82244bdf52460f} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Clerk} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_clerk_a94af24866c62f461ec13ae209bff4f36}{store\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_inventory_clerk_af6ae0288618b61468eb353f792b2d1ae}{get\+Plant}} (std\+::string plant\+ID)
+\item 
+void \mbox{\hyperlink{class_inventory_clerk_aa5377c81aeebb923c04dc5da9b309bd1}{assign\+Job}} (\mbox{\hyperlink{class_inventory}{Inventory}} \texorpdfstring{$\ast$}{*}\+\_\+inventory)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}} (std\+::string \+\_\+staff\+Name)
+\begin{DoxyCompactList}\small\item\em Basic constructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Staff} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_staff_ab668649dc03641164967fdcb6d26400f}{handle\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{class_staff}{Staff} can handle the \doxylink{class_command}{Command}, if not the \doxylink{class_command}{Command} is forwarded. \end{DoxyCompactList}\item 
+std\+::string {\bfseries get\+Staff\+Name} ()
+\item 
+std\+::string {\bfseries get\+Staff\+ID} ()
+\item 
+std\+::string {\bfseries get\+Staff\+Type} ()
+\item 
+void \mbox{\hyperlink{class_staff_a18831f84d0110b3af1549106c490507f}{set\+Next\+Handler}} (\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+handler)
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Next\+Handler} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_staff_a44ab2e5cc6801f8bad2e00264d2a0a42}{forward\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}\+\_\+command)
+\begin{DoxyCompactList}\small\item\em Sends the \doxylink{class_command}{Command} object to the next\+Handler \doxylink{class_staff}{Staff} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries staff\+Name}
+\item 
+std\+::string {\bfseries staff\+ID}
+\item 
+std\+::string {\bfseries staff\+Type}
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries next\+Handler}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries instance\+Count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+public \doxylink{class_staff}{Staff} class responsible for controlling all access to the \doxylink{class_inventory}{Inventory} object Adds Plants to the \doxylink{class_inventory}{Inventory} and fetches (removes) them on request 
+
+\label{doc-constructors}
+\Hypertarget{class_inventory_clerk_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_inventory_clerk_a547797899636233c3bb10e973f33b3b9}\index{InventoryClerk@{InventoryClerk}!InventoryClerk@{InventoryClerk}}
+\index{InventoryClerk@{InventoryClerk}!InventoryClerk@{InventoryClerk}}
+\doxysubsubsection{\texorpdfstring{InventoryClerk()}{InventoryClerk()}}
+{\footnotesize\ttfamily \label{class_inventory_clerk_a547797899636233c3bb10e973f33b3b9} 
+Inventory\+Clerk\+::\+Inventory\+Clerk (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Basic constuctor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & name of staff member \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_clerk_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_clerk_aa5377c81aeebb923c04dc5da9b309bd1}\index{InventoryClerk@{InventoryClerk}!assignJob@{assignJob}}
+\index{assignJob@{assignJob}!InventoryClerk@{InventoryClerk}}
+\doxysubsubsection{\texorpdfstring{assignJob()}{assignJob()}}
+{\footnotesize\ttfamily \label{class_inventory_clerk_aa5377c81aeebb923c04dc5da9b309bd1} 
+void Inventory\+Clerk\+::assign\+Job (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory}{Inventory}} \texorpdfstring{$\ast$}{*}}]{\+\_\+inventory}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+inventory} & \doxylink{class_inventory}{Inventory} object that the Clerk is able to interact with \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_inventory_clerk_af6ae0288618b61468eb353f792b2d1ae}\index{InventoryClerk@{InventoryClerk}!getPlant@{getPlant}}
+\index{getPlant@{getPlant}!InventoryClerk@{InventoryClerk}}
+\doxysubsubsection{\texorpdfstring{getPlant()}{getPlant()}}
+{\footnotesize\ttfamily \label{class_inventory_clerk_af6ae0288618b61468eb353f792b2d1ae} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Inventory\+Clerk\+::get\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+ID}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+ID} & id of the plant to be fetched from the inventory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_plant}{Plant} object that has been fetched 
+\end{DoxyReturn}
+\Hypertarget{class_inventory_clerk_a94af24866c62f461ec13ae209bff4f36}\index{InventoryClerk@{InventoryClerk}!storePlant@{storePlant}}
+\index{storePlant@{storePlant}!InventoryClerk@{InventoryClerk}}
+\doxysubsubsection{\texorpdfstring{storePlant()}{storePlant()}}
+{\footnotesize\ttfamily \label{class_inventory_clerk_a94af24866c62f461ec13ae209bff4f36} 
+void Inventory\+Clerk\+::store\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object to be added to the \doxylink{class_inventory}{Inventory} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Inventory\+Clerk.\+h\item 
+src/Inventory\+Clerk.\+cpp\end{DoxyCompactItemize}

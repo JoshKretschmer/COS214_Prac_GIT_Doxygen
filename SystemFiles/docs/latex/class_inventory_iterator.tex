@@ -1,0 +1,123 @@
+\doxysection{Inventory\+Iterator Class Reference}
+\hypertarget{class_inventory_iterator}{}\label{class_inventory_iterator}\index{InventoryIterator@{InventoryIterator}}
+
+
+Basic application of the iterator design pattern to step through the plants contained in an \doxylink{class_inventory}{Inventory} object.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Iterator.\+h$>$}
+
+Inheritance diagram for Inventory\+Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_inventory_iterator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_iterator_a404ec4b8e2ee251063817f3d03e7497d}{Inventory\+Iterator}} (\mbox{\hyperlink{class_inventory}{Inventory}} \texorpdfstring{$\ast$}{*}inventory)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046}{first}} () override
+\begin{DoxyCompactList}\small\item\em Resets the iterator object tp the start of the \doxylink{class_inventory}{Inventory}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5}{next}} () override
+\begin{DoxyCompactList}\small\item\em Steps to the next object in the \doxylink{class_inventory}{Inventory}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_inventory_iterator_a14546cb99148306f19048bde4ebe6757}{has\+Next}} () override
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_inventory_iterator_a40efbe8fddae4d5405cf16548ce3260c}{current\+Item}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_iterator}{Iterator}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Iterator} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic application of the iterator design pattern to step through the plants contained in an \doxylink{class_inventory}{Inventory} object. 
+
+\label{doc-constructors}
+\Hypertarget{class_inventory_iterator_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_inventory_iterator_a404ec4b8e2ee251063817f3d03e7497d}\index{InventoryIterator@{InventoryIterator}!InventoryIterator@{InventoryIterator}}
+\index{InventoryIterator@{InventoryIterator}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{InventoryIterator()}{InventoryIterator()}}
+{\footnotesize\ttfamily \label{class_inventory_iterator_a404ec4b8e2ee251063817f3d03e7497d} 
+Inventory\+Iterator\+::\+Inventory\+Iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory}{Inventory}} \texorpdfstring{$\ast$}{*}}]{inventory}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inventory} & \doxylink{class_inventory}{Inventory} object that the iterator wil work with \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_iterator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_iterator_a40efbe8fddae4d5405cf16548ce3260c}\index{InventoryIterator@{InventoryIterator}!currentItem@{currentItem}}
+\index{currentItem@{currentItem}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{currentItem()}{currentItem()}}
+{\footnotesize\ttfamily \label{class_inventory_iterator_a40efbe8fddae4d5405cf16548ce3260c} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Inventory\+Iterator\+::current\+Item (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_plant}{Plant} object the \doxylink{class_iterator}{Iterator} is currently pointing to, or nullptr if the end of the \doxylink{class_inventory}{Inventory} was reached 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_iterator}{Iterator}}.
+
+\Hypertarget{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046}\index{InventoryIterator@{InventoryIterator}!first@{first}}
+\index{first@{first}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \label{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046} 
+void Inventory\+Iterator\+::first (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Resets the iterator object tp the start of the \doxylink{class_inventory}{Inventory}. 
+
+
+
+Implements \mbox{\hyperlink{class_iterator}{Iterator}}.
+
+\Hypertarget{class_inventory_iterator_a14546cb99148306f19048bde4ebe6757}\index{InventoryIterator@{InventoryIterator}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily \label{class_inventory_iterator_a14546cb99148306f19048bde4ebe6757} 
+bool Inventory\+Iterator\+::has\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+True if the end of the \doxylink{class_inventory}{Inventory} has been reached, False otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_iterator}{Iterator}}.
+
+\Hypertarget{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5}\index{InventoryIterator@{InventoryIterator}!next@{next}}
+\index{next@{next}!InventoryIterator@{InventoryIterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5} 
+void Inventory\+Iterator\+::next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Steps to the next object in the \doxylink{class_inventory}{Inventory}. 
+
+
+
+Implements \mbox{\hyperlink{class_iterator}{Iterator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Inventory\+Iterator.\+h\item 
+src/Inventory\+Iterator.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,41 @@
+\doxysection{Customer.\+h}
+\hypertarget{_customer_8h_source}{}\label{_customer_8h_source}\index{inc/Customer.h@{inc/Customer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CUSTOMER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CUSTOMER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order}{Order}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_staff}{Staff}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request}{Request}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_customer_a337c5eaf4fd2810aec3732804174a5a8}{Customer}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ id;}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_order}{Order}}\ *currentOrder;}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_staff}{Staff}}\ *salesPerson;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_customer_a337c5eaf4fd2810aec3732804174a5a8}{Customer}}(std::string\ name,\ std::string\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{class_staff}{Staff}}\ *\_salesPerson);}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_customer_ab93fb14683b0393b9c900109f77c2629}{\string~Customer}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_request}{Request}}\ *\mbox{\hyperlink{class_customer_a722909974a04248c65e7e995e4240168}{makeRequest}}(std::string\ type,\ std::string\ plantID,\ std::string\ extra);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_aa04c6d4e311420e29dbaecb2a512738c}{browsePlants}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a0b6571380184dd4aeda10814d27788fa}{startPurchase}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_ae9f1ab954512e12f8abc51891cd50890}{addPlant}}(std::string\ plantID,\ std::string\ decor);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}\ *\mbox{\hyperlink{class_customer_a5f30a431252d00025eda1adabae40f01}{customizeOrder}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant,\ std::string\ decor);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a85627b0401a8b9d545f7c2586724177c}{undoAction}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a4f23424b70f37a1c96e77272c1634f08}{confirmPurchase}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ getName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ name;\ \}}
+\DoxyCodeLine{00042\ \ \ \ \ std::string\ getID()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ id;\ \}}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CUSTOMER\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,44 @@
+\doxysection{Inventory.\+h}
+\hypertarget{_inventory_8h_source}{}\label{_inventory_8h_source}\index{inc/Inventory.h@{inc/Inventory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INVENTORY\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INVENTORY\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}InventoryComponent.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}InventoryIterator.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_group}{PlantGroup}};\ \ \ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<Plant*>\ plants;}
+\DoxyCodeLine{00022\ \ \ \ \ std::map<std::string,\ int>\ stockLevels;}
+\DoxyCodeLine{00023\ \ \ \ \ std::vector<PlantGroup*>\ groups;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_inventory_af62cbb1863451ede1536cf4b79fe3f6b}{\string~Inventory}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a2eb47df6decb30c872d5596936e47932}{addPlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a6924ce6d13f25c45bdc465104beefa07}{removePlant}}(std::string\ plantId);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a79316c24aacd577aaa7755f3825d969c}{updateStock}}(std::string\ plantType,\ \textcolor{keywordtype}{int}\ quantity);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_inventory_a86a608c09055da52d35eceebc2710ac4}{getStockLevel}}(std::string\ plantType);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_inventory_iterator}{InventoryIterator}}\ *\mbox{\hyperlink{class_inventory_a358cb8a2faa59a34b37bef50951b9453}{createIterator}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_inventory_a8ac1a6b40399c8e683ed983df34aa2f0}{getPlantCount}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a75c851ceaf4944f57b372ef36946968b}{add}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a3e390845a12ea7c6d6806125924f34e7}{remove}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<Plant*>\ \mbox{\hyperlink{class_inventory_a6a4836ed20ac1b5efd356c3ae3534245}{getPlants}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a966d9550fb5ac669b296d568e1726b54}{movePlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant,\ std::string\ newState)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INVENTORY\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,77 @@
+\doxysection{Memento Class Reference}
+\hypertarget{class_memento}{}\label{class_memento}\index{Memento@{Memento}}
+
+
+Stores a snapshot of an \doxylink{class_order}{Order}\textquotesingle{}s state for undo/redo.  
+
+
+
+
+{\ttfamily \#include $<$Memento.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_memento_ac6a9304cdd7ce1f575bfc6800559dd60}{Memento}} (const std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \&plants, double cost)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_memento}{Memento} by deep-\/copying the given plants and cost. \end{DoxyCompactList}\item 
+\Hypertarget{class_memento_af680b5488989567d0f03d655c4232924}\label{class_memento_af680b5488989567d0f03d655c4232924} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Memento} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_memento}{Memento} and frees all cloned plants. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_memento_add9a4666db0bc70ddd41abb033f1d0f8}{get\+Saved\+Plants}} () const
+\item 
+double \mbox{\hyperlink{class_memento_aeeecd58ade0b7defe080a7cb763eb5bf}{get\+Saved\+Cost}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stores a snapshot of an \doxylink{class_order}{Order}\textquotesingle{}s state for undo/redo. 
+
+\label{doc-constructors}
+\Hypertarget{class_memento_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_memento_ac6a9304cdd7ce1f575bfc6800559dd60}\index{Memento@{Memento}!Memento@{Memento}}
+\index{Memento@{Memento}!Memento@{Memento}}
+\doxysubsubsection{\texorpdfstring{Memento()}{Memento()}}
+{\footnotesize\ttfamily \label{class_memento_ac6a9304cdd7ce1f575bfc6800559dd60} 
+Memento\+::\+Memento (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \&}]{plants}{, }\item[{double}]{cost}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_memento}{Memento} by deep-\/copying the given plants and cost. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plants} & Current plants in the \doxylink{class_order}{Order}. \\
+\hline
+{\em cost} & Current total cost of the \doxylink{class_order}{Order}. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_memento_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_memento_aeeecd58ade0b7defe080a7cb763eb5bf}\index{Memento@{Memento}!getSavedCost@{getSavedCost}}
+\index{getSavedCost@{getSavedCost}!Memento@{Memento}}
+\doxysubsubsection{\texorpdfstring{getSavedCost()}{getSavedCost()}}
+{\footnotesize\ttfamily \label{class_memento_aeeecd58ade0b7defe080a7cb763eb5bf} 
+double Memento\+::get\+Saved\+Cost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Total cost stored in this snapshot. 
+\end{DoxyReturn}
+\Hypertarget{class_memento_add9a4666db0bc70ddd41abb033f1d0f8}\index{Memento@{Memento}!getSavedPlants@{getSavedPlants}}
+\index{getSavedPlants@{getSavedPlants}!Memento@{Memento}}
+\doxysubsubsection{\texorpdfstring{getSavedPlants()}{getSavedPlants()}}
+{\footnotesize\ttfamily \label{class_memento_add9a4666db0bc70ddd41abb033f1d0f8} 
+const std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \& Memento\+::get\+Saved\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Vector of cloned plants stored in this snapshot. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Memento.\+h\item 
+src/Memento.\+cpp\end{DoxyCompactItemize}

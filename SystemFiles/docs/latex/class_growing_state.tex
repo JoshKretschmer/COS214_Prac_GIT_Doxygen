@@ -1,0 +1,81 @@
+\doxysection{Growing\+State Class Reference}
+\hypertarget{class_growing_state}{}\label{class_growing_state}\index{GrowingState@{GrowingState}}
+
+
+Intermediate state for \doxylink{class_plant}{Plant} objects.  
+
+
+
+
+{\ttfamily \#include $<$Growing\+State.\+h$>$}
+
+Inheritance diagram for Growing\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_growing_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_growing_state_a38e4dc8a6558549422b1fe30707172a4}{handle\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Determines which state change should occur, if any, according to Plant-\/\texorpdfstring{$>$}{>}health. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_growing_state_a7fc53c7e8897a73b8a67fc3c41c4aa19}{get\+State\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_state}{Plant\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Intermediate state for \doxylink{class_plant}{Plant} objects. 
+
+Can transition to \doxylink{class_moult_state}{Moult\+State} or \doxylink{class_mature_state}{Mature\+State} 
+
+\label{doc-func-members}
+\Hypertarget{class_growing_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_growing_state_a7fc53c7e8897a73b8a67fc3c41c4aa19}\index{GrowingState@{GrowingState}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!GrowingState@{GrowingState}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily \label{class_growing_state_a7fc53c7e8897a73b8a67fc3c41c4aa19} 
+std\+::string Growing\+State\+::get\+State\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+"{}\+Growing"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+\Hypertarget{class_growing_state_a38e4dc8a6558549422b1fe30707172a4}\index{GrowingState@{GrowingState}!handleCare@{handleCare}}
+\index{handleCare@{handleCare}!GrowingState@{GrowingState}}
+\doxysubsubsection{\texorpdfstring{handleCare()}{handleCare()}}
+{\footnotesize\ttfamily \label{class_growing_state_a38e4dc8a6558549422b1fe30707172a4} 
+void Growing\+State\+::handle\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Determines which state change should occur, if any, according to Plant-\/\texorpdfstring{$>$}{>}health. 
+
+\doxylink{class_plant}{Plant} object can progress to \doxylink{class_mature_state}{Mature\+State}, or regress to \doxylink{class_moult_state}{Moult\+State} Called after any plant care function is executed
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object for which the state is being checked (and perhaps changed) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Growing\+State.\+h\item 
+src/Growing\+State.\+cpp\end{DoxyCompactItemize}
