@@ -20,7 +20,7 @@ public:
     virtual std::string getDetails() = 0;
     virtual double getCost() = 0;
     void setWrapped(Plant* wrappedPlant);
-    // virtual PlantDecorator* clone();
+    virtual PlantDecorator* clone() = 0;
 };
 
 #endif //PLANTDECORATOR_H
