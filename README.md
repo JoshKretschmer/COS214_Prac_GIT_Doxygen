@@ -73,22 +73,22 @@ When the program runs:
     <tr>
       <td align="center">
         Ané de Ridder<br>Team Leader<br>
-        <img src="../images/Ane.jpg" width="200" height="200">
+        <img src="images/Ane.jpg" width="200" height="200">
       </td>
       <td align="center">
-        Project Coordination<br>Documentation<br>System Integration
+        Project Coordination<br>Documentation<br>System Integration<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        //add description later
+        Chief Exception Handler of both code and team drama
       </td>
     </tr>
     <tr>
       <td align="center">
         Bridget Nkosi<br>
-        <img src="../images/Bridget.jpg" width="200" height="200">
+        <img src="images/Bridget.jpg" width="200" height="200">
       </td>
       <td align="center">
         System Implementation<br>Testing<br>
@@ -97,43 +97,46 @@ When the program runs:
         </a>
       </td>
       <td>
-        //add description later
+        Implemented the Observer pattern...mostly to observe others working
       </td>
     </tr>
     <tr>
       <td align="center">
-        David Kalu
-        <img src="../images/David.jpg" width="200" height="200">
+        David Kalu<br>
+        <img src="images/David.jpg" width="200" height="200">
       </td>
       <td align="center">
-        System Implementation<br>Testing<br
+        System Implementation<br>Testing<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        //add description later
+        Said "It's a small, easy fix."
+      </td>
+      <td>
+                  It was not.
       </td>
     </tr>
     <tr>
       <td align="center">
         Joshua Kretschmer<br>
-        <img src="../images/Josh.jpg" width="200" height="200">
+        <img src="images/Josh.jpg" width="200" height="200">
       </td>
       <td align="center">
-        System Implementation<br>Integration
+        System Implementation<br>Integration<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        //add description later
+        Drops the word "squiz" casually in conversations...still no confirmed definition.
       </td>
     </tr>
     <tr>
       <td align="center">
         Keagan<br>
-        <img src="../images/Keagan.jpg" width="200" height="200">
+        <img src="images/Keagan.jpg" width="200" height="200">
       </td>
       <td align="center">
         UI<br>Integration<br>
@@ -142,39 +145,38 @@ When the program runs:
         </a>
       </td>
       <td>
-       //add description later
+       Commited something legendary. No one knows what it does, but it works.
       </td>
     </tr>
     <tr>
       <td align="center">
         Michelle Njoroge<br>
-        <img src="../images/Michelle,jpg" width="200" height="200">
+        <img src="images/Michelle.jpg" width="200" height="200">
       </td>
       <td align="center">
-        UI<br>Testing<br>Documentation
+        UI<br>Testing<br>Documentation<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        //add description later
+        Turns a 10 minute task into a 5 hour chore.
       </td>
     </tr>
     <tr>
       <td align="center">
         Ophelia Greyling<br>
-        <img src="../images/Ophelia,jpg" width="200" height="200">
+        <img src="images/Ophelia.jpg" width="200" height="200">
       </td>
       <td align="center">
-        System Implementation<br>Testing<br>Integration
+        System Implementation<br>Testing<br>Integration<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        //add description later
+        Has a PhD in "..just one last commit"
       </td>
     </tr>
 </table>
-
 
