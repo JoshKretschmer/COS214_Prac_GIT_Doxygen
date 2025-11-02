@@ -27,7 +27,25 @@ std::string ArrangementDecorator::getDetails()
 PlantDecorator *ArrangementDecorator::clone()
 {
 
+    /* //this is failing the clone tests
     Plant *newP = this->getWrapped()->clone();
+
+    ArrangementDecorator *newD = new ArrangementDecorator();
+    newD->setWrapped(newP);
+
+    return newD;
+    */
+
+    Plant *wrapped = this->getWrapped();
+    Plant *newP = nullptr;
+
+    //checking first if wrapped plant is a decorator
+    PlantDecorator *wrappedDecorator = dynamic_cast<PlantDecorator*>(wrapped);
+    if (wrappedDecorator) {
+        newP = wrappedDecorator->clone();
+    } else {
+        newP = wrapped->clone();
+    }
 
     ArrangementDecorator *newD = new ArrangementDecorator();
     newD->setWrapped(newP);
