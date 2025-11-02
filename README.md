@@ -1,18 +1,19 @@
-# COS214_Prac_GIT_Doxygen
+```markdown
+# Build and Run Instructions
+  ```
+- **Compilation**:  
+  ```bash
+  cd SystemFiles
+  make all
+  ```
 
-//ReadMe to be filled in as project is created
+- **Demo Main**:  
+  ```bash
+  make run_demo
+  ```
 
-
-[*Short Description of Project*]
-
-[*Documentation Links*]
-
-[*Compilation Instructions*]
-
-[*Placement of DataFiles if any*]
-
-
-Contributers:
-    Ané de Ridder                Ophelia Greyling            Keagan van Biljon                 
-    Joshua Kretschmer            Michelle Njoroge            David Kalu
-    Bridget Nkosi
+- **Unit Tests**:  
+  ```bash
+  make run_tests
+  ```
+```
