@@ -149,3 +149,52 @@ TEST_CASE("Test Composite") {
     inventory.remove(flowers);
     REQUIRE(inventory.getPlants().size() == 1);
 }
+
+// Iterator Test
+
+// Decorator Test
+
+// Command Test
+
+TEST_CASE("Test Chain of Responsibility") {
+    Inventory inventory;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    inventory.addPlant(peanut);
+
+    SalesAssociate sales("Alice");
+    InventoryClerk clerk("Bob");
+    Horticulturist horti("Charlie");
+    Manager manager("Dave");
+    sales.setNextHandler(&clerk);
+    clerk.setNextHandler(&horti);
+    horti.setNextHandler(&manager);
+
+    clerk.assignJob(&inventory);
+
+    Customer customer("Eve", "CUST001", &sales);
+
+    Request *req1 = customer.makeRequest("sales", "PC001", "Pot");
+    SalesCommand cmd1(req1);
+    sales.handleCommand(&cmd1);
+    delete req1;
+
+    Request *req2 = customer.makeRequest("inventory", "PC001", "");
+    InventoryCommand cmd2(req2);
+    sales.handleCommand(&cmd2);
+    delete req2;
+
+    Request *req3 = customer.makeRequest("greenhouse", "PC001", "");
+    GreenHouseCommand cmd3(req3);
+    sales.handleCommand(&cmd3);
+    delete req3;
+
+    Request *req4 = customer.makeRequest("manager", "PC001", "");
+    ManagerCommand cmd4(req4);
+    sales.handleCommand(&cmd4);
+    delete req4;
+}
+
+// Memento Test
+
+// Facade Test
