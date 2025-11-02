@@ -32,30 +32,37 @@ The simulation demonstrates object-oriented design excellence through patterns l
 # Setup
 
 ### Prerequisites
-
+```
 sudo apt-get install libboost-all-dev
 
 sudo apt-get install doctest-dev
-
+```
 
 ### Cloning
-
+```
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
 cd COS214_Prac_GIT_Doxygen/SystemFiles/src
-
+```
 
 ### Building
 
 This project can be built using the makefile:
 
-(Ensure you are currently in the SystemFiles/src directory)
+- **Compilation**:  
+  ```bash
+  cd SystemFiles
+  make all
+  ```
 
-Compilation: make all
+- **Demo Main**:  
+  ```bash
+  make run_demo
+  ```
 
-Demo Main: make run_Demo
-
-Testing: make run_tests 
-
+- **Unit Tests**:  
+  ```bash
+  make run_tests
+  ```
 
 ### Running
 
