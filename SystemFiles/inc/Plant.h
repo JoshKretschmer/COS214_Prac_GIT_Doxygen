@@ -40,6 +40,7 @@ public:
     std::string getType() const { return type; }
     void incrementHealth(int num);
     std::string getState();
+    void setID(const std::string &newID) { id = newID; }
     Plant *clone();
 
     PlantCare *getCareRegime() const { return careRegime; }

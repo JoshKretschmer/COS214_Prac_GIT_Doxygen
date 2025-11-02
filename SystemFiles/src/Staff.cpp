@@ -82,15 +82,3 @@ void Staff::handleCommand(Command *command)
         forwardCommand(command);
     }
 }
-
-/*!
- * @brief Template Method implementation
- *
- * @param plant Plant object to be moved to Inventory
- */
-void Staff::movePlantToInventory(Plant *plant)
-{
-    std::cout << "Calling Staff::movePlantToInventory(plant="
-              << (plant ? plant->getDetails() : "null") << ")\n";
-    std::cout << "Staff::movePlantToInventory() - no action (base class)\n";
-}

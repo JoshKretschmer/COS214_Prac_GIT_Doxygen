@@ -10,7 +10,6 @@
  */
 Inventory::Inventory() : InventoryComponent()
 {
-
 }
 
 /*!
@@ -45,7 +44,7 @@ void Inventory::removePlant(std::string plantId)
 {
     auto it = std::find_if(plants.begin(), plants.end(),
                            [&](Plant *p)
-                           { return p->getDetails() == plantId; });
+                           { return p->getID() == plantId; });
     if (it != plants.end())
     {
         delete *it;

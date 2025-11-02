@@ -18,9 +18,8 @@
  *
  * Initializes information shared by all plants (health, currState, careRegime)
  */
-Plant::Plant()
+Plant::Plant() : id(""), type(""), price(0.0), health(0)
 {
-    health = 0;
     currState = new SeedingState();
     careRegime = new CompositeCareStrategy();
 }

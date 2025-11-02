@@ -28,10 +28,6 @@ protected:
     void forwardCommand(Command *_command);
     virtual void executeTask(Command *_command);
 
-    // Template Method
-    virtual std::string getActionForMove() { return ""; }
-    virtual std::string getDescriptionForMove() { return ""; }
-
 public:
     Staff(std::string _staffName);
     virtual ~Staff();
@@ -44,9 +40,6 @@ public:
     {
         return nextHandler;
     }
-
-    // Template Method
-    void movePlantToInventory(Plant *plant);
 };
 
 #endif // STAFF_H

@@ -17,10 +17,6 @@ public:
     Horticulturist(std::string _name);
     ~Horticulturist();
     void executeTask(Command* command) override;
-    
-    //void movePlantToInventory(Plant* plant);               // <--- template method (makes request,makes command,sends it off);
-    std::string getActionForMove() override;
-    std::string getDescriptionForMove() override;
 };
 
 #endif

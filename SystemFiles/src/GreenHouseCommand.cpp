@@ -9,7 +9,7 @@
  */
 GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
 {
-    access = "greenhouse";
+    access = "horticulturist";
 }
 
 /*!
@@ -17,7 +17,6 @@ GreenHouseCommand::GreenHouseCommand(Request *_request) : Command(_request)
  */
 GreenHouseCommand::~GreenHouseCommand()
 {
-
 }
 
 /*!

@@ -1,7 +1,9 @@
 #include "../inc/Horticulturist.h"
 #include "../inc/Command.h"
 #include "../inc/Request.h"
+#include "../inc/Plant.h"
 #include <iostream>
+#include <InventoryCommand.h>
 
 /*!
  *
@@ -40,27 +42,4 @@ Horticulturist::Horticulturist(std::string name) : Staff(name)
  */
 Horticulturist::~Horticulturist()
 {
-}
-
-/*!
- * @brief Sends a request to move the specified Plant to Inventory
- *
- * Creates a new request, encapsulates it in a command, and sends it to be handled by the relevant Staff
- *
- * @param plant Plant to be moved to Inventory
- */
-std::string Horticulturist::getActionForMove()
-{
-    std::cout << "Calling Horticulturist::getActionForMove()\n";
-    std::string result = "";
-    std::cout << "Horticulturist::getActionForMove() returning \"" << result << "\"\n";
-    return result;
-}
-
-std::string Horticulturist::getDescriptionForMove()
-{
-    std::cout << "Calling Horticulturist::getDescriptionForMove()\n";
-    std::string result = "just store the plant :)";
-    std::cout << "Horticulturist::getDescriptionForMove() returning \"" << result << "\"\n";
-    return result;
 }
