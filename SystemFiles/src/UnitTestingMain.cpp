@@ -30,10 +30,12 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../inc/doctest.h"
 
-TEST_CASE("Test Plants") {
+TEST_CASE("Test Plants")
+{
     srand(42);
 
-    SUBCASE("Creating Succulents") {
+    SUBCASE("Creating Succulents")
+    {
         CreateSucculent succulentFactory;
 
         Plant *peanut = succulentFactory.createPlant("PeanutCactus");
@@ -49,7 +51,8 @@ TEST_CASE("Test Plants") {
         delete houseleek;
     }
 
-    SUBCASE("Creating Flowers") {
+    SUBCASE("Creating Flowers")
+    {
         CreateFlower flowerFactory;
 
         Plant *orchid = flowerFactory.createPlant("Orchid");
@@ -60,7 +63,8 @@ TEST_CASE("Test Plants") {
         delete orchid;
     }
 
-    SUBCASE("Creating Shrubs") {
+    SUBCASE("Creating Shrubs")
+    {
         CreateShrub shrubFactory;
 
         Plant *honeysuckle = shrubFactory.createPlant("HoneySuckle");
@@ -76,14 +80,16 @@ TEST_CASE("Test Plants") {
         delete beeblossom;
     }
 
-    SUBCASE("Testing invalid plant name") {
+    SUBCASE("Testing invalid plant name")
+    {
         CreateSucculent succulentFactory;
         Plant *bad = succulentFactory.createPlant("InvalidPlant");
 
         REQUIRE(bad == nullptr);
     }
 
-    SUBCASE("Creating clone of PeanutCactus") {
+    SUBCASE("Creating clone of PeanutCactus")
+    {
         CreateSucculent succulentFactory;
         Plant *peanut = succulentFactory.createPlant("PeanutCactus");
         Plant *clone = peanut->clone();
@@ -99,7 +105,8 @@ TEST_CASE("Test Plants") {
         delete clone;
     }
 
-    SUBCASE("Testing state transitions") {
+    SUBCASE("Testing state transitions")
+    {
         CreateSucculent succulentFactory;
         Plant *peanut = succulentFactory.createPlant("PeanutCactus");
 
@@ -111,7 +118,8 @@ TEST_CASE("Test Plants") {
         delete peanut;
     }
 
-    SUBCASE("Testing Strategy Pattern (careRegime)") {
+    SUBCASE("Testing Strategy Pattern (careRegime)")
+    {
         CreateSucculent succulentFactory;
         Plant *peanut = succulentFactory.createPlant("PeanutCactus");
 
@@ -125,7 +133,8 @@ TEST_CASE("Test Plants") {
     }
 }
 
-TEST_CASE("Test Composite") {
+TEST_CASE("Test Composite")
+{
     Inventory inventory;
 
     CreateSucculent succulentFactory;
@@ -150,7 +159,8 @@ TEST_CASE("Test Composite") {
     REQUIRE(inventory.getPlants().size() == 1);
 }
 
-TEST_CASE("Test Iterator") {
+TEST_CASE("Test Iterator")
+{
     Inventory inventory;
 
     CreateSucculent succulentFactory;
@@ -168,7 +178,8 @@ TEST_CASE("Test Iterator") {
     InventoryIterator *it = inventory.createIterator();
 
     int count = 0;
-    for (it->first(); it->hasNext(); it->next()) {
+    for (it->first(); it->hasNext(); it->next())
+    {
         Plant *p = it->currentItem();
         REQUIRE(p != nullptr);
         count++;
@@ -180,130 +191,137 @@ TEST_CASE("Test Iterator") {
 }
 
 // Decorator Test
-TEST_CASE("Test Decorator") {
+TEST_CASE("Test Decorator")
+{
     CreateSucculent factory;
-    
-    SUBCASE("Single decoration cost calculation") {
+
+    SUBCASE("Single decoration cost calculation")
+    {
         Plant *peanut = factory.createPlant("PeanutCactus");
         double baseCost = peanut->getCost();
-        
-        //testing pot decoration
+
+        // testing pot decoration
         PotDecorator *pot = new PotDecorator();
         pot->setWrapped(peanut);
         REQUIRE(pot->getCost() == baseCost + 20.0);
         delete pot;
-        
-        // testing wrap decoration  
+
+        // testing wrap decoration
         Plant *peanut2 = factory.createPlant("PeanutCactus");
         WrapDecorator *wrap = new WrapDecorator();
         wrap->setWrapped(peanut2);
         REQUIRE(wrap->getCost() == baseCost + 15.0);
         delete wrap;
-        
-        //testing arrangement decoration
+
+        // testing arrangement decoration
         Plant *peanut3 = factory.createPlant("PeanutCactus");
         ArrangementDecorator *arr = new ArrangementDecorator();
         arr->setWrapped(peanut3);
         REQUIRE(arr->getCost() == baseCost + 10.0);
         delete arr;
     }
-    
-    SUBCASE("Multiple decorations stacking") {
+
+    SUBCASE("Multiple decorations stacking")
+    {
         Plant *peanut = factory.createPlant("PeanutCactus");
         double baseCost = peanut->getCost();
-        
-        //all three decorations together
+
+        // all three decorations together
         PotDecorator *pot = new PotDecorator();
         pot->setWrapped(peanut);
-        
+
         WrapDecorator *wrap = new WrapDecorator();
         wrap->setWrapped(pot);
-        
+
         ArrangementDecorator *arr = new ArrangementDecorator();
         arr->setWrapped(wrap);
-        
-        //total cost: base + pot(20) + wrap(15) + arrangement(10)
+
+        // total cost: base + pot(20) + wrap(15) + arrangement(10)
         REQUIRE(arr->getCost() == baseCost + 20.0 + 15.0 + 10.0);
-        
-        delete arr; //clean up the entire chain
+
+        delete arr; // clean up the entire chain
     }
-    
-    SUBCASE("Decorator details formatting") {
+
+    SUBCASE("Decorator details formatting")
+    {
         Plant *peanut = factory.createPlant("PeanutCactus");
-        
+
         PotDecorator *pot = new PotDecorator();
         pot->setWrapped(peanut);
-        
+
         std::string details = pot->getDetails();
         REQUIRE(details.find("Decoration: Pot") != std::string::npos);
         REQUIRE(details.find("Peanut Cactus") != std::string::npos);
-        
+
         delete pot;
     }
-    
-  /*  
-    SUBCASE("Decorator cloning preserves decorations") {
-        Plant *peanut = factory.createPlant("PeanutCactus");
-        
-        //make decorated plant
-        PotDecorator *pot = new PotDecorator();
-        pot->setWrapped(peanut);
-        
-        WrapDecorator *wrap = new WrapDecorator();
-        wrap->setWrapped(pot);
-        
-        //clone
-        PlantDecorator *clone = wrap->clone();
-        
-        //clone has same cost and structure?
-        REQUIRE(clone->getCost() == wrap->getCost());
-        
-        std::string originalDetails = wrap->getDetails();
-        std::string cloneDetails = clone->getDetails();
-        REQUIRE(originalDetails == cloneDetails);
-        
-        delete wrap;
-        delete clone;
-    }*/
-    
-    SUBCASE("Handling empty decorator") {
-        //decorator without wrapped plant
+
+    /*
+      SUBCASE("Decorator cloning preserves decorations") {
+          Plant *peanut = factory.createPlant("PeanutCactus");
+
+          //make decorated plant
+          PotDecorator *pot = new PotDecorator();
+          pot->setWrapped(peanut);
+
+          WrapDecorator *wrap = new WrapDecorator();
+          wrap->setWrapped(pot);
+
+          //clone
+          PlantDecorator *clone = wrap->clone();
+
+          //clone has same cost and structure?
+          REQUIRE(clone->getCost() == wrap->getCost());
+
+          std::string originalDetails = wrap->getDetails();
+          std::string cloneDetails = clone->getDetails();
+          REQUIRE(originalDetails == cloneDetails);
+
+          delete wrap;
+          delete clone;
+      }*/
+
+    SUBCASE("Handling empty decorator")
+    {
+        // decorator without wrapped plant
         PotDecorator *emptyPot = new PotDecorator();
         REQUIRE(emptyPot->getCost() == 0.0);
         REQUIRE(emptyPot->getDetails() == "Plant to be decorated has not been set");
         delete emptyPot;
     }
-    
-    SUBCASE("Different plant types with same decorations") {
-        //are decorations working consistently across different plant types
+
+    SUBCASE("Different plant types with same decorations")
+    {
+        // are decorations working consistently across different plant types
         Plant *peanut = factory.createPlant("PeanutCactus");
         Plant *houseleek = factory.createPlant("HouseLeek");
-        
+
         double peanutCost = peanut->getCost();
         double houseleekCost = houseleek->getCost();
-        
-        //same decoration to different plants
+
+        // same decoration to different plants
         PotDecorator *pot1 = new PotDecorator();
         pot1->setWrapped(peanut);
-        
+
         PotDecorator *pot2 = new PotDecorator();
         pot2->setWrapped(houseleek);
-        
+
         REQUIRE(pot1->getCost() == peanutCost + 20.0);
         REQUIRE(pot2->getCost() == houseleekCost + 20.0);
-        
+
         delete pot1;
         delete pot2;
     }
 }
 
-
 // Command Test
 
-TEST_CASE("Test Chain of Responsibility") {
+TEST_CASE("Test Chain of Responsibility")
+{
     Inventory inventory;
     CreateSucculent factory;
     Plant *peanut = factory.createPlant("PeanutCactus");
+    peanut->setID("PC001");
     inventory.addPlant(peanut);
 
     SalesAssociate sales("Alice");
@@ -343,7 +361,8 @@ TEST_CASE("Test Chain of Responsibility") {
 
 // Facade Test
 
-TEST_CASE("Test Facade") {
+TEST_CASE("Test Facade")
+{
     Inventory inventory;
     PaymentSystem paymentSystem;
     CreateSucculent factory;
