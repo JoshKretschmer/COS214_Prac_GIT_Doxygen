@@ -58,6 +58,11 @@ This project can be built using the makefile:
   ```bash
   make run_demo
   ```
+  
+  - **Terminal Demo Main**:  
+  ```bash
+  make run_terminal
+  ```
 
 - **Unit Tests**:  
   ```bash
