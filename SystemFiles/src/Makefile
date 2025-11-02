@@ -8,8 +8,10 @@ SOURCES := $(filter-out TerminalMain.cpp UnitTestingMain.cpp, $(wildcard *.cpp))
 OBJECTS := $(SOURCES:.cpp=.o)
 EXEC := main
 
+
 # Default target
 all: $(EXEC)
+#run_tests
 
 # Link all object files
 $(EXEC): $(OBJECTS)
@@ -39,7 +41,7 @@ coverage: clean $(EXEC)
 	gcov -f -m -r -j *.cpp
 
 # Create submission zip
-zipfile:
+zipfile:git add Makefile
 	zip uxxxxxxxx.zip *.cpp *.h Makefile
 
 # Clean up
