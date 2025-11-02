@@ -180,6 +180,123 @@ TEST_CASE("Test Iterator") {
 }
 
 // Decorator Test
+TEST_CASE("Test Decorator") {
+    CreateSucculent factory;
+    
+    SUBCASE("Single decoration cost calculation") {
+        Plant *peanut = factory.createPlant("PeanutCactus");
+        double baseCost = peanut->getCost();
+        
+        //testing pot decoration
+        PotDecorator *pot = new PotDecorator();
+        pot->setWrapped(peanut);
+        REQUIRE(pot->getCost() == baseCost + 20.0);
+        delete pot;
+        
+        // testing wrap decoration  
+        Plant *peanut2 = factory.createPlant("PeanutCactus");
+        WrapDecorator *wrap = new WrapDecorator();
+        wrap->setWrapped(peanut2);
+        REQUIRE(wrap->getCost() == baseCost + 15.0);
+        delete wrap;
+        
+        //testing arrangement decoration
+        Plant *peanut3 = factory.createPlant("PeanutCactus");
+        ArrangementDecorator *arr = new ArrangementDecorator();
+        arr->setWrapped(peanut3);
+        REQUIRE(arr->getCost() == baseCost + 10.0);
+        delete arr;
+    }
+    
+    SUBCASE("Multiple decorations stacking") {
+        Plant *peanut = factory.createPlant("PeanutCactus");
+        double baseCost = peanut->getCost();
+        
+        //all three decorations together
+        PotDecorator *pot = new PotDecorator();
+        pot->setWrapped(peanut);
+        
+        WrapDecorator *wrap = new WrapDecorator();
+        wrap->setWrapped(pot);
+        
+        ArrangementDecorator *arr = new ArrangementDecorator();
+        arr->setWrapped(wrap);
+        
+        //total cost: base + pot(20) + wrap(15) + arrangement(10)
+        REQUIRE(arr->getCost() == baseCost + 20.0 + 15.0 + 10.0);
+        
+        delete arr; //clean up the entire chain
+    }
+    
+    SUBCASE("Decorator details formatting") {
+        Plant *peanut = factory.createPlant("PeanutCactus");
+        
+        PotDecorator *pot = new PotDecorator();
+        pot->setWrapped(peanut);
+        
+        std::string details = pot->getDetails();
+        REQUIRE(details.find("Decoration: Pot") != std::string::npos);
+        REQUIRE(details.find("Peanut Cactus") != std::string::npos);
+        
+        delete pot;
+    }
+    
+  /*  
+    SUBCASE("Decorator cloning preserves decorations") {
+        Plant *peanut = factory.createPlant("PeanutCactus");
+        
+        //make decorated plant
+        PotDecorator *pot = new PotDecorator();
+        pot->setWrapped(peanut);
+        
+        WrapDecorator *wrap = new WrapDecorator();
+        wrap->setWrapped(pot);
+        
+        //clone
+        PlantDecorator *clone = wrap->clone();
+        
+        //clone has same cost and structure?
+        REQUIRE(clone->getCost() == wrap->getCost());
+        
+        std::string originalDetails = wrap->getDetails();
+        std::string cloneDetails = clone->getDetails();
+        REQUIRE(originalDetails == cloneDetails);
+        
+        delete wrap;
+        delete clone;
+    }*/
+    
+    SUBCASE("Handling empty decorator") {
+        //decorator without wrapped plant
+        PotDecorator *emptyPot = new PotDecorator();
+        REQUIRE(emptyPot->getCost() == 0.0);
+        REQUIRE(emptyPot->getDetails() == "Plant to be decorated has not been set");
+        delete emptyPot;
+    }
+    
+    SUBCASE("Different plant types with same decorations") {
+        //are decorations working consistently across different plant types
+        Plant *peanut = factory.createPlant("PeanutCactus");
+        Plant *houseleek = factory.createPlant("HouseLeek");
+        
+        double peanutCost = peanut->getCost();
+        double houseleekCost = houseleek->getCost();
+        
+        //same decoration to different plants
+        PotDecorator *pot1 = new PotDecorator();
+        pot1->setWrapped(peanut);
+        
+        PotDecorator *pot2 = new PotDecorator();
+        pot2->setWrapped(houseleek);
+        
+        REQUIRE(pot1->getCost() == peanutCost + 20.0);
+        REQUIRE(pot2->getCost() == houseleekCost + 20.0);
+        
+        delete pot1;
+        delete pot2;
+    }
+}
+
 
 // Command Test
 

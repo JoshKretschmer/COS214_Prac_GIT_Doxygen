@@ -45,10 +45,29 @@ double WrapDecorator::getCost()
  */
 PlantDecorator *WrapDecorator::clone()
 {
+    /* // this is failing the clone tests
     Plant *newP = this->getWrapped()->clone();
 
     WrapDecorator *newD = new WrapDecorator();
     newD->setWrapped(newP);
 
     return newD;
+    */
+
+    Plant *wrapped = this->getWrapped();
+    Plant *newP = nullptr;
+
+    //is wrapped plant a decorator
+    PlantDecorator *wrappedDecorator = dynamic_cast<PlantDecorator*>(wrapped);
+    if (wrappedDecorator) {
+        newP = wrappedDecorator->clone();
+    } else {
+        newP = wrapped->clone();
+    }
+
+    WrapDecorator *newD = new WrapDecorator();
+    newD->setWrapped(newP);
+
+    return newD;
+
 }

@@ -45,9 +45,33 @@ double PotDecorator::getCost()
  */
 PlantDecorator *PotDecorator::clone()
 {
+ /* //this is failing the clone tests
     std::cout << "Calling PotDecorator::clone()\n";
 
     Plant *newP = this->getWrapped()->clone();
+
+    PotDecorator *newD = new PotDecorator();
+    newD->setWrapped(newP);
+
+    std::cout << "PotDecorator::clone() returning new PotDecorator with wrapped plant\n";
+    return newD;
+ */
+
+    
+    std::cout << "Calling PotDecorator::clone()\n";
+
+    Plant *wrapped = this->getWrapped();
+    Plant *newP = nullptr;
+
+    //checking if wrapped plant is a decorator
+    PlantDecorator *wrappedDecorator = dynamic_cast<PlantDecorator*>(wrapped);
+    if (wrappedDecorator) {
+        //yes: clone it as a decorator to preserve the chain
+        newP = wrappedDecorator->clone();
+    } else {
+        //nah just regular: just clone it
+        newP = wrapped->clone();
+    }
 
     PotDecorator *newD = new PotDecorator();
     newD->setWrapped(newP);
