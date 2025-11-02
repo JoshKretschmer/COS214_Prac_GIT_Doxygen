@@ -5,21 +5,31 @@
 #include "../inc/ArrangementDecorator.h"
 #include <iostream>
 
+/**
+ * @brief Constructor
+ */
 PurchaseFacade::PurchaseFacade(Inventory *inv, PaymentSystem *ps)
 {
     inventory = inv;
     paymentSystem = ps;
 }
 
-PurchaseFacade::~PurchaseFacade()
-{
-}
+/**
+ * @brief Destructor 
+ */
+PurchaseFacade::~PurchaseFacade() {}
 
+/**
+ * @brief Sets the payment system
+ */
 void PurchaseFacade::setPaymentSystem(PaymentSystem *ps)
 {
     paymentSystem = ps;
 }
 
+/**
+ * @brief Initiates a purchase for a customer and plant
+ */
 Order *PurchaseFacade::initiatePurchase(Customer *customer, Plant *plant)
 {
     Order *order = new Order();
@@ -27,7 +37,9 @@ Order *PurchaseFacade::initiatePurchase(Customer *customer, Plant *plant)
 
     return order;
 }
-
+/**
+ * @brief Adds a customization to the order.
+ */
 void PurchaseFacade::addCustomization(Order *order, std::string customization)
 {
     if (!order)
@@ -68,6 +80,9 @@ void PurchaseFacade::addCustomization(Order *order, std::string customization)
     std::cout << "PurchaseFacade::addCustomization() completed\n";
 }
 
+/**
+ * @brief Processes the payment for the order
+ */
 bool PurchaseFacade::processPayment(Order *order)
 {
     if (!order)
@@ -86,10 +101,17 @@ bool PurchaseFacade::processPayment(Order *order)
     return false;
 }
 
+/**
+ * @brief Undoes the last step in the order
+ */
 void PurchaseFacade::undoLastStep(Order *order)
 {
     order->undoLastAddition();
 }
+
+/**
+ * @brief Redoes the last undone step in the order
+ */
 
 void PurchaseFacade::redoStep(Order *order)
 {
@@ -97,6 +119,9 @@ void PurchaseFacade::redoStep(Order *order)
 
 }
 
+/**
+ * @brief Completes the purchase for the order
+ */
 void PurchaseFacade::completePurchase(Order *order)
 {
     if (processPayment(order))
@@ -126,6 +151,9 @@ void PurchaseFacade::completePurchase(Order *order)
 
 }
 
+/**
+ * @brief Customizes a plant with a decoration
+ */
 Plant *PurchaseFacade::customizePlant(Plant *plant, std::string decor)
 {
     if (!plant)
@@ -163,6 +191,9 @@ Plant *PurchaseFacade::customizePlant(Plant *plant, std::string decor)
     }
 }
 
+/**
+ * @brief Adds a plant to the order
+ */
 void PurchaseFacade::addPlantToOrder(Order* order, Plant* plant)
 {
 

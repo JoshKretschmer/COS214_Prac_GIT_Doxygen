@@ -26,6 +26,9 @@ std::string SunlightStrategy::getCareType()
     return "Sunlight";
 }
 
+/*!
+ * @return Cloning SunlightStrategy
+ */
 PlantCare *SunlightStrategy::clone() const
 {
     std::cout << "Cloning SunlightStrategy\n";

@@ -15,7 +15,7 @@ class InventoryIterator : public Iterator
 {
 private:
     std::vector<Plant *> plants;
-    std::size_t currentIndex; // changed from int to fix warnings
+    std::size_t currentIndex; // changed from int
 
 public:
     InventoryIterator(Inventory *inventory);

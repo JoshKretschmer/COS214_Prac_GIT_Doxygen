@@ -26,6 +26,9 @@ std::string FertilizingStrategy::getCareType()
     return "Fertilizing";
 }
 
+/*!
+ * @return Clone FertilizingStrategy
+ */
 PlantCare *FertilizingStrategy::clone() const
 {
     std::cout << "Cloning FertilizingStrategy\n";
