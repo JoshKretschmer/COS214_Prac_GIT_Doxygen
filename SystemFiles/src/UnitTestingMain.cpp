@@ -198,3 +198,26 @@ TEST_CASE("Test Chain of Responsibility") {
 // Memento Test
 
 // Facade Test
+
+TEST_CASE("Test Facade") {
+    Inventory inventory;
+    PaymentSystem paymentSystem;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    inventory.addPlant(peanut);
+    SalesAssociate sales("Alice");
+    Customer customer("Eve", "CUST001", &sales);
+
+    PurchaseFacade facade(&inventory, &paymentSystem);
+
+    Order *order = facade.initiatePurchase(&customer, factory.createPlant("PeanutCactus"));
+
+    facade.addCustomization(order, "Pot");
+
+    facade.undoLastStep(order);
+    facade.redoStep(order);
+
+    facade.completePurchase(order);
+
+    delete order;
+}
