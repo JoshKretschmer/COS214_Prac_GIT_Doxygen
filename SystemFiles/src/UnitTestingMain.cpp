@@ -150,7 +150,34 @@ TEST_CASE("Test Composite") {
     REQUIRE(inventory.getPlants().size() == 1);
 }
 
-// Iterator Test
+TEST_CASE("Test Iterator") {
+    Inventory inventory;
+
+    CreateSucculent succulentFactory;
+    Plant *peanut = succulentFactory.createPlant("PeanutCactus");
+    Plant *houseleek = succulentFactory.createPlant("HouseLeek");
+
+    inventory.addPlant(peanut);
+    inventory.addPlant(houseleek);
+
+    PlantGroup *succulents = new PlantGroup("Succulents");
+    Plant *clone = peanut->clone();
+    succulents->add(clone);
+    inventory.add(succulents);
+
+    InventoryIterator *it = inventory.createIterator();
+
+    int count = 0;
+    for (it->first(); it->hasNext(); it->next()) {
+        Plant *p = it->currentItem();
+        REQUIRE(p != nullptr);
+        count++;
+    }
+
+    REQUIRE(count == 3);
+
+    delete it;
+}
 
 // Decorator Test
 
