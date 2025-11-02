@@ -35,50 +35,20 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 ```bash
 ### Prerequisites
-<<<<<<< HEAD
-=======
 ```
->>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
 sudo apt-get install libboost-all-dev
 sudo apt-get install doctest-dev
 ```
 
 ### Cloning
-<<<<<<< HEAD
-git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
-cd COS214_Prac_GIT_Doxygen/SystemFiles/src
-
-```
-
-=======
 ```
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
 cd COS214_Prac_GIT_Doxygen/SystemFiles/src
 ```
->>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
 
 ### Building
 
 This project can be built using the makefile:
-<<<<<<< HEAD
-(Ensure you are currently in the SystemFiles/src directory)
-
-Compilation: 
-```bash
-make all
-```
-
-Demo Main: 
-```bash
-make run_Demo
-```
-
-Testing
-```bash
- make run_tests 
-
-```
-=======
 
 - **Compilation**:  
   ```bash
@@ -91,7 +61,7 @@ Testing
   make run_demo
   ```
   
-  - **Terminal Demo Main**:  
+- **Terminal Demo Main**:  
   ```bash
   make run_terminal
   ```
@@ -100,7 +70,6 @@ Testing
   ```bash
   make run_tests
   ```
->>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
 
 ### Running
 
