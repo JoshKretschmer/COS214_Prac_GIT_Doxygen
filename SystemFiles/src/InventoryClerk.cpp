@@ -102,6 +102,5 @@ Plant *InventoryClerk::getPlant(std::string plantID)
         return nullptr;
     }
 
-    inventory->removePlant(plantID);
-    return foundPlant;
+    return foundPlant->clone();
 }

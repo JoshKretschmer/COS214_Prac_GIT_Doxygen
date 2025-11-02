@@ -91,10 +91,6 @@ void Customer::addPlant(std::string plantID, std::string decor)
     std::cout << "Calling Customer::addPlant(plantID=\"" << plantID
               << "\", decor=\"" << decor << "\")\n";
 
-    Request *req = makeRequest("sales", plantID, decor);
-    SalesCommand cmd(req);
-    salesPerson->handleCommand(&cmd);
-
     InventoryClerk *clerk = dynamic_cast<InventoryClerk *>(salesPerson->getNextHandler());
     Plant *plant = nullptr;
     if (clerk)
@@ -111,7 +107,6 @@ void Customer::addPlant(std::string plantID, std::string decor)
     if (!plant)
     {
         std::cerr << "Could not obtain plant " << plantID << " for the order.\n";
-        delete req;
         std::cout << "Customer::addPlant() failed - no plant\n";
         return;
     }
@@ -124,7 +119,6 @@ void Customer::addPlant(std::string plantID, std::string decor)
 
     currentOrder->addPlant(plant);
     std::cout << "Plant " << plantID << " added to your order.\n";
-    delete req;
 
     std::cout << "Customer::addPlant() completed\n";
 }

@@ -11,7 +11,7 @@
  */
 SalesCommand::SalesCommand(Request *_request) : Command(_request)
 {
-    access = "sales";
+    access = "SalesAssociate";
 }
 
 /*!

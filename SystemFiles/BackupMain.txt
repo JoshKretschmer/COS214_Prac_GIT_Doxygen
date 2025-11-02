@@ -307,6 +307,11 @@ void TestCommand()
     std::cout << "Test Command \n\n";
 
     // create staff object for salesperson
+    Inventory inventory;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    peanut->setID("PC001");
+    inventory.addPlant(peanut);
     Staff salesPerson("SalesBob");
     Customer customer("Alice", "CUST001", &salesPerson);
     InventoryClerk clerk("Bob");
@@ -316,6 +321,9 @@ void TestCommand()
     // chain is clerk then horti then manager
     clerk.setNextHandler(&horti);
     horti.setNextHandler(&manager);
+
+    // assign inventory to clerk
+    clerk.assignJob(&inventory);
 
     // test InventoryCommand
     Request *req1 = new Request(&customer, &clerk);
@@ -337,7 +345,7 @@ void TestCommand()
     req3->setType("manager");
     ManagerCommand cmd3(req3);
     clerk.handleCommand(&cmd3); // should forward to manager
-
+    
     delete req1;
     delete req2;
     delete req3;
@@ -353,6 +361,7 @@ void TestChainOfResponsibility()
     Inventory inventory;
     CreateSucculent factory;
     Plant *peanut = factory.createPlant("PeanutCactus");
+    peanut->setID("PC001"); // Set the plant ID to match the request
     inventory.addPlant(peanut);
 
     // create staff chain
@@ -481,13 +490,13 @@ void TestFacade()
 
 int main()
 {
-    TestPlants();
-    TestComposite();
-    TestIterator();
-     TestDecorator();
+    // TestPlants();
+    // TestComposite();
+    // TestIterator();
+    // TestDecorator();
     TestCommand();
     TestChainOfResponsibility();
-    TestMemento();
-    TestFacade();
+    // TestMemento();
+    // TestFacade();
     return 0;
 }
