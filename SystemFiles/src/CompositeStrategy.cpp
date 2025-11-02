@@ -38,6 +38,9 @@ std::string CompositeCareStrategy::getCareType()
     return "Composite";
 }
 
+/*!
+ * @brief Cloning the CompositeCareStrategy
+ */
 PlantCare *CompositeCareStrategy::clone() const
 {
     std::cout << "Cloning CompositeCareStrategy\n";

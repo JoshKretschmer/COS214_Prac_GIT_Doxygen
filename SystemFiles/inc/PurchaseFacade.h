@@ -7,6 +7,12 @@
 #include "Plant.h"
 #include "Customer.h"
 
+/*!
+ * @class PurchaseFacade
+ *
+ * @brief system that the facade overviews, also forms the originator for the memonto class
+ */
+
 class PurchaseFacade
 {
 private:

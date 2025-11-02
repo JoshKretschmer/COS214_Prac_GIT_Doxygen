@@ -180,23 +180,32 @@ Plant *Plant::clone()
 
     return newPlant;
 }
-
+/*!
+ * @brief Adds an InventoryComponent (ignored for leaf node)
+ */
 void Plant::add(InventoryComponent *)
 {
     std::cout << "Calling Plant::add() - ignored (leaf node)\n";
 }
-
+/*!
+ * @brief Removes an InventoryComponent (ignored for leaf node)
+ */
 void Plant::remove(InventoryComponent *)
 {
     std::cout << "Calling Plant::remove() - ignored (leaf node)\n";
 }
-
+/*!
+ * @brief Gets the plants in this component
+ */
 std::vector<Plant *> Plant::getPlants()
 {
     std::cout << "Calling Plant::getPlants() - returning this plant\n";
     return {this};
 }
 
+/*!
+ * @brief Moves a plant to a new state (ignored for leaf node)
+ */
 void Plant::movePlant(Plant *, std::string)
 {
     std::cout << "Calling Plant::movePlant() - ignored (leaf node)\n";
