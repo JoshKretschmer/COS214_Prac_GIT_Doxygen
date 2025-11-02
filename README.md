@@ -2,7 +2,7 @@
 
 # COS 214 Project - Plant Nursery Simulator
 
-<a href="https://cdn.pixabay.com/animation/2023/04/16/19/38/19-38-30-94_512.gif"><img src="https://cdn.pixabay.com/animation/2023/04/16/19/38/19-38-30-94_512.gif" style="width: 300px; max-width: 100%; height: auto" title="Click to enlarge picture" /></a>
+<a href="images\GitDocs.jpg"><img src="images\GitDocs.jpg" style="width: 300px; max-width: 100%; height: auto" title="Click to enlarge picture" /></a>
 
 # Contents
 
@@ -31,22 +31,54 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 # Setup
 
-### Prerequisites
-```
-sudo apt-get install libboost-all-dev
 
+
+```bash
+### Prerequisites
+<<<<<<< HEAD
+=======
+```
+>>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
+sudo apt-get install libboost-all-dev
 sudo apt-get install doctest-dev
 ```
 
 ### Cloning
+<<<<<<< HEAD
+git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
+cd COS214_Prac_GIT_Doxygen/SystemFiles/src
+
+```
+
+=======
 ```
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
 cd COS214_Prac_GIT_Doxygen/SystemFiles/src
 ```
+>>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
 
 ### Building
 
 This project can be built using the makefile:
+<<<<<<< HEAD
+(Ensure you are currently in the SystemFiles/src directory)
+
+Compilation: 
+```bash
+make all
+```
+
+Demo Main: 
+```bash
+make run_Demo
+```
+
+Testing
+```bash
+ make run_tests 
+
+```
+=======
 
 - **Compilation**:  
   ```bash
@@ -68,6 +100,7 @@ This project can be built using the makefile:
   ```bash
   make run_tests
   ```
+>>>>>>> 3f166b9c5613794cd4215c5083279d6eae76a5ea
 
 ### Running
 
@@ -89,7 +122,7 @@ When the program runs:
       </td>
       <td align="center">
         Project Coordination<br>Documentation<br>System Integration<br>
-        <a href="#">
+        <a href="https://github.com/adridder02">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
@@ -119,15 +152,12 @@ When the program runs:
       </td>
       <td align="center">
         System Implementation<br>Testing<br>
-        <a href="#">
+        <a href="https://github.com/kalu-sir">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
       <td>
-        Said "It's a small, easy fix."
-      </td>
-      <td>
-                  It was not.
+        Said "It's a small, easy fix."    It was not.
       </td>
     </tr>
     <tr>
@@ -137,7 +167,7 @@ When the program runs:
       </td>
       <td align="center">
         System Implementation<br>Integration<br>
-        <a href="#">
+        <a href="https://github.com/JoshKretschmer">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
@@ -152,7 +182,7 @@ When the program runs:
       </td>
       <td align="center">
         UI<br>Integration<br>
-        <a href="#">
+        <a href="https://github.com/Keagan-VB">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
@@ -167,7 +197,7 @@ When the program runs:
       </td>
       <td align="center">
         UI<br>Testing<br>Documentation<br>
-        <a href="#">
+        <a href="https://github.com/michey-n">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
@@ -182,7 +212,7 @@ When the program runs:
       </td>
       <td align="center">
         System Implementation<br>Testing<br>Integration<br>
-        <a href="#">
+        <a href="https://github.com/OPhelia2024">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
       </td>
