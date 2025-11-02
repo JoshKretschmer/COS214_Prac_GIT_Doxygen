@@ -1,17 +1,6 @@
 #include <iostream>
 #include <string>
 #include <limits>
-#include <unordered_map>
-#include <algorithm>
-#include <sstream>
-
-//ignore errors if you have boost beast somewhere on system
-#include <boost/asio.hpp>
-#include <boost/beast.hpp>
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
-
 #include "../inc/CreateSucculent.h"
 #include "../inc/CreateFlower.h"
 #include "../inc/CreateShrub.h"
@@ -37,304 +26,141 @@
 #include "../inc/PaymentSystem.h"
 #include "../inc/PurchaseFacade.h"
 
-using tcp = boost::asio::ip::tcp;
-namespace http = boost::beast::http;
-using namespace boost::beast;
+// helper function to clear input buffer
+void clearInputBuffer()
+{
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
-//system components
-Inventory inventory;
-PaymentSystem paymentSystem;
-SalesAssociate sales("Alice");
-InventoryClerk clerk("Bob");
-Horticulturist horti("Charlie");
-Manager manager("Dave");
-Customer customer("Eve", "CUST001", &sales);
-PurchaseFacade facade(&inventory, &paymentSystem);
-Order *currentOrder = nullptr;
+// helper function to display the main menu
+void displayMenu()
+{
+    std::cout << "\n=== Plant Nursery Demo ===\n";
+    std::cout << "1. Browse Plants\n";
+    std::cout << "2. Create Custom Order\n";
+    std::cout << "3. View Inventory\n";
+    std::cout << "4. Process Staff Request\n";
+    std::cout << "5. Undo Last Order Action\n";
+    std::cout << "6. Redo Last Order Action\n";
+    std::cout << "7. Complete Purchase\n";
+    std::cout << "8. Exit\n";
+    std::cout << "Enter your choice (1-8): ";
+}
 
-//find plant by ID
-Plant* findPlantByID(const std::string& id) {
-    auto plants = inventory.getPlants();
-    for (auto p : plants) {
-        if (p->getID() == id) return p;
+// helper function to create a plant based on user input
+Plant *createPlant()
+{
+    std::cout << "\nSelect plant type:\n";
+    std::cout << "1. Succulent\n2. Flower\n3. Shrub\n";
+    int typeChoice;
+    std::cin >> typeChoice;
+    clearInputBuffer();
+
+    std::string plantName;
+    Plant *plant = nullptr;
+
+    if (typeChoice == 1)
+    {
+        CreateSucculent factory;
+        std::cout << "Enter succulent name (PeanutCactus, HouseLeek): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
     }
-    return nullptr;
-}
-
-//get plant options from HTML
-std::string getPlantOptions() {
-    std::string options = "";
-    auto plants = inventory.getPlants();
-    for (auto p : plants) {
-        std::string details = p->getDetails();
-        std::replace(details.begin(), details.end(), '\n', ' ');
-        options += "<option value=\"" + p->getID() + "\">" + details + "</option>";
+    else if (typeChoice == 2)
+    {
+        CreateFlower factory;
+        std::cout << "Enter flower name (Orchid): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
     }
-    return options;
-}
-
-//parse form data
-std::unordered_map<std::string, std::string> parseForm(const std::string& body) {
-    std::unordered_map<std::string, std::string> form;
-    size_t start = 0;
-    while (start < body.size()) {
-        size_t amp = body.find('&', start);
-        if (amp == std::string::npos) amp = body.size();
-        std::string part = body.substr(start, amp - start);
-        size_t eq = part.find('=');
-        if (eq != std::string::npos) {
-            std::string key = part.substr(0, eq);
-            std::string val = part.substr(eq + 1);
-            std::replace(val.begin(), val.end(), '+', ' ');
-            form[key] = val;
-        }
-        start = amp + 1;
+    else if (typeChoice == 3)
+    {
+        CreateShrub factory;
+        std::cout << "Enter shrub name (HoneySuckle, BeeBlossom): ";
+        std::getline(std::cin, plantName);
+        plant = factory.createPlant(plantName);
     }
-    return form;
-}
-
-//get menu links
-std::string getMenuLinks() {
-    return "<h2>Menu</h2>"
-           "<a href='/browse'>1. Browse Plants</a><br>"
-           "<a href='/create_order'>2. Create Custom Order</a><br>"
-           "<a href='/view_inventory'>3. View Inventory</a><br>"
-           "<a href='/staff_request'>4. Process Staff Request</a><br>"
-           "<a href='/undo'>5. Undo Last Order Action</a><br>"
-           "<a href='/redo'>6. Redo Last Order Action</a><br>"
-           "<a href='/complete'>7. Complete Purchase</a><br>";
-}
-
-// wrap content in HTML
-std::string wrapHTML(const std::string& content) {
-    return "<html><body><h1>Plant Nursery Demo</h1>" + content + getMenuLinks() + "</body></html>";
-}
-
-//get browse HTML
-std::string getBrowseHTML() {
-    std::string html = "<h2>Current Inventory:</h2><ul>";
-    InventoryIterator *it = inventory.createIterator();
-    for (it->first(); it->hasNext(); it->next()) {
-        Plant *p = it->currentItem();
-        if (p) {
-            html += "<li>" + p->getDetails() + " | State: " + p->getState() + " | Cost: $" + std::to_string(p->getCost()) + "</li>";
-        }
-    }
-    delete it;
-    html += "</ul>";
-    return wrapHTML(html);
-}
-
-//view inventory HTML
-std::string getViewInventoryHTML() {
-    std::string html = "<h2>Inventory Details:</h2><ul>";
-    std::vector<Plant *> plants = inventory.getPlants();
-    html += "Total plants: " + std::to_string(plants.size()) + "<br>";
-    for (Plant *p : plants) {
-        html += "<li>" + p->getDetails() + ", Cost: $" + std::to_string(p->getCost()) + "</li>";
-    }
-    html += "</ul>";
-    return wrapHTML(html);
-}
-
-//order HTML
-std::string getOrderHTML() {
-    if (!currentOrder) return "<p>No current order.</p>";
-    std::string html = "<h2>Current Order</h2><ul>";
-    for (auto p : currentOrder->getPlants()) {
-        html += "<li>" + p->getDetails() + "</li>";
-    }
-    html += "</ul><p>Total cost: $" + std::to_string(currentOrder->getTotalCost()) + "</p>";
-    return html;
-}
-
-// Handle request
-void handleRequest(http::request<http::string_body>& request, tcp::socket& socket) {
-    http::response<http::string_body> response;
-    response.version(request.version());
-    response.result(http::status::ok);
-    response.set(http::field::server, "PlantNurseryServer");
-    response.set(http::field::content_type, "text/html");
-
-    std::string target(request.target());
-
-    std::string content = "";
-
-    if (target == "/") {
-        content = "<p>Welcome to the Plant Nursery Demo</p>";
-    } else if (target == "/browse") {
-        content = getBrowseHTML();
-        response.body() = content;
-        goto send_response;
-    } else if (target == "/view_inventory") {
-        content = getViewInventoryHTML();
-        response.body() = content;
-        goto send_response;
-    } else if (target == "/create_order") {
-        std::string options = getPlantOptions();
-        content = "<h2>Create Custom Order</h2>"
-                  "<form action='/process_create_order' method='post'>"
-                  "Select plant:<br>"
-                  "<select name='plantid'>" + options + "</select><br>"
-                  "Customizations:<br>"
-                  "<input type='checkbox' name='pot'> Pot<br>"
-                  "<input type='checkbox' name='wrap'> Wrap<br>"
-                  "<input type='checkbox' name='arr'> Arrangement<br>"
-                  "<input type='submit' value='Done'>"
-                  "</form>";
-    } else if (target == "/process_create_order" && request.method() == http::verb::post) {
-        auto form = parseForm(request.body());
-        auto plantIt = form.find("plantid");
-        if (plantIt != form.end()) {
-            std::string plantid = plantIt->second;
-            Plant *plant = findPlantByID(plantid);
-            if (plant) {
-                Plant *current = plant->clone();
-                if (form.count("pot")) {
-                    PotDecorator *pot = new PotDecorator();
-                    pot->setWrapped(current);
-                    current = pot;
-                }
-                if (form.count("wrap")) {
-                    WrapDecorator *wrap = new WrapDecorator();
-                    wrap->setWrapped(current);
-                    current = wrap;
-                }
-                if (form.count("arr")) {
-                    ArrangementDecorator *arr = new ArrangementDecorator();
-                    arr->setWrapped(current);
-                    current = arr;
-                }
-                if (!currentOrder) {
-                    currentOrder = facade.initiatePurchase(&customer, current);
-                    content = "<p>Order created with customized plant.</p>";
-                } else {
-                    facade.addPlantToOrder(currentOrder, current);
-                    content = "<p>Added customized plant to order.</p>";
-                }
-                content += getOrderHTML();
-            } else {
-                content = "<p>Failed to create plant. Invalid selection.</p>";
-            }
-        } else {
-            content = "<p>No plant selected.</p>";
-        }
-    } else if (target == "/staff_request") {
-        std::string options = getPlantOptions();
-        content = "<h2>Process Staff Request</h2>"
-                  "<form action='/process_staff' method='post'>"
-                  "Select request type:<br>"
-                  "<select name='reqtype'>"
-                  "<option value='1'>Sales</option>"
-                  "<option value='2'>Inventory</option>"
-                  "<option value='3'>Greenhouse</option>"
-                  "<option value='4'>Manager</option>"
-                  "</select><br>"
-                  "Select plant:<br>"
-                  "<select name='plantid'>" + options + "</select><br>"
-                  "<input type='submit' value='Submit Request'>"
-                  "</form>";
-    } else if (target == "/process_staff" && request.method() == http::verb::post) {
-        auto form = parseForm(request.body());
-        std::string reqtype = form["reqtype"];
-        std::string plantid = form["plantid"];
-        std::string type;
-        if (reqtype == "1") type = "sales";
-        else if (reqtype == "2") type = "inventory";
-        else if (reqtype == "3") type = "greenhouse";
-        else if (reqtype == "4") type = "manager";
-        else {
-            content = "<p>Invalid request type.</p>";
-            goto wrap;
-        }
-        Request *req = customer.makeRequest(type, plantid, type == "sales" ? "Pot" : "");
-        if (type == "sales") {
-            SalesCommand cmd(req);
-            sales.handleCommand(&cmd);
-        } else if (type == "inventory") {
-            InventoryCommand cmd(req);
-            sales.handleCommand(&cmd);
-        } else if (type == "greenhouse") {
-            GreenHouseCommand cmd(req);
-            sales.handleCommand(&cmd);
-        } else if (type == "manager") {
-            ManagerCommand cmd(req);
-            sales.handleCommand(&cmd);
-        }
-        delete req;
-        content = "<p>Request processed.</p>";
-    } else if (target == "/undo") {
-        if (currentOrder) {
-            facade.undoLastStep(currentOrder);
-            content = "<p>Undone last action.</p>" + getOrderHTML();
-        } else {
-            content = "<p>No order to undo.</p>";
-        }
-    } else if (target == "/redo") {
-        if (currentOrder) {
-            facade.redoStep(currentOrder);
-            content = "<p>Redone last action.</p>" + getOrderHTML();
-        } else {
-            content = "<p>No order to redo.</p>";
-        }
-    } else if (target == "/complete") {
-        if (currentOrder) {
-            facade.completePurchase(currentOrder);
-            //remove originals from inventory by ID
-            auto plants = currentOrder->getPlants();
-            for (auto p : plants) {
-                std::string id = p->getID();
-                Plant* original = findPlantByID(id);
-                if (original) {
-                    inventory.remove(original);
-                    delete original; // Cleanup removed plant
-                }
-            }
-            delete currentOrder;
-            currentOrder = nullptr;
-            content = "<p>Purchase completed.</p>";
-        } else {
-            content = "<p>No order to complete.</p>";
-        }
-    } else {
-        response.result(http::status::not_found);
-        content = "<p>404 Not Found</p>";
+    else
+    {
+        std::cout << "Invalid plant type.\n";
+        return nullptr;
     }
 
-wrap:
-    response.body() = wrapHTML(content);
-
-send_response:
-    response.prepare_payload();
-    http::write(socket, response);
-    boost::system::error_code ec;
-    socket.shutdown(tcp::socket::shutdown_both, ec);
-    // Ignore shutdown errors
-}
-
-void runServer() {
-    boost::asio::io_context io_context;
-    tcp::acceptor acceptor(io_context, {tcp::v4(), 8080});
-    while (true) {
-        tcp::socket socket(io_context);
-        acceptor.accept(socket);
-        boost::beast::flat_buffer buffer;
-        http::request<http::string_body> request;
-        http::read(socket, buffer, request);
-        handleRequest(request, socket);
+    if (!plant)
+    {
+        std::cout << "Failed to create plant. Invalid name.\n";
     }
+    return plant;
 }
 
-int main() {
-    std::cout << "Starting Plant Nursery Web Server on http://localhost:8080" << std::endl;
+// helper function to add customization to a plant
+Plant *customizePlant(Plant *plant)
+{
+    if (!plant)
+        return nullptr;
 
-    //initialize chain
+    std::cout << "\nAdd customizations to " << plant->getDetails() << ":\n";
+    std::cout << "1. Pot\n2. Wrap\n3. Arrangement\n4. Done\n";
+
+    Plant *current = plant;
+    int choice;
+    do
+    {
+        std::cout << "Enter customization choice (1-4): ";
+        std::cin >> choice;
+        clearInputBuffer();
+
+        if (choice == 1)
+        {
+            PotDecorator *pot = new PotDecorator();
+            pot->setWrapped(current);
+            current = pot;
+            std::cout << "Added Pot. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice == 2)
+        {
+            WrapDecorator *wrap = new WrapDecorator();
+            wrap->setWrapped(current);
+            current = wrap;
+            std::cout << "Added Wrap. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice == 3)
+        {
+            ArrangementDecorator *arr = new ArrangementDecorator();
+            arr->setWrapped(current);
+            current = arr;
+            std::cout << "Added Arrangement. New details: " << current->getDetails() << ", Cost: $" << current->getCost() << "\n";
+        }
+        else if (choice != 4)
+        {
+            std::cout << "Invalid choice.\n";
+        }
+    } while (choice != 4);
+
+    return current;
+}
+
+int main()
+{
+    std::cout << "Welcome to the Plant Nursery Demo\n";
+
+    // initialize system components
+    Inventory inventory;
+    PaymentSystem paymentSystem;
+    SalesAssociate sales("Alice");
+    InventoryClerk clerk("Bob");
+    Horticulturist horti("Charlie");
+    Manager manager("Dave");
     sales.setNextHandler(&clerk);
     clerk.setNextHandler(&horti);
     horti.setNextHandler(&manager);
     clerk.assignJob(&inventory);
+    Customer customer("Eve", "CUST001", &sales);
+    PurchaseFacade facade(&inventory, &paymentSystem);
+    Order *currentOrder = nullptr;
 
-    //seed inventory
+    // seed inventory with some plants
     CreateSucculent succulentFactory;
     CreateFlower flowerFactory;
     CreateShrub shrubFactory;
@@ -342,12 +168,181 @@ int main() {
     inventory.addPlant(succulentFactory.createPlant("HouseLeek"));
     inventory.addPlant(flowerFactory.createPlant("Orchid"));
     inventory.addPlant(shrubFactory.createPlant("HoneySuckle"));
-    inventory.addPlant(shrubFactory.createPlant("BeeBlossom"));
 
-    try {
-        runServer();
-    } catch (const std::exception& e) {
-        std::cerr << "Exception: " << e.what() << std::endl;
+    int choice;
+    do
+    {
+        displayMenu();
+        std::cin >> choice;
+        clearInputBuffer();
+
+        switch (choice)
+        {
+        case 1:
+        { 
+            // * Browse Plants
+            std::cout << "\nCurrent Inventory:\n";
+            InventoryIterator *it = inventory.createIterator();
+            for (it->first(); it->hasNext(); it->next())
+            {
+                Plant *p = it->currentItem();
+                if (p)
+                {
+                    std::cout << "  -> " << p->getDetails()
+                              << " | State: " << p->getState()
+                              << " | Cost: $" << p->getCost() << "\n";
+                }
+            }
+            delete it;
+            break;
+        }
+        case 2:
+        { 
+            // * Create Custom Order
+            if (!currentOrder)
+            {
+                Plant *plant = createPlant();
+                if (plant)
+                {
+                    currentOrder = facade.initiatePurchase(&customer, plant);
+                    std::cout << "Order created for " << plant->getDetails() << "\n";
+                }
+            }
+            Plant *customizedPlant = createPlant();
+            if (customizedPlant)
+            {
+                customizedPlant = customizePlant(customizedPlant);
+                facade.addPlantToOrder(currentOrder, customizedPlant);
+                std::cout << "Added to order: " << customizedPlant->getDetails() << ", Cost: $" << customizedPlant->getCost() << "\n";
+            }
+            break;
+        }
+        case 3:
+        { 
+            // * View Inventory
+            std::cout << "\nInventory Details:\n";
+            std::vector<Plant *> plants = inventory.getPlants();
+            std::cout << "Total plants: " << plants.size() << "\n";
+            for (Plant *p : plants)
+            {
+                std::cout << "  -> " << p->getDetails() << ", Cost: $" << p->getCost() << "\n";
+            }
+            break;
+        }
+        case 4:
+        { 
+            // * Process Staff Request
+            std::cout << "\nSelect request type:\n";
+            std::cout << "1. Sales\n2. Inventory\n3. Greenhouse\n4. Manager\n";
+            int reqType;
+            std::cin >> reqType;
+            clearInputBuffer();
+
+            std::string type;
+            if (reqType == 1)
+                type = "sales";
+            else if (reqType == 2)
+                type = "inventory";
+            else if (reqType == 3)
+                type = "greenhouse";
+            else if (reqType == 4)
+                type = "manager";
+            else
+            {
+                std::cout << "Invalid request type.\n";
+                break;
+            }
+
+            std::string plantID;
+            std::cout << "Enter plant ID (e.g., PC001): ";
+            std::getline(std::cin, plantID);
+
+            Request *req = customer.makeRequest(type, plantID, type == "sales" ? "Pot" : "");
+            if (type == "sales")
+            {
+                SalesCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "inventory")
+            {
+                InventoryCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "greenhouse")
+            {
+                GreenHouseCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            else if (type == "manager")
+            {
+                ManagerCommand cmd(req);
+                sales.handleCommand(&cmd);
+            }
+            delete req;
+            break;
+        }
+        case 5:
+        {
+            // * Undo Last Order Action
+            if (currentOrder)
+            {
+                facade.undoLastStep(currentOrder);
+                std::cout << "Undone last action. Current order:\n";
+                currentOrder->printOrder();
+            }
+            else
+            {
+                std::cout << "No order to undo.\n";
+            }
+            break;
+        }
+        case 6:
+        {
+            // * Redo Last Order Action
+            if (currentOrder)
+            {
+                facade.redoStep(currentOrder);
+                std::cout << "Redone last action. Current order:\n";
+                currentOrder->printOrder();
+            }
+            else
+            {
+                std::cout << "No order to redo.\n";
+            }
+            break;
+        }
+        case 7:
+        {
+            // * Complete Purchase
+            if (currentOrder)
+            {
+                facade.completePurchase(currentOrder);
+                std::cout << "Purchase completed\n";
+                delete currentOrder;
+                currentOrder = nullptr;
+            }
+            else
+            {
+                std::cout << "No order to complete.\n";
+            }
+            break;
+        }
+        case 8:
+        { 
+            // exit
+            std::cout << "Thank you for visiting the Plant Nursery\n";
+            break;
+        }
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    } while (choice != 8);
+
+    // cleanup
+    if (currentOrder)
+    {
+        delete currentOrder;
     }
+
     return 0;
 }
