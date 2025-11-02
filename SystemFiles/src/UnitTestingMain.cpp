@@ -180,6 +180,27 @@ TEST_CASE("Test Iterator") {
 }
 
 // Decorator Test
+TEST_CASE("Test Decorator") {
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+
+    PotDecorator *pot = new PotDecorator();
+    pot->setWrapped(peanut);
+
+    WrapDecorator *wrap = new WrapDecorator();
+    wrap->setWrapped(pot);
+
+    ArrangementDecorator *arr = new ArrangementDecorator();
+    arr->setWrapped(wrap);
+
+    REQUIRE(arr->getCost() == 80.0);
+
+    PlantDecorator *clone = arr->clone();
+
+    delete arr;
+    delete clone;
+}
+
 
 // Command Test
 
