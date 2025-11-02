@@ -241,7 +241,7 @@ TEST_CASE("Test Decorator") {
         delete pot;
     }
     
-  /*  
+  
     SUBCASE("Decorator cloning preserves decorations") {
         Plant *peanut = factory.createPlant("PeanutCactus");
         
@@ -264,7 +264,7 @@ TEST_CASE("Test Decorator") {
         
         delete wrap;
         delete clone;
-    }*/
+    }
     
     SUBCASE("Handling empty decorator") {
         //decorator without wrapped plant
