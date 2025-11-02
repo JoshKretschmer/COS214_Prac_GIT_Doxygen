@@ -1,24 +1,4 @@
-## Team ANÉ
-
-```markdown
-# Build and Run Instructions
-  ```
-- **Compilation**:  
-  ```bash
-  cd SystemFiles
-  make all
-  ```
-
-- **Demo Main**:  
-  ```bash
-  make run_demo
-  ```
-
-- **Unit Tests**:  
-  ```bash
-  make run_tests
-  ```
-```
+## Team GIT DOXYGEN TO BREATHE
 
 # COS 214 Project - Plant Nursery Simulator
 
