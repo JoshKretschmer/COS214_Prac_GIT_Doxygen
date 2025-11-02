@@ -1,0 +1,27 @@
+\doxysection{Plant\+Decorator.\+h}
+\hypertarget{_plant_decorator_8h_source}{}\label{_plant_decorator_8h_source}\index{inc/PlantDecorator.h@{inc/PlantDecorator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLANTDECORATOR\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLANTDECORATOR\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Plant.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant_decorator_a89cf857e1c80a2093e7bcac328aaf52b}{PlantDecorator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}}\{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}}*\ wrappedPlant;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}}*\ getWrapped()\ \{\textcolor{keywordflow}{return}\ wrappedPlant;\};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_plant_decorator_a89cf857e1c80a2093e7bcac328aaf52b}{PlantDecorator}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_plant_decorator_ac96952357f89417896bcc022c9c968de}{\string~PlantDecorator}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{virtual}\ std::string\ getDetails()\ =\ 0;}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ getCost()\ =\ 0;}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_plant_decorator_a17330fb96fc7a62cacfcd724d58aa932}{setWrapped}}(\mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}}*\ wrappedPlant);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_plant_decorator_a89cf857e1c80a2093e7bcac328aaf52b}{PlantDecorator}}*\ \mbox{\hyperlink{class_plant_a5f3efd4fda67a2a9dce01dd007df774c}{clone}}()\ =\ 0;}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLANTDECORATOR\_H}}
+
+\end{DoxyCode}

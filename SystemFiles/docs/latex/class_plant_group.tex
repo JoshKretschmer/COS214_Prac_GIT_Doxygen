@@ -1,0 +1,149 @@
+\doxysection{Plant\+Group Class Reference}
+\hypertarget{class_plant_group}{}\label{class_plant_group}\index{PlantGroup@{PlantGroup}}
+
+
+Subclass used to organize the \doxylink{class_plant}{Plant} objects in \doxylink{class_inventory}{Inventory} into categories.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Group.\+h$>$}
+
+Inheritance diagram for Plant\+Group\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plant_group}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_group_a8fd58a8e9c10467aea18c26e3c98e7ea}{Plant\+Group}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_group_a95dadbcf4f8779bb5e1b5a311221f573}\label{class_plant_group_a95dadbcf4f8779bb5e1b5a311221f573} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Group} () override
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_group_a794d2a9a1d96c41094eaa97b5846b2ea}{add}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component) override
+\begin{DoxyCompactList}\small\item\em Adds a \doxylink{class_plant}{Plant} object or another \doxylink{class_plant_group}{Plant\+Group} to the category. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_group_af437f423a16735aa9d155dff2b719ea5}{remove}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component) override
+\begin{DoxyCompactList}\small\item\em Removes a \doxylink{class_plant}{Plant} or a subgroup from the category. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_plant_group_a42b6d5f2925e8c12e3570590cba71af4}{get\+Plants}} () override
+\item 
+void \mbox{\hyperlink{class_plant_group_a808dc661e282d2f165e3c4a78d2d0004}{move\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string new\+State) override
+\begin{DoxyCompactList}\small\item\em Moves a plant from one category to another due to a state change. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_group_a5e825b1c18dfeda37f706c21b325899f}\label{class_plant_group_a5e825b1c18dfeda37f706c21b325899f} 
+const std\+::string \& {\bfseries get\+Name} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Subclass used to organize the \doxylink{class_plant}{Plant} objects in \doxylink{class_inventory}{Inventory} into categories. 
+
+\label{doc-constructors}
+\Hypertarget{class_plant_group_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_plant_group_a8fd58a8e9c10467aea18c26e3c98e7ea}\index{PlantGroup@{PlantGroup}!PlantGroup@{PlantGroup}}
+\index{PlantGroup@{PlantGroup}!PlantGroup@{PlantGroup}}
+\doxysubsubsection{\texorpdfstring{PlantGroup()}{PlantGroup()}}
+{\footnotesize\ttfamily \label{class_plant_group_a8fd58a8e9c10467aea18c26e3c98e7ea} 
+Plant\+Group\+::\+Plant\+Group (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of \doxylink{class_plant_group}{Plant\+Group(\+Category)} \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_plant_group_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_group_a794d2a9a1d96c41094eaa97b5846b2ea}\index{PlantGroup@{PlantGroup}!add@{add}}
+\index{add@{add}!PlantGroup@{PlantGroup}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_plant_group_a794d2a9a1d96c41094eaa97b5846b2ea} 
+void Plant\+Group\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds a \doxylink{class_plant}{Plant} object or another \doxylink{class_plant_group}{Plant\+Group} to the category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Plant\texorpdfstring{$\ast$}{*} or Plant\+Group\texorpdfstring{$\ast$}{*} \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_group_a42b6d5f2925e8c12e3570590cba71af4}\index{PlantGroup@{PlantGroup}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!PlantGroup@{PlantGroup}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_plant_group_a42b6d5f2925e8c12e3570590cba71af4} 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ Plant\+Group\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+All plant objects in the category (recursively) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_group_a808dc661e282d2f165e3c4a78d2d0004}\index{PlantGroup@{PlantGroup}!movePlant@{movePlant}}
+\index{movePlant@{movePlant}!PlantGroup@{PlantGroup}}
+\doxysubsubsection{\texorpdfstring{movePlant()}{movePlant()}}
+{\footnotesize\ttfamily \label{class_plant_group_a808dc661e282d2f165e3c4a78d2d0004} 
+void Plant\+Group\+::move\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{std\+::string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves a plant from one category to another due to a state change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object to be moved \\
+\hline
+{\em new\+State} & state that determines the new category to store in \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_group_af437f423a16735aa9d155dff2b719ea5}\index{PlantGroup@{PlantGroup}!remove@{remove}}
+\index{remove@{remove}!PlantGroup@{PlantGroup}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_plant_group_af437f423a16735aa9d155dff2b719ea5} 
+void Plant\+Group\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes a \doxylink{class_plant}{Plant} or a subgroup from the category. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Plant\texorpdfstring{$\ast$}{*} or Plant\+Group\texorpdfstring{$\ast$}{*} to be removed \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}{Inventory\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Plant\+Group.\+h\item 
+src/Plant\+Group.\+cpp\end{DoxyCompactItemize}

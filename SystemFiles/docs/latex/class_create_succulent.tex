@@ -1,0 +1,65 @@
+\doxysection{Create\+Succulent Class Reference}
+\hypertarget{class_create_succulent}{}\label{class_create_succulent}\index{CreateSucculent@{CreateSucculent}}
+
+
+Creator class for \doxylink{class_peanut_cactus}{Peanut\+Cactus} and \doxylink{class_house_leek}{House\+Leek} classes.  
+
+
+
+
+{\ttfamily \#include $<$Create\+Succulent.\+h$>$}
+
+Inheritance diagram for Create\+Succulent\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_create_succulent}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_create_succulent_a893e97d8ab0e37cc85f84d688976d5a2}{create\+Plant}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_succulent}{Succulent} Takes "{}\+House\+Leek"{} or "{}\+Peanut\+Cactus"{} as input, or gives an error and returns nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \doxylink{class_peanut_cactus}{Peanut\+Cactus} and \doxylink{class_house_leek}{House\+Leek} classes. 
+
+\label{doc-func-members}
+\Hypertarget{class_create_succulent_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_create_succulent_a893e97d8ab0e37cc85f84d688976d5a2}\index{CreateSucculent@{CreateSucculent}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!CreateSucculent@{CreateSucculent}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \label{class_create_succulent_a893e97d8ab0e37cc85f84d688976d5a2} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Create\+Succulent\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_succulent}{Succulent} Takes "{}\+House\+Leek"{} or "{}\+Peanut\+Cactus"{} as input, or gives an error and returns nullptr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Specifies which plant object to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_plant}{Plant} object of specified class, or nullptr as error 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Create\+Succulent.\+h\item 
+src/Create\+Succulent.\+cpp\end{DoxyCompactItemize}

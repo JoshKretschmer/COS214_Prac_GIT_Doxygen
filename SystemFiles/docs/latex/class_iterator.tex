@@ -1,0 +1,85 @@
+\doxysection{Iterator Class Reference}
+\hypertarget{class_iterator}{}\label{class_iterator}\index{Iterator@{Iterator}}
+
+
+Abstract parent class of \doxylink{class_inventory_iterator}{Inventory\+Iterator}.  
+
+
+
+
+{\ttfamily \#include $<$Iterator.\+h$>$}
+
+Inheritance diagram for Iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_iterator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_iterator_a30f4489aebb0ea1a56da6925d03eecfb}\label{class_iterator_a30f4489aebb0ea1a56da6925d03eecfb} 
+{\bfseries Iterator} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_iterator_aad56ef26673ea3c74b7ac964f24b8ef5}{first}} ()=0
+\item 
+virtual void \mbox{\hyperlink{class_iterator_ac639e96c519e2e78cff17bee372ad750}{next}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_iterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}{has\+Next}} ()=0
+\item 
+virtual \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_iterator_ac2fe94890b4123f86462fd3deedfd83f}{current\+Item}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract parent class of \doxylink{class_inventory_iterator}{Inventory\+Iterator}. 
+
+\label{doc-func-members}
+\Hypertarget{class_iterator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_iterator_ac2fe94890b4123f86462fd3deedfd83f}\index{Iterator@{Iterator}!currentItem@{currentItem}}
+\index{currentItem@{currentItem}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{currentItem()}{currentItem()}}
+{\footnotesize\ttfamily \label{class_iterator_ac2fe94890b4123f86462fd3deedfd83f} 
+virtual \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Iterator\+::current\+Item (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_inventory_iterator_a40efbe8fddae4d5405cf16548ce3260c}{Inventory\+Iterator}}.
+
+\Hypertarget{class_iterator_aad56ef26673ea3c74b7ac964f24b8ef5}\index{Iterator@{Iterator}!first@{first}}
+\index{first@{first}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \label{class_iterator_aad56ef26673ea3c74b7ac964f24b8ef5} 
+virtual void Iterator\+::first (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_inventory_iterator_a690dd1d283f7aca876616af93cb5d046}{Inventory\+Iterator}}.
+
+\Hypertarget{class_iterator_ac3a1f5cb124b2b89e4cc41900ffd83f6}\index{Iterator@{Iterator}!hasNext@{hasNext}}
+\index{hasNext@{hasNext}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{hasNext()}{hasNext()}}
+{\footnotesize\ttfamily \label{class_iterator_ac3a1f5cb124b2b89e4cc41900ffd83f6} 
+virtual bool Iterator\+::has\+Next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_inventory_iterator_a14546cb99148306f19048bde4ebe6757}{Inventory\+Iterator}}.
+
+\Hypertarget{class_iterator_ac639e96c519e2e78cff17bee372ad750}\index{Iterator@{Iterator}!next@{next}}
+\index{next@{next}!Iterator@{Iterator}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{class_iterator_ac639e96c519e2e78cff17bee372ad750} 
+virtual void Iterator\+::next (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_inventory_iterator_acc01b20b3d3aac5e62371046437104b5}{Inventory\+Iterator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Iterator.\+h\item 
+src/Iterator.\+cpp\end{DoxyCompactItemize}

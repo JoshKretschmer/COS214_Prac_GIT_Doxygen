@@ -1,0 +1,81 @@
+\doxysection{Dead\+State Class Reference}
+\hypertarget{class_dead_state}{}\label{class_dead_state}\index{DeadState@{DeadState}}
+
+
+Final state for plant object.  
+
+
+
+
+{\ttfamily \#include $<$Dead\+State.\+h$>$}
+
+Inheritance diagram for Dead\+State\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dead_state}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dead_state_acfad0fea1d2a248a8ef58ba837aa91d1}{handle\+Care}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Placeholder function for dead plants that must be removed from system. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_dead_state_a1bf8bcb70398f2d41e594181dde29e88}{get\+State\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_state}{Plant\+State}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+State} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_state}{Plant\+State} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Final state for plant object. 
+
+Reached by failing plant care tasks (hp \texorpdfstring{$>$}{>}=0). Final state of plant with no outgoing transitions 
+
+\label{doc-func-members}
+\Hypertarget{class_dead_state_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dead_state_a1bf8bcb70398f2d41e594181dde29e88}\index{DeadState@{DeadState}!getStateName@{getStateName}}
+\index{getStateName@{getStateName}!DeadState@{DeadState}}
+\doxysubsubsection{\texorpdfstring{getStateName()}{getStateName()}}
+{\footnotesize\ttfamily \label{class_dead_state_a1bf8bcb70398f2d41e594181dde29e88} 
+std\+::string Dead\+State\+::get\+State\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+"{}\+Dead"{} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+\Hypertarget{class_dead_state_acfad0fea1d2a248a8ef58ba837aa91d1}\index{DeadState@{DeadState}!handleCare@{handleCare}}
+\index{handleCare@{handleCare}!DeadState@{DeadState}}
+\doxysubsubsection{\texorpdfstring{handleCare()}{handleCare()}}
+{\footnotesize\ttfamily \label{class_dead_state_acfad0fea1d2a248a8ef58ba837aa91d1} 
+void Dead\+State\+::handle\+Care (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Placeholder function for dead plants that must be removed from system. 
+
+Exists to avoid errors that may be caused by attempting to care for a dead plant
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object for which the state is being checked \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_plant_state}{Plant\+State}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Dead\+State.\+h\item 
+src/Dead\+State.\+cpp\end{DoxyCompactItemize}

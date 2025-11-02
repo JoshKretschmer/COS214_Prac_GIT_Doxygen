@@ -1,0 +1,49 @@
+\doxysection{Request.\+h}
+\hypertarget{_request_8h_source}{}\label{_request_8h_source}\index{inc/Request.h@{inc/Request.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ REQUEST\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ REQUEST\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_customer}{Customer}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_staff}{Staff}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request_a50bd2767895d112e903b9f589c7c1a2b}{Request}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ the\ request\ is\ made,\ and\ it\ is\ used\ with\ the\ command\ to\ do\ what\ it\ does}}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ plantID;}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ type;}
+\DoxyCodeLine{00020\ \ \ \ \ std::string\ plantType;}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ extra;}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_customer}{Customer}}\ *sender;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ types\ of\ commands:\ sales,\ inventory,\ manager,\ greenhouse}}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_staff}{Staff}}\ *receiver;\ \textcolor{comment}{//\ who\ is\ supposed\ to\ handle\ it}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_request_a50bd2767895d112e903b9f589c7c1a2b}{Request}}(\mbox{\hyperlink{class_customer}{Customer}}\ *\_sender,\ \mbox{\hyperlink{class_staff}{Staff}}\ *receiver);}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_request_a4d57c725686701f773eb3630630a7ea2}{\string~Request}}();}
+\DoxyCodeLine{00028\ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_a00c334ad1f26ba22587802156a11bfc7}{setPlantType}}(std::string\ \_plantType);}
+\DoxyCodeLine{00030\ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_a9c06fc94eb33e0ed92e4d603710dbb77}{getPlantType}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_a3c49021dcbf8d09c8241eec3af8a7144}{setPlantID}}(std::string\ \_plantID);}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_afafc7584c4d4a112551331660987d778}{getPlantID}}();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_ac09a49481af10861f0b2a3362cbd8732}{setType}}(std::string\ \_type);}
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_aa7202348a591bff7a3db56527bb47f4c}{getType}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_aad5ea660af289aa51aa1a64915ec2bb8}{setSender}}(\mbox{\hyperlink{class_customer}{Customer}}\ *\_sender);}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_customer}{Customer}}\ *\mbox{\hyperlink{class_request_a85fc1e5350040cd68e257f7ea3a735ef}{getSender}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_a4231382fe4ee0626bfb376b7a7c5ed50}{setExtra}}(std::string\ \_extra);}
+\DoxyCodeLine{00042\ \ \ \ \ std::string\ \mbox{\hyperlink{class_request_adbda996481e8d0cae9862f9db12d25ca}{getExtra}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_request_a88e09b76d3918af3f5ce4cda5639baa1}{setReceiver}}(\mbox{\hyperlink{class_staff}{Staff}}\ *\_receiver);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_staff}{Staff}}\ *\mbox{\hyperlink{class_request_a12aa9b05edb01d7f04041b1b8d294206}{getReceiver}}();}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ REQUEST\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,53 @@
+\doxysection{Purchase\+Facade Class Reference}
+\hypertarget{class_purchase_facade}{}\label{class_purchase_facade}\index{PurchaseFacade@{PurchaseFacade}}
+
+
+system that the facade overviews, also forms the originator for the memonto class  
+
+
+
+
+{\ttfamily \#include $<$Purchase\+Facade.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_purchase_facade_a04a499be6b8cc73a3942c7998da9cb03}\label{class_purchase_facade_a04a499be6b8cc73a3942c7998da9cb03} 
+{\bfseries Purchase\+Facade} (\mbox{\hyperlink{class_inventory}{Inventory}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{class_payment_system}{Payment\+System}} \texorpdfstring{$\ast$}{*}ps)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_aa7d8ad6026d2548d426ae7397a7a87e9}\label{class_purchase_facade_aa7d8ad6026d2548d426ae7397a7a87e9} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Purchase\+Facade} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a458ac07f0a2653b13fedfa5a72c9ee74}\label{class_purchase_facade_a458ac07f0a2653b13fedfa5a72c9ee74} 
+void {\bfseries set\+Payment\+System} (\mbox{\hyperlink{class_payment_system}{Payment\+System}} \texorpdfstring{$\ast$}{*}ps)
+\begin{DoxyCompactList}\small\item\em Sets the payment system. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a3e08425dd7232f9fbb0fd55338c10347}\label{class_purchase_facade_a3e08425dd7232f9fbb0fd55338c10347} 
+\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*} {\bfseries initiate\+Purchase} (\mbox{\hyperlink{class_customer}{Customer}} \texorpdfstring{$\ast$}{*}customer, \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Initiates a purchase for a customer and plant. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a9028e049b7e4eb8baeab5adab28a3a9c}\label{class_purchase_facade_a9028e049b7e4eb8baeab5adab28a3a9c} 
+void {\bfseries add\+Customization} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order, std\+::string customization)
+\begin{DoxyCompactList}\small\item\em Adds a customization to the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a40cdedb9ed46a0045c2632a65af2e6fe}\label{class_purchase_facade_a40cdedb9ed46a0045c2632a65af2e6fe} 
+bool {\bfseries process\+Payment} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order)
+\begin{DoxyCompactList}\small\item\em Processes the payment for the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_aaa1b807aabad3c34dce1c5cd4c1c4234}\label{class_purchase_facade_aaa1b807aabad3c34dce1c5cd4c1c4234} 
+void {\bfseries undo\+Last\+Step} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order)
+\begin{DoxyCompactList}\small\item\em Undoes the last step in the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a2ee6ead54a1e551afff302b332b0653d}\label{class_purchase_facade_a2ee6ead54a1e551afff302b332b0653d} 
+void {\bfseries redo\+Step} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order)
+\begin{DoxyCompactList}\small\item\em Redoes the last undone step in the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_a86ec6ac1b9bd7302d4cfbbc04c87b57f}\label{class_purchase_facade_a86ec6ac1b9bd7302d4cfbbc04c87b57f} 
+void {\bfseries complete\+Purchase} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order)
+\begin{DoxyCompactList}\small\item\em Completes the purchase for the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_purchase_facade_acb6d301e88b704679fef2dceb917ba45}\label{class_purchase_facade_acb6d301e88b704679fef2dceb917ba45} 
+void {\bfseries add\+Plant\+To\+Order} (\mbox{\hyperlink{class_order}{Order}} \texorpdfstring{$\ast$}{*}order, \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+system that the facade overviews, also forms the originator for the memonto class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Purchase\+Facade.\+h\item 
+src/Purchase\+Facade.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,270 @@
+\doxysection{Plant Class Reference}
+\hypertarget{class_plant}{}\label{class_plant}\index{Plant@{Plant}}
+
+
+Main \doxylink{class_plant}{Plant} class – {\bfseries{leaf}} of the Composite pattern.  
+
+
+
+
+{\ttfamily \#include $<$Plant.\+h$>$}
+
+Inheritance diagram for Plant\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.800000cm]{class_plant}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_plant}{Plant} constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_a515a5d95646b404a2fc633e870617509}\label{class_plant_a515a5d95646b404a2fc633e870617509} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant} () override
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_plant}{Plant} class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_plant_a586381fa28c4299a3603d2a0c9d05e1b}{get\+Details}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_plant_aa4eab8e44ff60c1f638a771be8e7e688}{get\+Cost}} ()=0
+\item 
+void \mbox{\hyperlink{class_plant_a199da7ff4d0082a8e4afdc2c83946be3}{change\+State}} (\mbox{\hyperlink{class_plant_state}{Plant\+State}} \texorpdfstring{$\ast$}{*}new\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of the \doxylink{class_plant}{Plant} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_a8ca4526459a7711aa9122f3aca2aaf3a}{needs\+Care}} ()
+\begin{DoxyCompactList}\small\item\em If a \doxylink{class_plant}{Plant} is not fully grown, care is still needed. \end{DoxyCompactList}\item 
+\Hypertarget{class_plant_a819a556d130755d4534f8ddb780f13e9}\label{class_plant_a819a556d130755d4534f8ddb780f13e9} 
+int {\bfseries get\+Health} () const
+\item 
+\Hypertarget{class_plant_a9429d14764e0b56d95ab7ca210371fa7}\label{class_plant_a9429d14764e0b56d95ab7ca210371fa7} 
+std\+::string {\bfseries get\+ID} () const
+\item 
+\Hypertarget{class_plant_a8d03b34729dda37115301baf63c6abeb}\label{class_plant_a8d03b34729dda37115301baf63c6abeb} 
+std\+::string {\bfseries get\+Type} () const
+\item 
+void \mbox{\hyperlink{class_plant_a218939e750dc0f1c3b531c14968d8df9}{increment\+Health}} (int num)
+\begin{DoxyCompactList}\small\item\em Increase the health of a plant by num. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_plant_a988ab750a919af0800dbb2508438c880}{get\+State}} ()
+\item 
+\Hypertarget{class_plant_acc9cf3f659dec4874171479bf0734773}\label{class_plant_acc9cf3f659dec4874171479bf0734773} 
+void {\bfseries set\+ID} (const std\+::string \&new\+ID)
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a5f3efd4fda67a2a9dce01dd007df774c}{clone}} ()
+\item 
+\Hypertarget{class_plant_a22984093521aadd23bf035d4603d0db4}\label{class_plant_a22984093521aadd23bf035d4603d0db4} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Care\+Regime} () const
+\item 
+\Hypertarget{class_plant_af505985cbdce0cc6dc10608971193f7b}\label{class_plant_af505985cbdce0cc6dc10608971193f7b} 
+void {\bfseries set\+Care\+Regime} (\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*}care)
+\item 
+\Hypertarget{class_plant_afee7e2896a303f697e071ddf51f5e52d}\label{class_plant_afee7e2896a303f697e071ddf51f5e52d} 
+void {\bfseries set\+Health} (int h)
+\item 
+void \mbox{\hyperlink{class_plant_a6ca7421fe0fcbdeb4b90ad3fa0c33514}{add}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Adds an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a276396fbe27eee76882a034baa527caf}{remove}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Removes an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_plant_a077f8c8ae26f3990265c43cdfd50e088}{get\+Plants}} () override
+\begin{DoxyCompactList}\small\item\em Gets the plants in this component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a538ecaee51682ceca60b3bc6c14fb680}{move\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string new\+State) override
+\begin{DoxyCompactList}\small\item\em Moves a plant to a new state (ignored for leaf node) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_plant_a06a94f112279427f75acee68a2576836}\label{class_plant_a06a94f112279427f75acee68a2576836} 
+std\+::string {\bfseries id}
+\item 
+\Hypertarget{class_plant_ab1aed0f38adc8518ce0fff9b61eb5305}\label{class_plant_ab1aed0f38adc8518ce0fff9b61eb5305} 
+std\+::string {\bfseries type}
+\item 
+\Hypertarget{class_plant_ab761ff9eeb8f9c68fbe8d22ec2fbb09e}\label{class_plant_ab761ff9eeb8f9c68fbe8d22ec2fbb09e} 
+double {\bfseries price}
+\item 
+\Hypertarget{class_plant_a7314aaeef0136585d3ac63feb66596a2}\label{class_plant_a7314aaeef0136585d3ac63feb66596a2} 
+\mbox{\hyperlink{class_plant_state}{Plant\+State}} \texorpdfstring{$\ast$}{*} {\bfseries curr\+State}
+\item 
+\Hypertarget{class_plant_a765253e7880499299b50d5487b46b080}\label{class_plant_a765253e7880499299b50d5487b46b080} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} {\bfseries care\+Regime}
+\item 
+\Hypertarget{class_plant_a33928c8ddabfba848229b1261ab6e88b}\label{class_plant_a33928c8ddabfba848229b1261ab6e88b} 
+int {\bfseries health}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main \doxylink{class_plant}{Plant} class – {\bfseries{leaf}} of the Composite pattern. 
+
+Parent class for different types of plants. Product in Factory Method, Concrete\+Component in Decorator, Context for State 
+
+\label{doc-constructors}
+\Hypertarget{class_plant_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_plant_aeebba67fbf33e3087e9035f41289a83a}\index{Plant@{Plant}!Plant@{Plant}}
+\index{Plant@{Plant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{Plant()}{Plant()}}
+{\footnotesize\ttfamily \label{class_plant_aeebba67fbf33e3087e9035f41289a83a} 
+Plant\+::\+Plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_plant}{Plant} constructor function. 
+
+Initializes information shared by all plants (health, curr\+State, care\+Regime) 
+
+\label{doc-func-members}
+\Hypertarget{class_plant_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_a6ca7421fe0fcbdeb4b90ad3fa0c33514}\index{Plant@{Plant}!add@{add}}
+\index{add@{add}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_plant_a6ca7421fe0fcbdeb4b90ad3fa0c33514} 
+void Plant\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Adds an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) 
+
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_a199da7ff4d0082a8e4afdc2c83946be3}\index{Plant@{Plant}!changeState@{changeState}}
+\index{changeState@{changeState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{changeState()}{changeState()}}
+{\footnotesize\ttfamily \label{class_plant_a199da7ff4d0082a8e4afdc2c83946be3} 
+void Plant\+::change\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant_state}{Plant\+State}} \texorpdfstring{$\ast$}{*}}]{new\+State}{}\end{DoxyParamCaption})}
+
+
+
+Changes the state of the \doxylink{class_plant}{Plant} object. 
+
+Called in the \doxylink{class_plant_state}{Plant\+State} class
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+State} & State that \doxylink{class_plant}{Plant} object is being set to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_plant_a5f3efd4fda67a2a9dce01dd007df774c}\index{Plant@{Plant}!clone@{clone}}
+\index{clone@{clone}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_plant_a5f3efd4fda67a2a9dce01dd007df774c} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Plant\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Concrete copy of \doxylink{class_plant}{Plant} object 
+\end{DoxyReturn}
+\Hypertarget{class_plant_aa4eab8e44ff60c1f638a771be8e7e688}\index{Plant@{Plant}!getCost@{getCost}}
+\index{getCost@{getCost}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily \label{class_plant_aa4eab8e44ff60c1f638a771be8e7e688} 
+virtual double Plant\+::get\+Cost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_arrangement_decorator_a18b0f8646debc7a3e02d0ca923412864}{Arrangement\+Decorator}}, \mbox{\hyperlink{class_bee_blossom_af6588b88f215a14c30642dd2ca916d94}{Bee\+Blossom}}, \mbox{\hyperlink{class_honey_suckle_a6014c60db45a78cef9bfaa32239d9b60}{Honey\+Suckle}}, \mbox{\hyperlink{class_house_leek_a5c8d863650ace3a7e0fefb06f85e9409}{House\+Leek}}, \mbox{\hyperlink{class_marigold_a1d0dbf8a1455feb728d32736e8a31e43}{Marigold}}, \mbox{\hyperlink{class_orchid_ad49b1813286bb0473ea1a2138132ee7c}{Orchid}}, \mbox{\hyperlink{class_peanut_cactus_a254885dd312f265e12ed7b01d0eb88da}{Peanut\+Cactus}}, \mbox{\hyperlink{class_pot_decorator_a9910d17660c534a8c8562a4f3f92802c}{Pot\+Decorator}}, and \mbox{\hyperlink{class_wrap_decorator_ad3305db6fd9b91fb2c7d30bae7b18768}{Wrap\+Decorator}}.
+
+\Hypertarget{class_plant_a586381fa28c4299a3603d2a0c9d05e1b}\index{Plant@{Plant}!getDetails@{getDetails}}
+\index{getDetails@{getDetails}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getDetails()}{getDetails()}}
+{\footnotesize\ttfamily \label{class_plant_a586381fa28c4299a3603d2a0c9d05e1b} 
+virtual std\+::string Plant\+::get\+Details (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_arrangement_decorator_a634952e1bf3fa29d2a4b013d561004af}{Arrangement\+Decorator}}, \mbox{\hyperlink{class_bee_blossom_a8f5357af0bc41f5cfcf83be2512bebaa}{Bee\+Blossom}}, \mbox{\hyperlink{class_honey_suckle_a637b8dbe9e45b637772652290b914ee6}{Honey\+Suckle}}, \mbox{\hyperlink{class_house_leek_a225de0b4529edad38bf103736240f6e8}{House\+Leek}}, \mbox{\hyperlink{class_marigold_af6485317e9ef87627844a171bccaad4b}{Marigold}}, \mbox{\hyperlink{class_orchid_a090528d165d91e1e7b1baa2992a1327f}{Orchid}}, \mbox{\hyperlink{class_peanut_cactus_a7682107c2dba01da7c85f34163b8513f}{Peanut\+Cactus}}, \mbox{\hyperlink{class_pot_decorator_a9035a2e88a896a2ff6119cc160ae2e87}{Pot\+Decorator}}, and \mbox{\hyperlink{class_wrap_decorator_a84efa271d890e04702ae6cce5ba87102}{Wrap\+Decorator}}.
+
+\Hypertarget{class_plant_a077f8c8ae26f3990265c43cdfd50e088}\index{Plant@{Plant}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_plant_a077f8c8ae26f3990265c43cdfd50e088} 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ Plant\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Gets the plants in this component. 
+
+
+
+Implements \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_a988ab750a919af0800dbb2508438c880}\index{Plant@{Plant}!getState@{getState}}
+\index{getState@{getState}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily \label{class_plant_a988ab750a919af0800dbb2508438c880} 
+std\+::string Plant\+::get\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+name of the current state of the plant as a string 
+\end{DoxyReturn}
+\Hypertarget{class_plant_a218939e750dc0f1c3b531c14968d8df9}\index{Plant@{Plant}!incrementHealth@{incrementHealth}}
+\index{incrementHealth@{incrementHealth}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{incrementHealth()}{incrementHealth()}}
+{\footnotesize\ttfamily \label{class_plant_a218939e750dc0f1c3b531c14968d8df9} 
+void Plant\+::increment\+Health (\begin{DoxyParamCaption}\item[{int}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Increase the health of a plant by num. 
+
+Done after a care task is successfully done. curr\+State-\/\texorpdfstring{$>$}{>}handle\+Care() is called to ensure that state changes occur as needed
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & amount with which to increase health (negative number used for decrease) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_plant_a538ecaee51682ceca60b3bc6c14fb680}\index{Plant@{Plant}!movePlant@{movePlant}}
+\index{movePlant@{movePlant}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{movePlant()}{movePlant()}}
+{\footnotesize\ttfamily \label{class_plant_a538ecaee51682ceca60b3bc6c14fb680} 
+void Plant\+::move\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{std\+::string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves a plant to a new state (ignored for leaf node) 
+
+
+
+Implements \mbox{\hyperlink{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}{Inventory\+Component}}.
+
+\Hypertarget{class_plant_a8ca4526459a7711aa9122f3aca2aaf3a}\index{Plant@{Plant}!needsCare@{needsCare}}
+\index{needsCare@{needsCare}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{needsCare()}{needsCare()}}
+{\footnotesize\ttfamily \label{class_plant_a8ca4526459a7711aa9122f3aca2aaf3a} 
+bool Plant\+::needs\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+If a \doxylink{class_plant}{Plant} is not fully grown, care is still needed. 
+
+Exception case where plant is dead is accounted for in the first if
+
+\begin{DoxyReturn}{Returns}
+bool stating whether care is needed 
+\end{DoxyReturn}
+\Hypertarget{class_plant_a276396fbe27eee76882a034baa527caf}\index{Plant@{Plant}!remove@{remove}}
+\index{remove@{remove}!Plant@{Plant}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_plant_a276396fbe27eee76882a034baa527caf} 
+void Plant\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Removes an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) 
+
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}{Inventory\+Component}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Plant.\+h\item 
+src/Plant.\+cpp\end{DoxyCompactItemize}

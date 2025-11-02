@@ -1,0 +1,189 @@
+\doxysection{Order Class Reference}
+\hypertarget{class_order}{}\label{class_order}\index{Order@{Order}}
+
+
+Represents a customer\textquotesingle{}s in-\/progress purchase.  
+
+
+
+
+{\ttfamily \#include $<$Order.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_a7b6a660b03708ed5b4e1c4a6dc2a664a}\label{class_order_a7b6a660b03708ed5b4e1c4a6dc2a664a} 
+{\bfseries Order} ()
+\begin{DoxyCompactList}\small\item\em Constructs an empty \doxylink{class_order}{Order}. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a8fb25876ccbd534465f5f96ef9bb2212}\label{class_order_a8fb25876ccbd534465f5f96ef9bb2212} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Order} ()
+\begin{DoxyCompactList}\small\item\em Destroys the \doxylink{class_order}{Order}, freeing all plants and mementos. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_a437b2812d60fa268e5acbae987179fd7}{add\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\begin{DoxyCompactList}\small\item\em Adds a plant to the order, saving the previous state for undo. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_order_a0afe973eac4e4c8448f25fabd069a68b}{get\+Details}} () const
+\begin{DoxyCompactList}\small\item\em Returns a string with order details. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a8af8a5b2c97bc18b65d5a6fa78f15de5}\label{class_order_a8af8a5b2c97bc18b65d5a6fa78f15de5} 
+void {\bfseries update\+Cost} ()
+\begin{DoxyCompactList}\small\item\em Recalculates the total cost from all plants. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_order_a55b1e71a3c57b57538b9fbe90701b0de}{create\+Memento}} ()
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{class_memento}{Memento} capturing the current state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_a838313fbcbf6525aa28747f8a696da80}{restore\+Memento}} (\mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*}memento)
+\begin{DoxyCompactList}\small\item\em Restores the order to the state stored in the given \doxylink{class_memento}{Memento}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_order_a36554f3988c511da6184b082f05d0967}{get\+Mementos}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_order_add1b46e09e148448ecf95d370f46d646}{get\+Redo\+Mementos}} ()
+\item 
+\Hypertarget{class_order_ac441d8effedd13c757e348505510c45f}\label{class_order_ac441d8effedd13c757e348505510c45f} 
+void {\bfseries undo\+Last\+Addition} ()
+\begin{DoxyCompactList}\small\item\em Undoes the last plant addition. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a75d20760b0073647d46316862b9136ac}\label{class_order_a75d20760b0073647d46316862b9136ac} 
+void {\bfseries redo\+Last\+Step} ()
+\begin{DoxyCompactList}\small\item\em Redoes the previously undone action. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_order_afb4891c44a38ffc82b634cd759e2226d}{get\+Plants}} () const
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_order_acbf7441e63750ca21938591b394d40e4}{get\+Last\+Plant}} () const
+\item 
+void \mbox{\hyperlink{class_order_a00482118ddd8305032f94d5c84962180}{replace\+Last\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}new\+Plant)
+\begin{DoxyCompactList}\small\item\em Replaces the last plant with a new one (used for decoration). \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a39a41cee55588c5c382e635ac72834b9}\label{class_order_a39a41cee55588c5c382e635ac72834b9} 
+bool {\bfseries is\+Empty} () const
+\item 
+double \mbox{\hyperlink{class_order_aa8ef569e9a5ba17cc1215cf32a7877d7}{get\+Total\+Cost}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total cost of the order. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a64be17bf3260942be50b8bac9e228687}\label{class_order_a64be17bf3260942be50b8bac9e228687} 
+void {\bfseries print\+Order} () const
+\begin{DoxyCompactList}\small\item\em Prints the order in a user-\/friendly format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a customer\textquotesingle{}s in-\/progress purchase. 
+
+\label{doc-func-members}
+\Hypertarget{class_order_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_order_a437b2812d60fa268e5acbae987179fd7}\index{Order@{Order}!addPlant@{addPlant}}
+\index{addPlant@{addPlant}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{addPlant()}{addPlant()}}
+{\footnotesize\ttfamily \label{class_order_a437b2812d60fa268e5acbae987179fd7} 
+void Order\+::add\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})}
+
+
+
+Adds a plant to the order, saving the previous state for undo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} to add. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_a55b1e71a3c57b57538b9fbe90701b0de}\index{Order@{Order}!createMemento@{createMemento}}
+\index{createMemento@{createMemento}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{createMemento()}{createMemento()}}
+{\footnotesize\ttfamily \label{class_order_a55b1e71a3c57b57538b9fbe90701b0de} 
+\mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} Order\+::create\+Memento (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Creates a new \doxylink{class_memento}{Memento} capturing the current state. 
+
+\begin{DoxyReturn}{Returns}
+New \doxylink{class_memento}{Memento} (caller must delete). 
+\end{DoxyReturn}
+\Hypertarget{class_order_a0afe973eac4e4c8448f25fabd069a68b}\index{Order@{Order}!getDetails@{getDetails}}
+\index{getDetails@{getDetails}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getDetails()}{getDetails()}}
+{\footnotesize\ttfamily \label{class_order_a0afe973eac4e4c8448f25fabd069a68b} 
+string Order\+::get\+Details (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns a string with order details. 
+
+\begin{DoxyReturn}{Returns}
+Formatted order description. 
+\end{DoxyReturn}
+\Hypertarget{class_order_acbf7441e63750ca21938591b394d40e4}\index{Order@{Order}!getLastPlant@{getLastPlant}}
+\index{getLastPlant@{getLastPlant}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getLastPlant()}{getLastPlant()}}
+{\footnotesize\ttfamily \label{class_order_acbf7441e63750ca21938591b394d40e4} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Order\+::get\+Last\+Plant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Pointer to the last added plant, or nullptr if empty. 
+\end{DoxyReturn}
+\Hypertarget{class_order_a36554f3988c511da6184b082f05d0967}\index{Order@{Order}!getMementos@{getMementos}}
+\index{getMementos@{getMementos}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getMementos()}{getMementos()}}
+{\footnotesize\ttfamily \label{class_order_a36554f3988c511da6184b082f05d0967} 
+vector$<$ \mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} $>$ \& Order\+::get\+Mementos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Reference to the undo stack. 
+\end{DoxyReturn}
+\Hypertarget{class_order_afb4891c44a38ffc82b634cd759e2226d}\index{Order@{Order}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_order_afb4891c44a38ffc82b634cd759e2226d} 
+vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ Order\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Copy of the current plants vector. 
+\end{DoxyReturn}
+\Hypertarget{class_order_add1b46e09e148448ecf95d370f46d646}\index{Order@{Order}!getRedoMementos@{getRedoMementos}}
+\index{getRedoMementos@{getRedoMementos}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getRedoMementos()}{getRedoMementos()}}
+{\footnotesize\ttfamily \label{class_order_add1b46e09e148448ecf95d370f46d646} 
+vector$<$ \mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*} $>$ \& Order\+::get\+Redo\+Mementos (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Reference to the redo stack. 
+\end{DoxyReturn}
+\Hypertarget{class_order_aa8ef569e9a5ba17cc1215cf32a7877d7}\index{Order@{Order}!getTotalCost@{getTotalCost}}
+\index{getTotalCost@{getTotalCost}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{getTotalCost()}{getTotalCost()}}
+{\footnotesize\ttfamily \label{class_order_aa8ef569e9a5ba17cc1215cf32a7877d7} 
+double Order\+::get\+Total\+Cost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the total cost of the order. 
+
+\begin{DoxyReturn}{Returns}
+Total cost of all plants in the order. 
+\end{DoxyReturn}
+\Hypertarget{class_order_a00482118ddd8305032f94d5c84962180}\index{Order@{Order}!replaceLastPlant@{replaceLastPlant}}
+\index{replaceLastPlant@{replaceLastPlant}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{replaceLastPlant()}{replaceLastPlant()}}
+{\footnotesize\ttfamily \label{class_order_a00482118ddd8305032f94d5c84962180} 
+void Order\+::replace\+Last\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{new\+Plant}{}\end{DoxyParamCaption})}
+
+
+
+Replaces the last plant with a new one (used for decoration). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Plant} & New plant to insert. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_a838313fbcbf6525aa28747f8a696da80}\index{Order@{Order}!restoreMemento@{restoreMemento}}
+\index{restoreMemento@{restoreMemento}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{restoreMemento()}{restoreMemento()}}
+{\footnotesize\ttfamily \label{class_order_a838313fbcbf6525aa28747f8a696da80} 
+void Order\+::restore\+Memento (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_memento}{Memento}} \texorpdfstring{$\ast$}{*}}]{memento}{}\end{DoxyParamCaption})}
+
+
+
+Restores the order to the state stored in the given \doxylink{class_memento}{Memento}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em memento} & \doxylink{class_memento}{Memento} containing the target state. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Order.\+h\item 
+src/Order.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,92 @@
+\doxysection{Composite\+Care\+Strategy Class Reference}
+\hypertarget{class_composite_care_strategy}{}\label{class_composite_care_strategy}\index{CompositeCareStrategy@{CompositeCareStrategy}}
+
+
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class. Combines all other \doxylink{class_plant_care}{Plant\+Care} strategies into one.  
+
+
+
+
+{\ttfamily \#include $<$Composite\+Strategy.\+h$>$}
+
+Inheritance diagram for Composite\+Care\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_composite_care_strategy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_composite_care_strategy_ac4b62e26484b57a10682d602a9a8f106}\label{class_composite_care_strategy_ac4b62e26484b57a10682d602a9a8f106} 
+{\bfseries Composite\+Care\+Strategy} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_composite_care_strategy_a49922f55ac7b6e53ec69185678ad8347}{execute\+Care}} ()
+\begin{DoxyCompactList}\small\item\em Runs execute() for all different strategies. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_composite_care_strategy_aea89227144aabb472fa7f43a59295124}{get\+Care\+Type}} ()
+\item 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_composite_care_strategy_a43c7b5ecc79958f735c50ecd2de6ef64}{clone}} () const override
+\begin{DoxyCompactList}\small\item\em Cloning the \doxylink{class_composite_care_strategy}{Composite\+Care\+Strategy}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_care}{Plant\+Care}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Care} ()
+\begin{DoxyCompactList}\small\item\em Basic Abstract class constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class. Combines all other \doxylink{class_plant_care}{Plant\+Care} strategies into one. 
+
+\label{doc-func-members}
+\Hypertarget{class_composite_care_strategy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_composite_care_strategy_a43c7b5ecc79958f735c50ecd2de6ef64}\index{CompositeCareStrategy@{CompositeCareStrategy}!clone@{clone}}
+\index{clone@{clone}!CompositeCareStrategy@{CompositeCareStrategy}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_composite_care_strategy_a43c7b5ecc79958f735c50ecd2de6ef64} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} Composite\+Care\+Strategy\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Cloning the \doxylink{class_composite_care_strategy}{Composite\+Care\+Strategy}. 
+
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_composite_care_strategy_a49922f55ac7b6e53ec69185678ad8347}\index{CompositeCareStrategy@{CompositeCareStrategy}!executeCare@{executeCare}}
+\index{executeCare@{executeCare}!CompositeCareStrategy@{CompositeCareStrategy}}
+\doxysubsubsection{\texorpdfstring{executeCare()}{executeCare()}}
+{\footnotesize\ttfamily \label{class_composite_care_strategy_a49922f55ac7b6e53ec69185678ad8347} 
+bool Composite\+Care\+Strategy\+::execute\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Runs execute() for all different strategies. 
+
+\begin{DoxyReturn}{Returns}
+True 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_composite_care_strategy_aea89227144aabb472fa7f43a59295124}\index{CompositeCareStrategy@{CompositeCareStrategy}!getCareType@{getCareType}}
+\index{getCareType@{getCareType}!CompositeCareStrategy@{CompositeCareStrategy}}
+\doxysubsubsection{\texorpdfstring{getCareType()}{getCareType()}}
+{\footnotesize\ttfamily \label{class_composite_care_strategy_aea89227144aabb472fa7f43a59295124} 
+std\+::string Composite\+Care\+Strategy\+::get\+Care\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Composite 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Composite\+Strategy.\+h\item 
+src/Composite\+Strategy.\+cpp\end{DoxyCompactItemize}
