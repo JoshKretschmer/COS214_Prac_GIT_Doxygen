@@ -19,22 +19,24 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 # Documentation
 
-[Report](Documents/Report.pdf)
+[Report](../Documents/Report.pdf)
 
-[Functional Requirements](Documents/Functional_Requirements.pdf)
+[Functional Requirements](../Documents/Functional_Requirements.pdf) 
 
-[Design Pattern Specifications](Documents/Specifications.pdf)
+[Design Pattern Specifications](../Documents/Specifications.pdf)
 
-[Doxygen Documentation](Documents/Doxygen/)
+[Doxygen Documentation](../Documents/Doxygen/)
 
-[UML Diagrams](UML/)
+[UML Diagrams](../UML/)
 
 # Setup
 
 ### Prerequisites
 
-(finalise once gui is done)
+sudo apt-get install libboost-all-dev
+
 sudo apt-get install doctest-dev
+
 
 ### Cloning
 
@@ -44,11 +46,15 @@ cd COS214_Prac_GIT_Doxygen/SystemFiles/src
 
 ### Building
 
-This project can be built using Makefile:
+This project can be built using the makefile:
 
-Compilation: make all (Ensure you are currently in the SystemFiles/src directory)
-Demo Main: make run
-Testing: make run_tests (//add run_tests to Makefile)
+(Ensure you are currently in the SystemFiles/src directory)
+
+Compilation: make all
+
+Demo Main: make run_Demo
+
+Testing: make run_tests 
 
 
 ### Running
@@ -67,10 +73,10 @@ When the program runs:
     <tr>
       <td align="center">
         Ané de Ridder<br>Team Leader<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662083.png" width="200" height="200">
+        <img src="../images/Ane.jpg" width="200" height="200">
       </td>
       <td align="center">
-        Project Coordination<br>System Architecture<br>Design Patterns
+        Project Coordination<br>Documentation<br>System Integration
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -81,11 +87,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Bridget Nkosi<br>Core Developer<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/2907/2907253.png" width="200" height="200">
+        Bridget Nkosi<br>
+        <img src="../images/Bridget.jpg" width="200" height="200">
       </td>
       <td align="center">
-        System Development<br>Pattern Implementation<br>Documentation
+        System Implementation<br>Testing<br>
         <a href="https://github.com/nkosibridgett">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -96,11 +102,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        David Kalu<br>System Developer<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662005.png" width="200" height="200">
+        David Kalu
+        <img src="../images/David.jpg" width="200" height="200">
       </td>
       <td align="center">
-        Pattern Logic<br>State Management<br>Testing
+        System Implementation<br>Testing<br
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -111,11 +117,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Joshua Kretschmer<br>Backend Developer<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662081.png" width="200" height="200">
+        Joshua Kretschmer<br>
+        <img src="../images/Josh.jpg" width="200" height="200">
       </td>
       <td align="center">
-        System Architecture<br>Facade & Command<br>Integration
+        System Implementation<br>Integration
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -126,11 +132,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Keagan<br>Developer<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662129.png" width="200" height="200">
+        Keagan<br>
+        <img src="../images/Keagan.jpg" width="200" height="200">
       </td>
       <td align="center">
-        Pattern Implementation<br>System Development<br>Testing
+        UI<br>Integration<br>
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -141,11 +147,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Michelle Njoroge<br>Frontend & Testing<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662129.png" width="200" height="200">
+        Michelle Njoroge<br>
+        <img src="../images/Michelle,jpg" width="200" height="200">
       </td>
       <td align="center">
-        UI Integration<br>Testing<br>Documentation
+        UI<br>Testing<br>Documentation
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
@@ -156,11 +162,11 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Ophelia Greyling<br>Quality Assurance<br>
-        <img src="https://cdn-icons-png.flaticon.com/512/7662/7662124.png" width="200" height="200">
+        Ophelia Greyling<br>
+        <img src="../images/Ophelia,jpg" width="200" height="200">
       </td>
       <td align="center">
-        Quality Control<br>Testing<br>Documentation
+        System Implementation<br>Testing<br>Integration
         <a href="#">
           <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
         </a>
