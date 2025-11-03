@@ -27,6 +27,8 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 [GitHub](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen)
 
+[GoogleDocs-Report](https://docs.google.com/document/d/1-l_49XCp5JTZUpwk8WRsAEfSgu-q_DB94tuHgr63K9w/edit?usp=sharing)
+
 # Setup
 
 
