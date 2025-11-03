@@ -21,11 +21,7 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 [Report](../Documents/Report.pdf)
 
-[Functional Requirements](../Documents/Functional_Requirements.pdf) 
-
-[Design Pattern Specifications](../Documents/Specifications.pdf)
-
-[Doxygen Documentation](../Documents/Doxygen/)
+[Doxygen Documentation](../SystemFiles/docs/)
 
 [UML Diagrams](../UML/)
 
@@ -41,7 +37,6 @@ sudo apt-get install doctest-dev
 ### Cloning
 ```bash
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
-cd COS214_Prac_GIT_Doxygen/SystemFiles/src
 ```
 
 ### Building
