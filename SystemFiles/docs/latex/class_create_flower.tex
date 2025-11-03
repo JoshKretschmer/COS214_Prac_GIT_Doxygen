@@ -1,0 +1,65 @@
+\doxysection{Create\+Flower Class Reference}
+\hypertarget{class_create_flower}{}\label{class_create_flower}\index{CreateFlower@{CreateFlower}}
+
+
+Creator class for \doxylink{class_orchid}{Orchid} and \doxylink{class_marigold}{Marigold} classes.  
+
+
+
+
+{\ttfamily \#include $<$Create\+Flower.\+h$>$}
+
+Inheritance diagram for Create\+Flower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_create_flower}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_create_flower_adea9ad8289002e35e6d78fb908fe859b}{create\+Plant}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_flower}{Flower} Takes "{}\+Marigold"{} or "{}\+Orchid"{} as input, or gives an error and returns nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \doxylink{class_orchid}{Orchid} and \doxylink{class_marigold}{Marigold} classes. 
+
+\label{doc-func-members}
+\Hypertarget{class_create_flower_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_create_flower_adea9ad8289002e35e6d78fb908fe859b}\index{CreateFlower@{CreateFlower}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!CreateFlower@{CreateFlower}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \label{class_create_flower_adea9ad8289002e35e6d78fb908fe859b} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Create\+Flower\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_flower}{Flower} Takes "{}\+Marigold"{} or "{}\+Orchid"{} as input, or gives an error and returns nullptr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Specifies which plant object to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_plant}{Plant} object of specified class, or nullptr as error 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Create\+Flower.\+h\item 
+src/Create\+Flower.\+cpp\end{DoxyCompactItemize}

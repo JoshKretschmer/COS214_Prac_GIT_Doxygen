@@ -1,0 +1,119 @@
+\doxysection{Horticulturist Class Reference}
+\hypertarget{class_horticulturist}{}\label{class_horticulturist}\index{Horticulturist@{Horticulturist}}
+
+
+public \doxylink{class_staff}{Staff} class responsible for the growing(creation), monitoring, care, and management of \doxylink{class_plant}{Plant} objects  
+
+
+
+
+{\ttfamily \#include $<$Horticulturist.\+h$>$}
+
+Inheritance diagram for Horticulturist\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_horticulturist}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_horticulturist_aef749fec80e2d813858c5d5b76ba9937}{Horticulturist}} (std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Basic constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_horticulturist_a58b10474d590a0662c41a99261c42e8d}\label{class_horticulturist_a58b10474d590a0662c41a99261c42e8d} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Horticulturist} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_horticulturist_a81dbc7900b5285cb4a4276fc26905608}{execute\+Task}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}} (std\+::string \+\_\+staff\+Name)
+\begin{DoxyCompactList}\small\item\em Basic constructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Staff} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_staff_ab668649dc03641164967fdcb6d26400f}{handle\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{class_staff}{Staff} can handle the \doxylink{class_command}{Command}, if not the \doxylink{class_command}{Command} is forwarded. \end{DoxyCompactList}\item 
+std\+::string {\bfseries get\+Staff\+Name} ()
+\item 
+std\+::string {\bfseries get\+Staff\+ID} ()
+\item 
+std\+::string {\bfseries get\+Staff\+Type} ()
+\item 
+void \mbox{\hyperlink{class_staff_a18831f84d0110b3af1549106c490507f}{set\+Next\+Handler}} (\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+handler)
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Next\+Handler} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_staff_a44ab2e5cc6801f8bad2e00264d2a0a42}{forward\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}\+\_\+command)
+\begin{DoxyCompactList}\small\item\em Sends the \doxylink{class_command}{Command} object to the next\+Handler \doxylink{class_staff}{Staff} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries staff\+Name}
+\item 
+std\+::string {\bfseries staff\+ID}
+\item 
+std\+::string {\bfseries staff\+Type}
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries next\+Handler}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries instance\+Count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+public \doxylink{class_staff}{Staff} class responsible for the growing(creation), monitoring, care, and management of \doxylink{class_plant}{Plant} objects 
+
+Parent class for \doxylink{class_staff}{Staff} members. 
+
+\label{doc-constructors}
+\Hypertarget{class_horticulturist_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_horticulturist_aef749fec80e2d813858c5d5b76ba9937}\index{Horticulturist@{Horticulturist}!Horticulturist@{Horticulturist}}
+\index{Horticulturist@{Horticulturist}!Horticulturist@{Horticulturist}}
+\doxysubsubsection{\texorpdfstring{Horticulturist()}{Horticulturist()}}
+{\footnotesize\ttfamily \label{class_horticulturist_aef749fec80e2d813858c5d5b76ba9937} 
+Horticulturist\+::\+Horticulturist (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of new \doxylink{class_horticulturist}{Horticulturist} \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_horticulturist_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_horticulturist_a81dbc7900b5285cb4a4276fc26905608}\index{Horticulturist@{Horticulturist}!executeTask@{executeTask}}
+\index{executeTask@{executeTask}!Horticulturist@{Horticulturist}}
+\doxysubsubsection{\texorpdfstring{executeTask()}{executeTask()}}
+{\footnotesize\ttfamily \label{class_horticulturist_a81dbc7900b5285cb4a4276fc26905608} 
+void Horticulturist\+::execute\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}}]{command}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & \doxylink{class_command}{Command} object containing request to be executed \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_staff_a80f22bbf7afb4f85d6d54375771db043}{Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Horticulturist.\+h\item 
+src/Horticulturist.\+cpp\end{DoxyCompactItemize}

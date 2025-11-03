@@ -1,0 +1,97 @@
+\doxysection{Sales\+Command Class Reference}
+\hypertarget{class_sales_command}{}\label{class_sales_command}\index{SalesCommand@{SalesCommand}}
+
+
+Commands to be handled by The \doxylink{class_sales_associate}{Sales\+Associate}, wjo acts as a middleman between \doxylink{class_customer}{Customer} and \doxylink{class_inventory_clerk}{Inventory\+Clerk}.  
+
+
+
+
+{\ttfamily \#include $<$Sales\+Command.\+h$>$}
+
+Inheritance diagram for Sales\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sales_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sales_command_afea59dab9fe47693fd903ace393cd27e}{Sales\+Command}} (\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}\+\_\+request)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_sales_command_aa1bf26b92efeb4ac34afad06733ec57a}\label{class_sales_command_aa1bf26b92efeb4ac34afad06733ec57a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Sales\+Command} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_sales_command_a01ece30516ac0b1f53d2beacd4e57745}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the \doxylink{class_request}{Request} inside \doxylink{class_command}{Command} (add \doxylink{class_plant}{Plant} to \doxylink{class_order}{Order}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_a85a537c687e707178333545e860dbada}{Command}} (\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}\+\_\+request)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_afe5c2b6190adf485a869ed0c354f1db0}{has\+Access}} (std\+::string \+\_\+staff\+Type)
+\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Request} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries access}
+\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} {\bfseries request}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Commands to be handled by The \doxylink{class_sales_associate}{Sales\+Associate}, wjo acts as a middleman between \doxylink{class_customer}{Customer} and \doxylink{class_inventory_clerk}{Inventory\+Clerk}. 
+
+\label{doc-constructors}
+\Hypertarget{class_sales_command_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sales_command_afea59dab9fe47693fd903ace393cd27e}\index{SalesCommand@{SalesCommand}!SalesCommand@{SalesCommand}}
+\index{SalesCommand@{SalesCommand}!SalesCommand@{SalesCommand}}
+\doxysubsubsection{\texorpdfstring{SalesCommand()}{SalesCommand()}}
+{\footnotesize\ttfamily \label{class_sales_command_afea59dab9fe47693fd903ace393cd27e} 
+Sales\+Command\+::\+Sales\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}}]{\+\_\+request}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+request} & \doxylink{class_request}{Request} object to be contained \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_sales_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sales_command_a01ece30516ac0b1f53d2beacd4e57745}\index{SalesCommand@{SalesCommand}!execute@{execute}}
+\index{execute@{execute}!SalesCommand@{SalesCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_sales_command_a01ece30516ac0b1f53d2beacd4e57745} 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} Sales\+Command\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the \doxylink{class_request}{Request} inside \doxylink{class_command}{Command} (add \doxylink{class_plant}{Plant} to \doxylink{class_order}{Order}) 
+
+\begin{DoxyReturn}{Returns}
+nullptr 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_command}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Sales\+Command.\+h\item 
+src/Sales\+Command.\+cpp\end{DoxyCompactItemize}

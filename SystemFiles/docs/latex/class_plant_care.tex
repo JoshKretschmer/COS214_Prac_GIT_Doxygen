@@ -1,0 +1,73 @@
+\doxysection{Plant\+Care Class Reference}
+\hypertarget{class_plant_care}{}\label{class_plant_care}\index{PlantCare@{PlantCare}}
+
+
+Abstract parent class for various plant care strategies.  
+
+
+
+
+{\ttfamily \#include $<$Plant\+Care.\+h$>$}
+
+Inheritance diagram for Plant\+Care\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.830065cm]{class_plant_care}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_plant_care_a459c6a5d459117c6ae891af955341752}\label{class_plant_care_a459c6a5d459117c6ae891af955341752} 
+{\bfseries Plant\+Care} ()
+\begin{DoxyCompactList}\small\item\em Basic Abstract class constructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_plant_care_ae10f3940c2a5dad2b7fd390b13434614}{execute\+Care}} ()=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_plant_care_aac3af55d52e60991c07daa65c6d31302}{get\+Care\+Type}} ()=0
+\item 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_care_a6243a03fb7dec51238757633605da18c}{clone}} () const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract parent class for various plant care strategies. 
+
+\label{doc-func-members}
+\Hypertarget{class_plant_care_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_plant_care_a6243a03fb7dec51238757633605da18c}\index{PlantCare@{PlantCare}!clone@{clone}}
+\index{clone@{clone}!PlantCare@{PlantCare}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_plant_care_a6243a03fb7dec51238757633605da18c} 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} Plant\+Care\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_composite_care_strategy_a43c7b5ecc79958f735c50ecd2de6ef64}{Composite\+Care\+Strategy}}, \mbox{\hyperlink{class_fertilizing_strategy_aed7886170d14917deaf34dbf49bb91ee}{Fertilizing\+Strategy}}, \mbox{\hyperlink{class_sunlight_strategy_ada2c689acb6662ee3aaf4e2bf87fb00e}{Sunlight\+Strategy}}, and \mbox{\hyperlink{class_watering_strategy_a1f3668a0a0f28458e9f1c424dcc63e2e}{Watering\+Strategy}}.
+
+\Hypertarget{class_plant_care_ae10f3940c2a5dad2b7fd390b13434614}\index{PlantCare@{PlantCare}!executeCare@{executeCare}}
+\index{executeCare@{executeCare}!PlantCare@{PlantCare}}
+\doxysubsubsection{\texorpdfstring{executeCare()}{executeCare()}}
+{\footnotesize\ttfamily \label{class_plant_care_ae10f3940c2a5dad2b7fd390b13434614} 
+virtual bool Plant\+Care\+::execute\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_composite_care_strategy_a49922f55ac7b6e53ec69185678ad8347}{Composite\+Care\+Strategy}}, \mbox{\hyperlink{class_fertilizing_strategy_a3e58c39212b2f4c9dc02029571193952}{Fertilizing\+Strategy}}, \mbox{\hyperlink{class_sunlight_strategy_ae35e2521e855bfef364082a9571d70db}{Sunlight\+Strategy}}, and \mbox{\hyperlink{class_watering_strategy_a9a578afb6e088049b8cb1a8a5bc3512b}{Watering\+Strategy}}.
+
+\Hypertarget{class_plant_care_aac3af55d52e60991c07daa65c6d31302}\index{PlantCare@{PlantCare}!getCareType@{getCareType}}
+\index{getCareType@{getCareType}!PlantCare@{PlantCare}}
+\doxysubsubsection{\texorpdfstring{getCareType()}{getCareType()}}
+{\footnotesize\ttfamily \label{class_plant_care_aac3af55d52e60991c07daa65c6d31302} 
+virtual std\+::string Plant\+Care\+::get\+Care\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_composite_care_strategy_aea89227144aabb472fa7f43a59295124}{Composite\+Care\+Strategy}}, \mbox{\hyperlink{class_fertilizing_strategy_ad921078a1d9cc3ca09c83f81079e83d2}{Fertilizing\+Strategy}}, \mbox{\hyperlink{class_sunlight_strategy_ae22a47e3d7a39e362099b3a873b1bc63}{Sunlight\+Strategy}}, and \mbox{\hyperlink{class_watering_strategy_a0c09c2034775b0b95327ecc26d254a9e}{Watering\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Plant\+Care.\+h\item 
+src/Plant\+Care.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,202 @@
+\doxysection{Inventory Class Reference}
+\hypertarget{class_inventory}{}\label{class_inventory}\index{Inventory@{Inventory}}
+
+
+Class for the main \doxylink{class_inventory}{Inventory} object that serves as storage for all sellable Plants in the system.  
+
+
+
+
+{\ttfamily \#include $<$Inventory.\+h$>$}
+
+Inheritance diagram for Inventory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_inventory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}\label{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb} 
+{\bfseries Inventory} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_af62cbb1863451ede1536cf4b79fe3f6b}\label{class_inventory_af62cbb1863451ede1536cf4b79fe3f6b} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory} () override
+\begin{DoxyCompactList}\small\item\em Basic destructor function with memory management. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_a2eb47df6decb30c872d5596936e47932}{add\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant)
+\item 
+void \mbox{\hyperlink{class_inventory_a6924ce6d13f25c45bdc465104beefa07}{remove\+Plant}} (std\+::string plant\+Id)
+\begin{DoxyCompactList}\small\item\em Searches \doxylink{class_inventory}{Inventory} for a \doxylink{class_plant}{Plant} based on its ID. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_inventory_a79316c24aacd577aaa7755f3825d969c}{update\+Stock}} (std\+::string plant\+Type, int quantity)
+\item 
+int \mbox{\hyperlink{class_inventory_a86a608c09055da52d35eceebc2710ac4}{get\+Stock\+Level}} (std\+::string plant\+Type)
+\item 
+\mbox{\hyperlink{class_inventory_iterator}{Inventory\+Iterator}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_inventory_a358cb8a2faa59a34b37bef50951b9453}{create\+Iterator}} ()
+\item 
+int \mbox{\hyperlink{class_inventory_a8ac1a6b40399c8e683ed983df34aa2f0}{get\+Plant\+Count}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_a75c851ceaf4944f57b372ef36946968b}{add}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component) override
+\item 
+void \mbox{\hyperlink{class_inventory_a3e390845a12ea7c6d6806125924f34e7}{remove}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}component) override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_inventory_a6a4836ed20ac1b5efd356c3ae3534245}{get\+Plants}} () override
+\item 
+void \mbox{\hyperlink{class_inventory_a966d9550fb5ac669b296d568e1726b54}{move\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string new\+State) override
+\begin{DoxyCompactList}\small\item\em Changes the group a \doxylink{class_plant}{Plant} is stored in based on a state change that has occurred. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for the main \doxylink{class_inventory}{Inventory} object that serves as storage for all sellable Plants in the system. 
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_a75c851ceaf4944f57b372ef36946968b}\index{Inventory@{Inventory}!add@{add}}
+\index{add@{add}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily \label{class_inventory_a75c851ceaf4944f57b372ef36946968b} 
+void Inventory\+::add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Plant\texorpdfstring{$\ast$}{*} or Plant\+Group\texorpdfstring{$\ast$}{*} to be added to \doxylink{class_inventory}{Inventory} \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}{Inventory\+Component}}.
+
+\Hypertarget{class_inventory_a2eb47df6decb30c872d5596936e47932}\index{Inventory@{Inventory}!addPlant@{addPlant}}
+\index{addPlant@{addPlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{addPlant()}{addPlant()}}
+{\footnotesize\ttfamily \label{class_inventory_a2eb47df6decb30c872d5596936e47932} 
+void Inventory\+::add\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & Add a \doxylink{class_plant}{Plant} object directly to inventory (not categorized) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_inventory_a358cb8a2faa59a34b37bef50951b9453}\index{Inventory@{Inventory}!createIterator@{createIterator}}
+\index{createIterator@{createIterator}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{createIterator()}{createIterator()}}
+{\footnotesize\ttfamily \label{class_inventory_a358cb8a2faa59a34b37bef50951b9453} 
+\mbox{\hyperlink{class_inventory_iterator}{Inventory\+Iterator}} \texorpdfstring{$\ast$}{*} Inventory\+::create\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_iterator}{Iterator} object for stepping through the \doxylink{class_inventory}{Inventory} 
+\end{DoxyReturn}
+\Hypertarget{class_inventory_a8ac1a6b40399c8e683ed983df34aa2f0}\index{Inventory@{Inventory}!getPlantCount@{getPlantCount}}
+\index{getPlantCount@{getPlantCount}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getPlantCount()}{getPlantCount()}}
+{\footnotesize\ttfamily \label{class_inventory_a8ac1a6b40399c8e683ed983df34aa2f0} 
+int Inventory\+::get\+Plant\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Total number of Plants in the \doxylink{class_inventory}{Inventory} (uncategorized) 
+\end{DoxyReturn}
+\Hypertarget{class_inventory_a6a4836ed20ac1b5efd356c3ae3534245}\index{Inventory@{Inventory}!getPlants@{getPlants}}
+\index{getPlants@{getPlants}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getPlants()}{getPlants()}}
+{\footnotesize\ttfamily \label{class_inventory_a6a4836ed20ac1b5efd356c3ae3534245} 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ Inventory\+::get\+Plants (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+All \doxylink{class_plant}{Plant} objects in the \doxylink{class_inventory}{Inventory} (both categorized and not) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}.
+
+\Hypertarget{class_inventory_a86a608c09055da52d35eceebc2710ac4}\index{Inventory@{Inventory}!getStockLevel@{getStockLevel}}
+\index{getStockLevel@{getStockLevel}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getStockLevel()}{getStockLevel()}}
+{\footnotesize\ttfamily \label{class_inventory_a86a608c09055da52d35eceebc2710ac4} 
+int Inventory\+::get\+Stock\+Level (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Type}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Type} & Category that the stock level is being requested for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of plants in the specified category 
+\end{DoxyReturn}
+\Hypertarget{class_inventory_a966d9550fb5ac669b296d568e1726b54}\index{Inventory@{Inventory}!movePlant@{movePlant}}
+\index{movePlant@{movePlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{movePlant()}{movePlant()}}
+{\footnotesize\ttfamily \label{class_inventory_a966d9550fb5ac669b296d568e1726b54} 
+void Inventory\+::move\+Plant (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{std\+::string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Changes the group a \doxylink{class_plant}{Plant} is stored in based on a state change that has occurred. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object to be moved \\
+\hline
+{\em new\+State} & determines the group that the \doxylink{class_plant}{Plant} object will be moved to \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}{Inventory\+Component}}.
+
+\Hypertarget{class_inventory_a3e390845a12ea7c6d6806125924f34e7}\index{Inventory@{Inventory}!remove@{remove}}
+\index{remove@{remove}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{class_inventory_a3e390845a12ea7c6d6806125924f34e7} 
+void Inventory\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em component} & Plant\texorpdfstring{$\ast$}{*} or Plant\+Group\texorpdfstring{$\ast$}{*} to be removed from the \doxylink{class_inventory}{Inventory} \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}{Inventory\+Component}}.
+
+\Hypertarget{class_inventory_a6924ce6d13f25c45bdc465104beefa07}\index{Inventory@{Inventory}!removePlant@{removePlant}}
+\index{removePlant@{removePlant}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removePlant()}{removePlant()}}
+{\footnotesize\ttfamily \label{class_inventory_a6924ce6d13f25c45bdc465104beefa07} 
+void Inventory\+::remove\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Searches \doxylink{class_inventory}{Inventory} for a \doxylink{class_plant}{Plant} based on its ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Id} & \doxylink{class_plant}{Plant} to be removed from \doxylink{class_inventory}{Inventory} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_inventory_a79316c24aacd577aaa7755f3825d969c}\index{Inventory@{Inventory}!updateStock@{updateStock}}
+\index{updateStock@{updateStock}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{updateStock()}{updateStock()}}
+{\footnotesize\ttfamily \label{class_inventory_a79316c24aacd577aaa7755f3825d969c} 
+void Inventory\+::update\+Stock (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+Type}{, }\item[{int}]{quantity}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+Type} & Category for with to update the stock numbers \\
+\hline
+{\em quantity} & Amount that the stock\+Levels is being updated to \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Inventory.\+h\item 
+src/Inventory.\+cpp\end{DoxyCompactItemize}

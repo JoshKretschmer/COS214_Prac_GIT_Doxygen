@@ -1,0 +1,28 @@
+\doxysection{Memento.\+h}
+\hypertarget{_memento_8h_source}{}\label{_memento_8h_source}\index{inc/Memento.h@{inc/Memento.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Memento.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#ifndef\ MEMENTO\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ MEMENTO\_H}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Plant.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_memento_ac6a9304cdd7ce1f575bfc6800559dd60}{Memento}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<Plant\ *>\ savedPlants;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{double}\ savedCost;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_memento_ac6a9304cdd7ce1f575bfc6800559dd60}{Memento}}(\textcolor{keyword}{const}\ std::vector<Plant\ *>\ \&plants,\ \textcolor{keywordtype}{double}\ cost);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_memento_af680b5488989567d0f03d655c4232924}{\string~Memento}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Plant\ *>\ \&\mbox{\hyperlink{class_memento_add9a4666db0bc70ddd41abb033f1d0f8}{getSavedPlants}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_memento_aeeecd58ade0b7defe080a7cb763eb5bf}{getSavedCost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MEMENTO\_H}}
+
+\end{DoxyCode}

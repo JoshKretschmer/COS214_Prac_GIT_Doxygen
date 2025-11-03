@@ -1,0 +1,33 @@
+\doxysection{Inventory\+Component.\+h}
+\hypertarget{_inventory_component_8h_source}{}\label{_inventory_component_8h_source}\index{inc/InventoryComponent.h@{inc/InventoryComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INVENTORYCOMPONENT\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INVENTORYCOMPONENT\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}PlantState.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Iterator.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_inventory_component_a6e02cd76630e1deb7c4b6f76fbdc8bae}{\string~InventoryComponent}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_component_ab51b80a0d92aeed8ce87cef99b152262}{add}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \ =\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_component_ae51fbc97a4a11d59fae9e48c2fdb4914}{remove}}(\mbox{\hyperlink{class_inventory_component_a2a630180957861aba18b9e199d1cf720}{InventoryComponent}}\ *component)\ \ =\ 0;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ vector<Plant\ *>\ getPlants()\ =\ 0;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_component_a3c0e9cd9f7099c0f6ddac7fa6fb448e2}{movePlant}}(\mbox{\hyperlink{class_plant}{Plant}}\ *plant,\ std::string\ newState)\ \ =\ 0;}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INVENTORYCOMPONENT\_H}}
+
+\end{DoxyCode}

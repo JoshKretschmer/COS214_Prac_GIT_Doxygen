@@ -1,0 +1,97 @@
+\doxysection{Inventory\+Command Class Reference}
+\hypertarget{class_inventory_command}{}\label{class_inventory_command}\index{InventoryCommand@{InventoryCommand}}
+
+
+Contains requests to add, remove, and fetche objects from \doxylink{class_inventory}{Inventory}.  
+
+
+
+
+{\ttfamily \#include $<$Inventory\+Command.\+h$>$}
+
+Inheritance diagram for Inventory\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_inventory_command}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_command_a75c4e046675fd85f7fa2c0fe1c7d9edd}{Inventory\+Command}} (\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}\+\_\+request)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+\Hypertarget{class_inventory_command_a1133bd029ed60d7c05a9e5f8deb11856}\label{class_inventory_command_a1133bd029ed60d7c05a9e5f8deb11856} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Command} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_inventory_command_a24bf5fa07ba16f71dfed25bc72ffc046}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Executes the \doxylink{class_request}{Request} inside \doxylink{class_command}{Command}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_command_a85a537c687e707178333545e860dbada}{Command}} (\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}\+\_\+request)
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Command} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_command_afe5c2b6190adf485a869ed0c354f1db0}{has\+Access}} (std\+::string \+\_\+staff\+Type)
+\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Request} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_command}{Command}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries access}
+\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} {\bfseries request}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains requests to add, remove, and fetche objects from \doxylink{class_inventory}{Inventory}. 
+
+\label{doc-constructors}
+\Hypertarget{class_inventory_command_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_inventory_command_a75c4e046675fd85f7fa2c0fe1c7d9edd}\index{InventoryCommand@{InventoryCommand}!InventoryCommand@{InventoryCommand}}
+\index{InventoryCommand@{InventoryCommand}!InventoryCommand@{InventoryCommand}}
+\doxysubsubsection{\texorpdfstring{InventoryCommand()}{InventoryCommand()}}
+{\footnotesize\ttfamily \label{class_inventory_command_a75c4e046675fd85f7fa2c0fe1c7d9edd} 
+Inventory\+Command\+::\+Inventory\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*}}]{\+\_\+request}{}\end{DoxyParamCaption})}
+
+
+
+Basic constructor function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+request} & \doxylink{class_request}{Request} object to be contained \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_inventory_command_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_inventory_command_a24bf5fa07ba16f71dfed25bc72ffc046}\index{InventoryCommand@{InventoryCommand}!execute@{execute}}
+\index{execute@{execute}!InventoryCommand@{InventoryCommand}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily \label{class_inventory_command_a24bf5fa07ba16f71dfed25bc72ffc046} 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} Inventory\+Command\+::execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Executes the \doxylink{class_request}{Request} inside \doxylink{class_command}{Command}. 
+
+\begin{DoxyReturn}{Returns}
+Details of Plants stored in inventory 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_command}{Command}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Inventory\+Command.\+h\item 
+src/Inventory\+Command.\+cpp\end{DoxyCompactItemize}

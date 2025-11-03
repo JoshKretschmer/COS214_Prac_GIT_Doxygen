@@ -1,0 +1,145 @@
+\doxysection{Flower Class Reference}
+\hypertarget{class_flower}{}\label{class_flower}\index{Flower@{Flower}}
+
+
+public subclass of \doxylink{class_plant}{Plant}, category of plants  
+
+
+
+
+{\ttfamily \#include $<$Flower.\+h$>$}
+
+Inheritance diagram for Flower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_flower}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_flower_a24f3f77559b3a76509febf7392413ff7}{Flower}} ()
+\begin{DoxyCompactList}\small\item\em Constructor function for \doxylink{class_flower}{Flower} class. \end{DoxyCompactList}\item 
+virtual std\+::string \mbox{\hyperlink{class_flower_a027e18287a9d08b6302e06045e308cdf}{get\+Details}} ()=0
+\item 
+virtual double \mbox{\hyperlink{class_flower_a25b3b71033a5b9a855b1afed7c71099f}{get\+Cost}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_plant}{Plant} constructor function. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant} () override
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_plant}{Plant} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a199da7ff4d0082a8e4afdc2c83946be3}{change\+State}} (\mbox{\hyperlink{class_plant_state}{Plant\+State}} \texorpdfstring{$\ast$}{*}new\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of the \doxylink{class_plant}{Plant} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_plant_a8ca4526459a7711aa9122f3aca2aaf3a}{needs\+Care}} ()
+\begin{DoxyCompactList}\small\item\em If a \doxylink{class_plant}{Plant} is not fully grown, care is still needed. \end{DoxyCompactList}\item 
+int {\bfseries get\+Health} () const
+\item 
+std\+::string {\bfseries get\+ID} () const
+\item 
+std\+::string {\bfseries get\+Type} () const
+\item 
+void \mbox{\hyperlink{class_plant_a218939e750dc0f1c3b531c14968d8df9}{increment\+Health}} (int num)
+\begin{DoxyCompactList}\small\item\em Increase the health of a plant by num. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_plant_a988ab750a919af0800dbb2508438c880}{get\+State}} ()
+\item 
+void {\bfseries set\+ID} (const std\+::string \&new\+ID)
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_plant_a5f3efd4fda67a2a9dce01dd007df774c}{clone}} ()
+\item 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Care\+Regime} () const
+\item 
+void {\bfseries set\+Care\+Regime} (\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*}care)
+\item 
+void {\bfseries set\+Health} (int h)
+\item 
+void \mbox{\hyperlink{class_plant_a6ca7421fe0fcbdeb4b90ad3fa0c33514}{add}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Adds an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a276396fbe27eee76882a034baa527caf}{remove}} (\mbox{\hyperlink{class_inventory_component}{Inventory\+Component}} \texorpdfstring{$\ast$}{*}) override
+\begin{DoxyCompactList}\small\item\em Removes an \doxylink{class_inventory_component}{Inventory\+Component} (ignored for leaf node) \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_plant_a077f8c8ae26f3990265c43cdfd50e088}{get\+Plants}} () override
+\begin{DoxyCompactList}\small\item\em Gets the plants in this component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plant_a538ecaee51682ceca60b3bc6c14fb680}{move\+Plant}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string new\+State) override
+\begin{DoxyCompactList}\small\item\em Moves a plant to a new state (ignored for leaf node) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_inventory_component}{Inventory\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Inventory\+Component} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_plant}{Plant}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries id}
+\item 
+std\+::string {\bfseries type}
+\item 
+double {\bfseries price}
+\item 
+\mbox{\hyperlink{class_plant_state}{Plant\+State}} \texorpdfstring{$\ast$}{*} {\bfseries curr\+State}
+\item 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} {\bfseries care\+Regime}
+\item 
+int {\bfseries health}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+public subclass of \doxylink{class_plant}{Plant}, category of plants 
+
+\label{doc-constructors}
+\Hypertarget{class_flower_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_flower_a24f3f77559b3a76509febf7392413ff7}\index{Flower@{Flower}!Flower@{Flower}}
+\index{Flower@{Flower}!Flower@{Flower}}
+\doxysubsubsection{\texorpdfstring{Flower()}{Flower()}}
+{\footnotesize\ttfamily \label{class_flower_a24f3f77559b3a76509febf7392413ff7} 
+Flower\+::\+Flower (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Constructor function for \doxylink{class_flower}{Flower} class. 
+
+Initialized type attribute, then calls \doxylink{class_plant_aeebba67fbf33e3087e9035f41289a83a}{Plant()} constructor 
+
+\label{doc-func-members}
+\Hypertarget{class_flower_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_flower_a25b3b71033a5b9a855b1afed7c71099f}\index{Flower@{Flower}!getCost@{getCost}}
+\index{getCost@{getCost}!Flower@{Flower}}
+\doxysubsubsection{\texorpdfstring{getCost()}{getCost()}}
+{\footnotesize\ttfamily \label{class_flower_a25b3b71033a5b9a855b1afed7c71099f} 
+virtual double Flower\+::get\+Cost (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant}{Plant}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_marigold_a1d0dbf8a1455feb728d32736e8a31e43}{Marigold}}, and \mbox{\hyperlink{class_orchid_ad49b1813286bb0473ea1a2138132ee7c}{Orchid}}.
+
+\Hypertarget{class_flower_a027e18287a9d08b6302e06045e308cdf}\index{Flower@{Flower}!getDetails@{getDetails}}
+\index{getDetails@{getDetails}!Flower@{Flower}}
+\doxysubsubsection{\texorpdfstring{getDetails()}{getDetails()}}
+{\footnotesize\ttfamily \label{class_flower_a027e18287a9d08b6302e06045e308cdf} 
+virtual std\+::string Flower\+::get\+Details (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_plant}{Plant}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_marigold_af6485317e9ef87627844a171bccaad4b}{Marigold}}, and \mbox{\hyperlink{class_orchid_a090528d165d91e1e7b1baa2992a1327f}{Orchid}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Flower.\+h\item 
+src/Flower.\+cpp\end{DoxyCompactItemize}

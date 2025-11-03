@@ -1,0 +1,24 @@
+#include "../inc/DeadState.h"
+#include <iostream>
+
+/*!
+ * @brief Placeholder function for dead plants that must be removed from system
+ *
+ * Exists to avoid errors that may be caused by attempting to care for a dead plant
+ *
+ * @param plant Plant object for which the state is being checked
+ */
+void DeadState::handleCare(Plant *plant)
+{
+    std::cout << "DeadState: Plant is dead, no care needed\n";
+    cout << "Dead\n";
+}
+
+/*!
+ * @return "Dead"
+ */
+std::string DeadState::getStateName()
+{
+    std::cout << "Getting state name: Dead\n";
+    return "Dead";
+}

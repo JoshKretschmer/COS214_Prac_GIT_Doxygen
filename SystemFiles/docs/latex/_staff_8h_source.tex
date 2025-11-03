@@ -1,0 +1,46 @@
+\doxysection{Staff.\+h}
+\hypertarget{_staff_8h_source}{}\label{_staff_8h_source}\index{inc/Staff.h@{inc/Staff.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ STAFF\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ STAFF\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_command}{Command}};}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_plant}{Plant}};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_request}{Request}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ staffName;}
+\DoxyCodeLine{00024\ \ \ \ \ std::string\ staffID;}
+\DoxyCodeLine{00025\ \ \ \ \ std::string\ staffType;}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}\ *nextHandler;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ instanceCount;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_staff_a44ab2e5cc6801f8bad2e00264d2a0a42}{forwardCommand}}(\mbox{\hyperlink{class_command}{Command}}\ *\_command);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_staff_a80f22bbf7afb4f85d6d54375771db043}{executeTask}}(\mbox{\hyperlink{class_command}{Command}}\ *\_command);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}(std::string\ \_staffName);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_staff_a1c2f98aad2fbd5ddf72e9ff92304cbfd}{\string~Staff}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_staff_ab668649dc03641164967fdcb6d26400f}{handleCommand}}(\mbox{\hyperlink{class_command}{Command}}\ *command);\ \textcolor{comment}{//\ for\ chain\ of\ responsibility}}
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ getStaffName()\ \{\ \textcolor{keywordflow}{return}\ staffName;\ \};}
+\DoxyCodeLine{00036\ \ \ \ \ std::string\ getStaffID()\ \{\ \textcolor{keywordflow}{return}\ staffID;\ \};}
+\DoxyCodeLine{00037\ \ \ \ \ std::string\ getStaffType()\ \{\ \textcolor{keywordflow}{return}\ staffType;\ \};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_staff_a18831f84d0110b3af1549106c490507f}{setNextHandler}}(\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}\ *\_handler);}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}\ *getNextHandler()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00040\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nextHandler;}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ STAFF\_H}}
+
+\end{DoxyCode}

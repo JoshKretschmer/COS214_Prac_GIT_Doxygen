@@ -1,0 +1,65 @@
+\doxysection{Create\+Shrub Class Reference}
+\hypertarget{class_create_shrub}{}\label{class_create_shrub}\index{CreateShrub@{CreateShrub}}
+
+
+Creator class for \doxylink{class_bee_blossom}{Bee\+Blossom} and \doxylink{class_honey_suckle}{Honey\+Suckle} classes.  
+
+
+
+
+{\ttfamily \#include $<$Create\+Shrub.\+h$>$}
+
+Inheritance diagram for Create\+Shrub\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_create_shrub}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_create_shrub_aa6e492b9648b8677fbb0a88a3abfe0f4}{create\+Plant}} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_shrub}{Shrub} Takes "{}\+Honey\+Suckle"{} or "{}\+Bee\+Blossom"{} as input, or gives an error and returns nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Plant\+Factory} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for \doxylink{class_plant_factory}{Plant\+Factory}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Creator class for \doxylink{class_bee_blossom}{Bee\+Blossom} and \doxylink{class_honey_suckle}{Honey\+Suckle} classes. 
+
+\label{doc-func-members}
+\Hypertarget{class_create_shrub_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_create_shrub_aa6e492b9648b8677fbb0a88a3abfe0f4}\index{CreateShrub@{CreateShrub}!createPlant@{createPlant}}
+\index{createPlant@{createPlant}!CreateShrub@{CreateShrub}}
+\doxysubsubsection{\texorpdfstring{createPlant()}{createPlant()}}
+{\footnotesize\ttfamily \label{class_create_shrub_aa6e492b9648b8677fbb0a88a3abfe0f4} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Create\+Shrub\+::create\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Creator function for \doxylink{class_plant}{Plant} objects of type \doxylink{class_shrub}{Shrub} Takes "{}\+Honey\+Suckle"{} or "{}\+Bee\+Blossom"{} as input, or gives an error and returns nullptr. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Specifies which plant object to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_plant}{Plant} object of specified class, or nullptr as error 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_factory}{Plant\+Factory}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Create\+Shrub.\+h\item 
+src/Create\+Shrub.\+cpp\end{DoxyCompactItemize}

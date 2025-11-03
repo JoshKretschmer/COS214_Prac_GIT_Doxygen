@@ -1,0 +1,29 @@
+\doxysection{Inventory\+Clerk.\+h}
+\hypertarget{_inventory_clerk_8h_source}{}\label{_inventory_clerk_8h_source}\index{inc/InventoryClerk.h@{inc/InventoryClerk.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ INVENTORYCLERK\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ INVENTORYCLERK\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Staff.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Inventory.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}InventoryIterator.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Command.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_inventory_clerk_a547797899636233c3bb10e973f33b3b9}{InventoryClerk}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_inventory}{Inventory}}\ *inventory;}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ executeTask(\mbox{\hyperlink{class_command}{Command}}*\ command)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_inventory_clerk_a547797899636233c3bb10e973f33b3b9}{InventoryClerk}}(std::string\ \_name);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_inventory_clerk_a7d8f50b61ef397aa8c82244bdf52460f}{\string~InventoryClerk}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_clerk_a94af24866c62f461ec13ae209bff4f36}{storePlant}}(\mbox{\hyperlink{class_plant}{Plant}}*\ plant);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_plant}{Plant}}*\ \mbox{\hyperlink{class_inventory_clerk_af6ae0288618b61468eb353f792b2d1ae}{getPlant}}(std::string\ plantID);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_clerk_aa5377c81aeebb923c04dc5da9b309bd1}{assignJob}}(\mbox{\hyperlink{class_inventory}{Inventory}}\ *\_inventory);}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//INVENTORYCLERK\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,121 @@
+\doxysection{Manager Class Reference}
+\hypertarget{class_manager}{}\label{class_manager}\index{Manager@{Manager}}
+
+
+public \doxylink{class_staff}{Staff} class responsible for handling commands that other \doxylink{class_staff}{Staff} members cannot  
+
+
+
+
+{\ttfamily \#include $<$Manager.\+h$>$}
+
+Inheritance diagram for Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_manager_a1c62f6816867edcd63bf74be22b4087a}{Manager}} (std\+::string \+\_\+name)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_manager}{Manager}. \end{DoxyCompactList}\item 
+\Hypertarget{class_manager_a322cad25d7007438b3a043ad02253d29}\label{class_manager_a322cad25d7007438b3a043ad02253d29} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_manager}{Manager}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_manager_ac9349b31a2ae411ee68d10261c5a431c}{execute\+Task}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command) override
+\begin{DoxyCompactList}\small\item\em Executes the command if this staff can handle it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_staff_a1de69f43116f0681cb6c196dde5ac65c}{Staff}} (std\+::string \+\_\+staff\+Name)
+\begin{DoxyCompactList}\small\item\em Basic constructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Staff} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for general \doxylink{class_staff}{Staff}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_staff_ab668649dc03641164967fdcb6d26400f}{handle\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}command)
+\begin{DoxyCompactList}\small\item\em Checks if this \doxylink{class_staff}{Staff} can handle the \doxylink{class_command}{Command}, if not the \doxylink{class_command}{Command} is forwarded. \end{DoxyCompactList}\item 
+std\+::string {\bfseries get\+Staff\+Name} ()
+\item 
+std\+::string {\bfseries get\+Staff\+ID} ()
+\item 
+std\+::string {\bfseries get\+Staff\+Type} ()
+\item 
+void \mbox{\hyperlink{class_staff_a18831f84d0110b3af1549106c490507f}{set\+Next\+Handler}} (\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+handler)
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Next\+Handler} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_staff_a44ab2e5cc6801f8bad2e00264d2a0a42}{forward\+Command}} (\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}\+\_\+command)
+\begin{DoxyCompactList}\small\item\em Sends the \doxylink{class_command}{Command} object to the next\+Handler \doxylink{class_staff}{Staff} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string {\bfseries staff\+Name}
+\item 
+std\+::string {\bfseries staff\+ID}
+\item 
+std\+::string {\bfseries staff\+Type}
+\item 
+\mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*} {\bfseries next\+Handler}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_staff}{Staff}}}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bfseries instance\+Count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+public \doxylink{class_staff}{Staff} class responsible for handling commands that other \doxylink{class_staff}{Staff} members cannot 
+
+\label{doc-constructors}
+\Hypertarget{class_manager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_manager_a1c62f6816867edcd63bf74be22b4087a}\index{Manager@{Manager}!Manager@{Manager}}
+\index{Manager@{Manager}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{Manager()}{Manager()}}
+{\footnotesize\ttfamily \label{class_manager_a1c62f6816867edcd63bf74be22b4087a} 
+Manager\+::\+Manager (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_manager}{Manager}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & Name of the manager \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_manager_ac9349b31a2ae411ee68d10261c5a431c}\index{Manager@{Manager}!executeTask@{executeTask}}
+\index{executeTask@{executeTask}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{executeTask()}{executeTask()}}
+{\footnotesize\ttfamily \label{class_manager_ac9349b31a2ae411ee68d10261c5a431c} 
+void Manager\+::execute\+Task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_command}{Command}} \texorpdfstring{$\ast$}{*}}]{command}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Executes the command if this staff can handle it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command} & The command to execute \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_staff_a80f22bbf7afb4f85d6d54375771db043}{Staff}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Manager.\+h\item 
+src/Manager.\+cpp\end{DoxyCompactItemize}

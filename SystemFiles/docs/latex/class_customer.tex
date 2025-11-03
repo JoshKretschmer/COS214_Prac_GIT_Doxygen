@@ -1,0 +1,119 @@
+\doxysection{Customer Class Reference}
+\hypertarget{class_customer}{}\label{class_customer}\index{Customer@{Customer}}
+
+
+Class for objects that execute the purchasing and decoration process on plants.  
+
+
+
+
+{\ttfamily \#include $<$Customer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_customer_a337c5eaf4fd2810aec3732804174a5a8}\label{class_customer_a337c5eaf4fd2810aec3732804174a5a8} 
+{\bfseries Customer} (std\+::string name, std\+::string id, \mbox{\hyperlink{class_staff}{Staff}} \texorpdfstring{$\ast$}{*}\+\_\+sales\+Person)
+\begin{DoxyCompactList}\small\item\em Basic constructor for customer object. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_ab93fb14683b0393b9c900109f77c2629}\label{class_customer_ab93fb14683b0393b9c900109f77c2629} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Customer} ()
+\begin{DoxyCompactList}\small\item\em Basic destructor for customer object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_customer_a722909974a04248c65e7e995e4240168}{make\+Request}} (std\+::string type, std\+::string plant\+ID, std\+::string extra)
+\begin{DoxyCompactList}\small\item\em Create a request with specified type, plant\+ID, and extra information. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_aa04c6d4e311420e29dbaecb2a512738c}\label{class_customer_aa04c6d4e311420e29dbaecb2a512738c} 
+void {\bfseries browse\+Plants} ()
+\begin{DoxyCompactList}\small\item\em Create a request to get Information from Plants in \doxylink{class_inventory}{Inventory}. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_a0b6571380184dd4aeda10814d27788fa}\label{class_customer_a0b6571380184dd4aeda10814d27788fa} 
+void {\bfseries start\+Purchase} ()
+\begin{DoxyCompactList}\small\item\em Creates an \doxylink{class_order}{Order} object for the customer to make a purchase on. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_customer_ae9f1ab954512e12f8abc51891cd50890}{add\+Plant}} (std\+::string plant\+ID, std\+::string decor)
+\begin{DoxyCompactList}\small\item\em Add a plant to the customer\textquotesingle{}s current order, optionally with decoration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_customer_a5f30a431252d00025eda1adabae40f01}{customize\+Order}} (\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}plant, std\+::string decor)
+\begin{DoxyCompactList}\small\item\em Decorate a specified \doxylink{class_plant}{Plant} object before adding it to an order. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_a85627b0401a8b9d545f7c2586724177c}\label{class_customer_a85627b0401a8b9d545f7c2586724177c} 
+void {\bfseries undo\+Action} ()
+\begin{DoxyCompactList}\small\item\em Undo the last action, i.\+e. remove the last plant added to the \doxylink{class_order}{Order}. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_a4f23424b70f37a1c96e77272c1634f08}\label{class_customer_a4f23424b70f37a1c96e77272c1634f08} 
+void {\bfseries confirm\+Purchase} ()
+\begin{DoxyCompactList}\small\item\em Confirm the customer\textquotesingle{}s current order and finalize the purchase. \end{DoxyCompactList}\item 
+\Hypertarget{class_customer_a54d175538cebde1559e82c644eba9f64}\label{class_customer_a54d175538cebde1559e82c644eba9f64} 
+std\+::string {\bfseries get\+Name} () const
+\item 
+\Hypertarget{class_customer_ab04975dfc3e71d7d587508884bce7dbb}\label{class_customer_ab04975dfc3e71d7d587508884bce7dbb} 
+std\+::string {\bfseries get\+ID} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for objects that execute the purchasing and decoration process on plants. 
+
+Makes request to \doxylink{class_staff}{Staff} object to execute processes 
+
+\label{doc-func-members}
+\Hypertarget{class_customer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_customer_ae9f1ab954512e12f8abc51891cd50890}\index{Customer@{Customer}!addPlant@{addPlant}}
+\index{addPlant@{addPlant}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{addPlant()}{addPlant()}}
+{\footnotesize\ttfamily \label{class_customer_ae9f1ab954512e12f8abc51891cd50890} 
+void Customer\+::add\+Plant (\begin{DoxyParamCaption}\item[{std\+::string}]{plant\+ID}{, }\item[{std\+::string}]{decor}{}\end{DoxyParamCaption})}
+
+
+
+Add a plant to the customer\textquotesingle{}s current order, optionally with decoration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant\+ID} & Unique ID of the plant to add \\
+\hline
+{\em decor} & Decoration type to apply (e.\+g., "{}\+Pot"{}, "{}\+Wrap"{}, "{}\+Arrange"{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_customer_a5f30a431252d00025eda1adabae40f01}\index{Customer@{Customer}!customizeOrder@{customizeOrder}}
+\index{customizeOrder@{customizeOrder}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{customizeOrder()}{customizeOrder()}}
+{\footnotesize\ttfamily \label{class_customer_a5f30a431252d00025eda1adabae40f01} 
+\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*} Customer\+::customize\+Order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_plant}{Plant}} \texorpdfstring{$\ast$}{*}}]{plant}{, }\item[{std\+::string}]{decor}{}\end{DoxyParamCaption})}
+
+
+
+Decorate a specified \doxylink{class_plant}{Plant} object before adding it to an order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em plant} & \doxylink{class_plant}{Plant} object to be decorated \\
+\hline
+{\em decor} & Decoration to be added to the plant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Decorated \doxylink{class_plant}{Plant} or basic \doxylink{class_plant}{Plant} 
+\end{DoxyReturn}
+\Hypertarget{class_customer_a722909974a04248c65e7e995e4240168}\index{Customer@{Customer}!makeRequest@{makeRequest}}
+\index{makeRequest@{makeRequest}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{makeRequest()}{makeRequest()}}
+{\footnotesize\ttfamily \label{class_customer_a722909974a04248c65e7e995e4240168} 
+\mbox{\hyperlink{class_request}{Request}} \texorpdfstring{$\ast$}{*} Customer\+::make\+Request (\begin{DoxyParamCaption}\item[{std\+::string}]{type}{, }\item[{std\+::string}]{plant\+ID}{, }\item[{std\+::string}]{extra}{}\end{DoxyParamCaption})}
+
+
+
+Create a request with specified type, plant\+ID, and extra information. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of the request (e.\+g., "{}inventory"{}, "{}sales"{}) \\
+\hline
+{\em plant\+ID} & Unique ID of the plant \\
+\hline
+{\em extra} & Additional information for the request \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Newly created \doxylink{class_request}{Request} object 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Customer.\+h\item 
+src/Customer.\+cpp\end{DoxyCompactItemize}

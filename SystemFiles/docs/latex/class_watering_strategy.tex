@@ -1,0 +1,87 @@
+\doxysection{Watering\+Strategy Class Reference}
+\hypertarget{class_watering_strategy}{}\label{class_watering_strategy}\index{WateringStrategy@{WateringStrategy}}
+
+
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class.  
+
+
+
+
+{\ttfamily \#include $<$Watering\+Strategy.\+h$>$}
+
+Inheritance diagram for Watering\+Strategy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_watering_strategy}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_watering_strategy_a7b3e96c85088da46ea808326887ba819}\label{class_watering_strategy_a7b3e96c85088da46ea808326887ba819} 
+{\bfseries Watering\+Strategy} ()
+\begin{DoxyCompactList}\small\item\em Basic constructor function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_watering_strategy_a9a578afb6e088049b8cb1a8a5bc3512b}{execute\+Care}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_watering_strategy_a0c09c2034775b0b95327ecc26d254a9e}{get\+Care\+Type}} ()
+\item 
+virtual \mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_watering_strategy_a1f3668a0a0f28458e9f1c424dcc63e2e}{clone}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_plant_care}{Plant\+Care}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Plant\+Care} ()
+\begin{DoxyCompactList}\small\item\em Basic Abstract class constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete \doxylink{class_plant_care}{Plant\+Care} Strategy class. 
+
+\label{doc-func-members}
+\Hypertarget{class_watering_strategy_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_watering_strategy_a1f3668a0a0f28458e9f1c424dcc63e2e}\index{WateringStrategy@{WateringStrategy}!clone@{clone}}
+\index{clone@{clone}!WateringStrategy@{WateringStrategy}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{class_watering_strategy_a1f3668a0a0f28458e9f1c424dcc63e2e} 
+\mbox{\hyperlink{class_plant_care}{Plant\+Care}} \texorpdfstring{$\ast$}{*} Watering\+Strategy\+::clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Cloning \doxylink{class_watering_strategy}{Watering\+Strategy} 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_watering_strategy_a9a578afb6e088049b8cb1a8a5bc3512b}\index{WateringStrategy@{WateringStrategy}!executeCare@{executeCare}}
+\index{executeCare@{executeCare}!WateringStrategy@{WateringStrategy}}
+\doxysubsubsection{\texorpdfstring{executeCare()}{executeCare()}}
+{\footnotesize\ttfamily \label{class_watering_strategy_a9a578afb6e088049b8cb1a8a5bc3512b} 
+bool Watering\+Strategy\+::execute\+Care (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Output message and return true 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+\Hypertarget{class_watering_strategy_a0c09c2034775b0b95327ecc26d254a9e}\index{WateringStrategy@{WateringStrategy}!getCareType@{getCareType}}
+\index{getCareType@{getCareType}!WateringStrategy@{WateringStrategy}}
+\doxysubsubsection{\texorpdfstring{getCareType()}{getCareType()}}
+{\footnotesize\ttfamily \label{class_watering_strategy_a0c09c2034775b0b95327ecc26d254a9e} 
+std\+::string Watering\+Strategy\+::get\+Care\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+Watering 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_plant_care}{Plant\+Care}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/Watering\+Strategy.\+h\item 
+src/Watering\+Strategy.\+cpp\end{DoxyCompactItemize}
