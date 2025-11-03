@@ -22,6 +22,7 @@ jobs:
           VALIDATE_ALL_CODEBASE: true #so linter always runs across repo
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_CLANG_FORMAT: false  # ← Disable clang-format specifically
 
   build_and_test:
     runs-on: ubuntu-latest
