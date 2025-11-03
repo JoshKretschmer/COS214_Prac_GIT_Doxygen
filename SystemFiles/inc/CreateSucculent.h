@@ -8,9 +8,10 @@
  *
  * @brief Creator class for PeanutCactus and HouseLeek classes
  */
-class CreateSucculent : public PlantFactory {
+class CreateSucculent : public PlantFactory
+{
 public:
-    Plant* createPlant(std::string name);
+    Plant *createPlant(std::string name);
 };
 
-#endif //CREATESUCCULENT_H
+#endif // CREATESUCCULENT_H

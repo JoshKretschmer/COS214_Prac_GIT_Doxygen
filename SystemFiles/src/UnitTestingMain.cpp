@@ -1,31 +1,32 @@
-#include <iostream>
 #include <cassert>
+#include <iostream>
 #include <string>
 
-#include "../inc/CreateSucculent.h"
+#include "../inc/ArrangementDecorator.h"
 #include "../inc/CreateFlower.h"
 #include "../inc/CreateShrub.h"
-#include "../inc/Inventory.h"
-#include "../inc/PlantGroup.h"
-#include "../inc/Plant.h"
-#include "../inc/PlantCare.h"
-#include "../inc/PotDecorator.h"
-#include "../inc/WrapDecorator.h"
-#include "../inc/ArrangementDecorator.h"
-#include "../inc/Request.h"
+#include "../inc/CreateSucculent.h"
 #include "../inc/Customer.h"
-#include "../inc/Staff.h"
-#include "../inc/InventoryClerk.h"
-#include "../inc/Horticulturist.h"
-#include "../inc/Manager.h"
-#include "../inc/InventoryCommand.h"
 #include "../inc/GreenHouseCommand.h"
+#include "../inc/Horticulturist.h"
+#include "../inc/Inventory.h"
+#include "../inc/InventoryClerk.h"
+#include "../inc/InventoryCommand.h"
+#include "../inc/Manager.h"
 #include "../inc/ManagerCommand.h"
-#include "../inc/SalesCommand.h"
-#include "../inc/SalesAssociate.h"
+#include "../inc/Memento.h"
 #include "../inc/Order.h"
 #include "../inc/PaymentSystem.h"
+#include "../inc/Plant.h"
+#include "../inc/PlantCare.h"
+#include "../inc/PlantGroup.h"
+#include "../inc/PotDecorator.h"
 #include "../inc/PurchaseFacade.h"
+#include "../inc/Request.h"
+#include "../inc/SalesAssociate.h"
+#include "../inc/SalesCommand.h"
+#include "../inc/Staff.h"
+#include "../inc/WrapDecorator.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../inc/doctest.h"
@@ -190,7 +191,6 @@ TEST_CASE("Test Iterator")
   delete it;
 }
 
-// Decorator Test
 TEST_CASE("Test Decorator")
 {
   CreateSucculent factory;
@@ -314,13 +314,54 @@ TEST_CASE("Test Decorator")
   }
 }
 
-// Command Test
+TEST_CASE("Test Command")
+{
+  Inventory inventory;
+  CreateSucculent factory;
+  Plant *peanut = factory.createPlant("PeanutCactus");
+  peanut->setID("PC001");
+  inventory.addPlant(peanut);
+
+  Staff salesPerson("SalesBob");
+  Customer customer("Alice", "CUST001", &salesPerson);
+  InventoryClerk clerk("Bob");
+  Horticulturist horti("Charlie");
+  Manager manager("Dave");
+
+  clerk.setNextHandler(&horti);
+  horti.setNextHandler(&manager);
+
+  clerk.assignJob(&inventory);
+
+  Request *req1 = new Request(&customer, &clerk);
+  req1->setPlantID("PC001");
+  req1->setType("inventory");
+  InventoryCommand cmd1(req1);
+  clerk.handleCommand(&cmd1);
+
+  Request *req2 = new Request(&customer, &horti);
+  req2->setPlantID("PC002");
+  req2->setType("greenhouse");
+  GreenHouseCommand cmd2(req2);
+  clerk.handleCommand(&cmd2);
+
+  Request *req3 = new Request(&customer, &manager);
+  req3->setPlantID("PC003");
+  req3->setType("manager");
+  ManagerCommand cmd3(req3);
+  clerk.handleCommand(&cmd3);
+
+  delete req1;
+  delete req2;
+  delete req3;
+}
 
 TEST_CASE("Test Chain of Responsibility")
 {
   Inventory inventory;
   CreateSucculent factory;
   Plant *peanut = factory.createPlant("PeanutCactus");
+  peanut->setID("PC001");
   inventory.addPlant(peanut);
 
   SalesAssociate sales("Alice");
@@ -356,9 +397,29 @@ TEST_CASE("Test Chain of Responsibility")
   delete req4;
 }
 
-// Memento Test
+TEST_CASE("Test Memento")
+{
+  Order order;
 
-// Facade Test
+  CreateSucculent factory;
+  Plant *peanut = factory.createPlant("PeanutCactus");
+  Plant *houseleek = factory.createPlant("HouseLeek");
+
+  order.addPlant(peanut);
+  order.addPlant(houseleek);
+
+  REQUIRE(order.getPlants().size() == 2);
+
+  order.undoLastAddition();
+  REQUIRE(order.getPlants().size() == 1);
+
+  order.redoLastStep();
+  REQUIRE(order.getPlants().size() == 2);
+
+  order.undoLastAddition();
+  order.undoLastAddition();
+  REQUIRE(order.isEmpty());
+}
 
 TEST_CASE("Test Facade")
 {
@@ -372,7 +433,8 @@ TEST_CASE("Test Facade")
 
   PurchaseFacade facade(&inventory, &paymentSystem);
 
-  Order *order = facade.initiatePurchase(&customer, factory.createPlant("PeanutCactus"));
+  Order *order =
+      facade.initiatePurchase(&customer, factory.createPlant("PeanutCactus"));
 
   facade.addCustomization(order, "Pot");
 

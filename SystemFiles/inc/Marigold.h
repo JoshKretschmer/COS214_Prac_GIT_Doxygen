@@ -8,11 +8,12 @@
  *
  * @brief public subclass of Flower, specific kind of plant
  */
-class Marigold : public Flower {
+class Marigold : public Flower
+{
 public:
     Marigold();
     std::string getDetails();
     double getCost();
 };
 
-#endif //MARIGOLD_H
+#endif // MARIGOLD_H

@@ -7,7 +7,8 @@
  * @class PaymentSystem
  * @brief Simulates a payment processing system for orders
  */
-class PaymentSystem {
+class PaymentSystem
+{
 public:
     PaymentSystem();
     ~PaymentSystem();

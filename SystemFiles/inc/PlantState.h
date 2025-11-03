@@ -15,12 +15,13 @@ class Plant;
  * @brief Abstract parent class for concrete state classes
  */
 
-class PlantState {
+class PlantState
+{
 public:
     PlantState();
     virtual ~PlantState();
-    void virtual handleCare(Plant* plant)=0;
-     std::string virtual getStateName()=0;
+    void virtual handleCare(Plant *plant) = 0;
+    std::string virtual getStateName() = 0;
 };
 
-#endif //PLANTSTATE_H
+#endif // PLANTSTATE_H

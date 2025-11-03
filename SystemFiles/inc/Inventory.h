@@ -7,8 +7,8 @@
 #include <map>
 #include <string>
 
-class Plant;       
-class PlantGroup;   
+class Plant;
+class PlantGroup;
 
 /*!
  * @class Inventory
@@ -18,9 +18,9 @@ class PlantGroup;
 class Inventory : public InventoryComponent
 {
 private:
-    std::vector<Plant*> plants;
+    std::vector<Plant *> plants;
     std::map<std::string, int> stockLevels;
-    std::vector<PlantGroup*> groups;
+    std::vector<PlantGroup *> groups;
 
 public:
     Inventory();
@@ -36,7 +36,7 @@ public:
     int getPlantCount();
     void add(InventoryComponent *component) override;
     void remove(InventoryComponent *component) override;
-    std::vector<Plant*> getPlants() override;
+    std::vector<Plant *> getPlants() override;
     void movePlant(Plant *plant, std::string newState) override;
 };
 

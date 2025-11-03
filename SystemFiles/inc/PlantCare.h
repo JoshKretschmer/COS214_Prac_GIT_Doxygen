@@ -10,7 +10,8 @@ class Plant;
  *
  * @brief Abstract parent class for various plant care strategies
  */
-class PlantCare {
+class PlantCare
+{
 public:
     PlantCare();
     virtual ~PlantCare() = default;

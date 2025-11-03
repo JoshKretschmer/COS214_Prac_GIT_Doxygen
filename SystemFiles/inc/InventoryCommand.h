@@ -14,7 +14,7 @@ class InventoryCommand : public Command
 public:
     InventoryCommand(Request *_request);
     ~InventoryCommand();
-    Request* execute();
+    Request *execute();
 };
 
-#endif //INVENTORYCOMMAND_H
+#endif // INVENTORYCOMMAND_H

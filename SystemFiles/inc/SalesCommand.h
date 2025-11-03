@@ -13,9 +13,7 @@ class SalesCommand : public Command
 public:
     SalesCommand(Request *_request);
     ~SalesCommand();
-    Request* execute();
+    Request *execute();
 };
 
-
-
-#endif //SALESCOMMAND_H
+#endif // SALESCOMMAND_H

@@ -8,11 +8,12 @@
  *
  * @brief public subclass of Succulent, specific kind of plant
  */
-class HouseLeek : public Succulent {
+class HouseLeek : public Succulent
+{
 public:
     HouseLeek();
     std::string getDetails();
     double getCost();
 };
 
-#endif //HOUSELEEK_H
+#endif // HOUSELEEK_H

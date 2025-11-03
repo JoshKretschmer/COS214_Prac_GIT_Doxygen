@@ -11,14 +11,11 @@
 class SalesAssociate : public Staff
 {
 private:
-    virtual void executeTask(Command* command) override;
+    virtual void executeTask(Command *command) override;
 
 public:
     SalesAssociate(string _name);
     ~SalesAssociate();
 };
-
-
-
 
 #endif

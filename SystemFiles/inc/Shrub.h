@@ -8,11 +8,12 @@
  *
  * @brief public subclass of Plant, category of plants
  */
-class Shrub : public Plant {
+class Shrub : public Plant
+{
 public:
     Shrub();
-    std::string virtual getDetails()=0;
-    double virtual getCost()=0;
+    std::string virtual getDetails() = 0;
+    double virtual getCost() = 0;
 };
 
-#endif //SHRUB_H
+#endif // SHRUB_H

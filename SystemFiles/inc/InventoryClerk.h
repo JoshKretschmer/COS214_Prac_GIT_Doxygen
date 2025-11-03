@@ -16,14 +16,14 @@ class InventoryClerk : public Staff
 {
 private:
     Inventory *inventory;
-    void executeTask(Command* command) override;
+    void executeTask(Command *command) override;
 
 public:
     InventoryClerk(std::string _name);
     ~InventoryClerk();
-    void storePlant(Plant* plant);
-    Plant* getPlant(std::string plantID);
+    void storePlant(Plant *plant);
+    Plant *getPlant(std::string plantID);
     void assignJob(Inventory *_inventory);
 };
 
-#endif //INVENTORYCLERK_H
+#endif // INVENTORYCLERK_H

@@ -10,10 +10,11 @@
  *
  * Can change to GrowingState, or the object can be destroyed from here
  */
-class SeedingState : public PlantState {
+class SeedingState : public PlantState
+{
 public:
-    void handleCare(Plant* plant);
+    void handleCare(Plant *plant);
     std::string getStateName();
 };
 
-#endif //SEEDINGSTATE_H
+#endif // SEEDINGSTATE_H

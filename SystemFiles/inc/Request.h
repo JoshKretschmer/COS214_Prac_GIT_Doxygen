@@ -25,7 +25,7 @@ private:
 public:
     Request(Customer *_sender, Staff *receiver);
     ~Request();
-    
+
     void setPlantType(std::string _plantType);
     std::string getPlantType();
 

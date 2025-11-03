@@ -8,11 +8,12 @@
  *
  * @brief Concrete decorator class
  */
-class ArrangementDecorator : public PlantDecorator {
+class ArrangementDecorator : public PlantDecorator
+{
 public:
     std::string getDetails();
     double getCost();
-    PlantDecorator* clone();
+    PlantDecorator *clone();
 };
 
-#endif //ARRANGEMENTDECORATOR_H
+#endif // ARRANGEMENTDECORATOR_H

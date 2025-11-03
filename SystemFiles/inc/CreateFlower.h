@@ -8,9 +8,10 @@
  *
  * @brief Creator class for Orchid and Marigold classes
  */
-class CreateFlower : public PlantFactory {
+class CreateFlower : public PlantFactory
+{
 public:
-    Plant* createPlant(std::string name);
+    Plant *createPlant(std::string name);
 };
 
-#endif //CREATEFLOWER_H
+#endif // CREATEFLOWER_H

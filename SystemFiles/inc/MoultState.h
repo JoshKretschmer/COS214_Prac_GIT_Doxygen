@@ -10,10 +10,11 @@
  *
  * Reached by failing plant care tasks. Transitions to GrowingState, or plant object can be removed from the system
  */
-class MoultState : public PlantState {
+class MoultState : public PlantState
+{
 public:
-    void handleCare(Plant* plant);
+    void handleCare(Plant *plant);
     std::string getStateName();
 };
 
-#endif //MOULTSTATE_H
+#endif // MOULTSTATE_H

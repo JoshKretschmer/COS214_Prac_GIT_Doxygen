@@ -10,10 +10,11 @@
  *
  * Can transition to MoultState or MatureState
  */
-class GrowingState : public PlantState {
+class GrowingState : public PlantState
+{
 public:
-    void handleCare(Plant* plant);
+    void handleCare(Plant *plant);
     std::string getStateName();
 };
 
-#endif //GROWINGSTATE_H
+#endif // GROWINGSTATE_H

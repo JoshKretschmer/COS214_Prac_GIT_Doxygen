@@ -8,11 +8,12 @@
  *
  * @brief Abstract parent factory for specific plant factories
  */
-class PlantFactory {
+class PlantFactory
+{
 public:
     PlantFactory();
     virtual ~PlantFactory();
-    virtual Plant* createPlant( std::string name)=0;
+    virtual Plant *createPlant(std::string name) = 0;
 };
 
-#endif //PLANTFACTORY_H
+#endif // PLANTFACTORY_H

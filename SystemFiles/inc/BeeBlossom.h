@@ -8,11 +8,12 @@
  *
  * @brief public subclass of Shrub, specific kind of plant
  */
-class BeeBlossom : public Shrub {
+class BeeBlossom : public Shrub
+{
 public:
     BeeBlossom();
     std::string getDetails();
     double getCost();
 };
 
-#endif //BEEBLOSSOM_H
+#endif // BEEBLOSSOM_H

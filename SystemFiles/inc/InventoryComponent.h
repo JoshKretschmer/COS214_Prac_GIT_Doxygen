@@ -23,10 +23,10 @@ public:
     InventoryComponent();
     virtual ~InventoryComponent();
 
-    virtual void add(InventoryComponent *component)  = 0;
-    virtual void remove(InventoryComponent *component)  = 0;
+    virtual void add(InventoryComponent *component) = 0;
+    virtual void remove(InventoryComponent *component) = 0;
     virtual vector<Plant *> getPlants() = 0;
-    virtual void movePlant(Plant *plant, std::string newState)  = 0;
+    virtual void movePlant(Plant *plant, std::string newState) = 0;
 };
 
 #endif // INVENTORYCOMPONENT_H

@@ -12,11 +12,10 @@
 class Horticulturist : public Staff
 {
 private:
-    
 public:
     Horticulturist(std::string _name);
     ~Horticulturist();
-    void executeTask(Command* command) override;
+    void executeTask(Command *command) override;
 };
 
 #endif

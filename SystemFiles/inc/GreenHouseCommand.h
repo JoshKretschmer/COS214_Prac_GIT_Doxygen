@@ -14,9 +14,7 @@ class GreenHouseCommand : public Command
 public:
     GreenHouseCommand(Request *_request);
     ~GreenHouseCommand();
-    Request* execute();
+    Request *execute();
 };
 
-
-
-#endif //GREENHOUSECOMMAND_H
+#endif // GREENHOUSECOMMAND_H
