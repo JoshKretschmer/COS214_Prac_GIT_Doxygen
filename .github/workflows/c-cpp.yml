@@ -15,11 +15,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Step 1: Run Super-Linter with modified scope
-      - name: Run linter on changed files
+      # Step 1: Run Super-Linter with the whole codebase
+      - name: Run linter on whole codebase
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false  # Only lint changed files
+          VALIDATE_ALL_CODEBASE: true #so linter always runs across repo
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
