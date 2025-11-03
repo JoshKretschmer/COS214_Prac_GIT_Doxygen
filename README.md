@@ -19,11 +19,11 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 # Documentation
 
-[Report](../Documents/Report.pdf)
+[Report](../Report/Report.pdf)
 
-[Doxygen Documentation](../SystemFiles/docs/)
+[Doxygen Documentation](../SystemFiles/docs)
 
-[UML Diagrams](../UML/)
+[UML Diagrams](../UML)
 
 # Setup
 
