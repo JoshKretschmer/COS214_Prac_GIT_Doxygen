@@ -26,6 +26,7 @@
 #include "../inc/Order.h"
 #include "../inc/PaymentSystem.h"
 #include "../inc/PurchaseFacade.h"
+#include "../inc/Memento.h"
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../inc/doctest.h"
@@ -357,7 +358,28 @@ TEST_CASE("Test Chain of Responsibility")
 }
 
 // Memento Test
+TEST_CASE("Test Memento") {
+    Order order;
 
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    Plant *houseleek = factory.createPlant("HouseLeek");
+
+    order.addPlant(peanut);
+    order.addPlant(houseleek);
+
+    REQUIRE(order.getPlants().size() == 2);
+
+    order.undoLastAddition();
+    REQUIRE(order.getPlants().size() == 1);
+
+    order.redoLastStep();
+    REQUIRE(order.getPlants().size() == 2);
+
+    order.undoLastAddition();
+    order.undoLastAddition();
+    REQUIRE(order.isEmpty());
+}
 // Facade Test
 
 TEST_CASE("Test Facade")
