@@ -143,7 +143,7 @@ When the program runs:
     </tr>
     <tr>
       <td align="center">
-        Keagan<br>
+        Keagan van Biljon<br>
         <img src="images/Keagan.jpg" width="200" height="200">
       </td>
       <td align="center">
