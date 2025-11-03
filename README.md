@@ -32,9 +32,9 @@ The simulation demonstrates object-oriented design excellence through patterns l
 # Setup
 
 
-### Prerequisites
 
-```
+```bash
+### Prerequisites
 sudo apt-get install libboost-all-dev
 sudo apt-get install doctest-dev
 ```
@@ -65,27 +65,6 @@ Testing
  make run_tests 
 
 ```
-
-- **Compilation**:  
-  ```bash
-  cd SystemFiles
-  make all
-  ```
-
-- **Demo Main**:  
-  ```bash
-  make run_demo
-  ```
-  
-  - **Terminal Demo Main**:  
-  ```bash
-  make run_terminal
-  ```
-
-- **Unit Tests**:  
-  ```bash
-  make run_tests
-  ```
 
 ### Running
 
