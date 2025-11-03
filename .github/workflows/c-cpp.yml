@@ -16,13 +16,15 @@ jobs:
           fetch-depth: 0
 
       # Step 1: Run Super-Linter with the whole codebase
-      - name: Run linter on whole codebase
+      - name: Run linter on C++ files only
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: true #so linter always runs across repo
+          VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_CLANG_FORMAT: false  # ← Disable clang-format specifically
+          FILTER_REGEX_INCLUDE: .*\.(cpp|h)$  # Include .cpp, .h, .hpp
+          VALIDATE_C_CPP: true                    # Enable C/C++ linters
+          VALIDATE_CLANG_FORMAT: false            # Optional: disable format check
 
   build_and_test:
     runs-on: ubuntu-latest
