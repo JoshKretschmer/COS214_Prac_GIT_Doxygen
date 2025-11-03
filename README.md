@@ -40,9 +40,8 @@ sudo apt-get install doctest-dev
 ```
 
 ### Cloning
-```
+```bash
 git clone https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen.git
-cd COS214_Prac_GIT_Doxygen/SystemFiles/src
 ```
 
 
@@ -58,7 +57,7 @@ make all
 
 Demo Main: 
 ```bash
-make run_Demo
+make run_demo
 ```
 
 Testing

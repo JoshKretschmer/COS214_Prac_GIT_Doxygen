@@ -191,7 +191,6 @@ TEST_CASE("Test Iterator")
     delete it;
 }
 
-// Decorator Test
 TEST_CASE("Test Decorator")
 {
     CreateSucculent factory;
@@ -256,34 +255,35 @@ TEST_CASE("Test Decorator")
 
         delete pot;
     }
-    
-  
-    SUBCASE("Decorator cloning preserves decorations") {
+
+    SUBCASE("Decorator cloning preserves decorations")
+    {
         Plant *peanut = factory.createPlant("PeanutCactus");
-        
-        //make decorated plant
+
+        // make decorated plant
         PotDecorator *pot = new PotDecorator();
         pot->setWrapped(peanut);
-        
+
         WrapDecorator *wrap = new WrapDecorator();
         wrap->setWrapped(pot);
-        
-        //clone
+
+        // clone
         PlantDecorator *clone = wrap->clone();
-        
-        //clone has same cost and structure?
+
+        // clone has same cost and structure?
         REQUIRE(clone->getCost() == wrap->getCost());
-        
+
         std::string originalDetails = wrap->getDetails();
         std::string cloneDetails = clone->getDetails();
         REQUIRE(originalDetails == cloneDetails);
-        
+
         delete wrap;
         delete clone;
     }
-    
-    SUBCASE("Handling empty decorator") {
-        //decorator without wrapped plant
+
+    SUBCASE("Handling empty decorator")
+    {
+        // decorator without wrapped plant
         PotDecorator *emptyPot = new PotDecorator();
         REQUIRE(emptyPot->getCost() == 0.0);
         REQUIRE(emptyPot->getDetails() == "Plant to be decorated has not been set");
@@ -314,7 +314,47 @@ TEST_CASE("Test Decorator")
     }
 }
 
-// Command Test
+TEST_CASE("Test Command")
+{
+    Inventory inventory;
+    CreateSucculent factory;
+    Plant *peanut = factory.createPlant("PeanutCactus");
+    peanut->setID("PC001");
+    inventory.addPlant(peanut);
+
+    Staff salesPerson("SalesBob");
+    Customer customer("Alice", "CUST001", &salesPerson);
+    InventoryClerk clerk("Bob");
+    Horticulturist horti("Charlie");
+    Manager manager("Dave");
+
+    clerk.setNextHandler(&horti);
+    horti.setNextHandler(&manager);
+
+    clerk.assignJob(&inventory);
+
+    Request *req1 = new Request(&customer, &clerk);
+    req1->setPlantID("PC001");
+    req1->setType("inventory");
+    InventoryCommand cmd1(req1);
+    clerk.handleCommand(&cmd1);
+
+    Request *req2 = new Request(&customer, &horti);
+    req2->setPlantID("PC002");
+    req2->setType("greenhouse");
+    GreenHouseCommand cmd2(req2);
+    clerk.handleCommand(&cmd2);
+
+    Request *req3 = new Request(&customer, &manager);
+    req3->setPlantID("PC003");
+    req3->setType("manager");
+    ManagerCommand cmd3(req3);
+    clerk.handleCommand(&cmd3);
+
+    delete req1;
+    delete req2;
+    delete req3;
+}
 
 TEST_CASE("Test Chain of Responsibility")
 {
@@ -357,8 +397,8 @@ TEST_CASE("Test Chain of Responsibility")
     delete req4;
 }
 
-// Memento Test
-TEST_CASE("Test Memento") {
+TEST_CASE("Test Memento")
+{
     Order order;
 
     CreateSucculent factory;
@@ -380,7 +420,6 @@ TEST_CASE("Test Memento") {
     order.undoLastAddition();
     REQUIRE(order.isEmpty());
 }
-// Facade Test
 
 TEST_CASE("Test Facade")
 {
@@ -404,47 +443,4 @@ TEST_CASE("Test Facade")
     facade.completePurchase(order);
 
     delete order;
-}
-
-
-//command test
-TEST_CASE("Test Command") {
-    Inventory inventory;
-    CreateSucculent factory;
-    Plant *peanut = factory.createPlant("PeanutCactus");
-    peanut->setID("PC001");
-    inventory.addPlant(peanut);
-
-    Staff salesPerson("SalesBob");
-    Customer customer("Alice", "CUST001", &salesPerson);
-    InventoryClerk clerk("Bob");
-    Horticulturist horti("Charlie");
-    Manager manager("Dave");
-
-    clerk.setNextHandler(&horti);
-    horti.setNextHandler(&manager);
-
-    clerk.assignJob(&inventory);
-
-    Request *req1 = new Request(&customer, &clerk);
-    req1->setPlantID("PC001");
-    req1->setType("inventory");
-    InventoryCommand cmd1(req1);
-    clerk.handleCommand(&cmd1);
-
-    Request *req2 = new Request(&customer, &horti);
-    req2->setPlantID("PC002");
-    req2->setType("greenhouse");
-    GreenHouseCommand cmd2(req2);
-    clerk.handleCommand(&cmd2);
-
-    Request *req3 = new Request(&customer, &manager);
-    req3->setPlantID("PC003");
-    req3->setType("manager");
-    ManagerCommand cmd3(req3);
-    clerk.handleCommand(&cmd3);
-
-    delete req1;
-    delete req2;
-    delete req3;
 }
