@@ -25,6 +25,8 @@ The simulation demonstrates object-oriented design excellence through patterns l
 
 [UML Diagrams](/UML)
 
+[GitHub](https://github.com/JoshKretschmer/COS214_Prac_GIT_Doxygen)
+
 # Setup
 
 
